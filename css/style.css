@@ -1,0 +1,45 @@
+*{margin:0; padding:0; border:0;}
+body{
+    background: rgb(15, 89, 29);
+    margin:0;
+    padding:0;
+    border:0;
+    color:rgb(255,255,255);
+}
+a{color:yellow;}
+
+div#fonsky{
+    position:absolute;
+    /* display:inline-block; */
+    /* min-height:1000px; */
+    /* min-width:100%; */
+    height:1400px;
+    width:100%;
+    background: linear-gradient(
+        rgb(1,156,255),
+        rgb(1,156,255) 29%,
+        /* rgb(0,59,192), */
+        /* rgb(0,59,192) , */
+        /* rgb(12,92,146), */
+        rgb(12,92,146)45%,
+        rgb(134,177,199)60%,
+        rgb(255, 251, 251)69%,
+        rgb(161, 141, 130)71%,
+        rgb(66, 31, 9)73%,
+        rgb(97, 176, 102) 75%,
+        rgb(15, 89, 29)
+        ); /* Standard syntax (must be last) */
+}
+div#pagedata{position:absolute;width:100%;}
+img#hd{
+    width:400px;
+}
+table{
+    width:100%;
+    text-align:center;
+}
+td{vertical-align: top;}
+.left{text-align:left;}
+.right{text-align:right;}
+.center{text-align:center;}
+.logo-tools{height:40px;}
