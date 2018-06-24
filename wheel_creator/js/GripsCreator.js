@@ -9,11 +9,10 @@ function one_gw_counter(gt,gw,gwn,ghhole){
     var rez;
     if (gt == "|||" || gt == "ooo"){ rez = gw / (gwn * 2 - 1); }
     else{ rez = gw / gwn; }
-    console.log("one_gw_counter = ",rez,"gt = ",gt,"gw = ",gw,"gwn = ",gwn,"ghhole = ",ghhole);
     return rez;
 }
 function column_internal(dc,nc,distance){
-    distance -= dc * 1.02; //after this * 1.02 track only half cutted...very strange ERROR BUG
+    distance -= dc * 1.02; //can be problems, because i don't know why)... wtf)
     var xmax = distance / 2;
     var xmin = -xmax;
     var n = nc-2;
@@ -28,11 +27,8 @@ function grips_center_dots_counter( c,vn,vz, r, nw, na, gw, one_gw ){
     var van = geo.vecXDback(va);
     var vbn = geo.vecXDback(vb);
     var vaxes = [va,vb,van,vbn];
-    console.log("--------VAXES-----------",vaxes);
     var doli = geo.repeater_F_F(na,[1]);
-    console.log(doli);
     var polygon = geo.polygon3D_inside_ellipse(c,vaxes,[r,r,r,r],doli);
-    console.log(polygon);
     polygon.shift();//contour without center dot
     // var one_gw = gw / (2 * nw - 1);//one_grip_width
     
@@ -45,14 +41,61 @@ function grips_center_dots_counter( c,vn,vz, r, nw, na, gw, one_gw ){
         }rez.push(xrez);
     }return rez; //list of center dots lists for each polygon vertex
 }
-function grips_path_counter(c,vz,h){
-    var t0 = vec_maker(geo.dotXDoffset(c,vz,geo.sum_F([h[1],h[2],h[3] / 2]) / 2));
-    var t1 = vec_maker(geo.dotXDoffset(c,vz,-geo.sum_F([h[1],h[2],h[3] / 2]) / 2));
-    var rez = bez_maker([t0,t0,t1,t1]);
+function zigzag_counter(one_ghhole,one_gw){
+    var dx = one_ghhole / 2;
+    var dz = one_gw / 2;
+    //t1,r1,r2,t2
+    var t0 = [-dx, 0, -dz*1.01];
+    var t1 = [-dx, 0, -dz];
+    var r1 = [-dx, 0, -dz];
+    var r2 = [dx, 0, dz];
+    var t2 = [dx, 0, dz];
+    var t3 = [dx, 0, dz*1.01];
+    var tx = [t0,t1,r1,r2,t2,t3]; // края для прямых отрезков
+    var vx = [];
+    for (i=0;i<tx.length;i++){vx.push(vec_maker(tx[i]));}
+    var bez = bez_maker([vx[0],vx[0],vx[1],vx[1]]);
+    bez = bez.continue(bez_maker([vx[1],vx[2],vx[3],vx[4]]));
+    bez = bez.continue(bez_maker([vx[4],vx[4],vx[5],vx[5]]));
+    // var bez = bez_maker(vx);
+    var bezmesh = BABYLON.Mesh.CreateLines("zigzagpath", bez.getPoints(), scene); 
+	bezmesh.color = new BABYLON.Color3(0, 0, 1);
+    return bez;
+}
+function snake_counter(one_ghhole,one_gw){
+    var dx = one_ghhole / 2;
+    var dz = one_gw / 2;
+    //t1,r1,r2,t2
+    var t0 = [-dx, 0, -dz*1.01];
+    var t1 = [-dx, 0, -dz];
+    var r1 = [-dx, 0, 0];
+    var r2 = [dx, 0, 0];
+    var t2 = [dx, 0, dz];
+    var t3 = [dx, 0, dz*1.01];
+    var tx = [t0,t1,r1,r2,t2,t3]; // края для прямых отрезков
+    var vx = [];
+    for (i=0;i<tx.length;i++){vx.push(vec_maker(tx[i]));}
+    var bez = bez_maker([vx[0],vx[0],vx[1],vx[1]]);
+    bez = bez.continue(bez_maker([vx[1],vx[2],vx[3],vx[4]]));
+    bez = bez.continue(bez_maker([vx[4],vx[4],vx[5],vx[5]]));
+    // var bez = bez_maker(vx);
+    var bezmesh = BABYLON.Mesh.CreateLines("snakepath", bez.getPoints(), scene); 
+	bezmesh.color = new BABYLON.Color3(0, 0, 1);
+    return bez;
+}
+function grips_path_counter(c,vz,h,gt,one_ghhole,one_gw){
+    var rez;
+    if (gt == "|||" || gt == "ooo"){
+        var t0 = vec_maker(geo.dotXDoffset(c,vz,geo.sum_F([h[1],h[2],h[3] / 2]) / 2));
+        var t1 = vec_maker(geo.dotXDoffset(c,vz,-geo.sum_F([h[1],h[2],h[3] / 2]) / 2));
+        rez = bez_maker([t0,t0,t1,t1]);
+    }else{
+        if (gt==">>>"){ rez = zigzag_counter(one_ghhole,one_gw); }
+        else{rez = snake_counter(one_ghhole,one_gw); }
+    }
     return rez.getPoints();
 }
 function gs1(c,gw,gh,vx,vy){
-    console.log("------GS1 start----------");
     var t0x; var t0y; var t1x; var t1y; var t2x; var t2y; var t1; var t2;
     t0x = 0 + gw / 2; t0y = 0 + gh / 2;
     //left
@@ -75,12 +118,9 @@ function gs1(c,gw,gh,vx,vy){
     var bezmesh = BABYLON.Mesh.CreateLines("metalshape", bez.getPoints(), scene); 
 	bezmesh.color = new BABYLON.Color3(1, 0, 0);
     
-    console.log("------------bez GS1----------");
-    console.log(bez);
     return bez.getPoints();
 }
 function gs2(c,one_gw,one_gh,one_ghhole,vn,va){
-    console.log("GS2 start");
     var dx = one_gw / 2;
     var dy_min = (one_gh + one_ghhole) / 2 - one_gh;
     var dy_max = (one_gh + one_ghhole) / 2;
@@ -91,7 +131,6 @@ function gs2(c,one_gw,one_gh,one_ghhole,vn,va){
     var t4 = [-dx,-dy_max,0];
     
     var dotspair = geo.chain_F([t1,t2,t3,t4],2,true);
-    console.log("GS2 dotspair = ",dotspair);
     var bez;
     for (var i = 0 ; i < dotspair.length ; i++){
         var v1 = vec_maker(dotspair[i][0]);
@@ -102,12 +141,33 @@ function gs2(c,one_gw,one_gh,one_ghhole,vn,va){
     var bezmesh = BABYLON.Mesh.CreateLines("gs2shape", bez.getPoints(), scene); 
 	bezmesh.color = new BABYLON.Color3(1, 0, 0);
     
-    console.log("------------bez GS2----------");
-    console.log(bez);
     return bez.getPoints();
 }
+function newgs2(c,one_gh,h){
+    var dx = one_gh / 2;
+    var dy = (h[1] + h[2] + h[3] / 2 ) / 2;
+    
+    var t1 = [dx,-dy,0];
+    var t2 = [dx,dy,0];
+    var t3 = [-dx,dy,0];
+    var t4 = [-dx,-dy,0];
+    
+    
+    var dotspair = geo.chain_F([t1,t2,t3,t4],2,true);
+    var bez;
+    for (var i = 0 ; i < dotspair.length ; i++){
+        var v1 = vec_maker(dotspair[i][0]);
+        var v2 = vec_maker(dotspair[i][1]);
+        var vecs = [v1,v1,v2,v2];
+        if (i == 0){ bez = bez_maker(vecs); }else{ bez = bez.continue(bez_maker(vecs)); }
+    }
+    var bezmesh = BABYLON.Mesh.CreateLines("newgs2shape", bez.getPoints(), scene); 
+	bezmesh.color = new BABYLON.Color3(1, 0, 0);
+    
+    return bez.getPoints();
+}
+
 function gs3(c,one_gw,one_gh,one_ghhole,vn,va){
-    console.log("GS3 start");
     var dx = one_gw / 2;
     var dy_min = (one_gh + one_ghhole) / 2 - one_gh;
     var dy_max = (one_gh + one_ghhole) / 2;
@@ -128,7 +188,6 @@ function gs3(c,one_gw,one_gh,one_ghhole,vn,va){
         [t4,r4,r1,t1]
     ];
     
-    console.log("GS3 dotsbox = ",dotsbox);
     var bez;
     for (var i = 0 ; i < dotsbox.length ; i++){
         if (i == 0){ bez = bez_maker(dotsbox[i]); }else{ bez = bez.continue(bez_maker(dotsbox[i])); }
@@ -136,19 +195,38 @@ function gs3(c,one_gw,one_gh,one_ghhole,vn,va){
     var bezmesh = BABYLON.Mesh.CreateLines("gs3shape", bez.getPoints(), scene); 
 	bezmesh.color = new BABYLON.Color3(1, 0, 0);
     
-    console.log("------------bez GS3----------");
-    console.log(bez);
     return bez.getPoints();
 }
+function newgs3(c,one_gh,h){
+    var dx = one_gh / 2;
+    var dy = (h[1] + h[2] + h[3] / 2 ) / 2;
+    
+    var t1 = [dx,-dy,0];
+    var t2 = [dx,dy,0];
+    var t3 = [-dx,dy,0];
+    var t4 = [-dx,-dy,0];
+    
+    
+    var dotspair = geo.chain_F([t1,t2,t3,t4],2,true);
+    var bez;
+    for (var i = 0 ; i < dotspair.length ; i++){
+        var v1 = vec_maker(dotspair[i][0]);
+        var v2 = vec_maker(dotspair[i][1]);
+        var vecs = [v1,v1,v2,v2];
+        if (i == 0){ bez = bez_maker(vecs); }else{ bez = bez.continue(bez_maker(vecs)); }
+    }
+    var bezmesh = BABYLON.Mesh.CreateLines("newgs2shape", bez.getPoints(), scene); 
+	bezmesh.color = new BABYLON.Color3(1, 0, 0);
+    
+    return bez.getPoints();
+}
+
 function gs4(c,gw,gh,vx,vy){
-    console.log("------GS4 start----------");
     var eaxes = [vx,vy,geo.vecXDback(vx),geo.vecXDback(vy)];
     var eaxesdist = [gw / 2, gh / 2,gw / 2, gh / 2];
     var edots = geo.ellipse3D_dots(c,eaxes,eaxesdist);
     edots = [edots[1],edots[3],edots[5],edots[7]];
-    console.log("edots = ",edots);
     var dotspair = geo.chain_F(edots,2,true); //pair of dots for arc maker
-    console.log("dotspair = ",dotspair);
     
     var bez;
     for (var i = 0 ; i < dotspair.length ; i++){
@@ -161,8 +239,6 @@ function gs4(c,gw,gh,vx,vy){
     var bezmesh = BABYLON.Mesh.CreateLines("metalshape", bez.getPoints(), scene); 
 	bezmesh.color = new BABYLON.Color3(1, 0, 0);
     
-    console.log("------------bez GS4----------");
-    console.log(bez);
     return bez.getPoints();
 }
 /**
@@ -172,16 +248,15 @@ function gs4(c,gw,gh,vx,vy){
  * @param {Number} gw grip width
  * @param {Number} ga grips around number
  */
-function grips_shape_counter(gt,c,vn,va,one_gw,one_gh,one_ghhole){
+function grips_shape_counter(gt,c,vn,va,one_gw,one_gh,one_ghhole,h){
     var rez;
-    console.log(gt);
     if (gt == "|||"){rez = gs1(c,one_gw,one_gh,vn,va);}
-    else if (gt == ">>>"){rez = gs2(c,one_gw,one_gh,one_ghhole,vn,va);}
-    else if (gt == ")))"){rez = gs3(c,one_gw,one_gh,one_ghhole,vn,va);}
+    else if (gt == ">>>"){rez = newgs2(c,one_gh,h);}
+    else if (gt == ")))"){rez = newgs3(c,one_gh,h);}
     else if (gt == "ooo"){rez = gs4(c,one_gw,one_gh,vn,va);}
     return rez;
 }
-function grip_maker(dot,u,gp,gs,c,vn,ns,gh,gt,ind){
+function grip_maker(dot,u,gp,gs,c,vn,va,ns,gh,gt,ind){
     var scaling = function(i, distance) { return 1; };
     if (gt == "|||" || gt == "ooo"){
         if (ns){
@@ -193,28 +268,26 @@ function grip_maker(dot,u,gp,gs,c,vn,ns,gh,gt,ind){
     var gripSettings={
 		shape: gs,
 		path: gp,
-		cap: 3, 
+        cap: 3, 
+        // ribbonClosePath: true,
+        // ribbonCloseArray: true,
 		scaleFunction: scaling
 		
 	};
     var extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("grip"+u.toString(), gripSettings, scene);
     
     if (gt == ">>>" || gt == ")))"){
+        extruded.rotateAround(vec_maker(c),vec_maker(va),geo.radians(90));
+        extruded.rotateAround(vec_maker(c),vec_maker(vn),geo.radians(90));
         if(ind & 1 && !ns){ extruded.rotateAround(vec_maker(c),vec_maker(vn),geo.radians(180)); }
         else if(ns && !(ind & 1)){ extruded.rotateAround(vec_maker(c),vec_maker(vn),geo.radians(180)); }
     }
     extruded.rotateAround(vec_maker(c),vec_maker(vn),geo.radians(u));
     extruded.position = vec_maker(dot);
-    // console.log(dot);
-	
-	var mat = new BABYLON.StandardMaterial("mat1", scene);
-	mat.alpha = 1.0;
-	mat.diffuseColor = new BABYLON.Color3(0.8, 0.8, 0.2);
-	mat.backFaceCulling = false;
-	// mat.wireframe = true;
+    
+	var mat = grips_mat;
 	extruded.material = mat;
 	
-	console.log("endcode");
 	return extruded;
 }
 function grips_maker(h,w,s,g,hull=false){
@@ -252,16 +325,14 @@ function grips_maker(h,w,s,g,hull=false){
         grips_width,
         one_gw
     );
-    console.log("cdots = ",cdots);
-    console.log("angles = ",grip_angles);
     var grips_shape;
     var grips_path;
     //code done not tested
-    grips_path = grips_path_counter(c,vz,h);
+    grips_path = grips_path_counter(c,vz,h,grips_type,one_ghhole,one_gw);
     grips_shape = grips_shape_counter(
         grips_type,
         c,vn,va,
-        one_gw,one_gh,one_ghhole
+        one_gw,one_gh,one_ghhole,h
     );
     var gal = grip_angles.length;
     for (var i = 0;i < gal;i++){
@@ -273,7 +344,7 @@ function grips_maker(h,w,s,g,hull=false){
         var gh = h[1];
         var gt = grips_type;
         for (var j = 0;j<dots.length;j++){
-            grips.push(grip_maker(dots[j],u,gp,gs,c,vn,ns,gh,gt,j));
+            grips.push(grip_maker(dots[j],u,gp,gs,c,vn,va,ns,gh,gt,j));
         }
     }
     

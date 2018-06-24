@@ -5,14 +5,15 @@ var geo = new GeometryXD();
 
 // alert(geo.vecXD([1,2,3],[4,5,6]));
 var fresh = true;
-var metal;
-var bolts=[];
-var tire;
-var grips=[];
+var metal; var metal_mat;
+var bolts=[]; var bolts_mat;
+var tire; var tire_mat;
+var grips=[]; var grips_mat;
 var track; //result track mesh, after subtract grips + oval shape
 var track_base; //base for subtracktion
 var track_tire; //tire shape for subtracktion from traks_base
-var tracks=[]; //flat placed grips for subtraction
+var tracks=[]; var tracks_mat;
+
 var canvas = document.getElementById("renderCanvas");
 canvas.width = 600;
 canvas.height = 600;
@@ -93,7 +94,7 @@ engine.resize();
 
 //----------------geometry section
 function vec_maker(vec){ var vec3 = new BABYLON.Vector3(vec[0],vec[1],vec[2]); return vec3; }
-function bez_maker(arc){ var bez = BABYLON.Curve3.CreateCubicBezier(arc[0],arc[1],arc[2],arc[3],20); return bez; }
+function bez_maker(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubicBezier(arc[0],arc[1],arc[2],arc[3],mass); return bez; }
 function ring_trajectory(dot,vn,va,r){
 	//vn=ox at this moment va = -oz
 	var vb = geo.vec3Drotate(va,vn,90);
@@ -103,7 +104,6 @@ function ring_trajectory(dot,vn,va,r){
 	var tb = geo.dotXDoffset(dot,vb,r);
 	var tad = geo.dotXDoffset(dot,vad,r);
 	var tbd = geo.dotXDoffset(dot,vbd,r);
-	console.log("a b ad bd",va,vb,vad,vbd);
 	var a1 = [];
 	var a2 = [];
 	var a3 = [];
@@ -123,489 +123,71 @@ function ring_trajectory(dot,vn,va,r){
 		a3.push(vec_maker(ac3[i]));
 		a4.push(vec_maker(ac4[i]));
 	};
-	console.log("arc1 curves use vec as dot");
-	console.log(a1); // look like done
 	
 	//bezier curves from vector arrays
-	var arc1 = bez_maker(a1);
-	var arc2 = bez_maker(a2);
-	var arc3 = bez_maker(a3);
-	var arc4 = bez_maker(a4);
-	console.log("arc1 bezier curve use babylon")
-	console.log(arc1);
+	var mass=8;
+	var arc1 = bez_maker(a1,mass);
+	var arc2 = bez_maker(a2,mass);
+	var arc3 = bez_maker(a3,mass);
+	var arc4 = bez_maker(a4,mass);
 	
 	var arc14 = arc1.continue(arc2.continue(arc3.continue(arc4)));
 	var arc14mesh = BABYLON.Mesh.CreateLines("cbezier1", arc14.getPoints(), scene); arc14mesh.color = new BABYLON.Color3(1, 0.6, 0);
 	return arc14.getPoints();
-	// console.log(JSON.stringify(cp).toString());
-}
-
-
-
-function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
-	//bsp - bezier (cubic 2D) spline
-	var x=c[0];
-	var y=c[1];
-	// var sx = x+w[5]+2; var sy = y+h[8]+2;
-	sx=x+w[5]/2; sy=0;
-	console.log("shape before bezX");
-	var t1; var r1; var r2; var t2;
-	//h87h65
-	t1x = sx; t1y = sy;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1 = t1;
-	r2x = sx; r2y = sy+geo.sum_F([h[7],h[6]]);
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2 = r2;
-	var bez = bez_maker([t1,r1,r2,t2]);
-	
-	//h65h54
-	t1 = t2;
-	r1x = r2x; r1y = r2y+s[4];
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x+w[3]/2+w[4] ; r2y = r2y+h[5]-s[3] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y+s[3];
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h54h43
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y+h[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//w4
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x-w[4] ; r2y = r1y;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h4
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y-h[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//w3
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x-w[3] ; r2y = r1y;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	//left mirrored contour
-	//h4m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y+h[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//w4m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x-w[4] ; r2y = r1y;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h34h45m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y-h[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h45h56m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t2x; r1y = t2y-s[3] ;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x-w[5]/2 ; r2y = t2y-h[5]+s[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y-s[4] ;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h56h78m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y-geo.sum_F([h[6],h[7]]) ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//w5close
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = sx; r2y = sy;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	// //
-	// t1x = ; t1y = ;
-	// t1 = vec_maker([t1x,t1y, 0]);
-	// r1x = ; r1y = ;
-	// r1 = vec_maker([r1x,r1y, 0]);
-	// r2x = ; r2y = ;
-	// r2 = vec_maker([r2x,r2y, 0]);
-	// t2x = ; t2y = ;
-	// t2 = vec_maker([t2x,t2y, 0]);
-	// var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//old triangle code , work done
-	// var bez1 = bez_maker([
-	// 	vec_maker([sx,sy,0]),
-	// 	vec_maker([sx,sy,0]),
-	// 	vec_maker([sx-w[5],sy,0]),
-	// 	vec_maker([sx-w[5],sy,0])
-	// ]);
-	// console.log("after bez1");
-	// var bez2 = bez_maker([
-	// 	vec_maker([sx-w[5],sy,0]),
-	// 	vec_maker([sx-w[5],sy,0]),
-	// 	vec_maker([sx,sy+geo.sum_F([h[8],h[7],h[6]]),0]),
-	// 	vec_maker([sx,sy+geo.sum_F([h[8],h[7],h[6]]),0])
-	// ]);
-	// var bez3 = bez_maker([
-	// 	vec_maker([sx,sy+geo.sum_F([h[8],h[7],h[6]]),0]),
-	// 	vec_maker([sx+20,sy+geo.sum_F([h[8],h[7],h[6]]),0]),
-	// 	vec_maker([sx,sy,0]),
-	// 	vec_maker([sx,sy,0])
-	// ]);
-	console.log("shape after bezX");
-	// var myshape = bez1.continue(bez2.continue(bez3));
-	var myshape = bez;
-	console.log("myshape");
-	console.log(myshape);
-	console.log("myshape closed");
-	console.log("myshape getPoints = ");
-	console.log(myshape.getPoints());
-	// var myshapemesh = BABYLON.Mesh.CreateLines("metalshape", myshape.getPoints(), scene); 
-	// myshapemesh.color = new BABYLON.Color3(1, 1, 1);
-	return myshape.getPoints();
-}
-function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
-	//bsp - bezier (cubic 2D) spline
-	var x=c[0];
-	var y=c[1];
-	// var sx = x+w[5]+2; var sy = y+h[8]+2;
-	sx=x+w[3]/2; sy=0;
-	console.log("tire shape before bezX");
-	
-	var t1; var r1; var r2; var t2;
-	//h54h43
-	t1x = sx; t1y = sy;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1 = t1;
-	r2x = sx; r2y = sy+h[4];
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2 = r2;
-	var bez = bez_maker([t1,r1,r2,t2]);
-	
-	
-	//h43h3
-	t1x = r2x; t1y = r2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x+s[1]/2+h[2] ; r2y = r2y+h[3]/2-s[2]/2 ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y+s[2]/2 ;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h3h32
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y+s[2]/2 ;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x+w[2]/2 ; r2y = t2y+s[2]/2 ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h32h21
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y+h[2] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//w2
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x-w[2] ; r2y = r1y;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	//mirrored
-	//h12h23m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y-h[2] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h23h3m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x-s[1]/2-h[2] ; r2y = r1y-h[3]/2+s[2]/2 ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y-s[2]/2 ;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h3h34m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y-s[2]/2 ;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = sx-w[3] ; r2y = sy+h[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//h34h45m
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = r1x; r2y = r1y-h[4] ;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	//try close
-	t1x = t2x; t1y = t2y;
-	t1 = vec_maker([t1x,t1y, 0]);
-	r1x = t1x; r1y = t1y;
-	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = sx ; r2y = sy;
-	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y;
-	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	// //
-	// t1x = ; t1y = ;
-	// t1 = vec_maker([t1x,t1y, 0]);
-	// r1x = ; r1y = ;
-	// r1 = vec_maker([r1x,r1y, 0]);
-	// r2x = ; r2y = ;
-	// r2 = vec_maker([r2x,r2y, 0]);
-	// t2x = ; t2y = ;
-	// t2 = vec_maker([t2x,t2y, 0]);
-	// var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
-	
-	
-	console.log("shape after bezX");
-	// var myshape = bez1.continue(bez2.continue(bez3));
-	var myshape = bez;
-	console.log("myshape");
-	console.log(myshape);
-	console.log("myshape closed");
-	console.log("myshape getPoints = ");
-	console.log(myshape.getPoints());
-	// var myshapemesh = BABYLON.Mesh.CreateLines("metalshape", myshape.getPoints(), scene); 
-	// myshapemesh.color = new BABYLON.Color3(1, 1, 1);
-	return myshape.getPoints();
 }
 //----------------end geometry section
 
-function metal_maker(h, w, s, hull=false,extrude=100){
-	//metal base of wheel
-	var ox = [1,0,0];
-	var oy = [0,1,0];
-	var c = [0,0,0];
-	var dot = [0,0,0]; var vn = [1,0,0]; var va = [0,1,0]; r = h[8];
-	var myPath = ring_trajectory(dot, vn, va, r);
-	var myShape = metal_shape_for_extrusion(h,w,s,c);//bezier cubic spline for extrusion
-	var extrudeSettings={
-		shape: myShape,
-		path: myPath,
-		// cap: 3, 
-		// sideOrientation:BABYLON.Mesh.DOUBLESIDE,
-		
-	};
-	var customExtrudeSettings={
-		shape: myShape,
-		path: myPath,
-		// ribbonClosePath: true,
-		ribbonCloseArray: true
-		
-	};
-	// var extruded = BABYLON.MeshBuilder.ExtrudeShape("ext", extrudeSettings, scene);
-	var extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", customExtrudeSettings, scene);
-	// var extruded = BABYLON.MeshBuilder.ExtrudeShape("ext", {shape: myShape, path: myPath}, scene);
-	
-	var mat = new BABYLON.StandardMaterial("mat1", scene);
-	mat.alpha = 1.0;
-	mat.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
-	mat.backFaceCulling = false;
-	// mat.wireframe = true;
-	extruded.material = mat;
-	
-	console.log("endcode");
-	return extruded;
-}
-
-function tire_maker(h,w,s,hull=false){
-	var ox = [1,0,0];
-	var oy = [0,1,0];
-	var c = [0,0,0];
-	var dot = [0,0,0]; var vn = [1,0,0]; var va = [0,1,0]; r = geo.sum_F([h[8],h[7],h[6],h[5]]) ;
-	var myPath = ring_trajectory(dot, vn, va, r);
-	var myShape = tire_shape_for_extrusion(h,w,s,c);//bezier cubic spline for extrusion
-	var extrudeSettings={
-		shape: myShape,
-		path: myPath,
-	};
-	var customExtrudeSettings={
-		shape: myShape,
-		path: myPath,
-		ribbonCloseArray: true
-	};
-	var extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", customExtrudeSettings, scene);
-	
-	var mat = new BABYLON.StandardMaterial("mat1", scene);
-	mat.alpha = 1.0;
-	mat.diffuseColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-	mat.backFaceCulling = false;
-	// mat.wireframe = true;
-	extruded.material = mat;
-	
-	console.log("endcode");
-	return extruded;
-}
-
-
-
-
 function whatdraw(){
-	//metal,bolts,tire,grips,track
+	//metal,bolts,tire,grips,tracks
 	var rez = [];
 	for (i=1;i<6;i++){
 		rez.push(document.getElementById("cbox_s" + i.toString() ).checked);
 	}return rez;
 }
+
+function one_mat_maker(hull,id){
+	var mat = new BABYLON.StandardMaterial(id, scene);
+	mat.alpha = 1.0;
+	var htmlhexcolor = document.getElementById(id).value;
+	mat.diffuseColor = new BABYLON.Color3.FromHexString(htmlhexcolor);
+	mat.backFaceCulling = false;
+	if (hull) { mat.wireframe = true; } else { mat.wireframe = false; }
+	return mat;
+}
+function mat_maker(){
+	var hull = document.getElementById("wireframe").checked;
+	metal_mat = one_mat_maker(hull,"c1");
+	bolts_mat = one_mat_maker(hull,"c2");
+	tire_mat = one_mat_maker(hull,"c3");
+	grips_mat = one_mat_maker(hull,"c4");
+	tracks_mat = one_mat_maker(hull,"c5");
+}
+
 function wheel_creator(){
 	clearall();
 	var dp = whatdraw(); //drawparts
 	d=gui_reader(); //GuiReader.js
 	h=d[0];w=d[1];b=d[2];s=d[3];g=d[4];
 	// var angle = 0;
+	//need call to mat_maker()
+	mat_maker()
 	if (dp[0]) { metal = metal_maker(h,w,s); }
 	if (dp[2]) { tire = tire_maker(h,w,s); }
 	if (dp[1]) { bolts = bolts_maker(h,w,s,b); }
 	if (dp[3]) { grips = grips_maker(h,w,s,g); }
 	if (dp[4]) { tracks = tracks_maker(h,w,s,g); }
-	// console.log("--------tire export trying--------");
-	// console.log(BABYLON.OBJExport.OBJ([tire]));
-	// alert(BABYLON.OBJExport.OBJ([metal]));
-	
-	// console.log("EO length",exportobjects.length);
-	// for (i=0;i<exportobjects.length;i++){exportobjects[i].dispose(false,true);}
-	// console.log("EO length",exportobjects.length);
-	// console.log(exportobjects);
-	// download(BABYLON.OBJExport.OBJ(exportobjects),"scene.obj","text/plain");
-	
-	// download(BABYLON.OBJExport.OBJ(exportobjects,true,"wheelmaterials",false),"scene.obj","text/plain");
 }
 
 function clearall(){
 	if (fresh) { fresh = false; }
 	else{
 		if(metal) { metal.dispose(false,true); metal = null; }
-		if(tire) { tire.dispose(false,true); metal = null; }
-		if(track) { track.dispose(false,true); track = null; }
+		if(tire) { tire.dispose(false,true); tire = null; }
 		if(bolts) { for(i=0;i<bolts.length;i++){bolts[i].dispose(false,true);} bolts=[]; }
 		if(grips) { for(i=0;i<grips.length;i++){grips[i].dispose(false,true);} grips=[]; }
+		if(tracks) { for(i=0;i<tracks.length;i++){tracks[i].dispose(false,true);} tracks=[]; }
 	}
 }
-//------------------------------
-
-// function download(text, name, type) {
-// 	var a = document.getElementById("a");
-// 	var file = new Blob([text], {type: type});
-// 	a.href = URL.createObjectURL(file);
-// 	a.download = name;
-	
-//   }
 
 var OBJexport;
 // work but big
@@ -613,27 +195,20 @@ function prepare_objects_for_export(objs){
 	var rez = []
 	for (i=0;i<objs.length;i++){
 		var fullmesh = objs[i].bakeCurrentTransformIntoVertices();
-		// var mesh = fullmesh.clone("mesh"+i.toString());
-		// rez.push(fullmesh.clone("mesh"+i.toString())); //this make clone and white color
 		rez.push(fullmesh);
-		// mesh.dispose(false,true);
-	}
-	// download(BABYLON.OBJExport.OBJ(rez),"scene.obj","text/plain");
-	for (i=0;i<rez.length;i++){
-		// rez[i].dispose(false,true);
-		// objs[i].dispose(false,true);
 	}
 	return rez;
 }
 function save_objmesh(){
-	// document.getElementById("a").click();
+	var text = "Attention! If you try export bolts or grips or tracks, export can be super long or impossible,\ndepend of your environment and wheel configuration.\nBecause huge number objects have a huge data of numbers.\n\nFor example firefox javascript engine have RAM limit of usage, etc.\nYou can try use chrome/chromium, export the model piece by piece(\"LOOK\" tab checkboxes), that later to collect it in full.\n\nDefault configuration, which you can see when start the app (metal + bolts + tire + grips + tracks),\nuses PC configuration (dual core AMD APU with integrated video 1Gb , CPU 3.4 Ghz, 8Gb RAM),\ncan be rendered with result file have 35 mb size.\nIf wheel have huge number of elements (bolts or grips or tracks)\nfirefox can fail with error \"allocation size overflow\", which you can see after press \"F12\" keyboard.\n\nWhen you see message about \"long running script\", just ignore it, when script will be completed message disappear."
+	if (bolts || grips || tracks) { alert(text); }
 	var exportobjects = []; //exported mesh array
 	if (metal) { exportobjects.push(metal); }
 	if (tire) { exportobjects.push(tire); }
-	if (track) { exportobjects.push(track); }
 	if (bolts) { for (i=0;i<bolts.length;i++) { exportobjects.push(bolts[i]); } }
 	if (grips) { for (i=0;i<grips.length;i++) { exportobjects.push(grips[i]); } }
-	// var exportobjects = [metal,tire,track].concat(bolts.concat(grips));
+	if (tracks) { for (i=0;i<tracks.length;i++) { exportobjects.push(tracks[i]); } }
+	
 	OBJexport = prepare_objects_for_export(exportobjects);
 	
 	var a = document.getElementById('OBJexport');
@@ -659,11 +234,9 @@ function PNGexport(){
 	var oldbackground = scene.clearColor;
 	var transperent = document.getElementById("transperent").checked;
 	if (transperent) {
-		// scene.clearColor = new BABYLON.Color4(0,0,0,0.0000000000000001);
 		scene.clearColor = new BABYLON.Color4(0,0,0,0);
 		scene.render();
 	}
 	BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, exp_res);
 	scene.clearColor = oldbackground;
-	// BABYLON.Tools.CreateScreenshot(engine, camera, 400);
 }
