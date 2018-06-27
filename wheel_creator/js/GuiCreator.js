@@ -16,6 +16,7 @@ function ok_gui_creator(){
         
     b_ok.className = "b50px";
     b_ok.textContent = "ok";
+    // b_ok.title = "calculate model";
     b_ok.tabIndex = 1;
     b_ok.onclick = function() {wheel_creator();};
     
@@ -25,8 +26,11 @@ function ok_gui_creator(){
     
     b_save.className = "b50px";
     b_save.textContent = "save";
+    b_save.onclick = function() { save_data_to_txt(); }
+    
     b_load.className = "b50px";
     b_load.textContent = "load";
+    b_load.onclick = function() { load_data_from_txt(); }
     
     td1.appendChild(b_ok);
     td2.appendChild(b_png);
@@ -174,9 +178,9 @@ function td_color(id, co = "#000000",title = ""){
 function balert(x){
     alert(x);//need two
 }
-function td_button(text, callback, title = ""){
+function td_button(text, callback, title = "",bclass="b50px"){
     var td = document.createElement('td');
-    var btn = "<button title=\""+title+"\" onclick=\""+callback+"\">"+text+"</button>";
+    var btn = "<button class=\""+bclass+"\" title=\""+title+"\" onclick=\""+callback+"\">"+text+"</button>";
     td.innerHTML = btn;
     return td;
 }
@@ -263,7 +267,7 @@ function lamp_gui_tbody(){
     
     var tr1 = document.createElement('tr');
     tr1.appendChild(td_cbox_text_colspan("wireframe","wireframe",false,2,"left","need model recalculation"));
-    tr1.appendChild(td_cbox_text_multicolor_colspan("axes",true,["x","y","z"," axes"],["red","green","blue","black"],2,"need model recalculation"));
+    tr1.appendChild(td_cbox_text_multicolor_colspan("axes",true,["x","y","z"," axes"],["red","green","blue",""],2,"need model recalculation"));
     
     var tr2 = document.createElement('tr');
     tr2.appendChild(td_hr(4));
@@ -291,13 +295,9 @@ function lamp_gui_tbody(){
     tr7.appendChild(td_input("x_directional","x"));
     tr7.appendChild(td_input("y_directional","y"));
     tr7.appendChild(td_input("z_directional","z"));
-    tr7.appendChild(td_cbox("shadow_directional",false,"shadow"));
+    tr7.appendChild(td_text("vector"));
     
-    var tr8 = document.createElement('tr');
-    tr8.appendChild(td_input("smsw_directional","shadow.mapSize.width"));
-    tr8.appendChild(td_input("smsh_directional","shadow.mapSize.height"));
-    tr8.appendChild(td_input("scn_directional","shadow.camera.near"));
-    tr8.appendChild(td_input("scf_directional","shadow.camera.far"));
+    
     
     var tr9 = document.createElement('tr');
     tr9.appendChild(td_hr(4));
@@ -311,13 +311,7 @@ function lamp_gui_tbody(){
     tr11.appendChild(td_input("x_point","x"));
     tr11.appendChild(td_input("y_point","y"));
     tr11.appendChild(td_input("z_point","z"));
-    tr11.appendChild(td_cbox("shadow_point",false,"shadow"));
-    
-    var tr13 = document.createElement('tr');
-    tr13.appendChild(td_input("smsw_point","shadow.mapSize.width"));
-    tr13.appendChild(td_input("smsh_point","shadow.mapSize.height"));
-    tr13.appendChild(td_input("scn_point","shadow.camera.near"));
-    tr13.appendChild(td_input("scf_point","shadow.camera.far"));
+    tr11.appendChild(td_text_multicolor(["x","y","z"],["red","green","blue"]));
     
     var tr14 = document.createElement('tr');
     tr14.appendChild(td_hr(4));
@@ -333,14 +327,18 @@ function lamp_gui_tbody(){
     tr17.appendChild(td_hr(4));
     
     var tr18 = document.createElement('tr');
-    tr18.appendChild(td_text("camera view","",2));
-    tr18.appendChild(td_cbox_text_colspan("perspective_view","perspective",true,2,"center"));
+    tr18.appendChild(td_button("get","get_camera_data_from_screen()",""));
+    tr18.appendChild(td_text("screen camera view","",3));
     
     var tr19 = document.createElement('tr');
-    tr19.appendChild(td_button("ok","refresh_lamp()","refresh scene"));
-    tr19.appendChild(td_input("distance_view","distance"));
-    tr19.appendChild(td_input("y_view","y angle degrees"));
-    tr19.appendChild(td_input("z_view","z angle degrees"));
+    tr19.appendChild(td_text("camera view","",2));
+    tr19.appendChild(td_cbox_text_colspan("perspective_view","perspective",true,2,"center"));
+    
+    var tr20 = document.createElement('tr');
+    tr20.appendChild(td_button("ok","refresh_lamp()","refresh scene\nbackground\nand lights"));
+    tr20.appendChild(td_input("distance_view","distance"));
+    tr20.appendChild(td_input("y_view","y angle degrees"));
+    tr20.appendChild(td_input("z_view","z angle degrees"));
     
     
     // tr17.appendChild(td_input("length_track","track length"));
@@ -352,7 +350,7 @@ function lamp_gui_tbody(){
     
     
     
-    var tbox = [tr1,tr2,tr3,tr4,tr5,tr6,tr7,tr8,tr9,tr10,tr11,tr13,tr14,tr15,tr16,tr17,tr18,tr19];
+    var tbox = [tr1,tr2,tr3,tr4,tr5,tr6,tr7,tr9,tr10,tr11,tr14,tr15,tr16,tr17,tr18,tr19,tr20];
     for (i=0;i<tbox.length;i++) {tbody.appendChild(tbox[i]);}
     return tbody;
 }
@@ -375,11 +373,10 @@ function start_data_writer(){
         "x_ambient","y_ambient","z_ambient",
         "intensity_directional",
         "x_directional","y_directional","z_directional",
-        "smsw_directional","smsh_directional","scn_directional","scf_directional",
+        
         "intensity_point",
         "x_point","y_point","z_point",
-        "smsw_point","smsh_point","scn_point","scf_point",
-        "distance_view","y_view","z_view",//tr18
+        "distance_view","y_view","z_view" //tr18
     ];
     var values = [
         20,100,500,100,100,100,100,100,900,
@@ -389,13 +386,72 @@ function start_data_writer(){
         1,1,1,
         1,
         500,500,500,
-        512,512,0.5,500,
+        
         0.3,
         500,500,500,
-        512,512,0.5,500,
         800,45,45//tr18 lamp
     ];
     for (i=0;i<ids.length;i++){id_value(ids[i],values[i])}
+}
+
+function save_data_to_txt(){
+    ids=[
+        "h1","h2","h3","h4","h5","h6","h7","h8","export_resolution",
+        "w1","w2","w3","w4","w5","b1","b2","b3","b4",
+        "s1","s2","s3","s4","s5","s6","s7","s8",
+        
+        "intensity_ambient",
+        
+        "x_ambient","y_ambient","z_ambient",
+        "intensity_directional",
+        "x_directional","y_directional","z_directional",
+        
+        "intensity_point",
+        "x_point","y_point","z_point",
+        "distance_view","y_view","z_view",
+        
+        "c1","c2","c3","c4","c5",
+        "color_ambient","color_ground_ambient","color_directional","color_point","color_background"
+    ];
+    var output = "wheel creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
+    for (i=0;i<ids.length;i++){ output += ids[i]+" "+document.getElementById(ids[i]).value+"\n"; }
+    var a = document.getElementById('GUIexport');
+	
+	var type = "text/plain";
+	var name = "exported_wheel.txt";
+	var file = new Blob([output], {type: type});
+	a.href = URL.createObjectURL(file);
+	a.download = name;
+	a.click();
+}
+
+
+var import_input = document.getElementById('GUIimport');
+function load_data_from_txt(){ import_input.click(); }
+var handleFileSelect = function(evt) {
+    var files = evt.target.files;
+    var reader = new FileReader();
+    reader.onload = function(e) { 
+        write_data_to_gui(reader.result);
+    };
+    reader.readAsText(files[0]);
+    // console.log(reader.result);
+}
+import_input.addEventListener('change', handleFileSelect, false);
+import_input.value = "";
+scene.onDisposeObservable.add(function(){ import_input.removeEventListener('change', handleFileSelect); }) //looks like no need in my case, but added as part of example
+
+function write_data_to_gui(text){
+    console.log(text);
+    text = text.split("\n");
+    var oneline;
+    for (i=1;i<text.length;i++){
+        if (text[i]){
+            oneline = text[i].split(" ");
+            document.getElementById(oneline[0]).value = oneline[1];
+        }
+    }
+    document.getElementById("info").value = "GUI loaded from " + text[0];
 }
 
 ok_gui_creator();

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello, World!</title>
+        <title>Wheel Creator 2018</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
         <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
@@ -62,7 +62,30 @@
                                 <div id="tab_c2"></div>
                                 <div id="tab_c3"></div>
                                 <div id="tab_c4">
-                                    help
+                                    ok -&gt; calculate wheel model
+                                    <br>png -&gt; render scene to PNG file
+                                    <br>save -&gt; save gui settings as txt
+                                    <br>load -&gt; load txt into gui settings
+                                    <br>OBJ -&gt; export model to OBJ file
+                                    <hr>
+                                    Lot of sizes is relative
+                                    <br>and must be positive
+                                    <hr>
+                                    "SIZE" -&gt; "b4" can be 0.
+                                    <hr>
+                                    "LOOK" -&gt; "s5"
+                                    <br>can be negative.
+                                    <hr>
+                                    "wireframe" and "xyz axes"
+                                    <br>checboxes changes need
+                                    <br>need full model recalculation
+                                    <hr>
+                                    tested uses Firefox / chromium
+                                    <br>release date 28-06-2018
+                                    <hr>
+                                    <a href="mailto:lenivaya10003@mail.ru">developer contact email</a>
+                                    <hr>
+                                    <a href="https://healingdrawing.github.io">https://healingdrawing.github.io</a>
                                 </div>
                             </div>
                         </section>
@@ -80,6 +103,8 @@
         <button type="button" onclick="change_camera_test(0,135)">(0,135)</button>
         <button type="button" onclick="change_camera_test(135,45)">(135,45)</button>
         
+        <input type="file" id="GUIimport" class="displaynone">
+        <a href="" id="GUIexport" class="displaynone">GUI</a>
         <a href="" id="OBJexport" class="displaynone">mesh</a>
         <button type="button" onclick="save_objmesh()">OBJ</button>
         
