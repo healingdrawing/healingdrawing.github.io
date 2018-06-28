@@ -1,10 +1,17 @@
 *{margin:0; padding:0; border:0;}
+
+@font-face {
+    font-family: "body";
+    src: url("Comfortaa-Bold.ttf");
+    }
+
 body{
     background: rgb(15, 89, 29);
     margin:0;
     padding:0;
     border:0;
     color:rgb(255,255,255);
+    font-family: "body";
 }
 hr{
     border: 0;
@@ -51,3 +58,4 @@ td{vertical-align: top;}
 .right{text-align:right;}
 .center{text-align:center;}
 .logo-tools{height:40px;}
+.app_show{width: 200px;}
