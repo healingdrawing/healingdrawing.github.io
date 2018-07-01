@@ -228,9 +228,6 @@ function look_gui_creator(){
     table.appendChild(look_gui_tbody());
     var box = document.getElementById("tab_c2");
     box.appendChild(table);
-    var img = document.createElement('img');
-    img.src = "img/look200260.svg";
-    box.appendChild(img);
 }
 
 function td_cbox_text_colspan(cboxid, text, checked = false, colspan = 1, align = "left",title=""){
