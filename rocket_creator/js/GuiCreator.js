@@ -105,6 +105,7 @@ function td_input(id, title = ""){
     return td;
 }
 
+var size_ids=[];
 function size_gui_tbody(){
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
@@ -122,6 +123,7 @@ function size_gui_tbody(){
             var tr = document.createElement('tr');
             for (iii=0;iii<input_name.length;iii++){//td
                 var id=input_name[iii]+"_"+(i+1).toString();
+                size_ids.push(id);
                 tr.appendChild(td_input(id,id));
             }
             tbody.appendChild(tr);
@@ -183,6 +185,8 @@ function td_button(text, callback, title = "",bclass="b50px"){
     td.innerHTML = btn;
     return td;
 }
+
+var look_ids=[];
 function look_gui_tbody(){
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
@@ -201,6 +205,7 @@ function look_gui_tbody(){
             var tr = document.createElement('tr');
             for (iii=0;iii<input_name.length;iii++){//td
                 var id=input_name[iii]+"_"+(i+1).toString();
+                look_ids.push(id);
                 if (ii==0 && iii<3){
                     tr.appendChild(td_color(id,undefined,id));
                 }else{
@@ -348,11 +353,10 @@ function lamp_gui_creator(){
 function id_value(id,value){
     document.getElementById(id).value=value;
 }
+
+var ids = [];
 function start_data_writer(){
-    var ids = [
-        "h1","h2","h3","h4","h5","h6","h7","h8","export_resolution",
-        "w1","w2","w3","w4","w5","b1","b2","b3","b4",
-        "s1","s2","s3","s4","s5","s6","s7","s8",
+    var lamp_ids = [
         "intensity_ambient",
         "x_ambient","y_ambient","z_ambient",
         "intensity_directional",
@@ -362,10 +366,28 @@ function start_data_writer(){
         "x_point","y_point","z_point",
         "distance_view","y_view","z_view" //tr18
     ];
-    var values = [
-        20,100,500,100,100,100,100,100,900,
-        500,600,550,100,550,50,50,6,0,
-        900,100,100,100,-4,60,50,0,//later back to more big numbers 1 5 10
+    
+    for (i=0;i<size_ids.length;i++){ ids.push(size_ids[i]); }
+    for (i=0;i<look_ids.length;i++){ ids.push(look_ids[i]); }
+    for (i=0;i<lamp_ids.length;i++){ ids.push(lamp_ids[i]); }
+    
+    var values = [];
+    var size_values = [
+        100,50,0,100, 20,40,10,20, 40,10,0,100,
+        100,50,0,100, 20,40,10,20, 40,10,0,100,
+        100,50,0,100, 20,40,10,20, 40,10,0,100,
+        100,50,0,100, 20,40,10,20, 40,10,0,100,
+        100,50,0,100, 20,40,10,20, 40,10,0,100
+    ];
+    var look_values = [
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0
+    ];
+    var lamp_values = [
+        
         1,
         1,1,1,
         1,
@@ -375,34 +397,22 @@ function start_data_writer(){
         500,500,500,
         800,45,45//tr18 lamp
     ];
+    
+    for (i=0;i<size_values.length;i++){ values.push(size_values[i]); }
+    for (i=0;i<look_values.length;i++){ values.push(look_values[i]); }
+    for (i=0;i<lamp_values.length;i++){ values.push(lamp_values[i]); }
+    
     for (i=0;i<ids.length;i++){id_value(ids[i],values[i])}
 }
 
 function save_data_to_txt(){
-    ids=[
-        "h1","h2","h3","h4","h5","h6","h7","h8","export_resolution",
-        "w1","w2","w3","w4","w5","b1","b2","b3","b4",
-        "s1","s2","s3","s4","s5","s6","s7","s8",
-        
-        "intensity_ambient",
-        
-        "x_ambient","y_ambient","z_ambient",
-        "intensity_directional",
-        "x_directional","y_directional","z_directional",
-        
-        "intensity_point",
-        "x_point","y_point","z_point",
-        "distance_view","y_view","z_view",
-        
-        "c1","c2","c3","c4","c5",
-        "color_ambient","color_ground_ambient","color_directional","color_point","color_background"
-    ];
-    var output = "wheel creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
+    
+    var output = "rocket creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
     for (i=0;i<ids.length;i++){ output += ids[i]+" "+document.getElementById(ids[i]).value+"\n"; }
     var a = document.getElementById('GUIexport');
 	
 	var type = "text/plain";
-	var name = "exported_wheel.txt";
+	var name = "exported_rocket.txt";
 	var file = new Blob([output], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
