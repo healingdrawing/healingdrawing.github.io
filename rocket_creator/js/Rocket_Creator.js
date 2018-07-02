@@ -231,20 +231,20 @@ function refresh_lamp(){
 	point_light.diffuse = new BABYLON.Color3.FromHexString(htmlhexcolor);
 	showme("\"LAMP\" tab data was applied");
 }
-function wheel_creator(){
-	clearall();
-	var dp = whatdraw(); //drawparts
+function Rocket_Creator(){
+	// clearall();
+	// var dp = whatdraw(); //drawparts
 	d=gui_reader(); //GuiReader.js
-	h=d[0];w=d[1];b=d[2];s=d[3];g=d[4];
+	
 	// var angle = 0; //not used, looks hard to realise, because need additional displacement of tracks etc , and not looks benefit... head pain
 	mat_maker();
 	
 	if (dp[5]) { axes_creator(400); }
-	if (dp[0]) { metal = metal_maker(h,w,s); }
-	if (dp[2]) { tire = tire_maker(h,w,s); }
-	if (dp[1]) { bolts = bolts_maker(h,w,s,b); }
-	if (dp[3]) { grips = grips_maker(h,w,s,g); }
-	if (dp[4]) { tracks = tracks_maker(h,w,s,g); }
+	// if (dp[0]) { metal = metal_maker(h,w,s); }
+	// if (dp[2]) { tire = tire_maker(h,w,s); }
+	// if (dp[1]) { bolts = bolts_maker(h,w,s,b); }
+	// if (dp[3]) { grips = grips_maker(h,w,s,g); }
+	// if (dp[4]) { tracks = tracks_maker(h,w,s,g); }
 	showme("complete");
 }
 

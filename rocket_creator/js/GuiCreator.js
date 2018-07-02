@@ -1,4 +1,5 @@
 showme("preparing GuiCreator.js");
+//head gui section
 function ok_gui_creator(){
     var box = document.getElementById('div_ok');
     var table = document.createElement('table');
@@ -18,7 +19,7 @@ function ok_gui_creator(){
     b_ok.textContent = "ok";
     // b_ok.title = "calculate model";
     b_ok.tabIndex = 1;
-    b_ok.onclick = function() {wheel_creator();};
+    b_ok.onclick = function() {Rocket_Creator();};
     
     b_png.className = "b50px";
     b_png.textContent = "png";
@@ -45,6 +46,7 @@ function ok_gui_creator(){
     box.appendChild(table);
 }
 
+//tab gui section
 function td_hr(colspan = 1){
     var td = document.createElement('td');
     td.colSpan = colspan;
@@ -95,7 +97,6 @@ function td_cbox_text_multicolor_colspan(id, checked = false, texts = [], colors
     }
     return td;
 }
-
 function td_input(id, title = ""){
     var td = document.createElement('td');
     var input = document.createElement('input');
@@ -104,6 +105,63 @@ function td_input(id, title = ""){
     td.appendChild(input);
     return td;
 }
+function td_cbox(cboxid, checked = false, title = ""){
+    var td = document.createElement('td');
+    var cbox = document.createElement('input');
+    cbox.id = cboxid;
+    cbox.type = "checkbox";
+    cbox.defaultChecked = checked;
+    if (title != ""){cbox.title = title;}
+    td.appendChild(cbox);
+    return td;
+}
+function td_radio(id, name, value, checked = false){
+    var td = document.createElement('td');
+    var radio = document.createElement('input');
+    radio.type = "radio";
+    radio.className = "guiradio";
+    radio.name = name;
+    radio.id = id;
+    radio.defaultChecked = checked;
+    radio.value = value;
+    td.appendChild(radio);
+    return td;
+}
+function td_color(id, co = "#000000",title = ""){
+    var td = document.createElement('td');
+    var color = document.createElement('input');
+    color.type = "color";
+    color.className = "guicolor";
+    color.id = id;
+    color.value = co;
+    color.title = title;
+    td.appendChild(color);
+    return td;
+}
+function td_button(text, callback, title = "",bclass="b50px"){
+    var td = document.createElement('td');
+    var btn = "<button class=\""+bclass+"\" title=\""+title+"\" onclick=\""+callback+"\">"+text+"</button>";
+    td.innerHTML = btn;
+    return td;
+}
+function td_cbox_text_colspan(cboxid, text, checked = false, colspan = 1, align = "left",title=""){
+    var td = document.createElement('td');
+    td.colSpan = colspan;
+    td.setAttribute('style','text-align :'+align+';');
+    var cbox = document.createElement('input');
+    cbox.id = cboxid;
+    cbox.type = "checkbox";
+    cbox.checked = checked;
+    cbox.title = title;
+    var text = document.createTextNode(text);
+    td.appendChild(cbox);
+    td.appendChild(text);
+    return td;
+}
+function balert(x){
+    alert(x);//need two
+}
+
 
 var size_ids=[];
 function size_gui_tbody(){
@@ -141,49 +199,6 @@ function size_gui_creator(){
     table.appendChild(size_gui_tbody());
     var box = document.getElementById("tab_c1");
     box.appendChild(table);
-}
-
-function td_cbox(cboxid, checked = false, title = ""){
-    var td = document.createElement('td');
-    var cbox = document.createElement('input');
-    cbox.id = cboxid;
-    cbox.type = "checkbox";
-    cbox.defaultChecked = checked;
-    if (title != ""){cbox.title = title;}
-    td.appendChild(cbox);
-    return td;
-}
-function td_radio(id, name, value, checked = false){
-    var td = document.createElement('td');
-    var radio = document.createElement('input');
-    radio.type = "radio";
-    radio.className = "guiradio";
-    radio.name = name;
-    radio.id = id;
-    radio.defaultChecked = checked;
-    radio.value = value;
-    td.appendChild(radio);
-    return td;
-}
-function td_color(id, co = "#000000",title = ""){
-    var td = document.createElement('td');
-    var color = document.createElement('input');
-    color.type = "color";
-    color.className = "guicolor";
-    color.id = id;
-    color.value = co;
-    color.title = title;
-    td.appendChild(color);
-    return td;
-}
-function balert(x){
-    alert(x);//need two
-}
-function td_button(text, callback, title = "",bclass="b50px"){
-    var td = document.createElement('td');
-    var btn = "<button class=\""+bclass+"\" title=\""+title+"\" onclick=\""+callback+"\">"+text+"</button>";
-    td.innerHTML = btn;
-    return td;
 }
 
 var look_ids=[];
@@ -230,20 +245,7 @@ function look_gui_creator(){
     box.appendChild(table);
 }
 
-function td_cbox_text_colspan(cboxid, text, checked = false, colspan = 1, align = "left",title=""){
-    var td = document.createElement('td');
-    td.colSpan = colspan;
-    td.setAttribute('style','text-align :'+align+';');
-    var cbox = document.createElement('input');
-    cbox.id = cboxid;
-    cbox.type = "checkbox";
-    cbox.checked = checked;
-    cbox.title = title;
-    var text = document.createTextNode(text);
-    td.appendChild(cbox);
-    td.appendChild(text);
-    return td;
-}
+
 function lamp_gui_tbody(){
     var tbody = document.createElement('tbody');
     

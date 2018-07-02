@@ -62,20 +62,41 @@ function rescale_s(s,scale){ for (i=1;i<5;i++){s[i] *= scale;} return s; }
 function checkbox_reader(){
 	var cbox_name = ["undefined"]
 }
+
+//new code
+function gui_data_reader(){
+	var d = [[],[],[],[],[],[]];
+	//ids section 1...5 splitter
+	var section_ids = [[],[],[],[],[],[]]; //0 lamp tab sizes ... 1-5 sections sizes
+	for (i=0;i<ids.length;i++){
+		var id = ids[i];
+		if ( id.endsWith("_1") ){ section_ids[1].push(id); }
+		else if ( id.endsWith("_2") ){ section_ids[2].push(id); }
+		else if ( id.endsWith("_3") ){ section_ids[3].push(id); }
+		else if ( id.endsWith("_4") ){ section_ids[4].push(id); }
+		else if ( id.endsWith("_5") ){ section_ids[5].push(id); }
+		else { section_ids[0].push(id); }
+	}
+	//value reader depend of input type
+	for (i=0;i<section_ids.length;i++){
+		var section_id_list = section_ids[i]; //get the section
+		for (ii=0;ii<section_id_list.length;ii++){
+			var id = section_id_list[ii]; //get the id of section
+			if ( id.startsWith("color") ) { d[i].push( document.getElementById(id).value ); }
+			else{ d[i].push( parseFloat(document.getElementById(ids[i]).value) ); }
+		}
+	}
+	console.log(JSON.stringify(section_ids));
+	console.log(JSON.stringify(d));
+	return d;
+}
 function gui_reader(){
-	var h = hsize_reader(["undefined"]);
-	var w = wsize_reader(["undefined"]);
-	var b = bsize_reader(["undefined"]);
-	var s = ssize_reader(["undefined"],h);
-	var g = grip_reader();
-	var scale = scale_counter(h,w,b,s);
-	h = rescale_h(h,scale);
-	w = rescale_w(w,scale);
-	b = rescale_b(b,scale);
-	s = rescale_s(s,scale);
+	var d = gui_data_reader();
+	
+	// var scale = scale_counter(h,w,b,s);
 	//sizes collected and rescaled
-	console.log("scale = "+scale);
-	return [h,w,b,s,g];
+	// console.log("scale = "+scale);
+	return d;
 }
 showme("GuiReader.js ready");
 showme("ready");
