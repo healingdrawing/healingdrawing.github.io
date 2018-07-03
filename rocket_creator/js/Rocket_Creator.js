@@ -205,16 +205,30 @@ function refresh_lamp(){
 	showme("\"LAMP\" tab data was applied");
 }
 
-
+function offset_counter(d){
+	var rez = [];
+	var dz = d[3][0] / 2 + d[2][0];
+	rez.push(dz) //section1 rocket nose
+	dz = d[3][0]/2;
+	rez.push(dz); //section2
+	dz = -dz;
+	rez.push(dz); //section3
+	dz = dz - d[4][0];
+	rez.push(dz); // section4
+	dz = dz - d[5][0];
+	rez.push(dz); // section5
+	return rez;
+}
 
 function Rocket_Creator(){
 	// clearall();
 	// var dp = whatdraw(); //drawparts
 	var d=gui_reader(); //GuiReader.js
-	//need recount d... rescale and what draw may be
+	var dz = offset_counter(d)//offset for each section from 0 along z axis (length axis)
+	// what draw may be
 	mat_maker();
 	
-	base_maker(d);
+	base_maker(d,dz);
 	
 	
 	if (dp[5]) { axes_creator(400); }
