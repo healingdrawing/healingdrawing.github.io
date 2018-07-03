@@ -31,10 +31,13 @@ function scale_counter(d){
 	scale = maxsize / scale;
 	return scale;
 }
-// function rescale_h(h,scale){for (i=1;i<h.length;i++){h[i] *= scale;} return h;}
-// function rescale_w(w,scale){for (i=1;i<w.length;i++){w[i] *= scale;} return w;}
-// function rescale_b(b,scale){ b[1] *= scale; b[2] *= scale; return b; }
-// function rescale_s(s,scale){ for (i=1;i<5;i++){s[i] *= scale;} return s; }
+function rescale_numbers(d,s){
+	var sind = [0,1,2,3,4,5,6,7,8,9,10,11,15,19,20,21,23];
+	for (i=1;i<6;i++){
+		for (ii=0;ii<sind.length;ii++){ d[i][sind[ii]] *= s; }
+	}
+	return d;
+}
 
 //new code
 function gui_data_reader(){
@@ -67,8 +70,10 @@ function gui_reader(){
 	var d = gui_data_reader();
 	
 	var scale = scale_counter(d);
+	var d = rescale_numbers(d,scale);
 	// sizes collected and rescaled
 	console.log("scale = "+scale);
+	console.log(JSON.stringify(d));
 	return d;
 }
 showme("GuiReader.js ready");
