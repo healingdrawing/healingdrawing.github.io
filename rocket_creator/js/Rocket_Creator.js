@@ -5,14 +5,9 @@ var geo = new GeometryXD();
 
 // alert(geo.vecXD([1,2,3],[4,5,6]));
 var fresh = true;
-var metal; var metal_mat;
-var bolts=[]; var bolts_mat;
-var tire; var tire_mat;
-var grips=[]; var grips_mat;
-var track; //result track mesh, after subtract grips + oval shape
-var track_base; //base for subtracktion
-var track_tire; //tire shape for subtracktion from traks_base
-var tracks=[]; var tracks_mat;
+var base_section=[]; var base_section_mat=[];
+var tail_section=[]; var tail_section_mat=[];
+var bottle_section=[]; var bottle_section_mat=[];
 var axes=[]; //3mesh + 3 text
 
 var canvas = document.getElementById("renderCanvas");
@@ -102,50 +97,6 @@ window.addEventListener("resize", function () { // Watch for browser/canvas resi
 engine.resize();
 });
 
-//----------------geometry section
-function vec_maker(vec){ var vec3 = new BABYLON.Vector3(vec[0],vec[1],vec[2]); return vec3; }
-function bez_maker(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubicBezier(arc[0],arc[1],arc[2],arc[3],mass); return bez; }
-function ring_trajectory(dot,vn,va,r){
-	//vn=ox at this moment va = -oz
-	var vb = geo.vec3Drotate(va,vn,90);
-	var vad = geo.vecXDback(va);
-	var vbd = geo.vecXDback(vb);
-	var ta = geo.dotXDoffset(dot,va,r);
-	var tb = geo.dotXDoffset(dot,vb,r);
-	var tad = geo.dotXDoffset(dot,vad,r);
-	var tbd = geo.dotXDoffset(dot,vbd,r);
-	var a1 = [];
-	var a2 = [];
-	var a3 = [];
-	var a4 = [];
-	
-	var ac1 = geo.curve3D_3dots(dot,ta,tb);
-	var ac2 = geo.curve3D_3dots(dot,tb,tad);
-	var ac3 = geo.curve3D_3dots(dot,tad,tbd);
-	var ac4 = geo.curve3D_3dots(dot,tbd,ta);
-	
-	
-	
-	//curve dots as vectors
-	for (i=0;i<4;i++){
-		a1.push(vec_maker(ac1[i]));
-		a2.push(vec_maker(ac2[i]));
-		a3.push(vec_maker(ac3[i]));
-		a4.push(vec_maker(ac4[i]));
-	};
-	
-	//bezier curves from vector arrays
-	var mass=8;
-	var arc1 = bez_maker(a1,mass);
-	var arc2 = bez_maker(a2,mass);
-	var arc3 = bez_maker(a3,mass);
-	var arc4 = bez_maker(a4,mass);
-	
-	var arc14 = arc1.continue(arc2.continue(arc3.continue(arc4)));
-	// var arc14mesh = BABYLON.Mesh.CreateLines("cbezier1", arc14.getPoints(), scene); arc14mesh.color = new BABYLON.Color3(1, 0.6, 0);
-	return arc14.getPoints();
-}
-//----------------end geometry section
 
 function whatdraw(){
 	//metal,bolts,tire,grips,tracks
@@ -157,22 +108,44 @@ function whatdraw(){
 	return rez;
 }
 
-function one_mat_maker(hull,id){
-	var mat = new BABYLON.StandardMaterial(id, scene);
-	mat.alpha = 1.0;
-	var htmlhexcolor = document.getElementById(id).value;
-	mat.diffuseColor = new BABYLON.Color3.FromHexString(htmlhexcolor);
+function one_mat_maker(hull,alp,hexcolorstring,matname){
+	var mat = new BABYLON.StandardMaterial(matname, scene);
+	mat.alpha = alp;
+	mat.diffuseColor = new BABYLON.Color3.FromHexString(hexcolorstring);
 	mat.backFaceCulling = false;
 	if (hull) { mat.wireframe = true; } else { mat.wireframe = false; }
 	return mat;
 }
 function mat_maker(){
 	var hull = document.getElementById("wireframe").checked;
-	metal_mat = one_mat_maker(hull,"c1");
-	bolts_mat = one_mat_maker(hull,"c2");
-	tire_mat = one_mat_maker(hull,"c3");
-	grips_mat = one_mat_maker(hull,"c4");
-	tracks_mat = one_mat_maker(hull,"c5");
+	
+	for (i=0;i<5;i++){
+		
+		var id="";
+		var text=(i+1).toString();
+		//base
+		id= "alpha_base_"+text;
+		var alp_base = parseFloat(document.getElementById(id).value);
+		id="color_base_"+text;
+		var color_base = document.getElementById(id).value;
+			
+		//tail
+		id= "alpha_tail_"+text;
+		var alp_tail = parseFloat(document.getElementById(id).value);
+		id="color_tail_"+text;
+		var color_tail = document.getElementById(id).value;
+			
+		//bottle
+		id= "alpha_bottle_"+text;
+		var alp_bottle = parseFloat(document.getElementById(id).value);
+		id="color_bottle_"+text;
+		var color_bottle = document.getElementById(id).value;
+		
+		base_section_mat.push(one_mat_maker(hull,alp_base,color_base,"base_mat_"+text));
+		tail_section_mat.push(one_mat_maker(hull,alp_tail,color_tail,"tail_mat_"+text));
+		bottle_section_mat.push(one_mat_maker(hull,alp_bottle,color_bottle,"bottle_mat_"+text));
+		
+	}
 }
 function mix_bolt_angles(){
 	var ba_input = document.getElementById("s8");
@@ -231,13 +204,18 @@ function refresh_lamp(){
 	point_light.diffuse = new BABYLON.Color3.FromHexString(htmlhexcolor);
 	showme("\"LAMP\" tab data was applied");
 }
+
+
+
 function Rocket_Creator(){
 	// clearall();
 	// var dp = whatdraw(); //drawparts
-	d=gui_reader(); //GuiReader.js
-	
-	// var angle = 0; //not used, looks hard to realise, because need additional displacement of tracks etc , and not looks benefit... head pain
+	var d=gui_reader(); //GuiReader.js
+	//need recount d... rescale and what draw may be
 	mat_maker();
+	
+	base_maker(d);
+	
 	
 	if (dp[5]) { axes_creator(400); }
 	// if (dp[0]) { metal = metal_maker(h,w,s); }
