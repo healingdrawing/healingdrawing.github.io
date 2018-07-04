@@ -32,7 +32,7 @@ function scale_counter(d){
 	return scale;
 }
 function rescale_numbers(d,s){
-	var sind = [0,1,2,3,4,5,6,7,8,9,10,11,15,19,20,21,23];
+	var sind = [0,1,3,4,5,6,7,8,9,10,11,15,19,20,21,23];
 	for (i=1;i<6;i++){
 		for (ii=0;ii<sind.length;ii++){ d[i][sind[ii]] *= s; }
 	}

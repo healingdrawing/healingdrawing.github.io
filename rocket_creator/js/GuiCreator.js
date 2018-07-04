@@ -172,7 +172,7 @@ function size_gui_tbody(){
     for (i=0;i<5;i++){//x3tr box 
         var tr = document.createElement('tr');
         var tr_input_name = [
-            ["base_length","base_radius","base_curvature","tail_radius"],
+            ["base_length","base_radius","base_curvature%","tail_radius"],
             ["tail_start_offset","tail_start_length","tail_end_offset","tail_end_length"],
             ["bottle_length","bottle_radius","bottle_offset","ring_radius"]
         ];
@@ -212,7 +212,7 @@ function look_gui_tbody(){
         var tr_input_name = [
             ["color_base","color_tail","color_bottle","ring_length"],
             ["alpha_base","alpha_tail","alpha_bottle","ring_width"],
-            ["tail_start_width","tail_end_width","tail_angle","ring_offset"]
+            ["tail_start_width","tail_end_width","tail_number","ring_offset"]
         ];
         for (ii=0;ii<tr_input_name.length;ii++){//tr
             var input_name = tr_input_name[ii];
@@ -379,11 +379,11 @@ function start_data_writer(){
         100,50,0,100, 20,40,10,20, 40,10,0,100
     ];
     var look_values = [
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,0,0
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
+        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0
     ];
     var lamp_values = [
         

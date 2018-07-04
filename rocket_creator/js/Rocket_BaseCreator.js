@@ -2,20 +2,22 @@
 function base_maker(d,dz,vn,va,c){
     console.log("dz = ",dz);
     for (var i=1;i<6;i++){ //section number loop
-        if (d[i][1] > 0){ //if <= 0 then not draw base section
+        var section_radius = d[i][1];
+        if (section_radius > 0){ //if <= 0 then not draw base section
+            var section_length = d[i][0];
             var dot0 = geo.dotXDoffset(c,vn,dz[i]);
-            var dot1 = geo.dotXDoffset(dot0,vn,d[i][0]);
-            dot0 = geo.dotXDoffset(dot0,va,d[i][1]);
+            var dot1 = geo.dotXDoffset(dot0,vn,section_length);
+            dot0 = geo.dotXDoffset(dot0,va,section_radius);
             if (i>1){ dot1 = geo.dotXDoffset(dot1,va,d[i-1][1]) }
             var lever0 = dot0.slice();
             var lever1 = dot1.slice();
-            var cur = d[i][2]; //curvature
+            var cur = d[i][2] / 100; //curvature %/100
             if ( cur != 0 ){
                 if (i>1){
-                    lever0 = geo.dotXDoffset(lever0,vn,cur);
-                    lever1 = geo.dotXDoffset(lever1,vn,-cur);
+                    lever0 = geo.dotXDoffset(lever0,vn,cur*section_length);
+                    lever1 = geo.dotXDoffset(lever1,vn,-cur*section_length);
                 }
-                else{ lever1 = geo.dotXDoffset(lever1,va,cur); } //rocket nose
+                else{ lever1 = geo.dotXDoffset(lever1,va,cur*section_radius); } //rocket nose
             }
             var arc = [dot0,lever0,lever1,dot1]; // arc for ribbon
             var mass = 8;
