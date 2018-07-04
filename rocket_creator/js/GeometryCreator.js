@@ -14,7 +14,8 @@ function bez_maker(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubicBezier(vec_m
 /**create array of BABYLON.Curve3.CreateCubicBezier() uses array of arcs. Each arc is array of 4 dots [x,y,z] 
  * - mass - number of result dots of each bezier curve
 */
-function bez_array_maker(arrarc, mass=4){ var rez=[]; for(i=0;i<arrarc.length;i++){ rez.push( bez_maker(arrarc[i],mass) ); } return rez; }
+function bez_array_maker(arrarc, mass=4){ var rez=[]; for(var i=0;i<arrarc.length;i++){ rez.push( bez_maker(arrarc[i],mass) ); } return rez; }
+function bez_array_getPoints_maker(arrarc,mass=4){ var rez=[]; for(var i=0;i<arrarc.length;i++){ rez.push( bez_maker(arrarc[i],mass).getPoints() ); } return rez; }
 
 /**create bezier trajectory close to ring shape uses contiues BABYLON.Curve3.CreateCubicBezier() syntax, than return bez.getPoints()
  * - dot - center dot = [x,y,z] = [number,number,number]
@@ -65,7 +66,7 @@ function bezier_rotated_karkas_maker(arc,cdot,vr,mass,close_karkas=true){
     var rez = [];
     var steps = Math.ceil(mass);
     var step = 360 / steps;
-    for (i=0;i<steps;i++) { rez.push( geo.curve3Drotate(arc,cdot,vr,step * i) ); }
+    for (var i=0;i<steps;i++) { rez.push( geo.curve3Drotate(arc,cdot,vr,-step * i) ); } //need - u or internal material
     if (close_karkas) { rez.push(rez[0]); }
     return rez;
 }
@@ -127,7 +128,7 @@ function createRibbon(mesh, pathArray, close) {
 }
 
 function showPathArray(apath){
-    for (i=0;i<apath.length;i++){ showPath(apath[i]); }
+    for (var i=0;i<apath.length;i++){ showPath(apath[i]); }
 }
 function showPath(path) {
     var line = BABYLON.Mesh.CreateLines("line", path, scene )

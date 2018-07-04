@@ -120,7 +120,7 @@ function one_mat_maker(hull,alp,hexcolorstring,matname){
 function mat_maker(){
 	var hull = document.getElementById("wireframe").checked;
 	
-	for (i=0;i<5;i++){
+	for (var i=0;i<5;i++){
 		
 		var id="";
 		var text=(i+1).toString();
@@ -207,7 +207,7 @@ function refresh_lamp(){
 }
 
 function offset_counter(d){
-	var rez = [];
+	var rez = [undefined];
 	var dz = d[3][0] / 2 + d[2][0];
 	rez.push(dz) //section1 rocket nose
 	dz = d[3][0]/2;
@@ -261,7 +261,7 @@ var OBJexport;
 // work but big
 function prepare_objects_for_export(objs){
 	var rez = []
-	for (i=0;i<objs.length;i++){
+	for (var i=0;i<objs.length;i++){
 		var fullmesh = objs[i].bakeCurrentTransformIntoVertices();
 		rez.push(fullmesh);
 	}
@@ -273,9 +273,9 @@ function save_objmesh(){
 	var exportobjects = []; //exported mesh array
 	if (metal) { exportobjects.push(metal); }
 	if (tire) { exportobjects.push(tire); }
-	if (bolts) { for (i=0;i<bolts.length;i++) { exportobjects.push(bolts[i]); } }
-	if (grips) { for (i=0;i<grips.length;i++) { exportobjects.push(grips[i]); } }
-	if (tracks) { for (i=0;i<tracks.length;i++) { exportobjects.push(tracks[i]); } }
+	if (bolts) { for (var i=0;i<bolts.length;i++) { exportobjects.push(bolts[i]); } }
+	if (grips) { for (var i=0;i<grips.length;i++) { exportobjects.push(grips[i]); } }
+	if (tracks) { for (var i=0;i<tracks.length;i++) { exportobjects.push(tracks[i]); } }
 	
 	OBJexport = prepare_objects_for_export(exportobjects);
 	
