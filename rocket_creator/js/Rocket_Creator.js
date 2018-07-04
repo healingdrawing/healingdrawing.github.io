@@ -112,8 +112,9 @@ function one_mat_maker(hull,alp,hexcolorstring,matname){
 	var mat = new BABYLON.StandardMaterial(matname, scene);
 	mat.alpha = alp;
 	mat.diffuseColor = new BABYLON.Color3.FromHexString(hexcolorstring);
+	mat.emissiveColor = new BABYLON.Color3.Black();
 	mat.backFaceCulling = false;
-	if (hull) { mat.wireframe = true; } else { mat.wireframe = false; }
+	mat.wireframe = hull;
 	return mat;
 }
 function mat_maker(){
@@ -228,10 +229,14 @@ function Rocket_Creator(){
 	// what draw may be
 	mat_maker();
 	
-	base_maker(d,dz);
+	var c = [0,0,0] //center dot
+	var vn = [0,0,1]; //oz
+	var va = [0,1,0]; //oy
+	base_maker(d,dz,vn,va,c);
 	
 	
-	if (dp[5]) { axes_creator(400); }
+	// if (dp[5]) { axes_creator(400); }
+	
 	// if (dp[0]) { metal = metal_maker(h,w,s); }
 	// if (dp[2]) { tire = tire_maker(h,w,s); }
 	// if (dp[1]) { bolts = bolts_maker(h,w,s,b); }

@@ -11,8 +11,10 @@ function bez_maker_from_vectors(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubi
  */
 function bez_maker(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubicBezier(vec_maker(arc[0]),vec_maker(arc[1]),vec_maker(arc[2]),vec_maker(arc[3]),mass); return bez; }
 
-/**create array of BABYLON.Curve3.CreateCubicBezier() uses array arcs. Each arc is array of 4 dots [x,y,z] */
-function bez_array_maker(arrarc,mass=4){ var rez=[]; for(i=0;i<arrarc.length;i++){ rez.push( bez_maker(arrarc[i],mass) ); } return rez; }
+/**create array of BABYLON.Curve3.CreateCubicBezier() uses array of arcs. Each arc is array of 4 dots [x,y,z] 
+ * - mass - number of result dots of each bezier curve
+*/
+function bez_array_maker(arrarc, mass=4){ var rez=[]; for(i=0;i<arrarc.length;i++){ rez.push( bez_maker(arrarc[i],mass) ); } return rez; }
 
 /**create bezier trajectory close to ring shape uses contiues BABYLON.Curve3.CreateCubicBezier() syntax, than return bez.getPoints()
  * - dot - center dot = [x,y,z] = [number,number,number]
@@ -57,7 +59,7 @@ function ring_trajectory(dot,vn,va,r,mass=4){
  * - cdot - rotation center dot [x,y,z] = [number,number,number]
  * - vr - rotation vector [a,b,c] = [number,number,number]
  * - mass - integer number, how many copies will be around `vr` with permanent angle step rotation
- * - close_karkas - if true then first element of result array will be duplicated at the end of result array
+ * - close_karkas - if `true` then first element of result array will be duplicated at the end of result array
  */
 function bezier_rotated_karkas_maker(arc,cdot,vr,mass,close_karkas=true){
     var rez = [];
@@ -67,3 +69,66 @@ function bezier_rotated_karkas_maker(arc,cdot,vr,mass,close_karkas=true){
     if (close_karkas) { rez.push(rez[0]); }
     return rez;
 }
+
+function createRibbon(mesh, pathArray, close) {
+    var positions = [];
+    var indices = [];
+    var normals = [];
+    var lg = [];        // array of path lengths : nb of vertex per path
+    var idx = [];       // array of path indexes : index of each path (first vertex) in positions array
+  
+    // traiter ici le cas un seul path avec le offset
+  
+    // positions
+    var idc = 0;
+    for(var p = 0; p < pathArray.length; p++) {
+      var path = pathArray[p];
+      var l = path.length;
+      lg[p] = l;
+      idx[p] = idc;
+      var j = 0;
+      while (j < l) {
+        positions.push(path[j].x, path[j].y, path[j].z);
+        j++;
+      }
+      idc += l;
+    }
+  
+    // indices
+    var p = 0;                    // path index
+    var i = 0;                    // positions array index
+    var l1 = lg[p] - 1;           // path1 length
+    var l2 = lg[p+1] - 1;         // path2 length
+    var min = ( l1 < l2 ) ? l1 : l2 ;   // index d'arrêt de i dans le path en cours
+    while ( i <= min && p < lg.length -1 ) { // on reste sur le min des deux paths et on ne va pas au delà de l'avant-dernier
+      var shft = idx[p+1] - idx[p];          // shift 
+        // draw two triangles between path1 (p1) and path2 (p2) : (p1.i, p2.i, p1.i+1) and (p2.i+1, p1.i+1, p2.i) clockwise
+        indices.push(i, i+shft, i+1);
+        indices.push(i+shft+1, i+1, i+shft);  
+      i += 1;
+      if ( i == min  ) {                      // dès qu'on atteint la fin d'un des deux paths consécutifs, on passe au suivant s'il existe
+        if (close) {                          // if close, add last triangles between start and end of the paths
+          indices.push(i, i+shft, idx[p]);
+          indices.push(idx[p]+shft, idx[p], i+shft);
+        }
+        p++;
+        l1 = lg[p] - 1;
+        l2 = lg[p+1] - 1;
+        i = idx[p];
+        min = ( l1 < l2 ) ? l1 + i : l2 + i;
+      }
+    }  
+  
+    BABYLON.VertexData.ComputeNormals(positions, indices, normals);
+  
+    mesh.setVerticesData(BABYLON.VertexBuffer.PositionKind, positions, false);
+    mesh.setVerticesData(BABYLON.VertexBuffer.NormalKind, normals, false);
+    mesh.setIndices(indices);
+}
+
+function showPathArray(apath){
+    for (i=0;i<apath.length;i++){ showPath(apath[i]); }
+}
+function showPath(path) {
+    var line = BABYLON.Mesh.CreateLines("line", path, scene )
+};
