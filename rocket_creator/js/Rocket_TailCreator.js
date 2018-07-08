@@ -58,7 +58,7 @@ function one_tail_maker(
     var a_ee0_pc = [e_dot0_p,e_dot0_p,e_dot0_c,e_dot0_c];
     
     var minus_center_ribbon = [ a_ee0_mc,a_ee1_mc];
-    // var minus_center_ribbon = [a_ee1_mc, a_ee0_mc];
+    // var minus_center_ribbon = [a_ee1_mc, a_ee0_mc]; // need reversed or black face
     var plus_center_ribbon = [a_ee1_pc, a_ee0_pc];
     
     var mass = 8; //for bezier number dots
