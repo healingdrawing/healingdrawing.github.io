@@ -11,7 +11,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2x = sx; r2y = sy+geo.sum_F([h[7],h[6]]);
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2 = r2;
-	var bez = bez_maker([t1,r1,r2,t2]);
+	var bez = bez_maker_from_vectors([t1,r1,r2,t2]);
 	
 	//h65h54
 	t1 = t2;
@@ -21,7 +21,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y+s[3];
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h54h43
@@ -33,7 +33,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//w4
@@ -45,7 +45,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h4
@@ -57,7 +57,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//w3
@@ -69,7 +69,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	//left mirrored contour
 	//h4m
@@ -81,7 +81,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//w4m
@@ -93,7 +93,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h34h45m
@@ -105,7 +105,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h45h56m
@@ -117,7 +117,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y-s[4] ;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h56h78m
@@ -129,7 +129,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//w5close
@@ -141,7 +141,7 @@ function metal_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	var myshape = bez;
 	// var myshapemesh = BABYLON.Mesh.CreateLines("metalshape", myshape.getPoints(), scene); 
@@ -154,7 +154,7 @@ function metal_maker(h, w, s, hull=false,extrude=100){
 	var oy = [0,1,0];
 	var c = [0,0,0];
 	var dot = [0,0,0]; var vn = [1,0,0]; var va = [0,1,0]; r = h[8];
-	var myPath = ring_trajectory(dot, vn, va, r);
+	var myPath = ring_trajectory(dot, vn, va, r, 16);
 	var myShape = metal_shape_for_extrusion(h,w,s,c);//bezier cubic spline for extrusion
 	var customExtrudeSettings={
 		shape: myShape,

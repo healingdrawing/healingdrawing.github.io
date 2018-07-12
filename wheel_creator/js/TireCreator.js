@@ -12,7 +12,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2x = sx; r2y = sy+h[4];
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2 = r2;
-	var bez = bez_maker([t1,r1,r2,t2]);
+	var bez = bez_maker_from_vectors([t1,r1,r2,t2]);
 	
 	
 	//h43h3
@@ -24,7 +24,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y+s[2]/2 ;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h3h32
@@ -32,11 +32,11 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	t1 = vec_maker([t1x,t1y, 0]);
 	r1x = t1x; r1y = t1y+s[2]/2 ;
 	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x+w[2]/2 ; r2y = t2y+s[2]/2 ;
+	r2x = x+w[2]/2 ; r2y = t2y+h[3]/2 ; //fixed
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h32h21
@@ -48,7 +48,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//w2
@@ -60,7 +60,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	//mirrored
 	//h12h23m
@@ -72,7 +72,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h23h3m
@@ -80,11 +80,11 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	t1 = vec_maker([t1x,t1y, 0]);
 	r1x = t1x; r1y = t1y;
 	r1 = vec_maker([r1x,r1y, 0]);
-	r2x = x-s[1]/2-h[2] ; r2y = r1y-h[3]/2+s[2]/2 ;
+	r2x = x-s[1]/2-h[2] ; r2y = r1y-h[3]/2+s[2]/2 ; //fixed
 	r2 = vec_maker([r2x,r2y, 0]);
-	t2x = r2x; t2y = r2y-s[2]/2 ;
+	t2x = r2x; t2y = r2y-h[3]/2 ;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h3h34m
@@ -96,7 +96,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//h34h45m
@@ -108,7 +108,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	
 	//try close
@@ -120,7 +120,7 @@ function tire_shape_for_extrusion(h,w,s,c=[0,0,0]){
 	r2 = vec_maker([r2x,r2y, 0]);
 	t2x = r2x; t2y = r2y;
 	t2 = vec_maker([t2x,t2y, 0]);
-	var bez = bez.continue(bez_maker([t1,r1,r2,t2]));
+	var bez = bez.continue(bez_maker_from_vectors([t1,r1,r2,t2]));
 	
 	var myshape = bez;
 	// var myshapemesh = BABYLON.Mesh.CreateLines("metalshape", myshape.getPoints(), scene); 
@@ -131,8 +131,8 @@ function tire_maker(h,w,s,hull=false){
 	var ox = [1,0,0];
 	var oy = [0,1,0];
 	var c = [0,0,0];
-	var dot = [0,0,0]; var vn = [1,0,0]; var va = [0,1,0]; r = geo.sum_F([h[8],h[7],h[6],h[5]]) ;
-	var myPath = ring_trajectory(dot, vn, va, r);
+	var dot = [0,0,0]; var vn = [1,0,0]; var va = [0,1,0]; var r = geo.sum_F([h[8],h[7],h[6],h[5]]) ;
+	var myPath = ring_trajectory(dot, vn, va, r, 16);
 	var myShape = tire_shape_for_extrusion(h,w,s,c);//bezier cubic spline for extrusion
 	var customExtrudeSettings={
 		shape: myShape,

@@ -59,7 +59,7 @@ function axes_creator (size) {
 	var zChar = makeTextPlane("Z", "blue", size / 10);
 	zChar.position = new BABYLON.Vector3(0, 0.05 * size, 0.9 * size);
 	var axesbox = [xChar, yChar, zChar, axisX, axisY, axisZ];
-	for (i=0;i<axesbox.length;i++) { axes.push(axesbox[i]); }
+	for (var i=0;i<axesbox.length;i++) { axes.push(axesbox[i]); }
 };
 
 
@@ -103,54 +103,54 @@ engine.resize();
 });
 
 //----------------geometry section
-function vec_maker(vec){ var vec3 = new BABYLON.Vector3(vec[0],vec[1],vec[2]); return vec3; }
-function bez_maker(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubicBezier(arc[0],arc[1],arc[2],arc[3],mass); return bez; }
-function ring_trajectory(dot,vn,va,r){
-	//vn=ox at this moment va = -oz
-	var vb = geo.vec3Drotate(va,vn,90);
-	var vad = geo.vecXDback(va);
-	var vbd = geo.vecXDback(vb);
-	var ta = geo.dotXDoffset(dot,va,r);
-	var tb = geo.dotXDoffset(dot,vb,r);
-	var tad = geo.dotXDoffset(dot,vad,r);
-	var tbd = geo.dotXDoffset(dot,vbd,r);
-	var a1 = [];
-	var a2 = [];
-	var a3 = [];
-	var a4 = [];
+// function vec_maker(vec){ var vec3 = new BABYLON.Vector3(vec[0],vec[1],vec[2]); return vec3; }
+// function bez_maker(arc,mass=4){ var bez = BABYLON.Curve3.CreateCubicBezier(arc[0],arc[1],arc[2],arc[3],mass); return bez; }
+// function ring_trajectory(dot,vn,va,r){
+// 	//vn=ox at this moment va = -oz
+// 	var vb = geo.vec3Drotate(va,vn,90);
+// 	var vad = geo.vecXDback(va);
+// 	var vbd = geo.vecXDback(vb);
+// 	var ta = geo.dotXDoffset(dot,va,r);
+// 	var tb = geo.dotXDoffset(dot,vb,r);
+// 	var tad = geo.dotXDoffset(dot,vad,r);
+// 	var tbd = geo.dotXDoffset(dot,vbd,r);
+// 	var a1 = [];
+// 	var a2 = [];
+// 	var a3 = [];
+// 	var a4 = [];
 	
-	var ac1 = geo.curve3D_3dots(dot,ta,tb);
-	var ac2 = geo.curve3D_3dots(dot,tb,tad);
-	var ac3 = geo.curve3D_3dots(dot,tad,tbd);
-	var ac4 = geo.curve3D_3dots(dot,tbd,ta);
+// 	var ac1 = geo.curve3D_3dots(dot,ta,tb);
+// 	var ac2 = geo.curve3D_3dots(dot,tb,tad);
+// 	var ac3 = geo.curve3D_3dots(dot,tad,tbd);
+// 	var ac4 = geo.curve3D_3dots(dot,tbd,ta);
 	
 	
 	
-	//curve dots as vectors
-	for (i=0;i<4;i++){
-		a1.push(vec_maker(ac1[i]));
-		a2.push(vec_maker(ac2[i]));
-		a3.push(vec_maker(ac3[i]));
-		a4.push(vec_maker(ac4[i]));
-	};
+// 	//curve dots as vectors
+// 	for (var i=0;i<4;i++){
+// 		a1.push(vec_maker(ac1[i]));
+// 		a2.push(vec_maker(ac2[i]));
+// 		a3.push(vec_maker(ac3[i]));
+// 		a4.push(vec_maker(ac4[i]));
+// 	};
 	
-	//bezier curves from vector arrays
-	var mass=8;
-	var arc1 = bez_maker(a1,mass);
-	var arc2 = bez_maker(a2,mass);
-	var arc3 = bez_maker(a3,mass);
-	var arc4 = bez_maker(a4,mass);
+// 	//bezier curves from vector arrays
+// 	var mass=8;
+// 	var arc1 = bez_maker_from_vectors(a1,mass);
+// 	var arc2 = bez_maker_from_vectors(a2,mass);
+// 	var arc3 = bez_maker_from_vectors(a3,mass);
+// 	var arc4 = bez_maker_from_vectors(a4,mass);
 	
-	var arc14 = arc1.continue(arc2.continue(arc3.continue(arc4)));
-	// var arc14mesh = BABYLON.Mesh.CreateLines("cbezier1", arc14.getPoints(), scene); arc14mesh.color = new BABYLON.Color3(1, 0.6, 0);
-	return arc14.getPoints();
-}
+// 	var arc14 = arc1.continue(arc2.continue(arc3.continue(arc4)));
+// 	// var arc14mesh = BABYLON.Mesh.CreateLines("cbezier1", arc14.getPoints(), scene); arc14mesh.color = new BABYLON.Color3(1, 0.6, 0);
+// 	return arc14.getPoints();
+// }
 //----------------end geometry section
 
 function whatdraw(){
 	//metal,bolts,tire,grips,tracks
 	var rez = [];
-	for (i=1;i<6;i++){
+	for (var i=1;i<6;i++){
 		rez.push(document.getElementById("cbox_s" + i.toString() ).checked);
 	}
 	rez.push(document.getElementById( "axes" ).checked)
@@ -179,7 +179,7 @@ function mix_bolt_angles(){
 	if (ba_input.value != "0"){ ba_input.value = "0"; }
 	else{
 		var rezbox = [];
-		for (i=0;i<4;i++){
+		for (var i=0;i<4;i++){
 			rezbox.push( (Math.random() * 180).toString().split(".")[0] );
 		}
 		var rez= rezbox.join(" ");
@@ -253,19 +253,20 @@ function clearall(){
 	else{
 		if(metal) { metal.dispose(false,true); metal = null; }
 		if(tire) { tire.dispose(false,true); tire = null; }
-		if(bolts) { for(i=0;i<bolts.length;i++){bolts[i].dispose(false,true);} bolts=[]; }
-		if(grips) { for(i=0;i<grips.length;i++){grips[i].dispose(false,true);} grips=[]; }
-		if(tracks) { for(i=0;i<tracks.length;i++){tracks[i].dispose(false,true);} tracks=[]; }
+		if(bolts) { for(var i=0;i<bolts.length;i++){bolts[i].dispose(false,true);} bolts=[]; }
+		if(grips) { for(var i=0;i<grips.length;i++){grips[i].dispose(false,true);} grips=[]; }
+		if(tracks) { for(var i=0;i<tracks.length;i++){tracks[i].dispose(false,true);} tracks=[]; }
 	}
-	if (axes){ for(i=0;i<axes.length;i++) { axes[i].dispose(false, true); } axes = []; }
+	if (axes){ for(var i=0;i<axes.length;i++) { axes[i].dispose(false, true); } axes = []; }
 }
 
 var OBJexport;
 // work but big
 function prepare_objects_for_export(objs){
 	var rez = []
-	for (i=0;i<objs.length;i++){
+	for (var i=0;i<objs.length;i++){
 		var fullmesh = objs[i].bakeCurrentTransformIntoVertices();
+		
 		rez.push(fullmesh);
 	}
 	return rez;
@@ -276,9 +277,9 @@ function save_objmesh(){
 	var exportobjects = []; //exported mesh array
 	if (metal) { exportobjects.push(metal); }
 	if (tire) { exportobjects.push(tire); }
-	if (bolts) { for (i=0;i<bolts.length;i++) { exportobjects.push(bolts[i]); } }
-	if (grips) { for (i=0;i<grips.length;i++) { exportobjects.push(grips[i]); } }
-	if (tracks) { for (i=0;i<tracks.length;i++) { exportobjects.push(tracks[i]); } }
+	if (bolts) { for (var i=0;i<bolts.length;i++) { exportobjects.push(bolts[i]); } }
+	if (grips) { for (var i=0;i<grips.length;i++) { exportobjects.push(grips[i]); } }
+	if (tracks) { for (var i=0;i<tracks.length;i++) { exportobjects.push(tracks[i]); } }
 	
 	OBJexport = prepare_objects_for_export(exportobjects);
 	
