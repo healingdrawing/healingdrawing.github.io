@@ -65,24 +65,39 @@ function bolt_maker(neg,dot,u,b){
 	return newMesh;
 }
 function bolt3_maker(neg,dot,u,b){
-    if(neg){
-        var db=b[2] * 2;
-        var dt=0;
-        var vx=[-1,0,0];
-    }else{
-        var dt=b[2] * 2;
-        var db=0;
-        var vx = [1,0,0];
-    }
-    var meshSettings={
-        height:b[1],
-        diameterBottom:db,
-        diameterTop:dt,
-        tessellation:3
-    };
-    var bolt3 = BABYLON.MeshBuilder.CreateCylinder("bolt3", meshSettings, scene);
-    bolt3.position = vec_maker(geo.dotXDoffset(dot,vx,b[1] / 2));
-    bolt3.rotate(new BABYLON.Vector3(0,0,1),geo.radians(90),BABYLON.Space.LOCAL);
+    // if(neg){
+    //     var db=b[2] * 2;
+    //     var dt=0;
+    //     var vx=[-1,0,0];
+    // }else{
+    //     var dt=b[2] * 2;
+    //     var db=0;
+    //     var vx = [1,0,0];
+    // }
+    // var meshSettings={
+    //     height:b[1],
+    //     diameterBottom:db,
+    //     diameterTop:dt,
+    //     tessellation:3
+    // };
+    // var bolt3 = BABYLON.MeshBuilder.CreateCylinder("bolt3", meshSettings, scene);
+    // bolt3.position = vec_maker(geo.dotXDoffset(dot,vx,b[1] / 2));
+    // bolt3.rotate(new BABYLON.Vector3(0,0,1),geo.radians(90),BABYLON.Space.LOCAL);
+    // bolt3.rotateAround(vec_maker(dot),new BABYLON.Vector3(1,0,0),geo.radians(u),BABYLON.Space.LOCAL);
+    // return bolt3;
+    
+    //new code - ribbons syntax
+    var triangle = geo.polygon3D_in_plane(dot,[1,0,0],[0,1,0],[1,1,1],[b[2],b[2],b[2]]);
+    triangle.shift(); //center removed from array
+    if (neg){ var vx = [-1,0,0]; } else { var vx = [1,0,0]; }
+    var verdot = geo.dotXDoffset(dot,vx,b[1]);
+    var lines = [];
+    for (var i=0;i<triangle.length;i++){ lines.push( [triangle[i],triangle[i],verdot,verdot] ); }
+    lines.push(lines[0]); //karkas ready
+    //may be need lines.reverse() need test
+    if (!neg){ lines.reverse(); } //this make good normals after export import process in meshlab, but on screen babylonjs all variants look coloring
+    var skeleton = bez_array_getPoints_maker(lines);
+    var bolt3 = BABYLON.MeshBuilder.CreateRibbon("bolt3", { pathArray: skeleton },  scene );
     bolt3.rotateAround(vec_maker(dot),new BABYLON.Vector3(1,0,0),geo.radians(u),BABYLON.Space.LOCAL);
     return bolt3;
 }
@@ -143,7 +158,7 @@ function bolts_center_offset(bsdots,bolt_angles,c,vn,va, b2){
     rez = [];
     var negativepolygon = bsdots.length / 2;
     var bw = w[5]/2;
-    for (i=0;i<negativepolygon * 2;i++){
+    for (var i=0;i<negativepolygon * 2;i++){
         var tc = geo.dotXDoffset(c,vn,bw);
         var vc = va;
         vc = geo.vec3Drotate(vc,vn,bolt_angles[i]);//rotated bolt vec
