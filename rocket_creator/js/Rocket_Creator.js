@@ -234,6 +234,7 @@ function Rocket_Creator(){
 	var va = [0,1,0]; //oy
 	base_maker(d,dz,vn,va,c);
 	tail_maker(d,dz,vn,va,c);
+	bottle_maker(d,dz,vn,va,c);
 	
 	
 	// if (dp[5]) { axes_creator(400); }

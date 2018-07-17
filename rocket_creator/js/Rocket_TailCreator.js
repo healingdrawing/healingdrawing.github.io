@@ -69,9 +69,8 @@ function one_tail_maker(
     var name = ["big_","minus_","plus_"];
     
     for (var i=0;i<3;i++){
-        tail_section.push( new BABYLON.Mesh(id + name[i] + i.toString() , scene) );
+        tail_section.push( BABYLON.MeshBuilder.CreateRibbon(id + name[i] + i.toString(), { pathArray: skeleton[i] },  scene )  );
         var ind = tail_section.length-1;
-        createRibbon(tail_section[ind], skeleton[i], false);
         console.log(tail_section[ind]);
         tail_section[ind].material = tail_section_mat[mat_ind-1];
     }

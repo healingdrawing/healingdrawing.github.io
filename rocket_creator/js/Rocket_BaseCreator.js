@@ -21,14 +21,14 @@ function base_maker(d,dz,vn,va,c){
             }
             var arc = [dot0,lever0,lever1,dot1]; // arc for ribbon
             var mass = 8;
-            var skeleton = bezier_rotated_karkas_maker(arc,c,vn,mass);
+            var skeleton = arc4_rotated_karkas_maker(arc,c,vn,mass);
             skeleton = bez_array_getPoints_maker(skeleton,mass); //BABYLON bezier curves array getPoints
             showPathArray(skeleton);
             console.log(skeleton);
             
-            base_section.push( new BABYLON.Mesh("meshExp"+i.toString() , scene) );
+            base_section.push( BABYLON.MeshBuilder.CreateRibbon("meshExp"+i.toString(), { pathArray: skeleton },  scene )  );
+            
             var ind = base_section.length-1;
-            createRibbon(base_section[ind], skeleton, false);
             console.log(base_section[ind]);
             base_section[ind].material = base_section_mat[i-1];
             
