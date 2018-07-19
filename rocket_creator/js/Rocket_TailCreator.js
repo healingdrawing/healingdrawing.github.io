@@ -61,8 +61,9 @@ function one_tail_maker(
     // var minus_center_ribbon = [a_ee1_mc, a_ee0_mc]; // need reversed or black face
     var plus_center_ribbon = [a_ee1_pc, a_ee0_pc];
     
-    var mass = 8; //for bezier number dots
+    var mass = 20; //for bezier number dots
     var big_skeleton = bez_array_getPoints_maker(big_ribbon_skeleton,mass);
+    mass = 8;
     var minus_skeleton = bez_array_getPoints_maker(minus_center_ribbon,mass);
     var plus_skeleton = bez_array_getPoints_maker(plus_center_ribbon,mass);
     var skeleton = [big_skeleton,minus_skeleton,plus_skeleton];
@@ -71,7 +72,7 @@ function one_tail_maker(
     for (var i=0;i<3;i++){
         tail_section.push( BABYLON.MeshBuilder.CreateRibbon(id + name[i] + i.toString(), { pathArray: skeleton[i] },  scene )  );
         var ind = tail_section.length-1;
-        console.log(tail_section[ind]);
+        // console.log(tail_section[ind]);
         tail_section[ind].material = tail_section_mat[mat_ind-1];
     }
 }

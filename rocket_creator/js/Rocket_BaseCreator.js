@@ -1,6 +1,6 @@
 
 function base_maker(d,dz,vn,va,c){
-    console.log("dz = ",dz);
+    // console.log("dz = ",dz);
     for (var i=1;i<6;i++){ //section number loop
         var section_radius = d[i][1];
         if (section_radius > 0){ //if <= 0 then not draw base section
@@ -20,18 +20,19 @@ function base_maker(d,dz,vn,va,c){
                 else{ lever1 = geo.dotXDoffset(lever1,va,cur*section_radius); } //rocket nose
             }
             var arc = [dot0,lever0,lever1,dot1]; // arc for ribbon
-            var mass = 8;
+            var mass = 60;
             var skeleton = arc4_rotated_karkas_maker(arc,c,vn,mass);
+            mass = 20;
             skeleton = bez_array_getPoints_maker(skeleton,mass); //BABYLON bezier curves array getPoints
-            showPathArray(skeleton);
-            console.log(skeleton);
+            // showPathArray(skeleton);
+            // console.log(skeleton);
             
             base_section.push( BABYLON.MeshBuilder.CreateRibbon("meshExp"+i.toString(), { pathArray: skeleton },  scene )  );
             
             var ind = base_section.length-1;
-            console.log(base_section[ind]);
+            // console.log(base_section[ind]);
             base_section[ind].material = base_section_mat[i-1];
             
         }
-    }console.log("bs",base_section);
+    }//console.log("bs",base_section);
 }

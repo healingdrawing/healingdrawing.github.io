@@ -223,7 +223,7 @@ function offset_counter(d){
 }
 
 function Rocket_Creator(){
-	// clearall();
+	clearall();
 	// var dp = whatdraw(); //drawparts
 	var d=gui_reader(); //GuiReader.js
 	var dz = offset_counter(d)//offset for each section from 0 along z axis (length axis)
@@ -233,32 +233,34 @@ function Rocket_Creator(){
 	var c = [0,0,0] //center dot
 	var vn = [0,0,1]; //oz
 	var va = [0,1,0]; //oy
+	if (document.getElementById("axes").checked && axes.length==0){ console.log("show axes");  axes_creator(400); }
 	base_maker(d,dz,vn,va,c);
 	tail_maker(d,dz,vn,va,c);
 	ring_maker(d,dz,vn,va,c);
 	bottle_maker(d,dz,vn,va,c);
 	
-	
-	// if (dp[5]) { axes_creator(400); }
-	
-	// if (dp[0]) { metal = metal_maker(h,w,s); }
-	// if (dp[2]) { tire = tire_maker(h,w,s); }
-	// if (dp[1]) { bolts = bolts_maker(h,w,s,b); }
-	// if (dp[3]) { grips = grips_maker(h,w,s,g); }
-	// if (dp[4]) { tracks = tracks_maker(h,w,s,g); }
 	showme("complete");
 }
 
-function clearall(){
+function clearall(force=false){
 	if (fresh) { fresh = false; }
 	else{
-		if(metal) { metal.dispose(false,true); metal = null; }
-		if(tire) { tire.dispose(false,true); tire = null; }
-		if(bolts) { for(i=0;i<bolts.length;i++){bolts[i].dispose(false,true);} bolts=[]; }
-		if(grips) { for(i=0;i<grips.length;i++){grips[i].dispose(false,true);} grips=[]; }
-		if(tracks) { for(i=0;i<tracks.length;i++){tracks[i].dispose(false,true);} tracks=[]; }
+		if (base_section) { for(var i=0;i<base_section.length;i++){base_section[i].material.dispose(true,true); base_section[i].dispose(false,true);} base_section=[]; }
+		if (tail_section) { for(var i=0;i<tail_section.length;i++){tail_section[i].dispose(false,true);} tail_section=[]; }
+		if (ring_section) { for(var i=0;i<ring_section.length;i++){ring_section[i].dispose(false,true);} ring_section=[]; }
+		if (bottle_section) { for(var i=0;i<bottle_section.length;i++){bottle_section[i].dispose(false,true);} bottle_section=[]; }
+		for (var i=0;i<5;i++){
+			base_section_mat[i].dispose(true,true);
+			tail_section_mat[i].dispose(true,true);
+			bottle_section_mat[i].dispose(true,true);
+		}
+		base_section_mat=[];
+		tail_section_mat=[];
+		bottle_section_mat=[];
+		scene.resetCachedMaterial();
 	}
-	if (axes){ for(i=0;i<axes.length;i++) { axes[i].dispose(false, true); } axes = []; }
+	if (axes){ for(var i=0;i<axes.length;i++) { axes[i].dispose(false, true); } axes = []; }
+	if (force){fresh = true;}
 }
 
 var OBJexport;

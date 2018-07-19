@@ -27,11 +27,12 @@ function one_bottle_maker(
     curve2.reverse(); //reverse curve for connection
     var arrarc = [curve1,curve2];
     // console.log(JSON.stringify( arrarc ));//ok
-    var mass = 8; //number of repeats around axis, into rotated karkas
+    var mass = 60; //number of repeats around axis, into rotated karkas
     var karkas = continued_arc4_rotated_karkas_maker(arrarc,cdot,vn,mass);
-    console.log( karkas );//??? ? LOOKS LIKE THIS SHIP PLACE
+    // console.log( karkas );//??? ? LOOKS LIKE THIS SHIP PLACE
     //need another mass that configure quality
-    var skeleton = continued_bez_array_getPoints_maker(karkas);
+    mass = 20;
+    var skeleton = continued_bez_array_getPoints_maker(karkas,mass);
     
     
     bottle_section.push( BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: skeleton },  scene )  );

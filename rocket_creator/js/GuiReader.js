@@ -4,7 +4,7 @@ showme("preparing GuiReader.js");
 function max_length(d){
 	var rez = 0;
 	for (i=1;i<6;i++){
-		console.log("length",d[i][0].toString() );
+		// console.log("length",d[i][0].toString() );
 		rez += d[i][0];
 	}
 	console.log("max_length",rez);
@@ -62,8 +62,8 @@ function gui_data_reader(){
 			else{ d[i].push( parseFloat(document.getElementById(id).value) ); }
 		}
 	}
-	console.log(JSON.stringify(section_ids));
-	console.log(JSON.stringify(d));
+	// console.log(JSON.stringify(section_ids));
+	// console.log(JSON.stringify(d));
 	return d;
 }
 function gui_reader(){
@@ -72,8 +72,8 @@ function gui_reader(){
 	var scale = scale_counter(d);
 	var d = rescale_numbers(d,scale);
 	// sizes collected and rescaled
-	console.log("scale = "+scale);
-	console.log(JSON.stringify(d));
+	// console.log("scale = "+scale);
+	// console.log(JSON.stringify(d));
 	return d;
 }
 showme("GuiReader.js ready");

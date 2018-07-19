@@ -30,11 +30,12 @@ function one_ring_maker(
     curve4.reverse(); //for continued connection
     var arrarc = [curve1,curve2,curve3,curve4];
     // console.log(JSON.stringify( arrarc ));//ok
-    var mass = 8; //number of repeats around axis, into rotated karkas
+    var mass = 60; //number of repeats around axis, into rotated karkas
     var karkas = continued_arc4_rotated_karkas_maker(arrarc,c,vn,mass);
-    console.log( karkas );//??? ? LOOKS LIKE THIS SHIP PLACE .... ship ))))
+    // console.log( karkas );//??? ? LOOKS LIKE THIS SHIP PLACE .... ship ))))
     //need another mass that configure quality
-    var skeleton = continued_bez_array_getPoints_maker(karkas);
+    mass = 20;
+    var skeleton = continued_bez_array_getPoints_maker(karkas,mass);
     
     
     ring_section.push( BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: skeleton },  scene )  );
