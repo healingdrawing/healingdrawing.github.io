@@ -7,6 +7,7 @@ var geo = new GeometryXD();
 var fresh = true;
 var base_section=[]; var base_section_mat=[];
 var tail_section=[]; var tail_section_mat=[];
+var ring_section=[]; // mat same as tail
 var bottle_section=[]; var bottle_section_mat=[];
 var axes=[]; //3mesh + 3 text
 
@@ -234,6 +235,7 @@ function Rocket_Creator(){
 	var va = [0,1,0]; //oy
 	base_maker(d,dz,vn,va,c);
 	tail_maker(d,dz,vn,va,c);
+	ring_maker(d,dz,vn,va,c);
 	bottle_maker(d,dz,vn,va,c);
 	
 	

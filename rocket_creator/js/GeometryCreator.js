@@ -1,3 +1,15 @@
+//random section for _RandomCreator.js
+//random float include borders
+function random_num(min=0,max=1){
+    return Math.random()*(max - min)+min ;
+}
+//random integer include borders . Just Math.round(random_num(min,max))
+function random_int(min=0,max=1){
+    return Math.round(random_num(min,max));
+}
+
+//geomentry bridge section for connection between geo.js(GeometryXD haxe library) and babylonjs
+
 /**create BABYLON.Vector3 from list [number,number,number] */
 function vec_maker(vec){ var vec3 = new BABYLON.Vector3(vec[0],vec[1],vec[2]); return vec3; }
 
