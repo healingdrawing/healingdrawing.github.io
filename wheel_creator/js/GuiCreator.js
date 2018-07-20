@@ -369,7 +369,7 @@ function start_data_writer(){
         "h1","h2","h3","h4","h5","h6","h7","h8","export_resolution",
         "w1","w2","w3","w4","w5","b1","b2","b3","b4",
         "s1","s2","s3","s4","s5","s6","s7","s8",
-        "intensity_ambient",
+        "intensity_ambient","color_ground_ambient",
         "x_ambient","y_ambient","z_ambient",
         "intensity_directional",
         "x_directional","y_directional","z_directional",
@@ -382,7 +382,7 @@ function start_data_writer(){
         20,100,500,100,100,100,100,100,900,
         500,600,550,100,550,50,50,6,0,
         900,100,100,100,-4,60,50,0,//later back to more big numbers 1 5 10
-        1,
+        1,"#000000",
         1,1,1,
         1,
         500,500,500,
