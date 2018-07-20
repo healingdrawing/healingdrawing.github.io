@@ -1,4 +1,4 @@
-rocket creator gui data from Fri Jul 20 2018 22:16:22 GMT+0300 (MSK) https://healingdrawing.github.io/
+rocket creator gui data from Fri Jul 20 2018 23:08:22 GMT+0300 (MSK) https://healingdrawing.github.io/
 base_length_1 12.7
 base_radius_1 5.7
 base_curvature%_1 42
@@ -59,7 +59,7 @@ bottle_length_5 40
 bottle_radius_5 0
 bottle_offset_5 0
 ring_radius_5 0
-color_base_1 #ca791c
+color_base_1 #9a6426
 color_tail_1 #2ac164
 color_bottle_1 #1ea2e3
 ring_length_1 20
@@ -71,7 +71,7 @@ tail_start_width_1 20
 tail_end_width_1 10
 tail_number_1 4
 ring_offset_1 0
-color_base_2 #9a6426
+color_base_2 #78542b
 color_tail_2 #2ac164
 color_bottle_2 #1ea2e3
 ring_length_2 20
@@ -83,7 +83,7 @@ tail_start_width_2 20
 tail_end_width_2 10
 tail_number_2 4
 ring_offset_2 0
-color_base_3 #9a6426
+color_base_3 #78542b
 color_tail_3 #2ac164
 color_bottle_3 #1ea2e3
 ring_length_3 20
@@ -95,7 +95,7 @@ tail_start_width_3 20
 tail_end_width_3 10
 tail_number_3 4
 ring_offset_3 0
-color_base_4 #9a6426
+color_base_4 #78542b
 color_tail_4 #2ac164
 color_bottle_4 #1ea2e3
 ring_length_4 20
@@ -107,7 +107,7 @@ tail_start_width_4 20
 tail_end_width_4 10
 tail_number_4 4
 ring_offset_4 0
-color_base_5 #9a6426
+color_base_5 #78542b
 color_tail_5 #2ac164
 color_bottle_5 #1ea2e3
 ring_length_5 20
@@ -120,17 +120,22 @@ tail_end_width_5 10
 tail_number_5 4
 ring_offset_5 0
 intensity_ambient 1
+color_ambient #ffffff
 x_ambient -1
 y_ambient 1
 z_ambient 1
+color_ground_ambient #000000
 intensity_directional 1
+color_directional #ffffff
 x_directional -500
 y_directional -500
 z_directional 300
 intensity_point 1
+color_point #ffffff
 x_point -500
 y_point -500
 z_point 0
+color_background #ffffff
 distance_view 360.03991439976124
 y_view -90
 z_view 0.5729577951308232

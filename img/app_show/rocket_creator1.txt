@@ -1,4 +1,4 @@
-rocket creator gui data from Fri Jul 20 2018 21:13:50 GMT+0300 (MSK) https://healingdrawing.github.io/
+rocket creator gui data from Fri Jul 20 2018 23:00:05 GMT+0300 (MSK) https://healingdrawing.github.io/
 base_length_1 183
 base_radius_1 91
 base_curvature%_1 100
@@ -39,7 +39,7 @@ base_length_4 147
 base_radius_4 63
 base_curvature%_4 100
 tail_radius_4 160
-tail_start_offset_4 20
+tail_start_offset_4 15
 tail_start_length_4 60
 tail_end_offset_4 -170
 tail_end_length_4 80
@@ -120,17 +120,22 @@ tail_end_width_5 11
 tail_number_5 3
 ring_offset_5 -28
 intensity_ambient 0.5
+color_ambient #ffffff
 x_ambient 1
 y_ambient 1
 z_ambient 1
+color_ground_ambient #000000
 intensity_directional 0.5
+color_directional #ffffff
 x_directional 500
 y_directional 500
 z_directional 500
 intensity_point 0.3
+color_point #ffffff
 x_point 500
 y_point 500
 z_point 500
-distance_view 230.01522725759182
+color_background #ffffff
+distance_view 230
 y_view 135
 z_view 45

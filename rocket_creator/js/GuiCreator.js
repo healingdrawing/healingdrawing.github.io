@@ -356,13 +356,15 @@ function id_value(id,value){
 var ids = [];
 function start_data_writer(){
     var lamp_ids = [
-        "intensity_ambient",
-        "x_ambient","y_ambient","z_ambient",
-        "intensity_directional",
+        "intensity_ambient","color_ambient",
+        "x_ambient","y_ambient","z_ambient","color_ground_ambient",
+        
+        "intensity_directional","color_directional",
         "x_directional","y_directional","z_directional",
         
-        "intensity_point",
+        "intensity_point","color_point",
         "x_point","y_point","z_point",
+        "color_background",
         "distance_view","y_view","z_view" //tr18
     ];
     
@@ -387,13 +389,15 @@ function start_data_writer(){
     ];
     var lamp_values = [
         
-        1,
-        1,1,1,
-        1,
+        1,"#FFFFFF",
+        1,1,1,"#000000",
+        
+        1,"#FFFFFF",
         500,500,500,
         
-        0.3,
+        0.3,"#FFFFFF",
         500,500,500,
+        "#FFFFFF",
         800,45,45//tr18 lamp
     ];
     
