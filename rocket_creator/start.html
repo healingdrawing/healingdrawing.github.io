@@ -52,11 +52,22 @@
                                 <div id="tab_c2"></div>
                                 <div id="tab_c3"></div>
                                 <div id="tab_c4">
-                                    <button class="b200px" onclick="rocket_random_full()" title="random full rocket">random rocket</button>
-                                    <br><input type="checkbox" id="hide_ring" title="hide_ring">
-                                    <input type="checkbox" id="hide_base" title="hide_base">
-                                    <input type="checkbox" id="hide_tail" title="hide_tail">
-                                    <input type="checkbox" id="hide_botl" title="hide_botl">
+                                    <table>
+                                        <tr>
+                                            <td><input id="export_resolution" value="800" title="PNG box export resolution (side px)"></td>
+                                            <td>
+                                                <input type="checkbox" id="hide_base" title="hide_base">
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="hide_tail" title="hide_tail">
+                                                <input type="checkbox" id="hide_ring" title="hide_ring">
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="hide_botl" title="hide_botl">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br><button class="b200px" onclick="rocket_random_full()" title="random full rocket">random rocket</button>
                                     <br><button class="b50px" onclick="rocket_random_section(1)" title="random full section 1">full</button>
                                     <button class="b50px" onclick="rocket_random_base(1)" title="random base section 1">base</button>
                                     <button class="b50px" onclick="rocket_random_tail(1)" title="random tail section 1">tail</button>
@@ -89,11 +100,10 @@
                                     <br>OBJ -&gt; export model to OBJ file
                                     <hr>
                                     "wireframe" and "xyz axes"
-                                    <br>checboxes changes need
-                                    <br>full model recalculation
+                                    <br>need full recalculation
                                     <hr>
-                                    tested uses Firefox / chromium
-                                    <br>release date 28-06-2018
+                                    Firefox / chromium tested
+                                    <br>release date 2018-07-20
                                     <hr>
                                     <a href="mailto:lenivaya10003@mail.ru">developer contact email</a>
                                     <hr>

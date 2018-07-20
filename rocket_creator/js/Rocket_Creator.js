@@ -1,4 +1,4 @@
-showme("preparing wheelcreator.js");
+showme("preparing Rocket_Creator.js");
 var maxsize = 200; // radius max size for wheel , that scaling other sizes to camera field;
 
 var geo = new GeometryXD();
@@ -274,21 +274,20 @@ function prepare_objects_for_export(objs){
 	return rez;
 }
 function save_objmesh(){
-	var text = "Attention! If you try export bolts or grips or tracks, export can be super long or impossible,\ndepend of your environment and wheel configuration.\nBecause huge number objects have a huge data of numbers.\n\nFor example firefox javascript engine have RAM limit of usage, etc.\nYou can try use chrome/chromium, export the model piece by piece(\"LOOK\" tab checkboxes), that later to collect it in full.\n\nDefault configuration, which you can see when start the app (metal + bolts + tire + grips + tracks),\nuses PC configuration (dual core AMD APU with integrated video 1Gb , CPU 3.4 Ghz, 8Gb RAM),\ncan be rendered with result file have 35 mb size.\nIf wheel have huge number of elements (bolts or grips or tracks)\nfirefox can fail with error \"allocation size overflow\", which you can see after press \"F12\" keyboard.\n\nWhen you see message about \"long running script\", just ignore it, when script will be completed message disappear."
-	if (bolts || grips || tracks) { alert(text); }
+	var text = "Attention! If you try export bottles or tail, export can be super long or impossible,\ndepend of your environment and rocket configuration.\nBecause huge number objects have a huge data of numbers.\n\nFor example firefox javascript engine have RAM limit of usage, etc.\nYou can try use chrome/chromium, export the model piece by piece(\"LOOK\" tab checkboxes), that later to collect it in full.\n\nDefault configuration, which you can see when start the app (base + tail + ring + bottle),\nuses PC configuration (dual core AMD APU with integrated video 1Gb , CPU 3.4 Ghz, 8Gb RAM),\ncan be exported with result file have 21 mb size.\nIf rocket have huge number of elements (bottles or tail)\nfirefox can fail with error \"allocation size overflow\", which you can see after press \"F12\" keyboard.\n\nWhen you see message about \"long running script\", just ignore it, when script will be completed message disappear."
+	if (bottle_section.length>0 || tail_section.length>0) { alert(text); }
 	var exportobjects = []; //exported mesh array
-	if (metal) { exportobjects.push(metal); }
-	if (tire) { exportobjects.push(tire); }
-	if (bolts) { for (var i=0;i<bolts.length;i++) { exportobjects.push(bolts[i]); } }
-	if (grips) { for (var i=0;i<grips.length;i++) { exportobjects.push(grips[i]); } }
-	if (tracks) { for (var i=0;i<tracks.length;i++) { exportobjects.push(tracks[i]); } }
+	if (base_section.length>0) { for (var i=0;i<base_section.length;i++) { exportobjects.push(base_section[i]); } }
+	if (tail_section.length>0) { for (var i=0;i<tail_section.length;i++) { exportobjects.push(tail_section[i]); } }
+	if (ring_section.length>0) { for (var i=0;i<ring_section.length;i++) { exportobjects.push(ring_section[i]); } }
+	if (bottle_section.length>0) { for (var i=0;i<bottle_section.length;i++) { exportobjects.push(bottle_section[i]); } }
 	
 	OBJexport = prepare_objects_for_export(exportobjects);
 	
 	var a = document.getElementById('OBJexport');
 	var text = BABYLON.OBJExport.OBJ(OBJexport);
 	var type = "text/plain";
-	var name = "exported_wheel.obj";
+	var name = "exported_rocket.obj";
 	var file = new Blob([text], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
@@ -309,7 +308,7 @@ function change_camera_test(al,be){
 	document.getElementById("z_view").value = be;
 	
 }
-showme("wheelcreator.js ready");
+showme("Rocket_Creator.js ready");
 
 function PNGexport(){
 	var exp_res = document.getElementById("export_resolution").value; //export resolution / box side size px

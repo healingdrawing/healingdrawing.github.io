@@ -4,10 +4,8 @@ showme("preparing GuiReader.js");
 function max_length(d){
 	var rez = 0;
 	for (i=1;i<6;i++){
-		// console.log("length",d[i][0].toString() );
 		rez += d[i][0];
 	}
-	console.log("max_length",rez);
 	return rez;
 }
 function max_radius(d){
@@ -23,7 +21,6 @@ function max_radius(d){
 	var rez = Math.max(
 		geo.maxabs(base_r),geo.maxabs(tail_r),geo.maxabs(ring_r)
 	);
-	console.log("max_radius",rez);
 	return rez;
 }
 function scale_counter(d){

@@ -105,6 +105,17 @@ function rocket_random_botl(n,full=false,hide_botl){
 	if (n>0 && !full){ Rocket_Creator(); } //if 0 then full random call later
 }
 
+function rocket_random_section(n){
+	var hide_base = document.getElementById("hide_base").checked;
+	var hide_tail = document.getElementById("hide_tail").checked;
+	var hide_ring = document.getElementById("hide_ring").checked;
+	var hide_botl = document.getElementById("hide_botl").checked;
+	rocket_random_base(n,true,hide_base);
+	rocket_random_tail(n,true,hide_tail,hide_ring);
+	rocket_random_botl(n,true,hide_botl);
+	Rocket_Creator();
+}
+
 function rocket_random_full(){
 	for (var i = 1;i<6;i++){
 		var hide_base = document.getElementById("hide_base").checked;
