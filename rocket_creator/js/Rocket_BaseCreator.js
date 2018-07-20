@@ -17,7 +17,10 @@ function base_maker(d,dz,vn,va,c){
                     lever0 = geo.dotXDoffset(lever0,vn,cur*section_length);
                     lever1 = geo.dotXDoffset(lever1,vn,-cur*section_length);
                 }
-                else{ lever1 = geo.dotXDoffset(lever1,va,cur*section_radius); } //rocket nose
+                else{ //rocket nose
+                    if (cur < - 1){ cur = -1;} else if (cur > 1){cur = 1;}
+                    lever1 = geo.dotXDoffset(lever1,va,cur*section_radius);
+                }
             }
             var arc = [dot0,lever0,lever1,dot1]; // arc for ribbon
             var mass = 60;

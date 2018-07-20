@@ -19,9 +19,13 @@ function one_bottle_maker(
     // console.log(JSON.stringify( cdot ));//ok
     //complex bezier from two curves for rotation
     var dot1 = geo.dotXDoffset(cdot,vn,-bottle_length / 2);
-    var lever1 = geo.dotXDoffset(dot1,vr,bottle_radius * cur);
-    var lever2 = geo.dotXDoffset(cdot,vr,bottle_radius);
-    var dot2 = lever2;
+    // var lever1 = geo.dotXDoffset(dot1,vr,bottle_radius * cur);
+    // var lever2 = geo.dotXDoffset(cdot,vr,bottle_radius);
+    // var dot2 = lever2;
+    var lever1 = dot1;
+    var dot2 = geo.dotXDoffset(cdot,vr,bottle_radius);
+    var lever2 = geo.dotXDoffset(dot2,vn,-bottle_length / 2 * cur);
+    
     var curve1 = [dot1,lever1,lever2,dot2];
     var curve2 = geo.curve3Drotate(curve1,cdot,vr,180);
     curve2.reverse(); //reverse curve for connection

@@ -19,9 +19,13 @@ function one_ring_maker(
     // console.log(JSON.stringify( cdot ));//ok
     //complex bezier from two curves for rotation
     var dot1 = geo.dotXDoffset(cdot,vn,-ring_length / 2);
-    var lever1 = geo.dotXDoffset(dot1,vr,ring_width / 2 * cur);
-    var lever2 = geo.dotXDoffset(cdot,vr,ring_width / 2);
-    var dot2 = lever2;
+    // var lever1 = geo.dotXDoffset(dot1,vr,ring_width / 2 * cur);
+    // var lever2 = geo.dotXDoffset(cdot,vr,ring_width / 2);
+    // var dot2 = lever2;
+    var lever1 = dot1;
+    var dot2 = geo.dotXDoffset(cdot,vr,ring_width / 2);
+    var lever2 = geo.dotXDoffset(dot2,vn,-ring_length / 2 * cur);
+    
     var curve1 = [dot1,lever1,lever2,dot2];
     var curve2 = geo.curve3Drotate(curve1,cdot,vr,180);
     var curve3 = geo.curve3Drotate(curve2,cdot,vn,180);
