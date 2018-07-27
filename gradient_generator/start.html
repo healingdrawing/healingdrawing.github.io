@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gradient Generator 2018</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+        <script type="text/javascript" src="js/babylon.js"></script>
+    </head>
+    
+    <body>
+        <table id="infotable">
+            <tr>
+                <td class="mini">Gradient Generator from <a href="https://healingdrawing.github.io/" target="_blank">Healing Drawing</a></td>
+                <td><input id="info" readonly value="preparing"></td>
+            </tr>
+        </table>
+        <hr>
+        <table>
+            <tbody>
+                <tr>
+                    <td><button class="boxbutton" type="button" onclick="" title="">random<br>all</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">save<br>ggr</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">save<br>SVG</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">save<br>seed</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">save<br>GUI</button></td>
+                    
+                    <td><input class="slider" min="0" max="100" value="50" step="1" type="range" title="">center hole radius %</td>
+                </tr>
+                <tr>
+                    <td><button class="boxbutton" type="button" onclick="" title="">random<br>step</button></td>
+                    <td id="viewbox" colspan="3" rowspan="3">place to display result</td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">single<br>step</button></td>
+                </tr>
+                <tr>
+                    <td><button class="boxbutton" type="button" onclick="" title="">random<br>color</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">full<br>color</button></td>
+                </tr>
+                <tr>
+                    <td><button class="boxbutton" type="button" onclick="" title="">random<br>hole</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">single<br>hole</button></td>
+                </tr>
+                <tr>
+                    <td><button class="boxbutton" type="button" onclick="" title="">random<br>radius</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">switch<br>view</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">load<br>seed</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">load<br>GUI</button></td>
+                    
+                    <td><button class="boxbutton" type="button" onclick="" title="">aplha<br>color</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="clearall()">remove mesh</button>
+        
+        <input type="file" id="GUIimport" class="displaynone">
+        <a href="" id="GUIexport" class="displaynone">GUI</a>
+        <a href="" id="OBJexport" class="displaynone">mesh</a>
+        <button type="button" onclick="save_objmesh()">OBJ</button>
+        
+    </body>
+</html>
