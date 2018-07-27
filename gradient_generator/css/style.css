@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center, a,
+b, u, i, center, p,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
@@ -38,15 +38,7 @@ input {vertical-align: middle;}
 
 
 table#infotable{
-	width: 800px;
-}
-table#infotable tr :first-child {
-	width: 0;
-	white-space: nowrap;
-}
-
-table#infotable tr :last-child {
-	width: 100%;
+	width: 380px;
 }
 
 input#info{
@@ -79,7 +71,11 @@ input[type="color"]{
 	padding: 0;
 	border-width:0; */
 }
-input[type="range"]{
-	width: 160px;
+input[type="number"]{
+	width: 60px;
 }
 .displaynone{display: none;}
+
+p.red{color:red;}
+p.green{color:green;}
+p.blue{color:blue;}

@@ -11,6 +11,8 @@
         <table id="infotable">
             <tr>
                 <td class="mini">Gradient Generator from <a href="https://healingdrawing.github.io/" target="_blank">Healing Drawing</a></td>
+            </tr>
+            <tr>
                 <td><input id="info" readonly value="preparing"></td>
             </tr>
         </table>
@@ -23,8 +25,6 @@
                     <td><button class="boxbutton" type="button" onclick="" title="">save<br>SVG</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">save<br>seed</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">save<br>GUI</button></td>
-                    
-                    <td><input class="slider" min="0" max="100" value="50" step="1" type="range" title="">center hole radius %</td>
                 </tr>
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="" title="">random<br>step</button></td>
@@ -44,11 +44,75 @@
                     <td><button class="boxbutton" type="button" onclick="" title="">switch<br>view</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">load<br>seed</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">load<br>GUI</button></td>
-                    
                     <td><button class="boxbutton" type="button" onclick="" title="">aplha<br>color</button></td>
                 </tr>
             </tbody>
         </table>
+        <table> <!-- input numbers , checboxes -->
+            <tbody>
+                <tr>
+                    <td colspan="6">monochrome. R G B will be same every random step</td>
+                    <td><input id="monochrome" type="checkbox" title="convert colors to gray"></td>
+                </tr>
+                <tr>
+                    <td colspan="6">smooth. Use holes as intercolor bridges</td>
+                    <td><input id="monochrome" type="checkbox" title="connect steps uses fill of holes"></td>
+                </tr>
+                <tr><td colspan="7">colors. checboxes lock min max and value from random</td></tr>
+                <tr>
+                    <td><p class="red">min</p></td>
+                    <td><input id="red_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td><p class="red">max</p></td>
+                    <td><input id="red_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="red_lock_minmax" type="checkbox" title="lock red min max from random" checked ></td>
+                    <td><input id="red" type="number" min="0" max="100" title="rgb RED single value" value="50"></td>
+                    <td><input id="red_lock_value" type="checkbox" title="lock red from random"></td>
+                </tr>
+                <tr>
+                    <td><p class="green">min</p></td>
+                    <td><input id="green_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td><p class="green">max</p></td>
+                    <td><input id="green_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="green_lock_minmax" type="checkbox" title="lock green min max from random" checked ></td>
+                    <td><input id="green" type="number" min="0" max="100" title="rgb GREEN single value" value="50"></td>
+                    <td><input id="green_lock_value" type="checkbox" title="lock green from random"></td>
+                </tr>
+                <tr>
+                    <td><p class="blue">min</p></td>
+                    <td><input id="blue_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td><p class="blue">max</p></td>
+                    <td><input id="blue_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="blue_lock_minmax" type="checkbox" title="lock blue min max from random" checked ></td>
+                    <td><input id="blue" type="number" min="0" max="100" title="rgb BLUE single value" value="50"></td>
+                    <td><input id="blue_lock_value" type="checkbox" title="lock blue from random"></td>
+                </tr>
+                
+                <tr><td colspan="7">alpha start. checboxes lock min max and value from random</td></tr>
+                <tr>
+                    <td>min</td>
+                    <td><input id="alpha_start_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td>max</td>
+                    <td><input id="alpha_start_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="alpha_start_lock_minmax" type="checkbox" title="lock alpha start min max from random" checked ></td>
+                    <td><input id="alpha_start" type="number" min="0" max="100" title="rgb alpha start single value" value="50"></td>
+                    <td><input id="alpha_start_lock_value" type="checkbox" title="lock alpha start from random"></td>
+                </tr>
+                
+                <tr><td colspan="7">alpha end. checboxes lock min max and value from random</td></tr>
+                <tr>
+                    <td>min</td>
+                    <td><input id="alpha_end_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td>max</td>
+                    <td><input id="alpha_end_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="alpha_end_lock_minmax" type="checkbox" title="lock alpha end min max from random" checked ></td>
+                    <td><input id="alpha_end" type="number" min="0" max="100" title="rgb alpha end single value" value="50"></td>
+                    <td><input id="alpha_end_lock_value" type="checkbox" title="lock alpha end from random"></td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+        <br>
         <button type="button" onclick="clearall()">remove mesh</button>
         
         <input type="file" id="GUIimport" class="displaynone">
