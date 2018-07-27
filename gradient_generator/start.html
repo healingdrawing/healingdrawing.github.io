@@ -8,16 +8,17 @@
     </head>
     
     <body>
-        <table id="infotable">
+        <table  class="w400">
             <tr>
                 <td class="mini">Gradient Generator from <a href="https://healingdrawing.github.io/" target="_blank">Healing Drawing</a></td>
             </tr>
             <tr>
                 <td><input id="info" readonly value="preparing"></td>
             </tr>
+            <tr><td><hr></td></tr>
         </table>
-        <hr>
-        <table>
+        
+        <table class="w400">
             <tbody>
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="" title="">random<br>all</button></td>
@@ -28,7 +29,7 @@
                 </tr>
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="" title="">random<br>step</button></td>
-                    <td id="viewbox" colspan="3" rowspan="3">place to display result</td>
+                    <td class="shirt" id="viewbox" colspan="3" rowspan="3">place to display result</td>
                     <td><button class="boxbutton" type="button" onclick="" title="">single<br>step</button></td>
                 </tr>
                 <tr>
@@ -44,21 +45,24 @@
                     <td><button class="boxbutton" type="button" onclick="" title="">switch<br>view</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">load<br>seed</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">load<br>GUI</button></td>
-                    <td><button class="boxbutton" type="button" onclick="" title="">aplha<br>color</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">alpha<br>color</button></td>
                 </tr>
             </tbody>
         </table>
-        <table> <!-- input numbers , checboxes -->
+        <table class="w400"> <!-- input numbers , checboxes -->
             <tbody>
                 <tr>
-                    <td colspan="6">monochrome. R G B will be same every random step</td>
+                    <td colspan="6">MONOCHROME.<br>R G B will be same every random step</td>
                     <td><input id="monochrome" type="checkbox" title="convert colors to gray"></td>
                 </tr>
                 <tr>
-                    <td colspan="6">smooth. Use holes as intercolor bridges</td>
+                    <td colspan="6">SMOOTH.<br>use holes as intercolor bridges</td>
                     <td><input id="monochrome" type="checkbox" title="connect steps uses fill of holes"></td>
                 </tr>
-                <tr><td colspan="7">colors. checboxes lock min max and value from random</td></tr>
+                <tr><td colspan="7">&nbsp;</td></tr>
+                <tr><td colspan="7">Checboxes lock "min" "max" and "value" from random.</td></tr>
+                <tr><td colspan="7">COLORS.</td></tr>
+                <tr><td colspan="7">R G B</td></tr>
                 <tr>
                     <td><p class="red">min</p></td>
                     <td><input id="red_min" type="number" min="0" max="100" step="10" value="0" ></td>
@@ -87,7 +91,7 @@
                     <td><input id="blue_lock_value" type="checkbox" title="lock blue from random"></td>
                 </tr>
                 
-                <tr><td colspan="7">alpha start. checboxes lock min max and value from random</td></tr>
+                <tr><td colspan="7">alpha start</td></tr>
                 <tr>
                     <td>min</td>
                     <td><input id="alpha_start_min" type="number" min="0" max="100" step="10" value="0" ></td>
@@ -98,7 +102,7 @@
                     <td><input id="alpha_start_lock_value" type="checkbox" title="lock alpha start from random"></td>
                 </tr>
                 
-                <tr><td colspan="7">alpha end. checboxes lock min max and value from random</td></tr>
+                <tr><td colspan="7">alpha end</td></tr>
                 <tr>
                     <td>min</td>
                     <td><input id="alpha_end_min" type="number" min="0" max="100" step="10" value="0" ></td>
@@ -109,16 +113,61 @@
                     <td><input id="alpha_end_lock_value" type="checkbox" title="lock alpha end from random"></td>
                 </tr>
                 
+                <tr><td colspan="7">SIZES.</td></tr>
+                <tr><td colspan="7">number of steps</td></tr>
+                <tr>
+                    <td>min</td>
+                    <td><input id="steps_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td>max</td>
+                    <td><input id="steps_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="steps_lock_minmax" type="checkbox" title="lock number of steps min max from random" checked ></td>
+                    <td><input id="steps" type="number" min="0" max="100" title="number of steps value" value="50"></td>
+                    <td><input id="steps_lock_value" type="checkbox" title="lock number of steps from random"></td>
+                </tr>
+                
+                <tr><td colspan="7">step size</td></tr>
+                <tr>
+                    <td>min</td>
+                    <td><input id="step_size_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td>max</td>
+                    <td><input id="step_size_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="step_size_lock_minmax" type="checkbox" title="lock step size min max from random" checked ></td>
+                    <td><input id="step_size" type="number" min="0" max="100" title="step size value" value="50"></td>
+                    <td><input id="step_size_lock_value" type="checkbox" title="lock step size from random"></td>
+                </tr>
+                
+                <tr><td colspan="7">hole size</td></tr>
+                <tr>
+                    <td>min</td>
+                    <td><input id="hole_size_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td>max</td>
+                    <td><input id="hole_size_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="hole_size_lock_minmax" type="checkbox" title="lock hole size min max from random" checked ></td>
+                    <td><input id="hole_size" type="number" min="0" max="100" title="hole size value" value="50"></td>
+                    <td><input id="hole_size_lock_value" type="checkbox" title="lock hole size from random"></td>
+                </tr>
+                
+                <tr><td colspan="7">center hole radius</td></tr>
+                <tr>
+                    <td>min</td>
+                    <td><input id="radius_min" type="number" min="0" max="100" step="10" value="0" ></td>
+                    <td>max</td>
+                    <td><input id="radius_max" type="number" min="0" max="100" step="10" value="100" ></td>
+                    <td><input id="radius_lock_minmax" type="checkbox" title="lock center hole radius min max from random" checked ></td>
+                    <td><input id="radius" type="number" min="0" max="100" title="center hole radius value" value="50"></td>
+                    <td><input id="radius_lock_value" type="checkbox" title="lock center hole radius from random"></td>
+                </tr>
+                
+                
             </tbody>
         </table>
         
         <br>
-        <button type="button" onclick="clearall()">remove mesh</button>
+        
         
         <input type="file" id="GUIimport" class="displaynone">
         <a href="" id="GUIexport" class="displaynone">GUI</a>
         <a href="" id="OBJexport" class="displaynone">mesh</a>
-        <button type="button" onclick="save_objmesh()">OBJ</button>
         
     </body>
 </html>
