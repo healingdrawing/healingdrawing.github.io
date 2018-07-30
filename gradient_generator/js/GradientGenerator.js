@@ -49,7 +49,7 @@ function generate_steps(d){
     var so = d["radius"] / 100; //center hole offset ... start offset
     var go = 1 - so; //gradient offset ... from hole offset end to gradient border
     var scale = go / sumsize;
-    var fullro = so; //full_relative_offset
+    // var fullro = so; //full_relative_offset
     var rez = [];
     //center hole
     var chole = {};
@@ -57,9 +57,12 @@ function generate_steps(d){
     chole["end_offset"] = so;
     chole["alpha_start"]=0;
     chole["alpha_end"]=0;
-    chole["red"]=0;
-    chole["green"]=0;
-    chole["blue"]=0;
+    chole["red_start"]=0;
+    chole["green_start"]=0;
+    chole["blue_start"]=0;
+    chole["red_end"]=0;
+    chole["green_end"]=0;
+    chole["blue_end"]=0;
     rez.push(chole);
     
     for (var i=0;i<steps.length;i++){
@@ -71,24 +74,55 @@ function generate_steps(d){
         so += step_size;
         step["alpha_start"]=steps[i]["alpha_start"];
         step["alpha_end"]=steps[i]["alpha_end"];
-        step["red"]=steps[i]["red"];
-        step["green"]=steps[i]["green"];
-        step["blue"]=steps[i]["blue"];
+        step["red_start"]=steps[i]["red"];
+        step["green_start"]=steps[i]["green"];
+        step["blue_start"]=steps[i]["blue"];
+        step["red_end"]=steps[i]["red"];
+        step["green_end"]=steps[i]["green"];
+        step["blue_end"]=steps[i]["blue"];
         rez.push(step);
         //hole
+        var hole = {};
+        hole["start_offset"] = so;
+        var hole_size = steps[i]["hole_size"] * scale;
+        hole["end_offset"] = so + hole_size;
+        so += hole_size;
         if (d["smooth"]){
+            hole["alpha_start"] = steps[i]["alpha_end"];
+            hole["red_start"] = steps[i]["red"];
+            hole["green_start"] = steps[i]["green"];
+            hole["blue_start"] = steps[i]["blue"];
             
+            if(i==steps.length-1){
+                hole["alpha_end"] = 0;
+                hole["red_end"] = 0;
+                hole["green_end"] = 0;
+                hole["blue_end"] = 0;
+            }else{
+                hole["alpha_end"] = steps[i+1]["alpha_start"];
+                hole["red_end"] = steps[i+1]["red"];
+                hole["green_end"] = steps[i+1]["green"];
+                hole["blue_end"] = steps[i+1]["blue"];
+            }
+        }else{
+            hole["alpha_start"] = 0;
+            hole["red_start"] = 0;
+            hole["green_start"] = 0;
+            hole["blue_start"] = 0;
+            hole["alpha_end"] = 0;
+            hole["red_end"] = 0;
+            hole["green_end"] = 0;
+            hole["blue_end"] = 0;
         }
-        
-        d["hole_size"] *= scale; //now hole_size is relative
-        
+        rez.push(hole);
     }
     
     return rez;
 }
 function generate_gradient(d){
     
-    steps = generate_steps();
+    var steps = generate_steps(d);
+    console.log(steps);
 }
 
 function random_all(){
