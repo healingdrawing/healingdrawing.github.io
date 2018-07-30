@@ -8,7 +8,8 @@
         <script type="text/javascript" src="js/geo.js"></script>
         <script type="text/javascript" src="js/RandomCreator.js"></script>
         <script type="text/javascript" src="js/GuiReader.js"></script>
-        <script type="text/javascript" src="js/PriviewGenerator.js"></script>
+        <script type="text/javascript" src="js/PreviewGenerator.js"></script>
+        <script type="text/javascript" src="js/ExportCreator.js"></script>
         <script type="text/javascript" src="js/GradientGenerator.js"></script>
     </head>
     
@@ -28,7 +29,7 @@
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="random_all()" title="">random<br>all</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">save<br>ggr</button></td>
-                    <td><button class="boxbutton" type="button" onclick="" title="">save<br>SVG</button></td>
+                    <td><button class="boxbutton" type="button" onclick="exportSVG()" title="">save<br>SVG</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">save<br>seed</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">save<br>GUI</button></td>
                 </tr>
@@ -170,9 +171,13 @@
         <br>
         
         
-        <input type="file" id="GUIimport" class="displaynone">
-        <a href="" id="GUIexport" class="displaynone">GUI</a>
-        <a href="" id="OBJexport" class="displaynone">mesh</a>
         
+        
+        <a href="" id="GUIexport" class="displaynone">GUI</a>
+        <a href="" id="SVGexport" class="displaynone">mesh</a>
+        <a href="" id="GGRexport" class="displaynone">mesh</a>
+        
+        <input type="file" id="GUIimport" class="displaynone">
+        <input type="file" id="SEEDimport" class="displaynone">
     </body>
 </html>

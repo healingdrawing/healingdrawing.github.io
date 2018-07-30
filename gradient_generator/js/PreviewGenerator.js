@@ -1,6 +1,8 @@
 var preview_type = 1; //0 radial  1 linear
+var stoppoints = "";
 
 var gradient_start = '<?xml version="1.0" encoding="UTF-8" standalone="no"?> \
+\n<!-- created uses healingdrawing.github.io --> \
 \n<svg \
    xmlns:dc="http://purl.org/dc/elements/1.1/" \
    xmlns:cc="http://creativecommons.org/ns#" \
@@ -78,11 +80,11 @@ function preview_type_switcher(){
     if (preview_type == 0){ preview_type = 1; }
     else if (preview_type == 1){ preview_type = 0; }
     //need add redraw on place code
-    
+    document.getElementById("viewbox").innerHTML = gradient_start + stoppoints + gradient_end + preview_type_counter() + rect_box;
 }
 
 function generate_svg_preview(s){
-    var stoppoints = "";
+    stoppoints = "";
     for (var i=0;i<s.length;i++){
         var r_start = s[i]["red_start"];
         var g_start = s[i]["green_start"];

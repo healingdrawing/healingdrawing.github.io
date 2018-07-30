@@ -130,7 +130,7 @@ function generate_gradient(d){
 
 function random_all(){
     var d = get_gui_values_as_object();
-    console.log(JSON.stringify(d));
+    // console.log(JSON.stringify(d));
     
     
     var prefix = [
@@ -149,6 +149,6 @@ function random_all(){
     }
     
     // console.log(JSON.stringify(d["steps"]));
-    console.log(JSON.stringify(d));
+    // console.log(JSON.stringify(d));
     generate_gradient(d);
 }
