@@ -53,8 +53,8 @@ function generate_steps(d){
     var rez = [];
     //center hole
     var chole = {};
-    chole["start_offset"] = 0;
-    chole["end_offset"] = so;
+    chole["offset_start"] = 0;
+    chole["offset_end"] = so;
     chole["alpha_start"]=0;
     chole["alpha_end"]=0;
     chole["red_start"]=0;
@@ -68,9 +68,9 @@ function generate_steps(d){
     for (var i=0;i<steps.length;i++){
         //step
         var step = {};
-        step["start_offset"] = so;
+        step["offset_start"] = so;
         var step_size = steps[i]["step_size"] * scale; //now step_size is relative
-        step["end_offset"] = so + step_size;
+        step["offset_end"] = so + step_size;
         so += step_size;
         step["alpha_start"]=steps[i]["alpha_start"];
         step["alpha_end"]=steps[i]["alpha_end"];
@@ -83,9 +83,9 @@ function generate_steps(d){
         rez.push(step);
         //hole
         var hole = {};
-        hole["start_offset"] = so;
+        hole["offset_start"] = so;
         var hole_size = steps[i]["hole_size"] * scale;
-        hole["end_offset"] = so + hole_size;
+        hole["offset_end"] = so + hole_size;
         so += hole_size;
         if (d["smooth"]){
             hole["alpha_start"] = steps[i]["alpha_end"];
@@ -119,10 +119,13 @@ function generate_steps(d){
     
     return rez;
 }
+
+
 function generate_gradient(d){
     
     var steps = generate_steps(d);
     console.log(steps);
+    generate_svg_preview(steps);
 }
 
 function random_all(){

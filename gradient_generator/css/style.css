@@ -26,8 +26,10 @@ input#info{
 input {width:36px;padding: 0;}
 td {text-align: center;}
 td.shirt {
-	background: url("shirt.png")
+	background: url("shirt.png");
 }
+
+
 button.boxbutton{
 	width:78px;height:78px;
 	text-align: center;
