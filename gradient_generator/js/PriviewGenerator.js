@@ -1,5 +1,7 @@
-var linear_start = '<?xml version="1.0" encoding="UTF-8" standalone="no"?> \
-<svg \
+var preview_type = 1; //0 radial  1 linear
+
+var gradient_start = '<?xml version="1.0" encoding="UTF-8" standalone="no"?> \
+\n<svg \
    xmlns:dc="http://purl.org/dc/elements/1.1/" \
    xmlns:cc="http://creativecommons.org/ns#" \
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" \
@@ -12,35 +14,32 @@ var linear_start = '<?xml version="1.0" encoding="UTF-8" standalone="no"?> \
    height="240" \
    width="240"> \
   <defs \
-     id="defs2"> \
+     id="defs_LG"> \
     <linearGradient \
-       id="linearGradient885"> ';
+       id="LG"> ';
 
-var linear_end = ' </linearGradient> \
-    <linearGradient \
-       xlink:href="#linearGradient885" \
-       id="linearGradient887" \
+var gradient_end = '\n </linearGradient> ';
+var linear_size = ' <linearGradient \
+       xlink:href="#LG" \
+       id="linearGradient" \
        x1="0" \
        y1="120" \
        x2="240" \
        y2="120" \
-       gradientUnits="userSpaceOnUse" /> \
-  </defs> \
-  <metadata \
-     id="metadata5"> \
-    <rdf:RDF> \
-      <cc:Work \
-         rdf:about=""> \
-        <dc:format>image/svg+xml</dc:format> \
-        <dc:type \
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> \
-        <dc:title></dc:title> \
-      </cc:Work> \
-    </rdf:RDF> \
-  </metadata> \
+       gradientUnits="userSpaceOnUse" /> '
+var radial_size = ' <radialGradient \
+       xlink:href="#LG" \
+       id="linearGradient" \
+       r="120" \
+       fy="120" \
+       fx="120" \
+       cy="120" \
+       cx="120" \
+       gradientUnits="userSpaceOnUse" /> '
+var rect_box = ' </defs> \
   <rect \
-     style="opacity:1;fill:url(#linearGradient887);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4; stroke-dasharray:none;stroke-opacity:1" \
-     id="rect879" \
+     style="opacity:1;fill:url(#linearGradient);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4; stroke-dasharray:none;stroke-opacity:1" \
+     id="rect4" \
      width="240" \
      height="240" \
      x="0" \
@@ -68,6 +67,20 @@ function svg_stop_counter(r,g,b,a,o,ind){
     return stoppoint;
 }
 
+function preview_type_counter(){
+    var rez;
+    if (preview_type == 0){rez=radial_size;}
+    if (preview_type == 1){rez=linear_size;}
+    return rez;
+}
+
+function preview_type_switcher(){
+    if (preview_type == 0){ preview_type = 1; }
+    else if (preview_type == 1){ preview_type = 0; }
+    //need add redraw on place code
+    
+}
+
 function generate_svg_preview(s){
     var stoppoints = "";
     for (var i=0;i<s.length;i++){
@@ -90,5 +103,5 @@ function generate_svg_preview(s){
         stoppoints +=stpp;
         
     }
-    document.getElementById("viewbox").innerHTML = linear_start+stoppoints+linear_end;
+    document.getElementById("viewbox").innerHTML = gradient_start + stoppoints + gradient_end + preview_type_counter() + rect_box;
 }
