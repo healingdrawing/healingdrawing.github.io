@@ -80,7 +80,7 @@ function cbox_tag(id,checked = false, title = ""){
 function td_text_multicolor(texts = [], colors = []){
     var td = document.createElement("td");
     if (texts.length == colors.length){
-        for (i=0;i<texts.length;i++){
+        for (var i=0;i<texts.length;i++){
             td.appendChild(text_tag(texts[i],colors[i]));
         }
     }
@@ -91,7 +91,7 @@ function td_cbox_text_multicolor_colspan(id, checked = false, texts = [], colors
     td.colSpan = colspan;
     td.appendChild(cbox_tag(id, checked, title));
     if (texts.length == colors.length){
-        for (i=0;i<texts.length;i++){
+        for (var i=0;i<texts.length;i++){
             td.appendChild(text_tag(texts[i],colors[i]));
         }
     }
@@ -169,17 +169,17 @@ function size_gui_tbody(){
     var tr = document.createElement('tr');
     tr.appendChild(td_text("&nbsp;","",4));
     tbody.appendChild(tr);
-    for (i=0;i<5;i++){//x3tr box 
+    for (var i=0;i<5;i++){//x3tr box 
         var tr = document.createElement('tr');
         var tr_input_name = [
             ["base_length","base_radius","base_curvature%","tail_radius"],
             ["tail_start_offset","tail_start_length","tail_end_offset","tail_end_length"],
             ["bottle_length","bottle_radius","bottle_offset","ring_radius"]
         ];
-        for (ii=0;ii<tr_input_name.length;ii++){//tr
+        for (var ii=0;ii<tr_input_name.length;ii++){//tr
             var input_name = tr_input_name[ii];
             var tr = document.createElement('tr');
-            for (iii=0;iii<input_name.length;iii++){//td
+            for (var iii=0;iii<input_name.length;iii++){//td
                 var id=input_name[iii]+"_"+(i+1).toString();
                 size_ids.push(id);
                 tr.appendChild(td_input(id,id));
@@ -207,18 +207,18 @@ function look_gui_tbody(){
     var tr = document.createElement('tr');
     tr.appendChild(td_text("&nbsp;","",4));
     tbody.appendChild(tr);
-    for (i=0;i<5;i++){//x3tr box 
+    for (var i=0;i<5;i++){//x3tr box 
         var tr = document.createElement('tr');
         var tr_input_name = [
             ["color_base","color_tail","color_bottle","ring_length"],
             ["alpha_base","alpha_tail","alpha_bottle","ring_width"],
             ["tail_start_width","tail_end_width","tail_number","ring_offset"]
         ];
-        for (ii=0;ii<tr_input_name.length;ii++){//tr
+        for (var ii=0;ii<tr_input_name.length;ii++){//tr
             var input_name = tr_input_name[ii];
             
             var tr = document.createElement('tr');
-            for (iii=0;iii<input_name.length;iii++){//td
+            for (var iii=0;iii<input_name.length;iii++){//td
                 var id=input_name[iii]+"_"+(i+1).toString();
                 look_ids.push(id);
                 if (ii==0 && iii<3){
@@ -368,9 +368,9 @@ function start_data_writer(){
         "distance_view","y_view","z_view" //tr18
     ];
     
-    for (i=0;i<size_ids.length;i++){ ids.push(size_ids[i]); }
-    for (i=0;i<look_ids.length;i++){ ids.push(look_ids[i]); }
-    for (i=0;i<lamp_ids.length;i++){ ids.push(lamp_ids[i]); }
+    for (var i=0;i<size_ids.length;i++){ ids.push(size_ids[i]); }
+    for (var i=0;i<look_ids.length;i++){ ids.push(look_ids[i]); }
+    for (var i=0;i<lamp_ids.length;i++){ ids.push(lamp_ids[i]); }
     
     var values = [];
     var size_values = [
@@ -401,17 +401,17 @@ function start_data_writer(){
         800,45,45//tr18 lamp
     ];
     
-    for (i=0;i<size_values.length;i++){ values.push(size_values[i]); }
-    for (i=0;i<look_values.length;i++){ values.push(look_values[i]); }
-    for (i=0;i<lamp_values.length;i++){ values.push(lamp_values[i]); }
+    for (var i=0;i<size_values.length;i++){ values.push(size_values[i]); }
+    for (var i=0;i<look_values.length;i++){ values.push(look_values[i]); }
+    for (var i=0;i<lamp_values.length;i++){ values.push(lamp_values[i]); }
     
-    for (i=0;i<ids.length;i++){id_value(ids[i],values[i])}
+    for (var i=0;i<ids.length;i++){id_value(ids[i],values[i])}
 }
 
 function save_data_to_txt(){
     
     var output = "rocket creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
-    for (i=0;i<ids.length;i++){ output += ids[i]+" "+document.getElementById(ids[i]).value+"\n"; }
+    for (var i=0;i<ids.length;i++){ output += ids[i]+" "+document.getElementById(ids[i]).value+"\n"; }
     var a = document.getElementById('GUIexport');
 	
 	var type = "text/plain";
@@ -442,7 +442,7 @@ function write_data_to_gui(text){
     console.log(text);
     text = text.split("\n");
     var oneline;
-    for (i=1;i<text.length;i++){
+    for (var i=1;i<text.length;i++){
         if (text[i]){
             oneline = text[i].split(" ");
             document.getElementById(oneline[0]).value = oneline[1];
