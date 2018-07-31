@@ -16,18 +16,18 @@ function generate_steps(d){
     var sumsize=0;
     for (var i=0;i<d["steps"];i++){
         //sizes
-        var step_size = random_int(d["step_size_min"],d["step_size_max"]);
-        var hole_size = random_int(d["hole_size_min"],d["hole_size_max"]);
+        if(d["step_size_lock_value"]){ var step_size = d["step_size"]; }else{ var step_size = random_int(d["step_size_min"],d["step_size_max"]); }
+        if(d["hole_size_lock_value"]){ var hole_size = d["hole_size"]; }else{ var hole_size = random_int(d["hole_size_min"],d["hole_size_max"]); }
         hole_size = step_size * hole_size / 100;
         step_size -= hole_size;
         sumsize += step_size+hole_size;
         //alpha
-        var alpha_start = random_int(d["alpha_start_min"],d["alpha_start_max"]);
-        var alpha_end = random_int(d["alpha_end_min"],d["alpha_end_max"]);
+        if(d["alpha_start_lock_value"]){ var alpha_start = d["alpha_start"]; }else{ var alpha_start = random_int(d["alpha_start_min"],d["alpha_start_max"]); }
+        if(d["alpha_end_lock_value"]){ var alpha_end = d["alpha_end"]; }else{ var alpha_end = random_int(d["alpha_end_min"],d["alpha_end_max"]); }
         //colors
-        var red = random_int(d["red_min"],d["red_max"]);
-        var green = random_int(d["green_min"],d["green_max"]);
-        var blue = random_int(d["blue_min"],d["blue_max"]);
+        if(d["red_lock_value"]){ var red = d["red"]; }else{ var red = random_int(d["red_min"],d["red_max"]); }
+        if(d["green_lock_value"]){ var green = d["green"]; }else{ var green = random_int(d["green_min"],d["green_max"]); }
+        if(d["blue_lock_value"]){ var blue = d["blue"]; }else{ var blue = random_int(d["blue_min"],d["blue_max"]); }
         if(d["monochrome"]){
             var min_rgb = Math.min(red,green,blue);
             var max_rgb = Math.max(red,green,blue);
@@ -125,14 +125,12 @@ function generate_gradient(d){
     
     var steps = generate_steps(d);
     gradient_steps = steps;
-    console.log(steps);
     generate_svg_preview(steps);
 }
 
 function random_all(){
-    var d = get_gui_values_as_object();
     // console.log(JSON.stringify(d));
-    
+    var d = get_gui_values_as_object();
     
     var prefix = [
         "steps",
@@ -146,8 +144,12 @@ function random_all(){
         "aplha_end"
     ];
     for (var i=0;i<prefix.length;i++){
-        random_prefix_counter(d,prefix[i]); //generate random values
+        random_prefix_counter(d,prefix[i]); //generate random gui values
     }
+    
+    write_values(d);
+    // var d = get_gui_values_as_object();
+    
     
     // console.log(JSON.stringify(d["steps"]));
     // console.log(JSON.stringify(d));

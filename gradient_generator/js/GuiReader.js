@@ -1,4 +1,10 @@
 
+function write_values(d){
+    for (var i=0;i<ids_number.length;i++){
+        document.getElementById(ids_number[i]).value = d[ids_number[i]];
+    }
+}
+
 var ids_number = [
     "red_min","red_max","red",
     "green_min","green_max","green",
