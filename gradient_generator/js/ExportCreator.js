@@ -66,3 +66,15 @@ function exportGGR(){
 	a.download = name;
 	a.click();
 }
+
+function exportGUI(){
+    var a = document.getElementById('GGRexport');
+    var d = get_gui_values_as_object();
+    var text = JSON.stringify(d);
+    var type = "application/json";
+    var name = "gui-gradient-"+get_date_time()+".json";
+	var file = new Blob([text], {type: type});
+	a.href = URL.createObjectURL(file);
+	a.download = name;
+	a.click();
+}
