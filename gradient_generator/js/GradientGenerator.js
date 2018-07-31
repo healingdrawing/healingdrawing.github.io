@@ -1,6 +1,6 @@
 var fullsize=1000; //limit for calculation
 var scale=1;//will be changed
-var steps = []; //steps array
+var gradient_steps = []; //steps array
 
 function random_prefix_counter(d,prefix){
     if (!d[prefix+"_lock_value"]){
@@ -124,6 +124,7 @@ function generate_steps(d){
 function generate_gradient(d){
     
     var steps = generate_steps(d);
+    gradient_steps = steps;
     console.log(steps);
     generate_svg_preview(steps);
 }
