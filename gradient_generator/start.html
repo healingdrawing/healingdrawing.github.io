@@ -3,14 +3,7 @@
     <head>
         <title>Gradient Generator 2018</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
-        <script type="text/javascript" src="js/alert.js"></script>
-        <script type="text/javascript" src="js/geo.js"></script>
-        <script type="text/javascript" src="js/RandomCreator.js"></script>
-        <script type="text/javascript" src="js/GuiReader.js"></script>
-        <script type="text/javascript" src="js/PreviewGenerator.js"></script>
-        <script type="text/javascript" src="js/ExportCreator.js"></script>
-        <script type="text/javascript" src="js/GradientGenerator.js"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     
     <body>
@@ -31,7 +24,7 @@
                     <td><button class="boxbutton" type="button" onclick="exportGGR()" title="">save<br>ggr</button></td>
                     <td><button class="boxbutton" type="button" onclick="exportSVG()" title="">save<br>SVG</button></td>
                     <td><button class="boxbutton" type="button" onclick="exportGUI()" title="">save<br>GUI</button></td>
-                    <td><button class="boxbutton" type="button" onclick="" title="">chrome<br>back</button></td>
+                    <td><button class="boxbutton" type="button" onclick="importGUI()" title="">load<br>GUI</button></td>
                 </tr>
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="" title="">random<br>step</button></td>
@@ -49,8 +42,8 @@
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="" title="">random<br>radius</button></td>
                     <td><button class="boxbutton" type="button" onclick="preview_type_switcher()" title="">switch<br>view</button></td>
-                    <td><button class="boxbutton" type="button" onclick="" title="">load<br>seed</button></td>
-                    <td><button class="boxbutton" type="button" onclick="" title="">load<br>GUI</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">color<br>back</button></td>
+                    <td><button class="boxbutton" type="button" onclick="" title="">chrome<br>back</button></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">alpha<br>color</button></td>
                 </tr>
             </tbody>
@@ -168,16 +161,19 @@
             </tbody>
         </table>
         
-        <br>
-        
-        
-        
-        
         <a href="" id="GUIexport" class="displaynone">GUI</a>
-        <a href="" id="SVGexport" class="displaynone">mesh</a>
-        <a href="" id="GGRexport" class="displaynone">mesh</a>
-        
+        <a href="" id="SVGexport" class="displaynone">SVG</a>
+        <a href="" id="GGRexport" class="displaynone">GGR</a>
         <input type="file" id="GUIimport" class="displaynone">
+        
+        <script type="text/javascript" src="js/alert.js"></script>
+        <script type="text/javascript" src="js/geo.js"></script>
+        <script type="text/javascript" src="js/RandomCreator.js"></script>
+        <script type="text/javascript" src="js/GuiReader.js"></script>
+        <script type="text/javascript" src="js/PreviewGenerator.js"></script>
+        <script type="text/javascript" src="js/ExportCreator.js"></script>
+        <script type="text/javascript" src="js/ImportCreator.js"></script>
+        <script type="text/javascript" src="js/GradientGenerator.js"></script>
         
     </body>
 </html>

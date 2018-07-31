@@ -17,7 +17,8 @@ function exportSVG(){
 	var file = new Blob([text], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
-	a.click();
+    a.click();
+    document.getElementById("info").value = "SVG exported to " + name;
 }
 
 function ggr_segment_generator(gs){
@@ -64,7 +65,8 @@ function exportGGR(){
 	var file = new Blob([text], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
-	a.click();
+    a.click();
+    document.getElementById("info").value = "GGR exported to " + name;
 }
 
 function exportGUI(){
@@ -76,5 +78,6 @@ function exportGUI(){
 	var file = new Blob([text], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
-	a.click();
+    a.click();
+    document.getElementById("info").value = "GUI exported to " + name;
 }
