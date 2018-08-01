@@ -46,7 +46,6 @@ function ggr_segment_generator(gs, last_point){
     return segment;
 }
 function ggr_generator(){
-    console.log("gradient_steps before ggr_generator()\n",gradient_steps);
     var ggr = "GIMP Gradient from healingdrawing.github.io";
     ggr += "\nName: "+ get_date_time();
     var gs_num = gradient_steps.length;
@@ -60,8 +59,6 @@ function ggr_generator(){
     return ggr;
 }
 function exportGGR(){
-    alert("wtf");
-    console.log("inside exportGGR()");
     var a = document.getElementById('GGRexport');
 	var text = ggr_generator();
     var type = "text/plain";
