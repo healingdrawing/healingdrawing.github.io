@@ -27,7 +27,7 @@ input#info{
 input {width:36px;padding: 0;}
 td {text-align: center;}
 td.shirt {
-	background: url("shirt.png");
+	background-image: url("shirt.png");
 	background-repeat: no-repeat;
 	background-position-x: 1px;
 	background-position-y: 1px;

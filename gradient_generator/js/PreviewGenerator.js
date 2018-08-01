@@ -81,6 +81,7 @@ function preview_type_switcher(){
     else if (preview_type == 1){ preview_type = 0; }
     //need add redraw on place code
     document.getElementById("viewbox").innerHTML = gradient_start + stoppoints + gradient_end + preview_type_counter() + rect_box;
+    showme("preview type switched");
 }
 
 function generate_svg_preview(s){

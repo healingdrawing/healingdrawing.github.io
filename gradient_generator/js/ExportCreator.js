@@ -18,7 +18,7 @@ function exportSVG(){
 	a.href = URL.createObjectURL(file);
 	a.download = name;
     a.click();
-    document.getElementById("info").value = "SVG exported to " + name;
+    showme("SVG exported to " + name);
 }
 
 function ggr_segment_generator(gs){
@@ -66,7 +66,7 @@ function exportGGR(){
 	a.href = URL.createObjectURL(file);
 	a.download = name;
     a.click();
-    document.getElementById("info").value = "GGR exported to " + name;
+    showme("GGR exported to " + name);
 }
 
 function exportGUI(){
@@ -79,5 +79,5 @@ function exportGUI(){
 	a.href = URL.createObjectURL(file);
 	a.download = name;
     a.click();
-    document.getElementById("info").value = "GUI exported to " + name;
+    showme("GUI exported to " + name);
 }

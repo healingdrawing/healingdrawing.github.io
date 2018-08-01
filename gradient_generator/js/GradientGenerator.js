@@ -154,4 +154,5 @@ function random_all(){
     // console.log(JSON.stringify(d["steps"]));
     // console.log(JSON.stringify(d));
     generate_gradient(d);
+    showme("random all completed");
 }
