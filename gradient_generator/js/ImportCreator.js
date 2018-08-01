@@ -12,7 +12,6 @@ var handleFileSelect = function(evt) {
 }
 import_input.addEventListener('change', handleFileSelect, false);
 import_input.value = "";
-scene.onDisposeObservable.add(function(){ import_input.removeEventListener('change', handleFileSelect); }) //looks like no need in my case, but added as part of example
 
 function write_data_to_gui(text){
     console.log(text);

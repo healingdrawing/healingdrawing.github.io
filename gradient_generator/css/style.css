@@ -9,6 +9,7 @@ body {
 
 
 
+
 img {border: none;}
 input {vertical-align: middle;}
 
@@ -27,7 +28,20 @@ input {width:36px;padding: 0;}
 td {text-align: center;}
 td.shirt {
 	background: url("shirt.png");
+	background-repeat: no-repeat;
+	background-position-x: 1px;
+	background-position-y: 1px;
+	font-size:0;
+	line-height: 0;
+	border:0;
+	padding:0px;
+	margin:0px;
+	outline: 0;
+	width:238px;
+	height: 238px;
 }
+
+svg {}
 
 
 button.boxbutton{

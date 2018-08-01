@@ -12,9 +12,9 @@ var gradient_start = '<?xml version="1.0" encoding="UTF-8" standalone="no"?> \
    xmlns:xlink="http://www.w3.org/1999/xlink" \
    id="svg8" \
    version="1.1" \
-   viewBox="0 0 240 240" \
-   height="240" \
-   width="240"> \
+   viewBox="0 0 238 238" \
+   height="238" \
+   width="238"> \
   <defs \
      id="defs_LG"> \
     <linearGradient \
@@ -25,25 +25,25 @@ var linear_size = ' <linearGradient \
        xlink:href="#LG" \
        id="linearGradient" \
        x1="0" \
-       y1="120" \
-       x2="240" \
-       y2="120" \
+       y1="119" \
+       x2="238" \
+       y2="119" \
        gradientUnits="userSpaceOnUse" /> '
 var radial_size = ' <radialGradient \
        xlink:href="#LG" \
        id="linearGradient" \
-       r="120" \
-       fy="120" \
-       fx="120" \
-       cy="120" \
-       cx="120" \
+       r="119" \
+       fy="119" \
+       fx="119" \
+       cy="119" \
+       cx="119" \
        gradientUnits="userSpaceOnUse" /> '
 var rect_box = ' </defs> \
   <rect \
      style="opacity:1;fill:url(#linearGradient);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4; stroke-dasharray:none;stroke-opacity:1" \
      id="rect4" \
-     width="240" \
-     height="240" \
+     width="238" \
+     height="238" \
      x="0" \
      y="0" /> \
 </svg>';
