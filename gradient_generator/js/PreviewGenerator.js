@@ -49,21 +49,21 @@ var rect_box = ' </defs> \
 </svg>';
 
 function stop_color_counter(r,g,b){
-    var r255=Math.round( r / 100 * 255 ).toString();
-    var g255=Math.round( g / 100 * 255 ).toString();
-    var b255=Math.round( b / 100 * 255 ).toString();
+    var r255=Math.round( r ).toString();
+    var g255=Math.round( g ).toString();
+    var b255=Math.round( b ).toString();
     return 'rgb('+r255+','+g255+','+b255+')';
 }
 
-function stop_opacity_counter(a){return (a/100).toString();}
+function stop_opacity_counter(a){return (a/255).toString();}
 
-function offset_counter(o){return (o*100).toString();}
+function offset_counter(o){return o.toString();}
 
 function svg_stop_counter(r,g,b,a,o,ind){
     var stc = stop_color_counter(r,g,b);
     var opa = stop_opacity_counter(a);
     var ofs = offset_counter(o);
-    var stoppoint = ' <stop offset="' + ofs + '%" style=" stop-color:' + stc + '; stop-opacity:' + opa + ';" /> ';
+    var stoppoint = ' <stop offset="' + ofs + '%" style=" stop-color:' + stc + '; stop-opacity:' + opa + ';" id="stop'+ind+'" /> ';
     
     // var stoppoint =' <stop style="stop-color:'+stc+';stop-opacity:'+opa+';" offset="'+ofs+'" id="stop'+ind+'" />';
     return stoppoint;

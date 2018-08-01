@@ -21,21 +21,21 @@ function exportSVG(){
     showme("SVG exported to " + name);
 }
 
-function ggr_segment_generator(gs){
+function ggr_segment_generator(gs, last_point){
     // original 8 symbols by float number but i try not cut result first
-    gradient_start + stoppoints + gradient_end + preview_type_counter() + rect_box;
+    var base = 255;
     var segment = "";
-    var of_s = gs["offset_start"];
-    var of_e = gs["offset_end"];
+    var of_s = gs["offset_start"] / 100;
+    if( !last_point ) { var of_e = gs["offset_end"] / 100; } else { var of_e = 1; } // gimp loader fail sometimes when 100/100 = 0.999...9
     var of_m = of_s + (of_e - of_s) / 2;
-    var red_s = gs["red_start"] / 100;
-    var green_s = gs["green_start"] / 100;
-    var blue_s = gs["blue_start"] / 100;
-    var alpha_s = gs["alpha_start"] / 100;
-    var red_e = gs["red_end"] / 100;
-    var green_e = gs["green_end"] / 100;
-    var blue_e = gs["blue_end"] / 100;
-    var alpha_e = gs["alpha_end"] / 100;
+    var red_s = gs["red_start"] / base;
+    var green_s = gs["green_start"] / base;
+    var blue_s = gs["blue_start"] / base;
+    var alpha_s = gs["alpha_start"] / base;
+    var red_e = gs["red_end"] / base;
+    var green_e = gs["green_end"] / base;
+    var blue_e = gs["blue_end"] / base;
+    var alpha_e = gs["alpha_end"] / base;
     var box = [of_s,of_m,of_e,red_s,green_s,blue_s,alpha_s,red_e,green_e,blue_e,alpha_e,0,0,0];
     for (var i=0;i<box.length;i++){
         var x = box[i];
@@ -46,18 +46,22 @@ function ggr_segment_generator(gs){
     return segment;
 }
 function ggr_generator(){
+    console.log("gradient_steps before ggr_generator()\n",gradient_steps);
     var ggr = "GIMP Gradient from healingdrawing.github.io";
     ggr += "\nName: "+ get_date_time();
     var gs_num = gradient_steps.length;
     ggr += "\n" + gs_num.toString();
     var segments = "";
     for (var i=0;i<gs_num;i++){
-        segments += "\n" + ggr_segment_generator(gradient_steps[i]);
+        if( i < gs_num - 1 ) { segments += "\n" + ggr_segment_generator(gradient_steps[i], false); }
+        else{ segments += "\n" + ggr_segment_generator(gradient_steps[i], true); }
     }segments += "\n" // start empty line
     ggr += segments;
     return ggr;
 }
 function exportGGR(){
+    alert("wtf");
+    console.log("inside exportGGR()");
     var a = document.getElementById('GGRexport');
 	var text = ggr_generator();
     var type = "text/plain";

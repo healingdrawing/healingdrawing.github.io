@@ -1,3 +1,4 @@
+var geo = new GeometryXD();
 //random section for _RandomCreator.js
 //random float include borders
 function random_num(min=0,max=1){
