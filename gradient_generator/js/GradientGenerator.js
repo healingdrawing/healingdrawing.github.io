@@ -129,7 +129,6 @@ function generate_gradient(d){
 }
 
 function random_all(){
-    // console.log(JSON.stringify(d));
     var d = get_gui_values_as_object();
     
     var prefix = [
@@ -148,11 +147,33 @@ function random_all(){
     }
     
     write_values(d);
-    // var d = get_gui_values_as_object();
     
-    
-    // console.log(JSON.stringify(d["steps"]));
-    // console.log(JSON.stringify(d));
     generate_gradient(d);
     showme("random all completed");
+}
+
+function random_step(){
+    if (gradient_steps == []){
+        showme("1 random all -> 2 random step");
+    }else{
+        var d = get_gui_values_as_object();
+        d["steps"] = (gradient_steps.length-1) / 2;
+        var steps = generate_steps(d);
+        for (var i=1;i<gradient_steps.length;i += 2){
+            var old_step = gradient_steps[i];
+            var old_hole = gradient_steps[i+1];
+            
+            var old_size = old_hole["offset_end"] - old_step["offset_start"];
+            var old_step_size = old_step["offset_end"] - old_step["offset_start"];
+            var old_step_coef = old_step_size / old_size;
+            
+            gradient_steps[i]["offset_start"] = steps[i]["offset_start"];
+            gradient_steps[i+1]["offset_end"] = steps[i+1]["offset_end"];
+            gradient_steps[i]["offset_end"] = gradient_steps[i]["offset_start"] + (gradient_steps[i+1]["offset_end"] - gradient_steps[i]["offset_start"]) * old_step_coef;
+            gradient_steps[i+1]["offset_start"] = gradient_steps[i]["offset_start"] + (gradient_steps[i+1]["offset_end"] - gradient_steps[i]["offset_start"]) * old_step_coef;
+            
+        }
+        generate_svg_preview(gradient_steps);
+        showme("random step completed");
+    }
 }
