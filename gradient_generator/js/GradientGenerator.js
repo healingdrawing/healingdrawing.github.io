@@ -364,7 +364,6 @@ function random_full_holes(d,s_n){
     }
     return [holes,sumsize];
 }
-
 function random_size(){
     if (gradient_steps.length == 0){
         showme("1 random all -> 2 random step");
@@ -401,6 +400,106 @@ function random_size(){
             //     gradient_steps[gsi+1]["offset_end"] = so + hole_size;
             //     so += hole_size;
             // }else{ gradient_steps[gsi+1]["offset_end"] = 100; }
+        }
+        generate_svg_preview(gradient_steps);
+        showme("random size completed");
+    }
+}
+
+function random_color_steps(d,s_n){
+    var rez = [];
+    for (var i=0;i<s_n;i++){
+        if(d["red_lock_value"]){ var red = d["red"]; }else{ var red = random_int(d["red_min"],d["red_max"]); }
+        if(d["green_lock_value"]){ var green = d["green"]; }else{ var green = random_int(d["green_min"],d["green_max"]); }
+        if(d["blue_lock_value"]){ var blue = d["blue"]; }else{ var blue = random_int(d["blue_min"],d["blue_max"]); }
+        if(d["monochrome"]){
+            var min_rgb = Math.min(red,green,blue);
+            var max_rgb = Math.max(red,green,blue);
+            var rgb = random_int(min_rgb,max_rgb);
+            red = rgb; green = rgb; blue = rgb;
+        }
+        if(d["alpha_start_lock_value"]){ var alpha_start = d["alpha_start"]; }else{ var alpha_start = random_int(d["alpha_start_min"],d["alpha_start_max"]); }
+        if(d["alpha_end_lock_value"]){ var alpha_end = d["alpha_end"]; }else{ var alpha_end = random_int(d["alpha_end_min"],d["alpha_end_max"]); }
+        var step = {};
+        step["red_start"] = red;
+        step["green_start"] = green;
+        step["blue_start"] = blue;
+        step["red_end"] = red;
+        step["green_end"] = green;
+        step["blue_end"] = blue;
+        step["alpha_start"] = alpha_start;
+        step["alpha_end"] = alpha_end;
+        rez.push(step);
+    }
+    // console.log("color_step",rez);
+    return rez;
+}
+function random_color_holes(d, steps, s_n){
+    var rez = [];
+    for (var i=0;i<s_n;i++){
+        var hole = {};
+        if (d["smooth"]){
+            hole["alpha_start"] = steps[i]["alpha_end"];
+            hole["red_start"] = steps[i]["red_end"];
+            hole["green_start"] = steps[i]["green_end"];
+            hole["blue_start"] = steps[i]["blue_end"];
+            
+            if(i==steps.length-1){
+                hole["alpha_end"] = 0;
+                hole["red_end"] = 0;
+                hole["green_end"] = 0;
+                hole["blue_end"] = 0;
+            }else{
+                hole["alpha_end"] = steps[i+1]["alpha_start"];
+                hole["red_end"] = steps[i+1]["red_start"];
+                hole["green_end"] = steps[i+1]["green_start"];
+                hole["blue_end"] = steps[i+1]["blue_start"];
+            }
+        }else{
+            hole["alpha_start"] = 0;
+            hole["red_start"] = 0;
+            hole["green_start"] = 0;
+            hole["blue_start"] = 0;
+            hole["alpha_end"] = 0;
+            hole["red_end"] = 0;
+            hole["green_end"] = 0;
+            hole["blue_end"] = 0;
+        }
+        rez.push(hole);
+    }return rez;
+}
+function random_color(){
+    if (gradient_steps.length == 0){
+        showme("1 random all -> 2 random color");
+    }else{
+        var d = get_gui_values_as_object();
+        var prefix = [ "red", "green", "blue", "alpha_start", "aplha_end" ];
+        for (var i=0;i<prefix.length;i++){ random_prefix_counter(d,prefix[i]); }write_values(d);
+        var s_n = (gradient_steps.length - 1) / 2; // steps number
+        
+        var color_steps = random_color_steps(d, s_n);
+        var color_holes = random_color_holes(d, color_steps, s_n);
+        
+        for (var i=0;i<s_n;i++){
+            var gsi = 1 + (i * 2);//gradient_steps index
+            //step
+            gradient_steps[gsi]["red_start"] = color_steps[i]["red_start"];
+            gradient_steps[gsi]["red_end"] = color_steps[i]["red_end"];
+            gradient_steps[gsi]["green_start"] = color_steps[i]["green_start"];
+            gradient_steps[gsi]["green_end"] = color_steps[i]["green_end"];
+            gradient_steps[gsi]["blue_start"] = color_steps[i]["blue_start"];
+            gradient_steps[gsi]["blue_end"] = color_steps[i]["blue_end"];
+            gradient_steps[gsi]["alpha_start"] = color_steps[i]["alpha_start"];
+            gradient_steps[gsi]["alpha_end"] = color_steps[i]["alpha_end"];
+            //hole
+            gradient_steps[gsi+1]["red_start"] = color_holes[i]["red_start"];
+            gradient_steps[gsi+1]["red_end"] = color_holes[i]["red_end"];
+            gradient_steps[gsi+1]["green_start"] = color_holes[i]["green_start"];
+            gradient_steps[gsi+1]["green_end"] = color_holes[i]["green_end"];
+            gradient_steps[gsi+1]["blue_start"] = color_holes[i]["blue_start"];
+            gradient_steps[gsi+1]["blue_end"] = color_holes[i]["blue_end"];
+            gradient_steps[gsi+1]["alpha_start"] = color_holes[i]["alpha_start"];
+            gradient_steps[gsi+1]["alpha_end"] = color_holes[i]["alpha_end"];
         }
         generate_svg_preview(gradient_steps);
         showme("random size completed");
