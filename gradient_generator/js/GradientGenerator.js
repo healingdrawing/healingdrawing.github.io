@@ -505,3 +505,25 @@ function random_color(){
         showme("random size completed");
     }
 }
+
+var limit_size_number = 0; //0 1 2 3
+function limit_size(){
+    var d = get_gui_values_as_object();
+    if (limit_size_number <3){ limit_size_number += 1; }else{ limit_size_number = 0; }
+    var min_step; var max_step;
+    var min_hole; var max_hole;
+    var name;
+    var x = limit_size_number;
+    if (x==0){ min_step = 0; max_step = 100; min_hole = 0; max_hole = 100; name = "standard size: step 0...100  hole 0...100" ;}
+    else if (x==1){ min_step = 0; max_step = 50; min_hole = 50; max_hole = 100; name = "big hole size: step 0...50  hole 50...100" ;}
+    else if (x==2){ min_step = 50; max_step = 100; min_hole = 0; max_hole = 50; name = "big step size: step 50...100  hole 0...50" ;}
+    else if (x==3){ min_step = 50; max_step = 50; min_hole = 50; max_hole = 50; name = "balanced size: step 50...50 hole 50...50" ;}
+    
+    d["step_size_min"]=min_step;
+    d["step_size_max"]=max_step;
+    d["hole_size_min"]=min_hole;
+    d["hole_size_max"]=max_hole;
+    console.log(d);
+    write_values(d);
+    showme(name);
+}
