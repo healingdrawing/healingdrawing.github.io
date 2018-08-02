@@ -20,15 +20,14 @@
         <table class="w400">
             <tbody>
                 <tr>
-                    <td><button class="boxbutton" type="button" onclick="" title="">load<br>seed</button></td>
+                    <td><button class="boxbutton" type="button" onclick="importSEED()" title="">load<br>seed</button></td>
                     <td><button class="boxbutton" type="button" onclick="importGUI()" title="">load<br>GUI</button></td>
                     <td><button class="boxbutton" type="button" onclick="exportGUI()" title="">save<br>GUI</button></td>
                     <td><button class="boxbutton" type="button" onclick="exportSVG()" title="">save<br>SVG</button></td>
                     <td><button class="boxbutton" type="button" onclick="exportGGR()" title="">save<br>ggr</button></td>
                 </tr>
                 <tr>
-                    <td><button class="boxbutton" type="button" onclick="" title="">save<br>seed</button></td>
-                    
+                    <td><button class="boxbutton" type="button" onclick="exportSEED()" title="">save<br>seed</button></td>
                     <td class="shirt" id="viewbox" colspan="3" rowspan="3"></td>
                     <td><button class="boxbutton" type="button" onclick="" title="">limit<br>size</button></td>
                 </tr>
@@ -168,7 +167,9 @@
         <a href="" id="GUIexport" class="displaynone">GUI</a>
         <a href="" id="SVGexport" class="displaynone">SVG</a>
         <a href="" id="GGRexport" class="displaynone">GGR</a>
+        <a href="" id="SEEDexport" class="displaynone">SEED</a>
         <input type="file" id="GUIimport" class="displaynone">
+        <input type="file" id="SEEDimport" class="displaynone">
         
         <script type="text/javascript" src="js/alert.js"></script>
         <script type="text/javascript" src="js/geo.js"></script>

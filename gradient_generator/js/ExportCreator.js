@@ -82,3 +82,16 @@ function exportGUI(){
     a.click();
     showme("GUI exported to " + name);
 }
+
+function exportSEED(){
+    var a = document.getElementById('SEEDexport');
+    var d = get_gui_values_as_object();
+    var text = JSON.stringify(gradient_steps);
+    var type = "application/json";
+    var name = "seed-gradient-"+get_date_time()+".json";
+	var file = new Blob([text], {type: type});
+	a.href = URL.createObjectURL(file);
+	a.download = name;
+    a.click();
+    showme("SEED exported to " + name);
+}

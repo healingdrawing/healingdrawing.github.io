@@ -1,7 +1,7 @@
 
-var import_input = document.getElementById('GUIimport');
-function importGUI(){ import_input.click(); }
-var handleFileSelect = function(evt) {
+var gui_input = document.getElementById('GUIimport');
+function importGUI(){ gui_input.click(); }
+var handleGUIFileSelect = function(evt) {
     var files = evt.target.files;
     var reader = new FileReader();
     reader.onload = function(e) { 
@@ -10,8 +10,8 @@ var handleFileSelect = function(evt) {
     reader.readAsText(files[0]);
     // console.log(reader.result);
 }
-import_input.addEventListener('change', handleFileSelect, false);
-import_input.value = "";
+gui_input.addEventListener('change', handleGUIFileSelect, false);
+gui_input.value = "";
 
 function write_data_to_gui(text){
     console.log(text);
@@ -23,3 +23,19 @@ function write_data_to_gui(text){
     }
     document.getElementById("info").value = "GUI loaded from *.json";
 }
+
+
+var seed_input = document.getElementById('SEEDimport');
+function importSEED(){ seed_input.click(); }
+var handleSEEDFileSelect = function(evt) {
+    var files = evt.target.files;
+    var reader = new FileReader();
+    reader.onload = function(e) { 
+        gradient_steps = JSON.parse(reader.result);
+        generate_svg_preview(gradient_steps);
+    };
+    reader.readAsText(files[0]);
+    // console.log(reader.result);
+}
+seed_input.addEventListener('change', handleSEEDFileSelect, false);
+seed_input.value = "";
