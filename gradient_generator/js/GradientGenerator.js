@@ -523,7 +523,33 @@ function limit_size(){
     d["step_size_max"]=max_step;
     d["hole_size_min"]=min_hole;
     d["hole_size_max"]=max_hole;
-    console.log(d);
+    // console.log(d);
     write_values(d);
     showme(name);
+}
+
+var limit_alpha_number = 0; //0 1 2 3
+function limit_alpha(){
+    var d = get_gui_values_as_object();
+    if (limit_alpha_number <3){ limit_alpha_number += 1; }else{ limit_alpha_number = 0; }
+    var min_alpha_start; var max_alpha_start;
+    var min_alpha_end; var max_alpha_end;
+    var name;
+    var x = limit_alpha_number;
+    if (x==0){ min_alpha_start = 0; max_alpha_start = 255; min_alpha_end = 0; max_alpha_end = 255; name = "standard transparency: start 0...255  end 0...255" ;}
+    else if (x==1){ min_alpha_start = 0; max_alpha_start = 127; min_alpha_end = 127; max_alpha_end = 255; name = "transparent start: start 0...127  end 127...255" ;}
+    else if (x==2){ min_alpha_start = 127; max_alpha_start = 255; min_alpha_end = 0; max_alpha_end = 127; name = "transparent end: start 127...255  end 0...127" ;}
+    else if (x==3){ min_alpha_start = 255; max_alpha_start = 255; min_alpha_end = 255; max_alpha_end = 255; name = "zero transparency: start 255...255 end 255...255" ;}
+    
+    d["alpha_start_min"]=min_alpha_start;
+    d["alpha_start_max"]=max_alpha_start;
+    d["alpha_end_min"]=min_alpha_end;
+    d["alpha_end_max"]=max_alpha_end;
+    // console.log(d);
+    write_values(d);
+    showme(name);
+}
+
+function limit_color(){
+    
 }
