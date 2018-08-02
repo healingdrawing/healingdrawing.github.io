@@ -84,23 +84,40 @@ function preview_type_switcher(){
     showme("preview type switched");
 }
 
+function rgb_limiter(rgb){
+    var rez = rgb;
+    if (rez >= 255){ rez = 255; } else if(rez < 0){ rez = 0; }
+    return rez;
+}
+function offset_limiter(offset,ind=-1){
+    var rez = offset;
+    if (rez > 100){ rez = 100; } else if(rez < 0){ rez = 0; }
+    return rez;
+}
+function alpha_limiter(alpha,ind=-1){
+    var rez = alpha;
+    if (rez >= 255){ rez = 255; } else if(rez < 0){ rez = 0; }
+    return rez;
+}
+
 function generate_svg_preview(s){
     stoppoints = "";
     for (var i=0;i<s.length;i++){
-        var r_start = s[i]["red_start"];
-        var g_start = s[i]["green_start"];
-        var b_start = s[i]["blue_start"];
-        var a_start = s[i]["alpha_start"];
-        var o_start = s[i]["offset_start"];
+        var r_start = rgb_limiter( s[i]["red_start"] );
+        var g_start = rgb_limiter( s[i]["green_start"] );
+        var b_start = rgb_limiter( s[i]["blue_start"] );
+        var a_start = alpha_limiter( s[i]["alpha_start"], i );
+        var o_start = offset_limiter( s[i]["offset_start"], i );
+        
         var ind_start = i.toString();
         var stpp = svg_stop_counter(r_start,g_start,b_start,a_start,o_start,ind_start);
         stoppoints +=stpp;
         
-        var r_end = s[i]["red_end"];
-        var g_end = s[i]["green_end"];
-        var b_end = s[i]["blue_end"];
-        var a_end = s[i]["alpha_end"];
-        var o_end = s[i]["offset_end"];
+        var r_end = rgb_limiter( s[i]["red_end"] );
+        var g_end = rgb_limiter( s[i]["green_end"] );
+        var b_end = rgb_limiter( s[i]["blue_end"] );
+        var a_end = alpha_limiter( s[i]["alpha_end"], i );
+        var o_end = offset_limiter( s[i]["offset_end"], i );
         var ind_end = '_'+i.toString();
         var stpp = svg_stop_counter(r_end,g_end,b_end,a_end,o_end,ind_end);
         stoppoints +=stpp;

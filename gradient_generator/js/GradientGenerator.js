@@ -344,47 +344,65 @@ function random_all(){
     showme("random all completed");
 }
 
-function random_step(){
-    
+function random_full_steps(d,s_n){
+    var steps = [];
+    var sumsize = 0;
+    for (var i=0;i<s_n;i++){
+        if(d["step_size_lock_value"]){ var step_size = d["step_size"]; }else{ var step_size = random_int(d["step_size_min"],d["step_size_max"]); }
+        steps.push(step_size);
+        sumsize += step_size;
+    }
+    return [steps,sumsize];
+}
+function random_full_holes(d,s_n){
+    var holes = [];
+    var sumsize = 0;
+    for (var i=0;i<s_n;i++){
+        if(d["hole_size_lock_value"]){ var hole_size = d["hole_size"]; }else{ var hole_size = random_int(d["hole_size_min"],d["hole_size_max"]); }
+        holes.push(hole_size);
+        sumsize += hole_size;
+    }
+    return [holes,sumsize];
 }
 
-function fail_random_step(){
+function random_size(){
     if (gradient_steps.length == 0){
         showme("1 random all -> 2 random step");
     }else{
         var d = get_gui_values_as_object();
-        d["steps"] = (gradient_steps.length-1) / 2;
-        var steps = generate_steps(d);
-        for (var i=1;i<gradient_steps.length;i += 2){
-            var old_step = gradient_steps[i];
-            var old_hole = gradient_steps[i+1];
-            
-            var old_size = old_hole["offset_end"] - old_step["offset_start"];
-            var old_step_size = old_step["offset_end"] - old_step["offset_start"];
-            var old_step_coef = old_step_size / old_size;
-            
-            gradient_steps[i]["offset_start"] = steps[i]["offset_start"];
-            gradient_steps[i+1]["offset_end"] = steps[i+1]["offset_end"];
-            
-            var delta = gradient_steps[i]["offset_start"] + (gradient_steps[i+1]["offset_end"] - gradient_steps[i]["offset_start"]) * old_step_coef;
-            if (!delta){
-                console.log('gradient_steps[i]["offset_start"]',gradient_steps[i]["offset_start"]);
-                console.log('gradient_steps[i+1]["offset_end"]',gradient_steps[i+1]["offset_end"]);
-                console.log('old_step["offset_start"]',old_step["offset_start"]);
-                console.log('old_step["offset_end"]',old_step["offset_end"]);
-                console.log('old_hole["offset_end"]',old_hole["offset_end"]);
-                console.log('old_step_size',old_step_size);
-                console.log('old_size',old_size);
-                console.log('old_step_coef',old_step_coef);
-                console.log("delta ",delta);
-                console.log(gradient_steps[i]["offset_start"] + (gradient_steps[i+1]["offset_end"] - gradient_steps[i]["offset_start"]) * old_step_coef)
-            }
-            
-            gradient_steps[i]["offset_end"] = delta;
-            gradient_steps[i+1]["offset_start"] = delta;
-            
+        var prefix = [ "step_size","hole_size" ];
+        for (var i=0;i<prefix.length;i++){ random_prefix_counter(d,prefix[i]); }write_values(d);
+        var s_n = (gradient_steps.length - 1) / 2; // steps number
+        var radius = gradient_steps[0]["offset_end"];
+        
+        var data = random_full_steps(d,s_n);
+        var full_steps = data[0]; // step absolute
+        var sumsize_steps = data[1];
+        data = random_full_holes(d,s_n);
+        var full_holes = data[0]; // hole absolute
+        var sumsize_holes = data[1];
+        var sumsize = sumsize_steps + sumsize_holes;
+        var so = radius; //center hole offset ... start offset
+        var go = 100 - so; //gradient offset ... from hole offset end to gradient border
+        var scale = go / sumsize;
+        data = calculate_relative_steps_holes(full_steps,full_holes,scale,so);
+        var relative_steps = data[0]; //[{},{}...]
+        var relative_holes = data[1]; //[{},{}...]
+        for (var i=0;i<s_n;i++){
+            var gsi = 1 + (i * 2);//gradient_steps index
+            //step
+            gradient_steps[gsi]["offset_start"] = relative_steps[i]["offset_start"];
+            gradient_steps[gsi]["offset_end"] = relative_steps[i]["offset_end"];
+            so += steps[i];
+            //hole
+            gradient_steps[gsi+1]["offset_start"] = relative_holes[i]["offset_start"];
+            gradient_steps[gsi+1]["offset_end"] = relative_holes[i]["offset_end"];
+            // if(i<s_n-1){
+            //     gradient_steps[gsi+1]["offset_end"] = so + hole_size;
+            //     so += hole_size;
+            // }else{ gradient_steps[gsi+1]["offset_end"] = 100; }
         }
         generate_svg_preview(gradient_steps);
-        showme("random step completed");
+        showme("random size completed");
     }
 }
