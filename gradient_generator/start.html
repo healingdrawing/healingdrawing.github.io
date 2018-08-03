@@ -3,6 +3,7 @@
     <head>
         <title>Gradient Generator 2018</title>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=410">
         <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     
@@ -34,7 +35,7 @@
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="random_all()" title="">random<br>all</button></td>
                     
-                    <td><button class="boxbutton" type="button" onclick="limit_color()" title="">limit<br>color</button></td>
+                    <td><button class="boxbutton" type="button" onclick="limit_color(0)" title="">limit<br>color</button></td>
                 </tr>
                 <tr>
                     <td><button class="boxbutton" type="button" onclick="random_size()" title="">random<br>size</button></td>
@@ -45,11 +46,61 @@
                     <td><button class="boxbutton" type="button" onclick="random_color()" title="">random<br>color</button></td>
                     <td><button class="boxbutton" type="button" onclick="back_color_creator()" title="">color<br>back</button></td>
                     <td><button class="boxbutton" type="button" onclick="back_chrome_creator()" title="">chrome<br>back</button></td>
-                    <td><button class="boxbutton" type="button" onclick="" title="">single<br>hole</button></td>
+                    
+                    <td><div class="boxdiv" id="palette_view"><img class="boximage" src="css/palette_glass.png"></div></td>
+                    
                     <td><button class="boxbutton" type="button" onclick="preview_type_switcher()" title="">switch<br>view</button></td>
                 </tr>
             </tbody>
         </table>
+        
+        <table class="w400">
+            <tbody>
+                <tr>
+                    <td><div class="limitcolor" id="lico1"><input type="image" onclick="limit_color(1)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico2"><input type="image" onclick="limit_color(2)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico3"><input type="image" onclick="limit_color(3)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico4"><input type="image" onclick="limit_color(4)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico5"><input type="image" onclick="limit_color(5)" src="css/limitcolor.png"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="limitcolor" id="lico6"><input type="image" onclick="limit_color(6)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico7"><input type="image" onclick="limit_color(7)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico8"><input type="image" onclick="limit_color(8)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico9"><input type="image" onclick="limit_color(9)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico10"><input type="image" onclick="limit_color(10)" src="css/limitcolor.png"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="limitcolor" id="lico11"><input type="image" onclick="limit_color(11)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico12"><input type="image" onclick="limit_color(12)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico13"><input type="image" onclick="limit_color(13)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico14"><input type="image" onclick="limit_color(14)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico15"><input type="image" onclick="limit_color(15)" src="css/limitcolor.png"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="limitcolor" id="lico16"><input type="image" onclick="limit_color(16)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico17"><input type="image" onclick="limit_color(17)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico18"><input type="image" onclick="limit_color(18)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico19"><input type="image" onclick="limit_color(19)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico20"><input type="image" onclick="limit_color(20)" src="css/limitcolor.png"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="limitcolor" id="lico21"><input type="image" onclick="limit_color(21)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico22"><input type="image" onclick="limit_color(22)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico23"><input type="image" onclick="limit_color(23)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico24"><input type="image" onclick="limit_color(24)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico25"><input type="image" onclick="limit_color(25)" src="css/limitcolor.png"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="limitcolor" id="lico0"><input type="image" onclick="limit_color(0)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico26"><input type="image" onclick="limit_color(26)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico27"><input type="image" onclick="limit_color(27)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico28"><input type="image" onclick="limit_color(28)" src="css/limitcolor.png"></div></td>
+                    <td><div class="limitcolor" id="lico0"><input type="image" onclick="limit_color(0)" src="css/limitcolor.png"></div></td>
+                </tr>
+            </tbody>
+        </table>
+        
         <table class="w400"> <!-- input numbers , checboxes -->
             <tbody>
                 <tr>

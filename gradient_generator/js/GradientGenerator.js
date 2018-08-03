@@ -536,10 +536,10 @@ function limit_alpha(){
     var min_alpha_end; var max_alpha_end;
     var name;
     var x = limit_alpha_number;
-    if (x==0){ min_alpha_start = 0; max_alpha_start = 255; min_alpha_end = 0; max_alpha_end = 255; name = "standard transparency: start 0...255  end 0...255" ;}
-    else if (x==1){ min_alpha_start = 0; max_alpha_start = 127; min_alpha_end = 127; max_alpha_end = 255; name = "transparent start: start 0...127  end 127...255" ;}
-    else if (x==2){ min_alpha_start = 127; max_alpha_start = 255; min_alpha_end = 0; max_alpha_end = 127; name = "transparent end: start 127...255  end 0...127" ;}
-    else if (x==3){ min_alpha_start = 255; max_alpha_start = 255; min_alpha_end = 255; max_alpha_end = 255; name = "zero transparency: start 255...255 end 255...255" ;}
+    if (x==0){ min_alpha_start = 0; max_alpha_start = 255; min_alpha_end = 0; max_alpha_end = 255; name = "alpha: start 0...255  end 0...255" ;}
+    else if (x==1){ min_alpha_start = 0; max_alpha_start = 127; min_alpha_end = 127; max_alpha_end = 255; name = "alpha: start 0...127  end 127...255" ;}
+    else if (x==2){ min_alpha_start = 127; max_alpha_start = 255; min_alpha_end = 0; max_alpha_end = 127; name = "alpha: start 127...255  end 0...127" ;}
+    else if (x==3){ min_alpha_start = 255; max_alpha_start = 255; min_alpha_end = 255; max_alpha_end = 255; name = "alpha: start 255...255 end 255...255" ;}
     
     d["alpha_start_min"]=min_alpha_start;
     d["alpha_start_max"]=max_alpha_start;
@@ -549,7 +549,70 @@ function limit_alpha(){
     write_values(d);
     showme(name);
 }
-
-function limit_color(){
+var gdata = [];
+function gui_limit_color_maker(){
+    gdata = [
+        ["red_min","red_max","green_min","green_max","blue_min","blue_max"],
+        [0,255,0,255,0,255],
+        [0,127,0,127,0,127],
+        [63,191,63,191,63,191],
+        [127,255,127,255,127,255],
+        [0,127,63,191,127,255],
+        [127,255,63,191,0,127],
+        [63,191,127,255,0,127],
+        [127,255,0,127,63,191],
+        [0,127,127,255,63,191],
+        [63,191,0,127,127,255],
+        [127,255,0,127,127,255],
+        [127,255,63,191,127,255],
+        [63,191,0,127,63,191],
+        [63,191,127,255,63,191],
+        [0,127,63,191,0,127],
+        [0,127,127,255,0,127],
+        [127,255,127,255,63,191],
+        [127,255,127,255,0,127],
+        [63,191,63,191,127,255],
+        [63,191,63,191,0,127],
+        [0,127,0,127,127,255],
+        [0,127,0,127,63,191],
+        [63,191,127,255,127,255],
+        [0,127,127,255,127,255],
+        [127,255,63,191,63,191],
+        [0,127,63,191,63,191],
+        [127,255,0,127,0,127],
+        [63,191,0,127,0,127]
+    ];
+    for (var i=1;i<29;i++){
+        var div = document.getElementById("lico"+i.toString());
+        div.style.background = "linear-gradient(90deg, rgb("+gdata[i][0].toString()+", "+gdata[i][2].toString()+", "+gdata[i][4].toString()+"), rgb("+gdata[i][1].toString()+", "+gdata[i][3].toString()+", "+gdata[i][5].toString()+"))";
+    }
+    var div = document.getElementById("palette_view");
+    div.style.background = "linear-gradient(90deg, rgb("+gdata[1][0].toString()+", "+gdata[1][2].toString()+", "+gdata[1][4].toString()+"), rgb("+gdata[1][1].toString()+", "+gdata[1][3].toString()+", "+gdata[1][5].toString()+"))";
+}
+gui_limit_color_maker();
+var plcn = 1; //palette limit color number 0incoming from gui button 1... 28 from palette
+function limit_color(x){
+    if (x==0){ if(plcn<28){ plcn += 1; }else{ plcn = 1; } }
+    else{
+        plcn = x;
+    }
+    var ids = [
+        "red_min","red_max",
+        "green_min","green_max",
+        "blue_min","blue_max"
+    ];
+    var vals = [
+        gdata[plcn][0],gdata[plcn][1],
+        gdata[plcn][2],gdata[plcn][3],
+        gdata[plcn][4],gdata[plcn][5]
+    ];
+    for (var i=0;i<ids.length;i++){
+        document.getElementById(ids[i]).value = vals[i];
+    }
     
+    var div = document.getElementById("palette_view");
+    div.style.background = "linear-gradient(90deg, rgb("+vals[0].toString()+", "+vals[2].toString()+", "+vals[4].toString()+"), rgb("+vals[1].toString()+", "+vals[3].toString()+", "+vals[5].toString()+"))";
+    
+    var text = " R["+vals[0]+"..."+vals[1]+"] G["+vals[2]+"..."+vals[3]+"] B["+vals[4]+"..."+vals[5]+"]";
+    showme(text);
 }
