@@ -275,7 +275,7 @@ function lamp_gui_tbody(){
     tr5.appendChild(td_hr(4));
     
     var tr6 = document.createElement('tr');
-    tr6.appendChild(td_cbox_text_colspan("cbox_directional","directional",false,2));
+    tr6.appendChild(td_cbox_text_colspan("cbox_directional","directional",false,2,"left","from (x,y,z) to (0,0,0)"));
     tr6.appendChild(td_input("intensity_directional","intensity"));
     tr6.appendChild(td_color("color_directional","#ffffff"));
     
