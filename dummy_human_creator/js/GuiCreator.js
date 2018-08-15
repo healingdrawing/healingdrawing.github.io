@@ -53,6 +53,11 @@ function td_hr(colspan = 1){
     td.appendChild(document.createElement('hr'));
     return td;
 }
+function tr_hr(colspan = 1){
+    var tr = document.createElement('tr');
+    tr.appendChild(td_hr(colspan));
+    return tr;
+}
 function td_text(text, color = "",colspan = 1){
     var td = document.createElement('td');
     var style = "";
@@ -172,7 +177,74 @@ function td_number(id, colspan = 1, title = "",min="",max="",step=""){
     return td;
 }
 
-function element_size_table_creator(name){
+function size_header_section_creator(){
+    var tr_big = document.createElement('tr');
+    var td = document.createElement('td');
+    td.appendChild(size_standart_element_table_creator("head"));
+    tr_big.appendChild(td);
+    
+    var td_big = document.createElement('td');
+    //h + base
+    var table = document.createElement('table');
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("head&#8597;"));
+    tr.appendChild(td_text("head&oplus;"));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    var n = "head_height";
+    var td = td_number(n,1,n);
+    tr.appendChild(td);
+    var n = "head_axis";
+    var title = "head_axis displacement from center between back(-1) and face(1)"
+    var td = td_number(n,1,title,"-1","1","0.5");
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    td_big.appendChild(table);
+    tr_big.appendChild(td_big);
+    return tr_big;
+}
+function size_description_section_creator(){
+    var tr_big = document.createElement('tr');
+    var text = [["long&#8691;","fat&#8691;"],["long&#8681;","fat&#8681;"]];
+    for (var i=0;i<2;i++){
+        var td_big = document.createElement('td');
+        var table = document.createElement('table');
+        var tbody = document.createElement('tbody');
+        var tr = document.createElement('tr');
+        var td = td_text(text[i][0]); tr.appendChild(td);
+        var td = td_text(text[i][1]); tr.appendChild(td);
+        tbody.appendChild(tr); table.appendChild(tbody);
+        td_big.appendChild(table); tr_big.appendChild(td_big);
+    }
+    return tr_big;
+}
+function size_shoulders_section_creator(){
+    var td_big = document.createElement('td');
+    
+    var table = document.createElement('table');
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("shoulders","",2));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    var n = "shoulders_bend";
+    var title = "shoulders base bend from back(-1) to face(1)";
+    var td = td_number(n,1,title,"-1","1","0.5");
+    tr.appendChild(td);
+    var n = "shoulders_width";
+    var td = td_number(n,1,n);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    
+    td_big.appendChild(table);
+    return td_big;
+}
+function size_standart_element_table_creator(name){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
@@ -180,20 +252,46 @@ function element_size_table_creator(name){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    
-    //need return etc
+    var n = name+"_length";
+    var td = td_number(n,1,n);
+    tr.appendChild(td);
+    var n = name +"_width";
+    var td = td_number(n,1,n);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    return table;
 }
-var size_ids=[];
+var size_ids=[
+    "head_length","head_width","head_height","head_axis",
+    "shoulders_bend","shoulders_width",
+    "arm_length","feet_length","palm_length","shin_length","hip_length","body_length","ass_length",
+    "arm_width","feet_width","palm_width","shin_width","hip_width","body_width","ass_width",
+];
 function size_gui_tbody(){
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
     tr.appendChild(td_text("&nbsp;","",4));
     tbody.appendChild(tr);
     //create head block + L W L W header later
-    //create shoulders block
+    tbody.appendChild(size_header_section_creator());
+    //separator right side
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_hr());
+    tbody.appendChild(tr);
+    tbody.appendChild(size_description_section_creator());
+    //create shoulders block, need unique title for shoulders displacement
+    var tr = document.createElement('tr');
+    tr.appendChild(size_shoulders_section_creator());
     //create other block
-    var tnames = ["arm","palm",""];
-    
+    var tnames = ["arm","feet","palm","shin","hip","body","ass"];
+    for (var i = 0;i<tnames.length;i++){
+        var td = document.createElement('td');
+        td.appendChild(size_standart_element_table_creator(tnames[i]));
+        tr.appendChild(td);
+        if(!(i%2)){tbody.appendChild(tr); tr= document.createElement('tr');}
+    }
     
     return tbody;
 }
