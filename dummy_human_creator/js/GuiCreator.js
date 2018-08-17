@@ -58,7 +58,7 @@ function tr_hr(colspan = 1){
     tr.appendChild(td_hr(colspan));
     return tr;
 }
-function td_text(text, color = "",colspan = 1){
+function td_text(text, color = "", colspan = 1, title=""){
     var td = document.createElement('td');
     var style = "";
     if (color == ""){ style = "vertical-align:middle;"; }
@@ -66,6 +66,7 @@ function td_text(text, color = "",colspan = 1){
     td.setAttribute("style",style);
     td.innerHTML = text;
     td.colSpan = colspan;
+    td.title = title;
     return td;
 }
 function text_tag(text,color){
@@ -143,8 +144,9 @@ function td_color(id, co = "#000000",title = ""){
     td.appendChild(color);
     return td;
 }
-function td_button(text, callback, title = "",bclass="b50px"){
+function td_button(text, callback, title = "",bclass="b50px",colspan = 1){
     var td = document.createElement('td');
+    td.colspan = colspan;
     var btn = "<button class=\""+bclass+"\" title=\""+title+"\" onclick=\""+callback+"\">"+text+"</button>";
     td.innerHTML = btn;
     return td;
@@ -227,7 +229,7 @@ function size_shoulders_section_creator(){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
-    tr.appendChild(td_text("shoulders","",2));
+    tr.appendChild(td_text("<br>shoulders","",2));
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
@@ -248,7 +250,7 @@ function size_standart_element_table_creator(name){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
-    tr.appendChild(td_text(name,"",2));
+    tr.appendChild(td_text("<br>"+name,"",2));
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
@@ -271,7 +273,7 @@ var size_ids=[
 function size_gui_tbody(){
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
-    tr.appendChild(td_text("&nbsp;","",4));
+    tr.appendChild(td_text("&nbsp;","",2));
     tbody.appendChild(tr);
     //create head block + L W L W header later
     tbody.appendChild(size_header_section_creator());
@@ -292,58 +294,292 @@ function size_gui_tbody(){
         tr.appendChild(td);
         if(!(i%2)){tbody.appendChild(tr); tr= document.createElement('tr');}
     }
+    //save load separated buttons
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement("tr");
+    var td = td_button("save size","save_size()","","b100px",2);
+    tr.appendChild(td);
+    var td = td_button("load size","load_size()","","b100px",2);
+    tr.appendChild(td); tbody.appendChild(tr);
+    
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement("tr");
+    var td = td_button("save pose","save_pose()","","b100px",2);
+    tr.appendChild(td);
+    var td = td_button("load pose","load_pose()","","b100px",2);
+    tr.appendChild(td); tbody.appendChild(tr);
     
     return tbody;
 }
 function size_gui_creator(){
     var table = document.createElement('table');
+    table.style.width = "260px";
     table.appendChild(size_gui_tbody());
     var box = document.getElementById("tab_c1");
     box.appendChild(table);
 }
 
-var look_ids=[];
-function look_gui_tbody(){
+var r_pose_ids=[
+    "r_shoulder_fa","r_shoulder_sa","r_shoulder_ta","r_shoulder_co",
+    "r_elbow_fa","r_elbow_ta","r_elbow_co",
+    "r_palm_sa","r_palm_co",
+    "r_hip_fa","r_hip_sa","r_hip_ta","r_hip_co",
+    "r_knee_fa","r_knee_co",
+    "r_foot_fa","r_foot_co",
+    "r_back_fa","r_back_sa","r_back_ta","r_back_co",
+    "r_neck_fa","r_neck_sa","r_neck_ta","r_neck_co",
+    "head_co"
+];
+var l_pose_ids=[
+    "l_shouldel_fa","l_shouldel_sa","l_shouldel_ta","l_shouldel_co",
+    "l_elbow_fa","l_elbow_ta","l_elbow_co",
+    "l_palm_sa","l_palm_co",
+    "l_hip_fa","l_hip_sa","l_hip_ta","l_hip_co",
+    "l_knee_fa","l_knee_co",
+    "l_foot_fa","l_foot_co",
+    "l_back_fa","l_back_sa","l_back_ta","l_back_co",
+    "l_neck_fa","l_neck_sa","l_neck_ta","l_neck_co",
+    "body_co"
+];
+function r_pose_gui_tbody(){
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
-    tr.appendChild(td_text("&nbsp;","",4));
+    tr.appendChild(td_text("right side pose","",4));
     tbody.appendChild(tr);
-    for (var i=0;i<5;i++){//x3tr box 
-        var tr = document.createElement('tr');
-        var tr_input_name = [
-            ["color_base","color_tail","color_bottle","ring_length"],
-            ["alpha_base","alpha_tail","alpha_bottle","ring_width"],
-            ["tail_start_width","tail_end_width","tail_number","ring_offset"]
-        ];
-        for (var ii=0;ii<tr_input_name.length;ii++){//tr
-            var input_name = tr_input_name[ii];
-            
-            var tr = document.createElement('tr');
-            for (var iii=0;iii<input_name.length;iii++){//td
-                var id=input_name[iii]+"_"+(i+1).toString();
-                look_ids.push(id);
-                if (ii==0 && iii<3){
-                    tr.appendChild(td_color(id,undefined,id));
-                }else{
-                    tr.appendChild(td_input(id,id));
-                }
-            }
-            tbody.appendChild(tr);
-        }
-        if(i<4){
-            var tr = document.createElement('tr');
-            tr.appendChild(td_hr(4));
-            tbody.appendChild(tr);
-        }
-    }
+    //description
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("fa&#8681;","",1,"front angle"));
+    tr.appendChild(td_text("sa&#8681;","",1,"side angle"));
+    tr.appendChild(td_text("ta&#8681;","",1,"twist angle"));
+    tr.appendChild(td_text("co&#8681;","",1,"color"));
+    tbody.appendChild(tr);
+    
+    //shoulder
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("shoulder","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("r_shoulder_fa",1,"r_shoulder_fa","-90","180","10"));
+    tr.appendChild(td_number("r_shoulder_sa",1,"r_shoulder_sa","-90","90","10"));
+    tr.appendChild(td_number("r_shoulder_ta",1,"r_shoulder_ta","-90","90","10"));
+    tr.appendChild(td_color("r_shoulder_co","#fe0000"));
+    tbody.appendChild(tr);
+    
+    //elbow
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("elbow","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("r_elbow_fa",1,"r_elbow_fa","-180","180","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_number("r_elbow_ta",1,"r_elbow_ta","-90","90","10"));
+    tr.appendChild(td_color("r_elbow_co","#febf00"));
+    tbody.appendChild(tr);
+    
+    //palm
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("palm","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_number("r_palm_sa",1,"r_palm_sa","-90","90","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_color("r_palm_co","#7efe00"));
+    tbody.appendChild(tr);
+    
+    //hip
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("hip","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("r_hip_fa",1,"r_hip_fa","-90","90","10"));
+    tr.appendChild(td_number("r_hip_sa",1,"r_hip_sa","-45","90","10"));
+    tr.appendChild(td_number("r_hip_ta",1,"r_hip_ta","-45","45","15"));
+    tr.appendChild(td_color("r_hip_co","#00fe42"));
+    tbody.appendChild(tr);
+    
+    //knee
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("knee","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("r_knee_fa",1,"r_knee_fa","-90","90","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_color("r_knee_co","#00fbfe"));
+    tbody.appendChild(tr);
+    
+    //foot
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("foot","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("r_foot_fa",1,"r_foot_fa","-90","90","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_color("r_foot_co","#003cfe"));
+    tbody.appendChild(tr);
+    
+    //back
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("back","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("r_back_fa",1,"r_back_fa","-180","180","10"));
+    tr.appendChild(td_number("r_back_sa",1,"r_back_sa","-90","90","10"));
+    tr.appendChild(td_number("r_back_ta",1,"r_back_ta from right(-90) to left(90)","-90","90","10"));
+    tr.appendChild(td_color("r_back_co","#8300fe"));
+    tbody.appendChild(tr);
+    
+    //head color
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("head color","",3));
+    tr.appendChild(td_color("head_co","#fe00b9"));
+    tbody.appendChild(tr);
     
     return tbody;
 }
-function look_gui_creator(){
+function l_pose_gui_tbody(){
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("left side pose","",4));
+    tbody.appendChild(tr);
+    //description
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("fa&#8681;","",1,"front angle"));
+    tr.appendChild(td_text("sa&#8681;","",1,"side angle"));
+    tr.appendChild(td_text("ta&#8681;","",1,"twist angle"));
+    tr.appendChild(td_text("co&#8681;","",1,"color"));
+    tbody.appendChild(tr);
+    
+    //shoulder
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("shoulder","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("l_shoulder_fa",1,"l_shoulder_fa","-90","180","10"));
+    tr.appendChild(td_number("l_shoulder_sa",1,"l_shoulder_sa","-90","90","10"));
+    tr.appendChild(td_number("l_shoulder_ta",1,"l_shoulder_ta","-90","90","10"));
+    tr.appendChild(td_color("l_shoulder_co","#fe6000"));
+    tbody.appendChild(tr);
+    
+    //elbow
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("elbow","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("l_elbow_fa",1,"l_elbow_fa","-180","180","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_number("l_elbow_ta",1,"l_elbow_ta","-90","90","10"));
+    tr.appendChild(td_color("l_elbow_co","#ddfe00"));
+    tbody.appendChild(tr);
+    
+    //palm
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("palm","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_number("l_palm_sa",1,"l_palm_sa","-90","90","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_color("l_palm_co","#1efe00"));
+    tbody.appendChild(tr);
+    
+    //hip
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("hip","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("l_hip_fa",1,"l_hip_fa","-90","90","10"));
+    tr.appendChild(td_number("l_hip_sa",1,"l_hip_sa","-45","90","10"));
+    tr.appendChild(td_number("l_hip_ta",1,"l_hip_ta","-45","45","15"));
+    tr.appendChild(td_color("l_hip_co","#00fea1"));
+    tbody.appendChild(tr);
+    
+    //knee
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("knee","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("l_knee_fa",1,"l_knee_fa","-90","90","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_color("l_knee_co","#009bfe"));
+    tbody.appendChild(tr);
+    
+    //foot
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("foot","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("l_foot_fa",1,"l_foot_fa","-90","90","10"));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_text(""));
+    tr.appendChild(td_color("l_foot_co","#2400fe"));
+    tbody.appendChild(tr);
+    
+    //neck
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("neck","",4));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_number("l_neck_fa",1,"l_neck_fa","-90","90","10"));
+    tr.appendChild(td_number("l_neck_sa",1,"l_neck_sa","-90","90","10"));
+    tr.appendChild(td_number("l_neck_ta",1,"l_neck_ta from right(-90) to left(90)","-90","90","10"));
+    tr.appendChild(td_color("l_neck_co","#e300fe"));
+    tbody.appendChild(tr);
+    
+    //body color
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("body color","",3));
+    tr.appendChild(td_color("body_co","#fe005a"));
+    tbody.appendChild(tr);
+    
+    return tbody;
+}
+function pose_gui_creator(){
     var table = document.createElement('table');
-    table.appendChild(look_gui_tbody());
+    table.style.width = "260px";
+    table.appendChild(r_pose_gui_tbody());
     var box = document.getElementById("tab_c2");
     box.appendChild(table);
+    
+    var table = document.createElement('table');
+    table.style.width = "260px";
+    table.appendChild(l_pose_gui_tbody());
+    var box = document.getElementById("tab_c4");
+    box.appendChild(table);
+    
 }
 
 
@@ -445,6 +681,7 @@ function lamp_gui_tbody(){
 }
 function lamp_gui_creator(){
     var table = document.createElement('table');
+    table.style.width = "260px";
     table.appendChild(lamp_gui_tbody());
     var box = document.getElementById("tab_c3");
     box.appendChild(table);
@@ -554,7 +791,7 @@ function write_data_to_gui(text){
 
 ok_gui_creator();
 size_gui_creator();
-look_gui_creator();
+pose_gui_creator();
 lamp_gui_creator();
 start_data_writer();
 showme("GuiCreator.js ready");
