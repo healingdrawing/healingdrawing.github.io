@@ -165,12 +165,13 @@ function td_cbox_text_colspan(cboxid, text, checked = false, colspan = 1, align 
     td.appendChild(text);
     return td;
 }
-function td_number(id, colspan = 1, title = "",min="",max="",step=""){
+function td_number(id, colspan = 1, title = "",min="",max="",step="",classname=""){
     var td = document.createElement('td');
     td.colSpan = colspan;
     var input = document.createElement('input');
     input.id = id;
     input.type = "number";
+    if(classname != ""){input.className = classname;}
     if(title != ""){input.title = title;}
     if(min != ""){input.min = min;}
     if(max != ""){input.max = max;}
@@ -589,6 +590,12 @@ function lamp_gui_tbody(){
     var tr = document.createElement('tr');
     tr.appendChild(td_text("&nbsp;","",4));
     tbody.appendChild(tr);
+    
+    var tr0 = document.createElement('tr');
+    tr0.appendChild(td_number("export_resolution",2,"px","200","","200","b100px"));
+    tr0.appendChild(td_text("export resolution","",2,"PNG export box side size px"));
+    tbody.appendChild(tr0);
+    tbody.appendChild(tr_hr(4));
     
     var tr1 = document.createElement('tr');
     tr1.appendChild(td_cbox_text_colspan("wireframe","wireframe",false,2,"left","need model recalculation"));
