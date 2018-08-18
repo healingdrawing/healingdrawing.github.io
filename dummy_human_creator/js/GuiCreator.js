@@ -180,12 +180,23 @@ function td_number(id, colspan = 1, title = "",min="",max="",step="",classname="
     return td;
 }
 
-function size_header_section_creator(){
+function size_description_section_creator(){
     var tr_big = document.createElement('tr');
-    var td = document.createElement('td');
-    td.appendChild(size_standart_element_table_creator("head"));
-    tr_big.appendChild(td);
-    
+    var text = [["long&#8691;","fat&#8691;"],["long&#8681;","fat&#8681;"]];
+    for (var i=0;i<2;i++){
+        var td_big = document.createElement('td');
+        var table = document.createElement('table');
+        var tbody = document.createElement('tbody');
+        var tr = document.createElement('tr');
+        var td = td_text(text[i][0]); tr.appendChild(td);
+        var td = td_text(text[i][1]); tr.appendChild(td);
+        tbody.appendChild(tr); table.appendChild(tbody);
+        td_big.appendChild(table); tr_big.appendChild(td_big);
+    }
+    return tr_big;
+}
+/**head+ section return td(table inside td) */
+function size_head_plus_section_creator(){
     var td_big = document.createElement('td');
     //h + base
     var table = document.createElement('table');
@@ -206,23 +217,7 @@ function size_header_section_creator(){
     tbody.appendChild(tr);
     table.appendChild(tbody);
     td_big.appendChild(table);
-    tr_big.appendChild(td_big);
-    return tr_big;
-}
-function size_description_section_creator(){
-    var tr_big = document.createElement('tr');
-    var text = [["long&#8691;","fat&#8691;"],["long&#8681;","fat&#8681;"]];
-    for (var i=0;i<2;i++){
-        var td_big = document.createElement('td');
-        var table = document.createElement('table');
-        var tbody = document.createElement('tbody');
-        var tr = document.createElement('tr');
-        var td = td_text(text[i][0]); tr.appendChild(td);
-        var td = td_text(text[i][1]); tr.appendChild(td);
-        tbody.appendChild(tr); table.appendChild(tbody);
-        td_big.appendChild(table); tr_big.appendChild(td_big);
-    }
-    return tr_big;
+    return td_big;
 }
 function size_shoulders_section_creator(){
     var td_big = document.createElement('td');
@@ -230,16 +225,64 @@ function size_shoulders_section_creator(){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
-    tr.appendChild(td_text("<br>shoulders","",2));
+    tr.appendChild(td_text("shoulders","",2));
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     var n = "shoulders_bend";
-    var title = "shoulders base bend from back(-1) to face(1)";
+    var title = "shoulders_bend from back(-1) to face(1)";
     var td = td_number(n,1,title,"-1","1","0.5");
     tr.appendChild(td);
     var n = "shoulders_width";
     var td = td_number(n,1,n);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    
+    td_big.appendChild(table);
+    return td_big;
+}
+function size_body_section_creator(){
+    var td_big = document.createElement('td');
+    
+    var table = document.createElement('table');
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("<br>body","",2));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    var n = "body_length";
+    var title = "body_length - % of back length from neck to down";
+    var td = td_number(n,1,title,"0","100","20");
+    tr.appendChild(td);
+    var n = "body_width";
+    var title = "body_width - front direction chest size";
+    var td = td_number(n,1,title);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    
+    td_big.appendChild(table);
+    return td_big;
+}
+function size_foot_section_creator(){
+    var td_big = document.createElement('td');
+    
+    var table = document.createElement('table');
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("<br>foot","",2));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    var n = "foot_length";
+    var title = "foot_length";
+    var td = td_number(n,1,title,"0");
+    tr.appendChild(td);
+    var n = "foot_width";
+    var title = "foot_width - up direction foot size(side foot width = shin_width)";
+    var td = td_number(n,1,title);
     tr.appendChild(td);
     tbody.appendChild(tr);
     table.appendChild(tbody);
@@ -267,34 +310,45 @@ function size_standart_element_table_creator(name){
 }
 var size_ids=[
     "head_length","head_width","head_height","head_axis",
+    "neck_length", "neck_width",
+    "arm_length", "arm_width",
+    "palm_length", "palm_width",
+    "hip_length", "hip_width",
+    "shin_length", "shin_width",
+    "back_length", "back_width",
+    "ass_length", "ass_width",
+    
     "shoulders_bend","shoulders_width",
-    "arm_length","feet_length","palm_length","shin_length","hip_length","body_length","ass_length",
-    "arm_width","feet_width","palm_width","shin_width","hip_width","body_width","ass_width",
+    "body_length", "body_width",
+    "foot_length", "foot_width"
 ];
 function size_gui_tbody(){
     var tbody = document.createElement('tbody');
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("&nbsp;","",2));
-    tbody.appendChild(tr);
-    //create head block + L W L W header later
-    tbody.appendChild(size_header_section_creator());
-    //separator right side
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text(""));
-    tr.appendChild(td_hr());
-    tbody.appendChild(tr);
-    tbody.appendChild(size_description_section_creator());
-    //create shoulders block, need unique title for shoulders displacement
-    var tr = document.createElement('tr');
-    tr.appendChild(size_shoulders_section_creator());
-    //create other block
-    var tnames = ["arm","feet","palm","shin","hip","body","ass"];
+    tbody.appendChild(size_description_section_creator());// text and arrows
+    //create other block ... standart structure elements
+    var tnames = ["head","neck","arm","palm","hip","shin","back","ass"];
     for (var i = 0;i<tnames.length;i++){
+        if(!(i%2)){ tr= document.createElement('tr'); }
         var td = document.createElement('td');
         td.appendChild(size_standart_element_table_creator(tnames[i]));
         tr.appendChild(td);
-        if(!(i%2)){tbody.appendChild(tr); tr= document.createElement('tr');}
+        if(i%2){ tbody.appendChild(tr); }
     }
+    
+    //none standart elements
+    tbody.appendChild(tr_hr(2)); //separetor
+    var tr = document.createElement('tr');
+    //create head+ block + L W L W header later
+    tr.appendChild(size_head_plus_section_creator());
+    //create shoulders block, need unique title for shoulders displacement
+    tr.appendChild(size_shoulders_section_creator());
+    tbody.appendChild(tr);
+    //body
+    var tr = document.createElement('tr');
+    tr.appendChild(size_body_section_creator());
+    //foot
+    tr.appendChild(size_foot_section_creator());
+    tbody.appendChild(tr);
     //save load separated buttons
     tbody.appendChild(tr_hr(4));
     var tr = document.createElement("tr");
@@ -701,6 +755,7 @@ function id_value(id,value){
 var ids = [];
 function start_data_writer(){
     var lamp_ids = [
+        "export_resolution",
         "intensity_ambient","color_ambient",
         "x_ambient","y_ambient","z_ambient","color_ground_ambient",
         
@@ -714,25 +769,31 @@ function start_data_writer(){
     ];
     
     for (var i=0;i<size_ids.length;i++){ ids.push(size_ids[i]); }
-    for (var i=0;i<look_ids.length;i++){ ids.push(look_ids[i]); }
+    for (var i=0;i<r_pose_ids.length;i++){ ids.push(r_pose_ids[i]); }
+    for (var i=0;i<l_pose_ids.length;i++){ ids.push(l_pose_ids[i]); }
     for (var i=0;i<lamp_ids.length;i++){ ids.push(lamp_ids[i]); }
     
     var values = [];
     var size_values = [
-        100,50,0,100, 20,40,10,20, 40,10,0,100,
-        100,50,0,100, 20,40,10,20, 40,10,0,100,
-        100,50,0,100, 20,40,10,20, 40,10,0,100,
-        100,50,0,100, 20,40,10,20, 40,10,0,100,
-        100,50,0,100, 20,40,10,20, 40,10,0,100
+        4,3,4,-0.5,//head
+        4,2, //neck
+        12,2, //arm
+        4,2, //palm
+        9,4, //hip
+        9,3, //shin
+        9,6, //back
+        3,6, //ass
+        
+        -1,10, //shoulders
+        50,3, //body
+        5,3 //foot
+        
     ];
-    var look_values = [
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0,
-        "#FF8800","#2AC164","#1EA2E3",20, 1,1,1,10, 20,10,4,0
+    var r_pose_values = [
+        "#FF8800",
     ];
     var lamp_values = [
+        800,
         
         1,"#FFFFFF",
         1,1,1,"#000000",
