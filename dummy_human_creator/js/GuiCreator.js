@@ -103,10 +103,11 @@ function td_cbox_text_multicolor_colspan(id, checked = false, texts = [], colors
     }
     return td;
 }
-function td_input(id, title = ""){
+function td_input(id, title = "",readonly = false){
     var td = document.createElement('td');
     var input = document.createElement('input');
     input.id = id;
+    input.readOnly = readonly;
     if(title != ""){input.title = title;}
     td.appendChild(input);
     return td;
@@ -146,7 +147,7 @@ function td_color(id, co = "#000000",title = ""){
 }
 function td_button(text, callback, title = "",bclass="b50px",colspan = 1){
     var td = document.createElement('td');
-    td.colspan = colspan;
+    td.colSpan = colspan;
     var btn = "<button class=\""+bclass+"\" title=\""+title+"\" onclick=\""+callback+"\">"+text+"</button>";
     td.innerHTML = btn;
     return td;
@@ -177,6 +178,18 @@ function td_number(id, colspan = 1, title = "",min="",max="",step="",classname="
     if(max != ""){input.max = max;}
     if(step != ""){input.step = step;}
     td.appendChild(input);
+    return td;
+}
+function td_atext(id,href,text,colspan=1,target="_blank",title=""){
+    var td = document.createElement('td');
+    td.colSpan = colspan;
+    var a = document.createElement('a');
+    a.id = id;
+    a.href = href;
+    a.text = text;
+    a.target = target;
+    a.title = title;
+    td.appendChild(a);
     return td;
 }
 
@@ -352,16 +365,16 @@ function size_gui_tbody(){
     //save load separated buttons
     tbody.appendChild(tr_hr(4));
     var tr = document.createElement("tr");
-    var td = td_button("save size","save_size()","","b100px",2);
+    var td = td_button("save size","save_size()","","b100px",);
     tr.appendChild(td);
-    var td = td_button("load size","load_size()","","b100px",2);
+    var td = td_button("load size","load_size()","","b100px",);
     tr.appendChild(td); tbody.appendChild(tr);
     
     tbody.appendChild(tr_hr(4));
     var tr = document.createElement("tr");
-    var td = td_button("save pose","save_pose()","","b100px",2);
+    var td = td_button("save pose","save_pose()","","b100px",);
     tr.appendChild(td);
-    var td = td_button("load pose","load_pose()","","b100px",2);
+    var td = td_button("load pose","load_pose()","","b100px",);
     tr.appendChild(td); tbody.appendChild(tr);
     
     return tbody;
@@ -382,17 +395,15 @@ var r_pose_ids=[
     "r_knee_fa","r_knee_co",
     "r_foot_fa","r_foot_co",
     "r_back_fa","r_back_sa","r_back_ta","r_back_co",
-    "r_neck_fa","r_neck_sa","r_neck_ta","r_neck_co",
     "head_co"
 ];
 var l_pose_ids=[
-    "l_shouldel_fa","l_shouldel_sa","l_shouldel_ta","l_shouldel_co",
+    "l_shoulder_fa","l_shoulder_sa","l_shoulder_ta","l_shoulder_co",
     "l_elbow_fa","l_elbow_ta","l_elbow_co",
     "l_palm_sa","l_palm_co",
     "l_hip_fa","l_hip_sa","l_hip_ta","l_hip_co",
     "l_knee_fa","l_knee_co",
     "l_foot_fa","l_foot_co",
-    "l_back_fa","l_back_sa","l_back_ta","l_back_co",
     "l_neck_fa","l_neck_sa","l_neck_ta","l_neck_co",
     "body_co"
 ];
@@ -424,25 +435,25 @@ function r_pose_gui_tbody(){
     
     //elbow
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("elbow","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("elbow","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     tr.appendChild(td_number("r_elbow_fa",1,"r_elbow_fa","-180","180","10"));
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("elbow"));
     tr.appendChild(td_number("r_elbow_ta",1,"r_elbow_ta","-90","90","10"));
     tr.appendChild(td_color("r_elbow_co","#febf00"));
     tbody.appendChild(tr);
     
     //palm
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("palm","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("palm","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("palm"));
     tr.appendChild(td_number("r_palm_sa",1,"r_palm_sa","-90","90","10"));
     tr.appendChild(td_text(""));
     tr.appendChild(td_color("r_palm_co","#7efe00"));
@@ -463,27 +474,27 @@ function r_pose_gui_tbody(){
     
     //knee
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("knee","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("knee","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     tr.appendChild(td_number("r_knee_fa",1,"r_knee_fa","-90","90","10"));
-    tr.appendChild(td_text(""));
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("knee","",2));
+    // tr.appendChild(td_text(""));
     tr.appendChild(td_color("r_knee_co","#00fbfe"));
     tbody.appendChild(tr);
     
     //foot
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("foot","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("foot","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     tr.appendChild(td_number("r_foot_fa",1,"r_foot_fa","-90","90","10"));
-    tr.appendChild(td_text(""));
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("foot","",2));
+    // tr.appendChild(td_text(""));
     tr.appendChild(td_color("r_foot_co","#003cfe"));
     tbody.appendChild(tr);
     
@@ -505,6 +516,17 @@ function r_pose_gui_tbody(){
     var tr = document.createElement('tr');
     tr.appendChild(td_text("head color","",3));
     tr.appendChild(td_color("head_co","#fe00b9"));
+    tbody.appendChild(tr);
+    
+    //named pose
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_button("named pose","load_named_pose()","load named pose","b100px",2));
+    tr.appendChild(td_number("pose_number",2,"pose_number","0","","1","b100px"));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_atext("named_pose_help","named_pose_help.html","named pose help",4));
     tbody.appendChild(tr);
     
     return tbody;
@@ -537,25 +559,25 @@ function l_pose_gui_tbody(){
     
     //elbow
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("elbow","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("elbow","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     tr.appendChild(td_number("l_elbow_fa",1,"l_elbow_fa","-180","180","10"));
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("elbow"));
     tr.appendChild(td_number("l_elbow_ta",1,"l_elbow_ta","-90","90","10"));
     tr.appendChild(td_color("l_elbow_co","#ddfe00"));
     tbody.appendChild(tr);
     
     //palm
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("palm","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("palm","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("palm"));
     tr.appendChild(td_number("l_palm_sa",1,"l_palm_sa","-90","90","10"));
     tr.appendChild(td_text(""));
     tr.appendChild(td_color("l_palm_co","#1efe00"));
@@ -576,27 +598,27 @@ function l_pose_gui_tbody(){
     
     //knee
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("knee","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("knee","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     tr.appendChild(td_number("l_knee_fa",1,"l_knee_fa","-90","90","10"));
-    tr.appendChild(td_text(""));
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("knee","",2));
+    // tr.appendChild(td_text(""));
     tr.appendChild(td_color("l_knee_co","#009bfe"));
     tbody.appendChild(tr);
     
     //foot
     tbody.appendChild(tr_hr(4));
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("foot","",4));
-    tbody.appendChild(tr);
+    // var tr = document.createElement('tr');
+    // tr.appendChild(td_text("foot","",4));
+    // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
     tr.appendChild(td_number("l_foot_fa",1,"l_foot_fa","-90","90","10"));
-    tr.appendChild(td_text(""));
-    tr.appendChild(td_text(""));
+    tr.appendChild(td_text("foot","",2));
+    // tr.appendChild(td_text(""));
     tr.appendChild(td_color("l_foot_co","#2400fe"));
     tbody.appendChild(tr);
     
@@ -620,6 +642,17 @@ function l_pose_gui_tbody(){
     tr.appendChild(td_color("body_co","#fe005a"));
     tbody.appendChild(tr);
     
+    //named size
+    tbody.appendChild(tr_hr(4));
+    var tr = document.createElement('tr');
+    tr.appendChild(td_button("named size","load_named_size()","load named size","b100px",2));
+    tr.appendChild(td_number("size_number",2,"size_number","0","","1","b100px"));
+    tbody.appendChild(tr);
+    
+    var tr = document.createElement('tr');
+    tr.appendChild(td_atext("named_size_help","named_size_help.html","named size help",4));
+    tbody.appendChild(tr);
+    
     return tbody;
 }
 function pose_gui_creator(){
@@ -632,7 +665,7 @@ function pose_gui_creator(){
     var table = document.createElement('table');
     table.style.width = "260px";
     table.appendChild(l_pose_gui_tbody());
-    var box = document.getElementById("tab_c4");
+    var box = document.getElementById("tab_c3");
     box.appendChild(table);
     
 }
@@ -641,15 +674,11 @@ function pose_gui_creator(){
 function lamp_gui_tbody(){
     var tbody = document.createElement('tbody');
     
-    var tr = document.createElement('tr');
-    tr.appendChild(td_text("&nbsp;","",4));
-    tbody.appendChild(tr);
     
     var tr0 = document.createElement('tr');
     tr0.appendChild(td_number("export_resolution",2,"px","200","","200","b100px"));
     tr0.appendChild(td_text("export resolution","",2,"PNG export box side size px"));
     tbody.appendChild(tr0);
-    tbody.appendChild(tr_hr(4));
     
     var tr1 = document.createElement('tr');
     tr1.appendChild(td_cbox_text_colspan("wireframe","wireframe",false,2,"left","need model recalculation"));
@@ -702,11 +731,11 @@ function lamp_gui_tbody(){
     var tr14 = document.createElement('tr');
     tr14.appendChild(td_hr(4));
     
-    var tr15 = document.createElement('tr');
-    tr15.appendChild(td_text("background color","",4));
+    var tr15 = document.createElement('tr');//used bottom to separate buttons
+    tr15.appendChild(td_hr(4));
     
     var tr16 = document.createElement('tr');
-    tr16.appendChild(td_cbox_text_colspan("transperent","render transperent",true,3));
+    tr16.appendChild(td_cbox_text_colspan("transperent","png no background",true,3));
     tr16.appendChild(td_color("color_background","#ffffff"));
     
     var tr17 = document.createElement('tr');
@@ -726,6 +755,20 @@ function lamp_gui_tbody(){
     tr20.appendChild(td_input("y_view","y angle degrees"));
     tr20.appendChild(td_input("z_view","z angle degrees"));
     
+    var tr21 = document.createElement('tr');
+    tr21.appendChild(td_hr(4));
+    
+    var tr22 = document.createElement('tr');
+    tr22.appendChild(td_button("R&#8680;L","copy_pose_right_to_left()","copy right side pose to left","b50px"));
+    tr22.appendChild(td_button("&#11012;","copy_pose_switch_side()","switch side pose","b50px"));
+    tr22.appendChild(td_button("L&#8680;R","copy_pose_left_to_right()","copy left side pose to right","b50px"));
+    tr22.appendChild(td_button("eset","copy_pose_reset()","reset pose","b50px"));
+    
+    var tr23 = document.createElement('tr');
+    tr23.appendChild(td_button("run","run_step()","run steps frame by frame","b50px"));
+    tr23.appendChild(td_button("walk","walk_step()","walk steps frame by frame","b50px"));
+    tr23.appendChild(td_button("jump","jump_step()","jump steps frame by frame","b50px"));
+    tr23.appendChild(td_input("view_step","step number",true));
     
     // tr17.appendChild(td_input("length_track","track length"));
     
@@ -736,7 +779,7 @@ function lamp_gui_tbody(){
     
     
     
-    var tbox = [tr1,tr2,tr3,tr4,tr5,tr6,tr7,tr9,tr10,tr11,tr14,tr15,tr16,tr17,tr18,tr19,tr20];
+    var tbox = [tr1,tr2,tr3,tr4,tr5,tr6,tr7,tr9,tr10,tr11,tr14,tr16,tr17,tr18,tr19,tr20,tr21,tr22,tr15,tr23];
     for (i=0;i<tbox.length;i++) {tbody.appendChild(tbox[i]);}
     return tbody;
 }
@@ -744,11 +787,12 @@ function lamp_gui_creator(){
     var table = document.createElement('table');
     table.style.width = "260px";
     table.appendChild(lamp_gui_tbody());
-    var box = document.getElementById("tab_c3");
+    var box = document.getElementById("tab_c4");
     box.appendChild(table);
 }
 
 function id_value(id,value){
+    console.log(JSON.stringify(id+" = "+value.toString()));
     document.getElementById(id).value=value;
 }
 
@@ -765,7 +809,7 @@ function start_data_writer(){
         "intensity_point","color_point",
         "x_point","y_point","z_point",
         "color_background",
-        "distance_view","y_view","z_view" //tr18
+        "distance_view","y_view","z_view"
     ];
     
     for (var i=0;i<size_ids.length;i++){ ids.push(size_ids[i]); }
@@ -790,7 +834,24 @@ function start_data_writer(){
         
     ];
     var r_pose_values = [
-        "#FF8800",
+        0,0,0,"#fe0000", //shoulder
+        0,0,"#febf00", //elbow
+        0,"#7efe00", //palm
+        0,0,0,"#00fe42", //hip
+        0,"#00fbfe", //knee
+        0,"#003cfe", //foot
+        0,0,0,"#8300fe", //back
+        "#fe00b9" //head
+    ];
+    var l_pose_values = [
+        0,0,0,"#fe6000", //shoulder
+        0,0,"#ddfe00", //elbow
+        0,"#1efe00", //palm
+        0,0,0,"#00fea1", //hip
+        0,"#009bfe", //knee
+        0,"#2400fe", //foot
+        0,0,0,"#e300fe", //neck
+        "#fe005a" //body
     ];
     var lamp_values = [
         800,
@@ -808,7 +869,8 @@ function start_data_writer(){
     ];
     
     for (var i=0;i<size_values.length;i++){ values.push(size_values[i]); }
-    for (var i=0;i<look_values.length;i++){ values.push(look_values[i]); }
+    for (var i=0;i<r_pose_values.length;i++){ values.push(r_pose_values[i]); }
+    for (var i=0;i<l_pose_values.length;i++){ values.push(l_pose_values[i]); }
     for (var i=0;i<lamp_values.length;i++){ values.push(lamp_values[i]); }
     
     for (var i=0;i<ids.length;i++){id_value(ids[i],values[i])}
@@ -816,12 +878,12 @@ function start_data_writer(){
 
 function save_data_to_txt(){
     
-    var output = "rocket creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
+    var output = "dummy human creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
     for (var i=0;i<ids.length;i++){ output += ids[i]+" "+document.getElementById(ids[i]).value+"\n"; }
     var a = document.getElementById('GUIexport');
 	
 	var type = "text/plain";
-	var name = "exported_rocket.txt";
+	var name = "exported_dummy_human.txt";
 	var file = new Blob([output], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
