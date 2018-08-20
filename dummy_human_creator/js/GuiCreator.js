@@ -876,20 +876,20 @@ function start_data_writer(){
     for (var i=0;i<ids.length;i++){id_value(ids[i],values[i])}
 }
 
+//full data save load
 function save_data_to_txt(){
-    
-    var output = "dummy human creator gui data from " + Date() + " https://healingdrawing.github.io/\n";
+    var date = Date();
+    var output = "dummy human creator gui data from " + date + " https://healingdrawing.github.io/\n";
     for (var i=0;i<ids.length;i++){ output += ids[i]+" "+document.getElementById(ids[i]).value+"\n"; }
     var a = document.getElementById('GUIexport');
 	
 	var type = "text/plain";
-	var name = "exported_dummy_human.txt";
+	var name = "exported_dummy_human_"+date+".txt";
 	var file = new Blob([output], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;
 	a.click();
 }
-
 
 var import_input = document.getElementById('GUIimport');
 function load_data_from_txt(){ import_input.click(); }
@@ -918,6 +918,97 @@ function write_data_to_gui(text){
     }
     document.getElementById("info").value = "GUI loaded from " + text[0];
 }
+
+//size data save load
+function save_size(){
+    var date = Date();
+    var output = "dummy human creator size data from " + date + " https://healingdrawing.github.io/\n";
+    for (var i=0;i<size_ids.length;i++){ output += size_ids[i]+" "+document.getElementById(size_ids[i]).value+"\n"; }
+    var a = document.getElementById('SIZEexport');
+	
+	var type = "text/plain";
+	var name = "exported_dummy_human_size_"+date+".txt";
+	var file = new Blob([output], {type: type});
+	a.href = URL.createObjectURL(file);
+	a.download = name;
+	a.click();
+}
+
+var import_input_size = document.getElementById('SIZEimport');
+function load_size(){ import_input_size.click(); }
+var handleFileSelect_size = function(evt) {
+    var files = evt.target.files;
+    var reader = new FileReader();
+    reader.onload = function(e) { 
+        write_size_to_gui(reader.result);
+    };
+    reader.readAsText(files[0]);
+    // console.log(reader.result);
+}
+import_input_size.addEventListener('change', handleFileSelect_size, false);
+import_input_size.value = "";
+scene.onDisposeObservable.add(function(){ import_input_size.removeEventListener('change', handleFileSelect_size); }) //looks like no need in my case, but added as part of example
+
+function write_size_to_gui(text){
+    console.log(text);
+    text = text.split("\n");
+    var oneline;
+    for (var i=1;i<text.length;i++){
+        if (text[i]){
+            oneline = text[i].split(" ");
+            document.getElementById(oneline[0]).value = oneline[1];
+        }
+    }
+    document.getElementById("info").value = "SIZE loaded from " + text[0];
+}
+
+//pose data save load
+var pose_ids = [];
+for (var i=0;i<r_pose_ids.length;i++){ pose_ids.push(r_pose_ids[i]); }
+for (var i=0;i<l_pose_ids.length;i++){ pose_ids.push(l_pose_ids[i]); }
+
+function save_pose(){
+    var date = Date();
+    var output = "dummy human creator pose data from " + date + " https://healingdrawing.github.io/\n";
+    for (var i=0;i<pose_ids.length;i++){ output += pose_ids[i]+" "+document.getElementById(pose_ids[i]).value+"\n"; }
+    var a = document.getElementById('POSEexport');
+	
+	var type = "text/plain";
+	var name = "exported_dummy_human_pose_"+date+".txt";
+	var file = new Blob([output], {type: type});
+	a.href = URL.createObjectURL(file);
+	a.download = name;
+	a.click();
+}
+
+var import_input_pose = document.getElementById('POSEimport');
+function load_pose(){ import_input_pose.click(); }
+var handleFileSelect_pose = function(evt) {
+    var files = evt.target.files;
+    var reader = new FileReader();
+    reader.onload = function(e) { 
+        write_pose_to_gui(reader.result);
+    };
+    reader.readAsText(files[0]);
+    // console.log(reader.result);
+}
+import_input_pose.addEventListener('change', handleFileSelect_pose, false);
+import_input_pose.value = "";
+scene.onDisposeObservable.add(function(){ import_input_pose.removeEventListener('change', handleFileSelect_pose); }) //looks like no need in my case, but added as part of example
+
+function write_pose_to_gui(text){
+    console.log(text);
+    text = text.split("\n");
+    var oneline;
+    for (var i=1;i<text.length;i++){
+        if (text[i]){
+            oneline = text[i].split(" ");
+            document.getElementById(oneline[0]).value = oneline[1];
+        }
+    }
+    document.getElementById("info").value = "POSE loaded from " + text[0];
+}
+
 
 var r_pose_nocolors_ids=[
     "r_shoulder_fa","r_shoulder_sa","r_shoulder_ta",
