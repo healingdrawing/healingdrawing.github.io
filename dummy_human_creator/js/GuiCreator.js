@@ -919,6 +919,37 @@ function write_data_to_gui(text){
     document.getElementById("info").value = "GUI loaded from " + text[0];
 }
 
+var r_pose_nocolors_ids=[
+    "r_shoulder_fa","r_shoulder_sa","r_shoulder_ta",
+    "r_elbow_fa","r_elbow_ta",
+    "r_palm_sa",
+    "r_hip_fa","r_hip_sa","r_hip_ta",
+    "r_knee_fa",
+    "r_foot_fa"
+];
+var l_pose_nocolors_ids=[
+    "l_shoulder_fa","l_shoulder_sa","l_shoulder_ta",
+    "l_elbow_fa","l_elbow_ta",
+    "l_palm_sa",
+    "l_hip_fa","l_hip_sa","l_hip_ta",
+    "l_knee_fa",
+    "l_foot_fa"
+];
+
+function copy_pose_switch_side(){
+    var l_val=[];
+    var r_val=[];
+    for (var i=0;i<r_pose_nocolors_ids.length;i++){
+        l_val.push(document.getElementById(l_pose_nocolors_ids[i]).value);
+        r_val.push(document.getElementById(r_pose_nocolors_ids[i]).value);
+    }//read data complete
+    for (var i=0;i<r_pose_nocolors_ids.length;i++){
+        document.getElementById(l_pose_nocolors_ids[i]).value = r_val[i];
+        document.getElementById(r_pose_nocolors_ids[i]).value = l_val[i];
+    }//pose switched
+    showme("switch side pose complete");
+}
+
 ok_gui_creator();
 size_gui_creator();
 pose_gui_creator();
