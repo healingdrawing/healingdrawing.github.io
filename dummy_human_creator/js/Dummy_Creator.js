@@ -64,6 +64,9 @@ function relative_bone_creator(cdot, axes, fa, sa, ta, long, radians = false){
 function bones_creator(d, c, vx, vy, vz){
 	
 	var bones = {};
+	//ass
+	
+	
 }
 
 function Dummy_Creator(){

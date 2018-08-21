@@ -193,6 +193,12 @@ function td_atext(id,href,text,colspan=1,target="_blank",title=""){
     return td;
 }
 
+function base_angle_section_creator(){
+    var tr = document.createElement('tr');
+    tr.appendChild(td_text("base angle","",1,"degrees"));
+    tr.appendChild(td_number("base_angle",1,"base_angle dummy horizontal angle","-180","180","30","b100px"));
+    return tr;
+}
 function size_description_section_creator(){
     var tr_big = document.createElement('tr');
     var text = [["long&#8691;","fat&#8691;"],["long&#8681;","fat&#8681;"]];
@@ -303,11 +309,12 @@ function size_foot_section_creator(){
     td_big.appendChild(table);
     return td_big;
 }
-function size_standart_element_table_creator(name){
+function size_standart_element_table_creator(name,nobr = false){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var tr = document.createElement('tr');
-    tr.appendChild(td_text("<br>"+name,"",2));
+    if(!nobr){ tr.appendChild(td_text("<br>"+name,"",2)); }
+    else{ tr.appendChild(td_text(name,"",2)); }
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
@@ -322,6 +329,7 @@ function size_standart_element_table_creator(name){
     return table;
 }
 var size_ids=[
+    "base_angle",
     "head_length","head_width","head_height","head_axis",
     "neck_length", "neck_width",
     "arm_length", "arm_width",
@@ -337,13 +345,15 @@ var size_ids=[
 ];
 function size_gui_tbody(){
     var tbody = document.createElement('tbody');
+    tbody.appendChild(base_angle_section_creator());//base angle
     tbody.appendChild(size_description_section_creator());// text and arrows
     //create other block ... standart structure elements
     var tnames = ["head","neck","arm","palm","hip","shin","back","ass"];
     for (var i = 0;i<tnames.length;i++){
         if(!(i%2)){ tr= document.createElement('tr'); }
+        if(i<2){var nobr = true;}else{var nobr = false;}
         var td = document.createElement('td');
-        td.appendChild(size_standart_element_table_creator(tnames[i]));
+        td.appendChild(size_standart_element_table_creator(tnames[i],nobr));
         tr.appendChild(td);
         if(i%2){ tbody.appendChild(tr); }
     }
@@ -676,8 +686,8 @@ function lamp_gui_tbody(){
     
     
     var tr0 = document.createElement('tr');
-    tr0.appendChild(td_number("export_resolution",2,"px","200","","200","b100px"));
     tr0.appendChild(td_text("export resolution","",2,"PNG export box side size px"));
+    tr0.appendChild(td_number("export_resolution",2,"px","200","","200","b100px"));
     tbody.appendChild(tr0);
     
     var tr1 = document.createElement('tr');
@@ -819,6 +829,7 @@ function start_data_writer(){
     
     var values = [];
     var size_values = [
+        0,//base angle
         4,3,4,-0.5,//head
         4,2, //neck
         12,2, //arm
