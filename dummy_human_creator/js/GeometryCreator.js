@@ -1,4 +1,8 @@
 //random section for _RandomCreator.js
+
+//geo lib instance declaration
+var geo = new GeometryXD();
+
 //random float include borders
 function random_num(min=0,max=1){
     return Math.random()*(max - min)+min ;
