@@ -1,10 +1,8 @@
 showme("preparing Dummy_Creator.js");
 
 var fresh = true;
-var base_section=[]; var base_section_mat=[];
-var tail_section=[]; var tail_section_mat=[];
-var ring_section=[]; // mat same as tail
-var bottle_section=[]; var bottle_section_mat=[];
+var dummy = {}; //dict like object of meshes
+var dummy_mat = {}; //dict like object of materials
 
 function one_mat_maker(hull,alp,hexcolorstring,matname){
 	var mat = new BABYLON.StandardMaterial(matname, scene);
@@ -47,19 +45,45 @@ function mat_maker(){
 	}
 }
 
+/**create relative bone which is directed along relative oz axis in result
+ * - cdot - [x,y,z] , bone start dot
+ * - axes - [ox,oy,oz] , relative/rotated coordinate system of bone
+ * - fa - front angle . Equivalent of rotation around ox
+ * - sa - side angle . Equivalent of rotation around oy
+ * - ta - twist angle . Equivalent of rotation around oz
+ * - long - bone length
+ * - radians - incoming angles in radians
+ * - return [[ox,oy,oz],[bone_start,bone_end]] = [ [[x,y,z],[x,y,z],[x,y,z]], [[x,y,z],[x,y,z]] ], which is [bone axes, bone dots]
+ */
+function relative_bone_creator(cdot, axes, fa, sa, ta, long, radians = false){
+	var bone = [cdot];
+	var bone_axes = rotoxyz(axes,[fa,sa,ta],radians); //bone axes rotated
+	bone.push( geo.dotXDoffset(cdot,axes[2],long) ); //end bone dot added
+	return [bone_axes,bone];
+}
+function bones_creator(d, c, vx, vy, vz){
+	
+	var bones = {};
+}
+
 function Dummy_Creator(){
-	clearall();
-	// var dp = whatdraw(); //drawparts
+	// clearall();
+	
 	var d=gui_reader(); //GuiReader.js
 	console.log(d);
-	// what draw may be
-	mat_maker();
 	
-	var c = [0,0,0] //center dot
-	var vn = [0,0,1]; //oz
-	var va = [0,1,0]; //oy
+	// mat_maker();
 	if (document.getElementById("axes").checked && axes.length==0){ console.log("show axes");  axes_creator(400); }
 	
+	//start points and directions
+	var c = [0,0,0] //center dot
+	var vx = [1,0,0]; //ox
+	var vy = [0,1,0]; //oy
+	var vz = [0,0,1]; //oz
+	
+	//create bones karkas
+	//fa - around vx, sa - around vy, ta - around vz (all relative from ass)
+	var bones = bones_creator(d,c,vx,vy,vz);
 	
 	showme("complete");
 }

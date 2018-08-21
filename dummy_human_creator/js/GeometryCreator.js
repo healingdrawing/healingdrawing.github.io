@@ -3,6 +3,73 @@
 //geo lib instance declaration
 var geo = new GeometryXD();
 
+//rotate around babylon direction CW, but i write and test my lib geo.js CCW. Looks like in the future was fail if i not do intermediate layer.
+//bottom functions (all which not rotate axes) not depend from this and work own way. Not protected from fails while use both.
+/**rotation axes (ox,oy,oz) around ox, CW babylon style (opposite native CCW, which used in geo.js)
+ * - axes - [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ * - angle - rotation angle around ox axis
+ * - radians - incoming angle in radians
+ * - return rotated [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ */
+function rotox(axes,angle,radians = false){
+    var rez = [];
+    var dang = angle; //play with *(-1) if something will fail
+    var ox = axes[0]; var oy = axes[1]; var oz = axes[2];
+    rez.push(ox);
+    rez.push( geo.vec3Drotate(oy,ox,dang,radians) );
+    rez.push( geo.vec3Drotate(oz,ox,dang,radians) );
+    return rez; //new rotated axes
+}
+
+/**rotation axes (ox,oy,oz) around oy, CW babylon style (opposite native CCW, which used in geo.js)
+ * - axes - [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ * - angle - rotation angle around oy axis
+ * - radians - incoming angle in radians
+ * - return rotated [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ */
+function rotoy(axes,angle,radians = false){
+    var rez = [];
+    var dang = angle; //play with *(-1) if something will fail
+    var ox = axes[0]; var oy = axes[1]; var oz = axes[2];
+    rez.push( geo.vec3Drotate(ox,oy,dang,radians) );
+    rez.push(oy);
+    rez.push( geo.vec3Drotate(oz,oy,dang,radians) );
+    return rez; //new rotated axes
+}
+
+/**rotation axes (ox,oy,oz) around oz, CW babylon style (opposite native CCW, which used in geo.js)
+ * - axes - [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ * - angle - rotation angle around oz axis
+ * - radians - incoming angle in radians
+ * - return rotated [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ */
+function rotoz(axes,angle,radians = false){
+    var rez = [];
+    var dang = angle; //play with *(-1) if something will fail
+    var ox = axes[0]; var oy = axes[1]; var oz = axes[2];
+    rez.push( geo.vec3Drotate(ox,oz,dang,radians) );
+    rez.push( geo.vec3Drotate(oy,oz,dang,radians) );
+    rez.push(oz);
+    return rez; //new rotated axes
+}
+
+/**rotation axes (ox,oy,oz) around angles, CW babylon style (opposite native CCW, which used in geo.js)
+ * - axes - [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ * - angles - rotation angles around axes [ox_ang,oy_ang,oz_ang]. Rotation direct is oxyz around ox then around oy then around oz
+ * - radians - incoming angle in radians
+ * - return rotated [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
+ */
+function rotoxyz(axes,angles,radians = false){
+    var rez;
+    rez = rotox(axes,angles[0],radians);
+    rez = rotoy(rez,angles[1],radians);
+    rez = rotoz(rez,angles[2],radians);
+    return rez;
+}
+
+//end rotate around babylon direction CW section
+//-----------------------------------------------
+
 //random float include borders
 function random_num(min=0,max=1){
     return Math.random()*(max - min)+min ;
