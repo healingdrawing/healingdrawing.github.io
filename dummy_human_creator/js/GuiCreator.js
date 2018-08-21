@@ -466,7 +466,7 @@ function r_pose_gui_tbody(){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("r_hip_fa",1,"r_hip_fa","-90","90","10"));
+    tr.appendChild(td_number("r_hip_fa",1,"r_hip_fa","-180","180","10"));
     tr.appendChild(td_number("r_hip_sa",1,"r_hip_sa","-45","90","10"));
     tr.appendChild(td_number("r_hip_ta",1,"r_hip_ta","-45","45","15"));
     tr.appendChild(td_color("r_hip_co","#00fe42"));
@@ -590,7 +590,7 @@ function l_pose_gui_tbody(){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("l_hip_fa",1,"l_hip_fa","-90","90","10"));
+    tr.appendChild(td_number("l_hip_fa",1,"l_hip_fa","-180","180","10"));
     tr.appendChild(td_number("l_hip_sa",1,"l_hip_sa","-45","90","10"));
     tr.appendChild(td_number("l_hip_ta",1,"l_hip_ta","-45","45","15"));
     tr.appendChild(td_color("l_hip_co","#00fea1"));
