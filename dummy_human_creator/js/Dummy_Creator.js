@@ -86,10 +86,10 @@ function bones_creator(d, c, vx, vy, vz){
 	bones["l_shin"] = bone;
 	
 	//r_foot
-	var bone = relative_bone_creator(bones["r_shin"][1][1],bones["r_shin"][0],d["r_foot_fa"],0,0,d["foot_length"]);
+	var bone = relative_bone_creator(bones["r_shin"][1][1],bones["r_shin"][0],d["r_foot_fa"]-90,0,0,d["foot_length"]);
 	bones["r_foot"] = bone;
 	//l_foot
-	var bone = relative_bone_creator(bones["l_shin"][1][1],bones["l_shin"][0],d["l_foot_fa"],0,0,d["foot_length"]);
+	var bone = relative_bone_creator(bones["l_shin"][1][1],bones["l_shin"][0],d["l_foot_fa"]-90,0,0,d["foot_length"]);
 	bones["l_foot"] = bone;
 	
 	//back 17
@@ -153,6 +153,46 @@ function bones_creator(d, c, vx, vy, vz){
 	return bones;
 }
 
+/**create ribbon rotated skeleton and then cut half data (in foot case) */
+function half_balon_creator(d,bone){}
+function one_balon_creator(bone,dis,material=null,id = "any"){
+	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
+	var sdot = bone[1][0]; // start dot
+	var edot = bone[1][1]; // end dot
+	var slever = geo.dotXDoffset(sdot,axes[0],dis);
+	var elever = geo.dotXDoffset(edot,axes[0],dis);
+	var arc = [sdot,slever,elever,edot];
+	var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	return balon;
+}
+function balons_creator(d,bones){
+	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
+	var ids = [
+	"r_shoulders","r_shoulder","r_elbow","r_palm","r_hip","r_shin",
+	"l_shoulders","l_shoulder","l_elbow","l_palm","l_hip","l_shin",
+	"back_0","back_1","back_2","back_3","back_4","back_5","back_6","back_7","back_8","back_9","back_10","back_11","back_12","back_13","back_14","back_15","back_16",
+	"neck_0","neck_1","neck_2","neck_3","neck_4","neck_5"
+	]; //bones element ids
+	var b_dis = geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
+	var n_dis = geo.vecXDnorm(geo.vecXD(bones["neck_0"][1][0],bones["neck_0"][1][1]));
+	var dis_values = [
+		d["arm_width"],d["arm_width"],d["arm_width"],d["palm_width"],d["hip_width"],d["shin_width"],
+		d["arm_width"],d["arm_width"],d["arm_width"],d["palm_width"],d["hip_width"],d["shin_width"],
+		b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,b_dis,
+		n_dis,n_dis,n_dis,n_dis,n_dis,n_dis
+	];
+	//bone ribbons loop
+	for (var i = 0;i<ids.length;i++){
+		var id = ids[i]
+		var bone = bones[id];
+		var dis = dis_values[i];
+		dummy[id] = one_balon_creator(bone,dis);
+	}
+}
+
 function Dummy_Creator(){
 	// clearall();
 	
@@ -172,6 +212,7 @@ function Dummy_Creator(){
 	//fa - around vx, sa - around vy, ta - around vz (all relative from ass)
 	var bones = bones_creator(d,c,vx,vy,vz);
 	console.log(bones);
+	balons_creator(d,bones);
 	
 	showme("complete");
 }
