@@ -53,7 +53,7 @@ function rotoz(axes,angle,radians = false){
     return rez; //new rotated axes
 }
 
-/**rotation axes (ox,oy,oz) around angles, CW babylon style (opposite native CCW, which used in geo.js)
+/**rotation axes (ox,oy,oz) around, uses angles, CW babylon style (opposite native CCW, which used in geo.js)
  * - axes - [ox,oy,oz] = [[x,y,z],[x,y,z],[x,y,z]] ... three vectors list
  * - angles - rotation angles around axes [ox_ang,oy_ang,oz_ang]. Rotation direct is oxyz around ox then around oy then around oz
  * - radians - incoming angle in radians

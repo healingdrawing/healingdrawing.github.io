@@ -62,9 +62,35 @@ function relative_bone_creator(cdot, axes, fa, sa, ta, long, radians = false){
 	return [bone_axes,bone];
 }
 function bones_creator(d, c, vx, vy, vz){
-	
+	//left side angles _sa _ta used with negative values for mirroring. Left angle _fa not changed.
+	//trying to use CW as positive direction
 	var bones = {};
 	//ass
+	var base_axes = rotox([vx,vy,vz],d["base_angle"]);
+	var axes = rotoy(base_axes,90);//now ox for ass length if CW around oy work done
+	var bone = [geo.dotXDoffset(c,vz,-d["ass_width"]/2),geo.dotXDoffset(c,vz,d["ass_width"]/2)];
+	bones["ass"]=[axes,bone];
+	
+	//r_hip - end ass bone
+	var bone = relative_bone_creator(bones["ass"][1][1],base_axes,d["r_hip_fa"]+90,d["r_hip_sa"],d["r_hip_ta"],d["hip_length"]);
+	bones["r_hip"] = bone;
+	//l_hip - start ass bone
+	var bone = relative_bone_creator(bones["ass"][1][0],base_axes,d["l_hip_fa"]+90,-d["l_hip_sa"],-d["l_hip_ta"],d["hip_length"]);
+	bones["l_hip"] = bone;
+	
+	//r_shin
+	var bone = relative_bone_creator(bones["r_hip"][1][1],bones["r_hip"][0],d["r_knee_fa"],0,0,d["shin_length"]);
+	bones["r_shin"] = bone;
+	//l_shin
+	var bone = relative_bone_creator(bones["l_hip"][1][1],bones["l_hip"][0],d["l_knee_fa"],0,0,d["shin_length"]);
+	bones["l_shin"] = bone;
+	
+	//r_foot
+	var bone = relative_bone_creator(bones["r_shin"][1][1],bones["r_shin"][0],d["r_foot_fa"],0,0,d["foot_length"]);
+	bones["r_foot"] = bone;
+	//l_foot
+	var bone = relative_bone_creator(bones["l_shin"][1][1],bones["l_shin"][0],d["l_foot_fa"],0,0,d["foot_length"]);
+	bones["l_foot"] = bone;
 	
 	
 }
