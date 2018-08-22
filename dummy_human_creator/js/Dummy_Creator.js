@@ -154,6 +154,22 @@ function bones_creator(d, c, vx, vy, vz){
 	return bones;
 }
 
+/**for ass length. create half balon like mountin from down to top along z axis (axes[2]) */
+function ass_balon_creator(bone,dis,material=null,id = "any"){
+	console.log("ass bone = ", bone," dis = ",dis);
+	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
+	var sdot = bone[1][0]; // start dot
+	sdot = geo.dotXDoffset(sdot,axes[0],dis);
+	var slever = sdot;
+	var edot = bone[1][1]; // end dot
+	var elever = geo.dotXDoffset(edot,axes[0],dis);
+	var arc = [sdot,slever,elever,edot];
+	var aarc = arc4_rotated_karkas_maker(arc,edot,axes[2],16); //rotated arc skeleton
+	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	return balon;
+}
 /**create ribbon rotated skeleton and then cut half data (in foot case) */
 function half_balon_creator(d,bone){}
 function one_balon_creator(bone,dis,material=null,id = "any"){
@@ -190,11 +206,38 @@ function balons_creator(d,bones){
 		var id = ids[i]
 		if (id in bones){
 			var bone = bones[id];
-			var dis = dis_values[i];
+			var dis = dis_values[i]/2;
 			console.log("long = ",geo.vecXDnorm(geo.vecXD(bone[1][0],bone[1][1]))," id = ", id);
 			dummy[id] = one_balon_creator(bone,dis,null,id);
 		}
 	}
+	//ass - three meshes. width will increased to 0.5 hips_width. Length mesh will from hip start dot along ox(back) to width+length
+	var sdot =geo.dotXDoffset( bones["ass"][1][0] , bones["ass"][0][2], -d["hip_width"]/4);
+	var edot =geo.dotXDoffset( bones["ass"][1][1] , bones["ass"][0][2], d["hip_width"]/4);
+	var axes = bones["ass"][0];
+	var bone = [axes,[sdot,edot]];
+	var dis = d["hip_width"]/2;
+	var id = "ass_base";
+	dummy[id] = one_balon_creator(bone,dis,null,id);
+	//left half
+	var dis = d["hip_width"]/2;
+	var axes = bones["ass"][0];
+	var sdot = geo.dotXDoffset( bones["ass"][1][0], axes[2], dis );
+	axes = rotoy(axes,90);
+	var asslength = d["hip_width"]/2 + d["ass_length"];
+	var edot = geo.dotXDoffset(sdot,axes[2],asslength);
+	var bone = [axes,[sdot,edot]];
+	var id = "ass_left";
+	dummy[id] = ass_balon_creator(bone,dis,null,id);
+	//right half
+	var axes = bones["ass"][0];
+	var sdot = geo.dotXDoffset( bones["ass"][1][1], axes[2], -dis );
+	axes = rotoy(axes,90);
+	var edot = geo.dotXDoffset(sdot,axes[2],asslength);
+	var bone = [axes,[sdot,edot]];
+	var id = "ass_right";
+	dummy[id] = ass_balon_creator(bone,dis,null,id);
+	
 }
 
 function Dummy_Creator(){

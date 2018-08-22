@@ -837,7 +837,7 @@ function start_data_writer(){
         9,4, //hip
         9,3, //shin
         9,6, //back
-        3,6, //ass
+        1,6, //ass
         
         -1,10, //shoulders
         50,3, //body
