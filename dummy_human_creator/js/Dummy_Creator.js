@@ -46,7 +46,7 @@ function mat_maker(){
 }
 
 /**create relative bone which is directed along relative oz axis in result
- * - cdot - [x,y,z] , bone start dot
+ * - sdot - [x,y,z] , bone start dot
  * - axes - [ox,oy,oz] , relative/rotated coordinate system of bone
  * - fa - front angle . Equivalent of rotation around ox
  * - sa - side angle . Equivalent of rotation around oy
@@ -55,10 +55,10 @@ function mat_maker(){
  * - radians - incoming angles in radians
  * - return [[ox,oy,oz],[bone_start,bone_end]] = [ [[x,y,z],[x,y,z],[x,y,z]], [[x,y,z],[x,y,z]] ], which is [bone axes, bone dots]
  */
-function relative_bone_creator(cdot, axes, fa, sa, ta, long, radians = false){
-	var bone = [cdot];
+function relative_bone_creator(sdot, axes, fa, sa, ta, long, radians = false){
+	var bone = [sdot];
 	var bone_axes = rotoxyz(axes,[fa,sa,ta],radians); //bone axes rotated
-	bone.push( geo.dotXDoffset(cdot,axes[2],long) ); //end bone dot added
+	bone.push( geo.dotXDoffset(sdot,axes[2],long) ); //end bone dot added
 	return [bone_axes,bone];
 }
 function bones_creator(d, c, vx, vy, vz){
@@ -92,6 +92,63 @@ function bones_creator(d, c, vx, vy, vz){
 	var bone = relative_bone_creator(bones["l_shin"][1][1],bones["l_shin"][0],d["l_foot_fa"],0,0,d["foot_length"]);
 	bones["l_foot"] = bone;
 	
+	//back 17
+	var axes = rotox(base_axes,-90);
+	var dl = d["back_length"]/17;
+	var dfa = d["back_fa"]/17;
+	var dsa = d["back_sa"]/17;
+	var dta = d["back_ta"]/17;
+	var sdot = c; //start dot
+	for (var i=0;i<17;i++){
+		var bone = relative_bone_creator(sdot,axes,dfa,dsa,dta,dl);
+		bones["back_"+i.toString()] = bone;
+		axes = bone[0];
+		sdot = bone[1][1];
+	}
+	
+	//neck 6
+	var dl = d["neck_length"]/6;
+	var dfa = d["neck_fa"]/6;
+	var dsa = d["neck_sa"]/6;
+	var dta = d["neck_ta"]/6;
+	for (var i=0;i<6;i++){
+		var bone = relative_bone_creator(sdot,axes,dfa,dsa,dta,dl);
+		bones["neck_"+i.toString()] = bone;
+		axes = bone[0];
+		sdot = bone[1][1];
+	}
+	
+	//r_shoulders
+	var dang = geo.degrees(Math.asin(d["arm_width"]/d["shoulders_width"])) * d["shoulders_bend"];
+	var axes = rotoy(bones["neck_0"][0],90);
+	var bone = relative_bone_creator(bones["neck_0"][1][0],axes,dang,0,0,d["shoulders_width"]/2);
+	bones["r_shoulders"] = bone;
+	//l_shoulders
+	var axes = rotoy(bones["neck_0"][0],-90);
+	var bone = relative_bone_creator(bones["neck_0"][1][0],axes,dang,0,0,d["shoulders_width"]/2);
+	bones["l_shoulders"] = bone;
+	
+	//r_shoulder
+	var axes = rotox(bones["neck_0"][0],180);
+	var bone = relative_bone_creator(bones["r_shoulders"][1][1],axes,d["r_shoulder_fa"],d["r_shoulder_sa"],d["r_shoulder_ta"],d["arm_length"]/2);
+	bones["r_shoulder"] = bone;
+	//l_shoulder
+	var bone = relative_bone_creator(bones["l_shoulders"][1][1],axes,d["l_shoulder_fa"],-d["l_shoulder_sa"],-d["l_shoulder_ta"],d["arm_length"]/2);
+	bones["l_shoulder"] = bone;
+	
+	//r_elbow
+	var bone = relative_bone_creator(bones["r_shoulder"][1][1],bones["r_shoulder"][0],d["r_elbow_fa"],0,d["r_elbow_ta"],d["arm_length"]/2);
+	bones["r_elbow"] = bone;
+	//l_elbow
+	var bone = relative_bone_creator(bones["l_shoulder"][1][1],bones["l_shoulder"][0],d["l_elbow_fa"],0,-d["l_elbow_ta"],d["arm_length"]/2);
+	bones["l_elbow"] = bone;
+	
+	//r_palm
+	var bone = relative_bone_creator(bones["r_elbow"][1][1],bones["r_elbow"][0],0,d["r_palm_sa"],0,d["palm_length"]);
+	bones["r_palm"] = bone;
+	//l_palm
+	var bone = relative_bone_creator(bones["l_elbow"][1][1],bones["l_elbow"][0],0,-d["l_palm_sa"],0,d["palm_length"]);
+	bones["l_palm"] = bone;
 	
 }
 

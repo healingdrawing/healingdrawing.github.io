@@ -404,7 +404,7 @@ var r_pose_ids=[
     "r_hip_fa","r_hip_sa","r_hip_ta","r_hip_co",
     "r_knee_fa","r_knee_co",
     "r_foot_fa","r_foot_co",
-    "r_back_fa","r_back_sa","r_back_ta","r_back_co",
+    "back_fa","back_sa","back_ta","back_co",
     "head_co"
 ];
 var l_pose_ids=[
@@ -414,7 +414,7 @@ var l_pose_ids=[
     "l_hip_fa","l_hip_sa","l_hip_ta","l_hip_co",
     "l_knee_fa","l_knee_co",
     "l_foot_fa","l_foot_co",
-    "l_neck_fa","l_neck_sa","l_neck_ta","l_neck_co",
+    "neck_fa","neck_sa","neck_ta","neck_co",
     "body_co"
 ];
 function r_pose_gui_tbody(){
@@ -476,7 +476,7 @@ function r_pose_gui_tbody(){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("r_hip_fa",1,"r_hip_fa","-180","180","10"));
+    tr.appendChild(td_number("r_hip_fa",1,"r_hip_fa","-135","135","15"));
     tr.appendChild(td_number("r_hip_sa",1,"r_hip_sa","-45","90","10"));
     tr.appendChild(td_number("r_hip_ta",1,"r_hip_ta","-45","45","15"));
     tr.appendChild(td_color("r_hip_co","#00fe42"));
@@ -489,7 +489,7 @@ function r_pose_gui_tbody(){
     // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("r_knee_fa",1,"r_knee_fa","-90","90","10"));
+    tr.appendChild(td_number("r_knee_fa",1,"r_knee_fa","-135","135","15"));
     tr.appendChild(td_text("knee","",2));
     // tr.appendChild(td_text(""));
     tr.appendChild(td_color("r_knee_co","#00fbfe"));
@@ -600,7 +600,7 @@ function l_pose_gui_tbody(){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("l_hip_fa",1,"l_hip_fa","-180","180","10"));
+    tr.appendChild(td_number("l_hip_fa",1,"l_hip_fa","-135","135","15"));
     tr.appendChild(td_number("l_hip_sa",1,"l_hip_sa","-45","90","10"));
     tr.appendChild(td_number("l_hip_ta",1,"l_hip_ta","-45","45","15"));
     tr.appendChild(td_color("l_hip_co","#00fea1"));
@@ -613,7 +613,7 @@ function l_pose_gui_tbody(){
     // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("l_knee_fa",1,"l_knee_fa","-90","90","10"));
+    tr.appendChild(td_number("l_knee_fa",1,"l_knee_fa","-135","135","15"));
     tr.appendChild(td_text("knee","",2));
     // tr.appendChild(td_text(""));
     tr.appendChild(td_color("l_knee_co","#009bfe"));
