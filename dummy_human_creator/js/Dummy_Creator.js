@@ -150,6 +150,7 @@ function bones_creator(d, c, vx, vy, vz){
 	var bone = relative_bone_creator(bones["l_elbow"][1][1],bones["l_elbow"][0],0,-d["l_palm_sa"],0,d["palm_length"]);
 	bones["l_palm"] = bone;
 	
+	return bones;
 }
 
 function Dummy_Creator(){
@@ -170,6 +171,7 @@ function Dummy_Creator(){
 	//create bones karkas
 	//fa - around vx, sa - around vy, ta - around vz (all relative from ass)
 	var bones = bones_creator(d,c,vx,vy,vz);
+	console.log(bones);
 	
 	showme("complete");
 }

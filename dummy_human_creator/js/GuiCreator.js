@@ -515,10 +515,10 @@ function r_pose_gui_tbody(){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("r_back_fa",1,"r_back_fa","-180","180","10"));
-    tr.appendChild(td_number("r_back_sa",1,"r_back_sa","-90","90","10"));
-    tr.appendChild(td_number("r_back_ta",1,"r_back_ta from right(-90) to left(90)","-90","90","10"));
-    tr.appendChild(td_color("r_back_co","#8300fe"));
+    tr.appendChild(td_number("back_fa",1,"back_fa","-180","180","10"));
+    tr.appendChild(td_number("back_sa",1,"back_sa","-90","90","10"));
+    tr.appendChild(td_number("back_ta",1,"back_ta from right(-90) to left(90)","-90","90","10"));
+    tr.appendChild(td_color("back_co","#8300fe"));
     tbody.appendChild(tr);
     
     //head color
@@ -639,10 +639,10 @@ function l_pose_gui_tbody(){
     tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("l_neck_fa",1,"l_neck_fa","-90","90","10"));
-    tr.appendChild(td_number("l_neck_sa",1,"l_neck_sa","-90","90","10"));
-    tr.appendChild(td_number("l_neck_ta",1,"l_neck_ta from right(-90) to left(90)","-90","90","10"));
-    tr.appendChild(td_color("l_neck_co","#e300fe"));
+    tr.appendChild(td_number("neck_fa",1,"neck_fa","-90","90","10"));
+    tr.appendChild(td_number("neck_sa",1,"neck_sa","-90","90","10"));
+    tr.appendChild(td_number("neck_ta",1,"neck_ta from right(-90) to left(90)","-90","90","10"));
+    tr.appendChild(td_color("neck_co","#e300fe"));
     tbody.appendChild(tr);
     
     //body color
