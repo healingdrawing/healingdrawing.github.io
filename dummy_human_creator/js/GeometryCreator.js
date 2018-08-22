@@ -226,3 +226,9 @@ function showPathArray(apath){
 function showPath(path) {
     var line = BABYLON.Mesh.CreateLines("line", path, scene )
 };
+/** line = [dot3D,dot3D] */
+function showLine(line){
+    var line = geo.line3D_2dots(line[0],line[1]);
+    var path = bez_maker(line).getPoints();
+    showPath(path);
+}

@@ -56,9 +56,10 @@ function mat_maker(){
  * - return [[ox,oy,oz],[bone_start,bone_end]] = [ [[x,y,z],[x,y,z],[x,y,z]], [[x,y,z],[x,y,z]] ], which is [bone axes, bone dots]
  */
 function relative_bone_creator(sdot, axes, fa, sa, ta, long, radians = false){
-	var bone = [sdot];
+	var bone;
 	var bone_axes = rotoxyz(axes,[fa,sa,ta],radians); //bone axes rotated
-	bone.push( geo.dotXDoffset(sdot,axes[2],long) ); //end bone dot added
+	var edot = geo.dotXDoffset(sdot,bone_axes[2],long); //second dot
+	bone = [sdot,edot];
 	return [bone_axes,bone];
 }
 function bones_creator(d, c, vx, vy, vz){
@@ -68,7 +69,7 @@ function bones_creator(d, c, vx, vy, vz){
 	//ass
 	var base_axes = rotox([vx,vy,vz],d["base_angle"]);
 	var axes = rotoy(base_axes,90);//now ox for ass length if CW around oy work done
-	var bone = [geo.dotXDoffset(c,vz,-d["ass_width"]/2),geo.dotXDoffset(c,vz,d["ass_width"]/2)];
+	var bone = [geo.dotXDoffset(c,axes[2],-d["ass_width"]/2),geo.dotXDoffset(c,axes[2],d["ass_width"]/2)];
 	bones["ass"]=[axes,bone];
 	
 	//r_hip - end ass bone
@@ -176,8 +177,8 @@ function balons_creator(d,bones){
 	"back_0","back_1","back_2","back_3","back_4","back_5","back_6","back_7","back_8","back_9","back_10","back_11","back_12","back_13","back_14","back_15","back_16",
 	"neck_0","neck_1","neck_2","neck_3","neck_4","neck_5"
 	]; //bones element ids
-	var b_dis = geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
-	var n_dis = geo.vecXDnorm(geo.vecXD(bones["neck_0"][1][0],bones["neck_0"][1][1]));
+	var b_dis = 1;// geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
+	var n_dis = 1;// geo.vecXDnorm(geo.vecXD(bones["neck_0"][1][0],bones["neck_0"][1][1]));
 	var dis_values = [
 		d["arm_width"],d["arm_width"],d["arm_width"],d["palm_width"],d["hip_width"],d["shin_width"],
 		d["arm_width"],d["arm_width"],d["arm_width"],d["palm_width"],d["hip_width"],d["shin_width"],
@@ -187,9 +188,12 @@ function balons_creator(d,bones){
 	//bone ribbons loop
 	for (var i = 0;i<ids.length;i++){
 		var id = ids[i]
-		var bone = bones[id];
-		var dis = dis_values[i];
-		dummy[id] = one_balon_creator(bone,dis);
+		if (id in bones){
+			var bone = bones[id];
+			var dis = dis_values[i];
+			console.log("long = ",geo.vecXDnorm(geo.vecXD(bone[1][0],bone[1][1]))," id = ", id);
+			dummy[id] = one_balon_creator(bone,dis,null,id);
+		}
 	}
 }
 
