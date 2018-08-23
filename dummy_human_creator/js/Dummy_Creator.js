@@ -87,10 +87,16 @@ function bones_creator(d, c, vx, vy, vz){
 	bones["l_shin"] = bone;
 	
 	//r_foot
-	var bone = relative_bone_creator(bones["r_shin"][1][1],bones["r_shin"][0],d["r_foot_fa"]-90,0,0,d["foot_length"]);
+	var axes = bones["r_shin"][0];
+	var sdot = geo.dotXDoffset(bones["r_shin"][1][1],axes[2],d["foot_width"]);
+	sdot = geo.dotXDoffset(sdot, axes[1],-d["shin_width"]/3);
+	var bone = relative_bone_creator(sdot,axes,d["r_foot_fa"]-90,0,0,d["foot_length"]);
 	bones["r_foot"] = bone;
 	//l_foot
-	var bone = relative_bone_creator(bones["l_shin"][1][1],bones["l_shin"][0],d["l_foot_fa"]-90,0,0,d["foot_length"]);
+	var axes = bones["l_shin"][0];
+	var sdot = geo.dotXDoffset(bones["l_shin"][1][1],axes[2],d["foot_width"]);
+	sdot = geo.dotXDoffset(sdot, axes[1],-d["shin_width"]/3);
+	var bone = relative_bone_creator(sdot,axes,d["l_foot_fa"]-90,0,0,d["foot_length"]);
 	bones["l_foot"] = bone;
 	
 	//back 17
@@ -170,8 +176,45 @@ function ass_balon_creator(bone,dis,material=null,id = "any"){
 	// balon.material = material; //color should be counted before
 	return balon;
 }
+function foot_balon_creator(bone,dis,disup,material=null, id = "any"){
+	var axes = bone[0];
+	var sdot = bone[1][0];
+	var edot = bone[1][1];
+	var slever_minus = geo.dotXDoffset(sdot,axes[0],-dis);
+	var slever_plus = geo.dotXDoffset(sdot,axes[0],dis);
+	var slever_up = geo.dotXDoffset(sdot,axes[1],disup);
+	
+	var elever_minus = geo.dotXDoffset(edot,axes[0],-dis);
+	var elever_plus = geo.dotXDoffset(edot,axes[0],dis);
+	var elever_up = geo.dotXDoffset(edot,axes[1],disup);
+	
+	var arc1 = [sdot,slever_plus,elever_plus,edot];
+	var arc2 = [sdot,slever_up,elever_up,edot];
+	var arc3 = [sdot,slever_minus,elever_minus,edot];
+	var aarc = [arc1,arc3,arc2,arc1];
+	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	return balon;
+}
+
 /**create ribbon rotated skeleton and then cut half data (in foot case) */
-function half_balon_creator(d,bone){}
+function half_balon_creator(bone,dis,material=null,id = "any"){
+	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
+	var sdot = bone[1][0]; // start dot
+	var edot = bone[1][1]; // end dot
+	var slever = geo.dotXDoffset(sdot,axes[0],dis);
+	var elever = geo.dotXDoffset(edot,axes[0],dis);
+	var arc = [sdot,slever,elever,edot];
+	var fullaarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	var aarc = [];
+	for (var i=0;i<9;i++){ aarc.push(fullaarc[i]); }
+	aarc.push(fullaarc[fullaarc.length-1]);
+	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	return balon;
+}
 function one_balon_creator(bone,dis,material=null,id = "any"){
 	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
 	var sdot = bone[1][0]; // start dot
@@ -186,7 +229,7 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	return balon;
 }
 function balons_creator(d,bones){
-	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
+	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + ass + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
 	var ids = [
 	"r_shoulders","r_shoulder","r_elbow","r_palm","r_hip","r_shin",
 	"l_shoulders","l_shoulder","l_elbow","l_palm","l_hip","l_shin",
@@ -237,6 +280,18 @@ function balons_creator(d,bones){
 	var bone = [axes,[sdot,edot]];
 	var id = "ass_right";
 	dummy[id] = ass_balon_creator(bone,dis,null,id);
+	//left foot
+	var bone = bones["l_foot"];
+	var dis = d["shin_width"]/2;
+	var disup = d["foot_width"];
+	var id = "l_foot";
+	dummy[id] = foot_balon_creator(bone,dis,disup,null,id);
+	//right foot
+	var bone = bones["r_foot"];
+	var dis = d["shin_width"]/2;
+	var disup = d["foot_width"];
+	var id = "r_foot";
+	dummy[id] = foot_balon_creator(bone,dis,disup,null,id);
 	
 }
 
