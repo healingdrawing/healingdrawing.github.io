@@ -3,6 +3,7 @@ showme("preparing SceneCreator.js");
 // alert(geo.vecXD([1,2,3],[4,5,6]));
 
 var axes=[]; //3mesh + 3 text
+var axes_size = 40;
 
 var canvas = document.getElementById("renderCanvas");
 canvas.width = 600;
@@ -70,7 +71,7 @@ var createScene = function () {
 	point_light = new BABYLON.PointLight("point_light", new BABYLON.Vector3(500, 500, 500), scene );
 	point_light.intensity = 0.3; point_light.setEnabled(false);
 	
-	axes_creator(40);
+	axes_creator(axes_size);
 
 	// Add and manipulate meshes in the scene
 	// var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:1}, scene);

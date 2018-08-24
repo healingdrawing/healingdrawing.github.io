@@ -402,7 +402,7 @@ var r_pose_ids=[
     "r_elbow_fa","r_elbow_ta","r_elbow_co",
     "r_palm_sa","r_palm_co",
     "r_hip_fa","r_hip_sa","r_hip_ta","r_hip_co",
-    "r_knee_fa","r_knee_co",
+    "r_shin_fa","r_shin_co",
     "r_foot_fa","r_foot_co",
     "back_fa","back_sa","back_ta","back_co",
     "head_co"
@@ -412,7 +412,7 @@ var l_pose_ids=[
     "l_elbow_fa","l_elbow_ta","l_elbow_co",
     "l_palm_sa","l_palm_co",
     "l_hip_fa","l_hip_sa","l_hip_ta","l_hip_co",
-    "l_knee_fa","l_knee_co",
+    "l_shin_fa","l_shin_co",
     "l_foot_fa","l_foot_co",
     "neck_fa","neck_sa","neck_ta","neck_co",
     "body_co"
@@ -482,17 +482,17 @@ function r_pose_gui_tbody(){
     tr.appendChild(td_color("r_hip_co","#00fe42"));
     tbody.appendChild(tr);
     
-    //knee
+    //shin
     tbody.appendChild(tr_hr(4));
     // var tr = document.createElement('tr');
-    // tr.appendChild(td_text("knee","",4));
+    // tr.appendChild(td_text("shin","",4));
     // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("r_knee_fa",1,"r_knee_fa","-135","135","15"));
-    tr.appendChild(td_text("knee","",2));
+    tr.appendChild(td_number("r_shin_fa",1,"r_shin_fa","-135","135","15"));
+    tr.appendChild(td_text("shin","",2));
     // tr.appendChild(td_text(""));
-    tr.appendChild(td_color("r_knee_co","#00fbfe"));
+    tr.appendChild(td_color("r_shin_co","#00fbfe"));
     tbody.appendChild(tr);
     
     //foot
@@ -606,17 +606,17 @@ function l_pose_gui_tbody(){
     tr.appendChild(td_color("l_hip_co","#00fea1"));
     tbody.appendChild(tr);
     
-    //knee
+    //shin
     tbody.appendChild(tr_hr(4));
     // var tr = document.createElement('tr');
-    // tr.appendChild(td_text("knee","",4));
+    // tr.appendChild(td_text("shin","",4));
     // tbody.appendChild(tr);
     
     var tr = document.createElement('tr');
-    tr.appendChild(td_number("l_knee_fa",1,"l_knee_fa","-135","135","15"));
-    tr.appendChild(td_text("knee","",2));
+    tr.appendChild(td_number("l_shin_fa",1,"l_shin_fa","-135","135","15"));
+    tr.appendChild(td_text("shin","",2));
     // tr.appendChild(td_text(""));
-    tr.appendChild(td_color("l_knee_co","#009bfe"));
+    tr.appendChild(td_color("l_shin_co","#009bfe"));
     tbody.appendChild(tr);
     
     //foot
@@ -849,7 +849,7 @@ function start_data_writer(){
         0,0,"#febf00", //elbow
         0,"#7efe00", //palm
         0,0,0,"#00fe42", //hip
-        0,"#00fbfe", //knee
+        0,"#00fbfe", //shin
         0,"#003cfe", //foot
         0,0,0,"#8300fe", //back
         "#fe00b9" //head
@@ -859,7 +859,7 @@ function start_data_writer(){
         0,0,"#ddfe00", //elbow
         0,"#1efe00", //palm
         0,0,0,"#00fea1", //hip
-        0,"#009bfe", //knee
+        0,"#009bfe", //shin
         0,"#2400fe", //foot
         0,0,0,"#e300fe", //neck
         "#fe005a" //body
@@ -1026,7 +1026,7 @@ var r_pose_nocolors_ids=[
     "r_elbow_fa","r_elbow_ta",
     "r_palm_sa",
     "r_hip_fa","r_hip_sa","r_hip_ta",
-    "r_knee_fa",
+    "r_shin_fa",
     "r_foot_fa"
 ];
 var l_pose_nocolors_ids=[
@@ -1034,7 +1034,7 @@ var l_pose_nocolors_ids=[
     "l_elbow_fa","l_elbow_ta",
     "l_palm_sa",
     "l_hip_fa","l_hip_sa","l_hip_ta",
-    "l_knee_fa",
+    "l_shin_fa",
     "l_foot_fa"
 ];
 function copy_pose_switch_side(){
@@ -1078,7 +1078,7 @@ var r_pose_reset_ids=[
     "r_elbow_fa","r_elbow_ta",
     "r_palm_sa",
     "r_hip_fa","r_hip_sa","r_hip_ta",
-    "r_knee_fa",
+    "r_shin_fa",
     "r_foot_fa",
     "r_back_fa","r_back_sa","r_back_ta"
 ];
@@ -1087,7 +1087,7 @@ var l_pose_reset_ids=[
     "l_elbow_fa","l_elbow_ta",
     "l_palm_sa",
     "l_hip_fa","l_hip_sa","l_hip_ta",
-    "l_knee_fa",
+    "l_shin_fa",
     "l_foot_fa",
     "l_neck_fa","l_neck_sa","l_neck_ta"
 ];

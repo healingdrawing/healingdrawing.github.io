@@ -4,9 +4,14 @@ var fresh = true;
 var dummy = {}; //dict like object of meshes
 var dummy_mat = {}; //dict like object of materials
 
-function one_mat_maker(hull,alp,hexcolorstring,matname){
+var mat_ids=[
+	"r_shoulder_", "r_elbow_", "r_palm_", "r_hip_", "r_shin_", "r_foot_", "back_", "head_",
+	"l_shoulder_", "l_elbow_", "l_palm_", "l_hip_", "l_shin_", "l_foot_", "neck_", "body_"
+];
+
+function one_mat_maker(hull,hexcolorstring,matname){
 	var mat = new BABYLON.StandardMaterial(matname, scene);
-	mat.alpha = alp;
+	mat.alpha = 1;
 	mat.diffuseColor = new BABYLON.Color3.FromHexString(hexcolorstring);
 	mat.emissiveColor = new BABYLON.Color3.Black();
 	mat.backFaceCulling = false;
@@ -16,32 +21,12 @@ function one_mat_maker(hull,alp,hexcolorstring,matname){
 function mat_maker(){
 	var hull = document.getElementById("wireframe").checked;
 	
-	for (var i=0;i<5;i++){
-		
-		var id="";
-		var text=(i+1).toString();
-		//base
-		id= "alpha_base_"+text;
-		var alp_base = parseFloat(document.getElementById(id).value);
-		id="color_base_"+text;
-		var color_base = document.getElementById(id).value;
-			
-		//tail
-		id= "alpha_tail_"+text;
-		var alp_tail = parseFloat(document.getElementById(id).value);
-		id="color_tail_"+text;
-		var color_tail = document.getElementById(id).value;
-			
-		//bottle
-		id= "alpha_bottle_"+text;
-		var alp_bottle = parseFloat(document.getElementById(id).value);
-		id="color_bottle_"+text;
-		var color_bottle = document.getElementById(id).value;
-		
-		base_section_mat.push(one_mat_maker(hull,alp_base,color_base,"base_mat_"+text));
-		tail_section_mat.push(one_mat_maker(hull,alp_tail,color_tail,"tail_mat_"+text));
-		bottle_section_mat.push(one_mat_maker(hull,alp_bottle,color_bottle,"bottle_mat_"+text));
-		
+	for (var i=0;i<mat_ids.length;i++){
+		var id = mat_ids[i];
+		console.log(id);
+		var hexcolorstring = document.getElementById(mat_ids[i]+"co").value;
+		var matname = mat_ids[i]+"mat";
+		dummy_mat[matname] = one_mat_maker(hull,hexcolorstring,matname);
 	}
 }
 
@@ -80,10 +65,10 @@ function bones_creator(d, c, vx, vy, vz){
 	bones["l_hip"] = bone;
 	
 	//r_shin
-	var bone = relative_bone_creator(bones["r_hip"][1][1],bones["r_hip"][0],d["r_knee_fa"],0,0,d["shin_length"]);
+	var bone = relative_bone_creator(bones["r_hip"][1][1],bones["r_hip"][0],d["r_shin_fa"],0,0,d["shin_length"]);
 	bones["r_shin"] = bone;
 	//l_shin
-	var bone = relative_bone_creator(bones["l_hip"][1][1],bones["l_hip"][0],d["l_knee_fa"],0,0,d["shin_length"]);
+	var bone = relative_bone_creator(bones["l_hip"][1][1],bones["l_hip"][0],d["l_shin_fa"],0,0,d["shin_length"]);
 	bones["l_shin"] = bone;
 	
 	//r_foot
@@ -162,7 +147,7 @@ function bones_creator(d, c, vx, vy, vz){
 
 /**for ass length. create half balon like mountin from down to top along z axis (axes[2]) */
 function ass_balon_creator(bone,dis,material=null,id = "any"){
-	console.log("ass bone = ", bone," dis = ",dis);
+	// console.log("ass bone = ", bone," dis = ",dis);
 	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
 	var sdot = bone[1][0]; // start dot
 	sdot = geo.dotXDoffset(sdot,axes[0],dis);
@@ -173,7 +158,7 @@ function ass_balon_creator(bone,dis,material=null,id = "any"){
 	var aarc = arc4_rotated_karkas_maker(arc,edot,axes[2],16); //rotated arc skeleton
 	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
 	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
-	// balon.material = material; //color should be counted before
+	balon.material = material; //color should be counted before
 	return balon;
 }
 function foot_balon_creator(bone,dis,disup,material=null, id = "any"){
@@ -194,7 +179,7 @@ function foot_balon_creator(bone,dis,disup,material=null, id = "any"){
 	var aarc = [arc1,arc3,arc2,arc1];
 	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
 	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
-	// balon.material = material; //color should be counted before
+	balon.material = material; //color should be counted before
 	return balon;
 }
 
@@ -224,8 +209,12 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	var arc = [sdot,slever,elever,edot];
 	var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
 	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	if (id=="r_shoulder"){
+		// console.log("id=",id,"abezpoints=",JSON.stringify(abezpoints));
+		console.log("id=",id,"abezpoints=",abezpoints);
+	}
 	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
-	// balon.material = material; //color should be counted before
+	balon.material = material; //color should be counted before
 	return balon;
 }
 
@@ -278,6 +267,7 @@ function two_ribs_balon_creator(
 	rib_number,
 	body_width,
 	rib_width,
+	material,
 	id = "any"
 ){
 	var vertebra = bone;
@@ -300,9 +290,10 @@ function two_ribs_balon_creator(
 	var r_aarc = [arc_r1,arc_r2,arc_r3,arc_r1];
 	
 	var r_id = "r_"+id;
+	clear_rib_ids.push(r_id);
 	var abezpoints = bez_array_getPoints_maker(r_aarc,8); //.getPoints... for each arc->babylonbezier from aarc
 	var balon = BABYLON.MeshBuilder.CreateRibbon(r_id, { pathArray: abezpoints}, scene );
-	// balon.material = material; //color should be counted before
+	balon.material = material; //color should be counted before
 	dummy[r_id] = balon;
 	
 	//left rib mesh
@@ -318,18 +309,21 @@ function two_ribs_balon_creator(
 	var l_aarc = [arc_l1,arc_l2,arc_l3,arc_l1];
 	
 	var l_id = "l_"+id;
+	clear_rib_ids.push(l_id);
 	var abezpoints = bez_array_getPoints_maker(l_aarc,8); //.getPoints... for each arc->babylonbezier from aarc
 	var balon = BABYLON.MeshBuilder.CreateRibbon(l_id, { pathArray: abezpoints}, scene );
-	// balon.material = material; //color should be counted before
+	balon.material = material; //color should be counted before
 	dummy[l_id] = balon;
 	
 }
-function ribs_balon_creator(d,bones){
+function ribs_balon_creator(d,bones,material=null){
 	var back_width = d["back_width"];
 	var one_vertebra_length = geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
 	var max_number = d["body_length"];
 	var body_width = d["body_width"];//front direction
 	var rib_width = one_vertebra_length / 2;
+	
+	clear_rib_ids = [];//reset before refresh
 	for (var i=0;i<max_number;i++){
 		var n = 16-i;
 		var id = "back_"+(n).toString();
@@ -343,11 +337,12 @@ function ribs_balon_creator(d,bones){
 			rib_number,
 			body_width,
 			rib_width,
+			material,
 			id
 		);
 	}
 }
-function head_balon_creator(d,bones){
+function head_balon_creator(d,bones,material = null){
 	var bone = bones["neck_5"];
 	var cdot = bone[1][1];
 	var axes = rotox(bone[0],90);
@@ -388,10 +383,19 @@ function head_balon_creator(d,bones){
 	var abezpoints = continued_bez_array_getPoints_maker(aaarc,Math.floor(mass/2)); //.getPoints...
 	var id = "head";
 	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
-	// balon.material = material; //color should be counted before
+	balon.material = material; //color should be counted before
 	dummy["head"] = balon;
 }
 
+function mat_id_counter(id){
+	var matid;
+	if (id.startsWith("back")){ matid = "back_mat"; }
+	else if (id.startsWith("neck")){ matid = "neck_mat"; }
+	else if (id.startsWith("r_shoulder")){ matid = "r_shoulder_mat" }
+	else if (id.startsWith("l_shoulder")){ matid = "l_shoulder_mat" }
+	else { matid = id+"_mat"; }
+	return matid;
+}
 function balons_creator(d,bones){
 	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + ass + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
 	var ids = [
@@ -400,8 +404,8 @@ function balons_creator(d,bones){
 	"back_0","back_1","back_2","back_3","back_4","back_5","back_6","back_7","back_8","back_9","back_10","back_11","back_12","back_13","back_14","back_15","back_16",
 	"neck_0","neck_1","neck_2","neck_3","neck_4","neck_5"
 	]; //bones element ids
-	var b_dis = 1;// geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
-	var n_dis = 1;// geo.vecXDnorm(geo.vecXD(bones["neck_0"][1][0],bones["neck_0"][1][1]));
+	var b_dis = geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
+	var n_dis = geo.vecXDnorm(geo.vecXD(bones["neck_0"][1][0],bones["neck_0"][1][1]));
 	var dis_values = [
 		d["arm_width"],d["arm_width"],d["arm_width"],d["palm_width"],d["hip_width"],d["shin_width"],
 		d["arm_width"],d["arm_width"],d["arm_width"],d["palm_width"],d["hip_width"],d["shin_width"],
@@ -412,10 +416,11 @@ function balons_creator(d,bones){
 	for (var i = 0;i<ids.length;i++){
 		var id = ids[i]
 		if (id in bones){
+			var mat_id = mat_id_counter(id);
+			var material = dummy_mat[mat_id];
 			var bone = bones[id];
 			var dis = dis_values[i]/2;
-			console.log("long = ",geo.vecXDnorm(geo.vecXD(bone[1][0],bone[1][1]))," id = ", id);
-			dummy[id] = one_balon_creator(bone,dis,null,id);
+			dummy[id] = one_balon_creator(bone,dis,material,id);
 		}
 	}
 	//ass - three meshes. width will increased to 0.5 hips_width. Length mesh will from hip start dot along ox(back) to width+length
@@ -424,8 +429,9 @@ function balons_creator(d,bones){
 	var axes = bones["ass"][0];
 	var bone = [axes,[sdot,edot]];
 	var dis = d["hip_width"]/2;
+	var material = dummy_mat["back_mat"];
 	var id = "ass_base";
-	dummy[id] = one_balon_creator(bone,dis,null,id);
+	dummy[id] = one_balon_creator(bone,dis,material,id);
 	//left half
 	var dis = d["hip_width"]/2;
 	var axes = bones["ass"][0];
@@ -434,43 +440,49 @@ function balons_creator(d,bones){
 	var asslength = d["hip_width"]/2 + d["ass_length"];
 	var edot = geo.dotXDoffset(sdot,axes[2],asslength);
 	var bone = [axes,[sdot,edot]];
+	var material = dummy_mat["l_hip_mat"];
 	var id = "ass_left";
-	dummy[id] = ass_balon_creator(bone,dis,null,id);
+	dummy[id] = ass_balon_creator(bone,dis,material,id);
 	//right half
 	var axes = bones["ass"][0];
 	var sdot = geo.dotXDoffset( bones["ass"][1][1], axes[2], -dis );
 	axes = rotoy(axes,90);
 	var edot = geo.dotXDoffset(sdot,axes[2],asslength);
 	var bone = [axes,[sdot,edot]];
+	var material = dummy_mat["r_hip_mat"];
 	var id = "ass_right";
-	dummy[id] = ass_balon_creator(bone,dis,null,id);
+	dummy[id] = ass_balon_creator(bone,dis,material,id);
 	//left foot
 	var bone = bones["l_foot"];
 	var dis = d["shin_width"]/2;
 	var disup = d["foot_width"];
+	var material = dummy_mat["l_foot_mat"];
 	var id = "l_foot";
-	dummy[id] = foot_balon_creator(bone,dis,disup,null,id);
+	dummy[id] = foot_balon_creator(bone,dis,disup,material,id);
 	//right foot
 	var bone = bones["r_foot"];
 	var dis = d["shin_width"]/2;
 	var disup = d["foot_width"];
+	var material = dummy_mat["r_foot_mat"];
 	var id = "r_foot";
-	dummy[id] = foot_balon_creator(bone,dis,disup,null,id);
+	dummy[id] = foot_balon_creator(bone,dis,disup,material,id);
 	
 	//body
-	ribs_balon_creator(d,bones);
+	var material = dummy_mat["back_mat"];
+	ribs_balon_creator(d,bones,material);
 	//head
-	head_balon_creator(d,bones);
+	var material = dummy_mat["head_mat"];
+	head_balon_creator(d,bones,material);
 }
 
 function Dummy_Creator(){
-	// clearall();
+	clearall();
 	
 	var d=gui_reader(); //GuiReader.js
-	console.log(d);
+	// console.log(d);
 	
-	// mat_maker();
-	if (document.getElementById("axes").checked && axes.length==0){ console.log("show axes");  axes_creator(400); }
+	mat_maker();
+	if (document.getElementById("axes").checked && axes.length==0){ console.log("show axes");  axes_creator(axes_size); }
 	
 	//start points and directions
 	var c = [0,0,0] //center dot
@@ -487,21 +499,28 @@ function Dummy_Creator(){
 	showme("complete");
 }
 
+var clear_rib_ids=[];//dinamically every time
+var clear_ids = [
+	"head",
+	"r_shoulders","r_shoulder","r_elbow","r_palm","r_hip","r_shin",
+	"l_shoulders","l_shoulder","l_elbow","l_palm","l_hip","l_shin",
+	"back_0","back_1","back_2","back_3","back_4","back_5","back_6","back_7","back_8","back_9","back_10","back_11","back_12","back_13","back_14","back_15","back_16",
+	"neck_0","neck_1","neck_2","neck_3","neck_4","neck_5",
+	"ass_base","ass_left","ass_right",
+	"r_foot","l_foot"
+];
 function clearall(force=false){
 	if (fresh) { fresh = false; }
 	else{
-		if (base_section) { for(var i=0;i<base_section.length;i++){base_section[i].material.dispose(true,true); base_section[i].dispose(false,true);} base_section=[]; }
-		if (tail_section) { for(var i=0;i<tail_section.length;i++){tail_section[i].dispose(false,true);} tail_section=[]; }
-		if (ring_section) { for(var i=0;i<ring_section.length;i++){ring_section[i].dispose(false,true);} ring_section=[]; }
-		if (bottle_section) { for(var i=0;i<bottle_section.length;i++){bottle_section[i].dispose(false,true);} bottle_section=[]; }
-		for (var i=0;i<5;i++){
-			base_section_mat[i].dispose(true,true);
-			tail_section_mat[i].dispose(true,true);
-			bottle_section_mat[i].dispose(true,true);
+		var ids = clear_ids;
+		for (var i=0;i<clear_rib_ids.length;i++){ ids.push(clear_rib_ids[i]); }
+		if ("head" in dummy) { for(var i=0;i<ids.length;i++){
+			console.log(ids[i]);
+			if (dummy[ids[i]].material) { dummy[ids[i]].material.dispose(true,true) };
+			dummy[ids[i]].dispose(false,true);} dummy={};
 		}
-		base_section_mat=[];
-		tail_section_mat=[];
-		bottle_section_mat=[];
+		for (var i=0;i<mat_ids.length;i++){ dummy_mat[mat_ids[i]+"mat"].dispose(true,true); }
+		dummy_mat={};
 		scene.resetCachedMaterial();
 	}
 	if (axes){ for(var i=0;i<axes.length;i++) { axes[i].dispose(false, true); } axes = []; }
