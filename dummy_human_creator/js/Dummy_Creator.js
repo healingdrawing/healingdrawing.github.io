@@ -229,12 +229,12 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	return balon;
 }
 
-/**rib - bones["back_N"] */
-function two_ribs_center_dot3D( rib ){
+/**vertebra - bones["back_N"] */
+function two_ribs_center_dot3D( vertebra ){
 	var rez;
-	var sdot = rib[1][0];
-	var edot = rib[1][1];
-	var axis = rib[0][2]; // oz relative
+	var sdot = vertebra[1][0];
+	var edot = vertebra[1][1];
+	var axis = vertebra[0][2]; // oz relative
 	var dis = geo.vecXDnorm(geo.vecXD(sdot,edot)) / 2;
 	rez = geo.dotXDoffset(sdot,axis,dis);
 	return rez;
@@ -266,8 +266,67 @@ function two_ribs_front_size(
 	rez = two_ribs_side_size(back_width,one_vertebra_length,max_number,rib_number);
 	return rez;
 }
-function two_ribs_balon_creator(){}
-function ribs_balon_creator(){}
+/**
+ * 
+ * - bone - bones["back_N"] = [axes,[sdot,edot]]
+ */
+function two_ribs_balon_creator(
+	bone,
+	back_width,
+	one_vertebra_length,
+	max_number,
+	rib_number,
+	body_width,
+	rib_width,
+	id = "any"
+){
+	var vertebra = bone;
+	var sdot = two_ribs_center_dot3D(vertebra);
+	var side_size = two_ribs_side_size(back_width,one_vertebra_length,max_number,rib_number);
+	var front_size = two_ribs_front_size(body_width,one_vertebra_length,max_number,rib_number);
+	var axes = bone[0];
+	var edot = geo.dotXDoffset(sdot,axes[2],front_size);
+	//right ox+
+	//right rib mesh
+	var slever = geo.dotXDoffset(sdot,axes[0],side_size);
+	var elever = geo.dotXDoffset(edot,axes[0],side_size);
+	var arc_r1 = [sdot,slever,elever,edot];
+	slever = geo.dotXDoffset(slever,axes[1],rib_width);
+	elever = geo.dotXDoffset(elever,axes[1],rib_width);
+	var arc_r2 = [sdot,slever,elever,edot];
+	slever = geo.dotXDoffset(slever,axes[0],-rib_width);
+	elever = geo.dotXDoffset(elever,axes[0],-rib_width);
+	var arc_r3 = [sdot,slever,elever,edot];
+	var r_aarc = [arc_r1,arc_r2,arc_r3,arc_r1];
+	
+	var r_id = "r_"+id;
+	var abezpoints = bez_array_getPoints_maker(r_aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	var balon = BABYLON.MeshBuilder.CreateRibbon(r_id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	dummy[r_id] = balon;
+	
+	//left rib mesh
+	var slever = geo.dotXDoffset(sdot,axes[0],-side_size);
+	var elever = geo.dotXDoffset(edot,axes[0],-side_size);
+	var arc_l1 = [sdot,slever,elever,edot];
+	slever = geo.dotXDoffset(slever,axes[1],rib_width);
+	elever = geo.dotXDoffset(elever,axes[1],rib_width);
+	var arc_l2 = [sdot,slever,elever,edot];
+	slever = geo.dotXDoffset(slever,axes[0],rib_width);
+	elever = geo.dotXDoffset(elever,axes[0],rib_width);
+	var arc_l3 = [sdot,slever,elever,edot];
+	var l_aarc = [arc_l1,arc_l2,arc_l3,arc_l1];
+	
+	var l_id = "l_"+id;
+	var abezpoints = bez_array_getPoints_maker(l_aarc,8); //.getPoints... for each arc->babylonbezier from aarc
+	var balon = BABYLON.MeshBuilder.CreateRibbon(l_id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	dummy[l_id] = balon;
+	
+}
+function ribs_balon_creator(){
+	
+}
 
 function balons_creator(d,bones){
 	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + ass + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
