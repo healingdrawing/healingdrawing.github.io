@@ -198,7 +198,7 @@ function foot_balon_creator(bone,dis,disup,material=null, id = "any"){
 	return balon;
 }
 
-/**create ribbon rotated skeleton and then cut half data (in foot case) not tested not used */
+/**create ribbon rotated skeleton and then cut half data (in foot case) NOT tested NOT used */
 function half_balon_creator(bone,dis,material=null,id = "any"){
 	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
 	var sdot = bone[1][0]; // start dot
@@ -284,7 +284,7 @@ function two_ribs_balon_creator(
 	var sdot = two_ribs_center_dot3D(vertebra);
 	var side_size = two_ribs_side_size(back_width,one_vertebra_length,max_number,rib_number);
 	var front_size = two_ribs_front_size(body_width,one_vertebra_length,max_number,rib_number);
-	var axes = bone[0];
+	var axes = rotox(bone[0],90);
 	var edot = geo.dotXDoffset(sdot,axes[2],front_size);
 	//right ox+
 	//right rib mesh
@@ -324,8 +324,28 @@ function two_ribs_balon_creator(
 	dummy[l_id] = balon;
 	
 }
-function ribs_balon_creator(){
-	
+function ribs_balon_creator(d,bones){
+	var back_width = d["back_width"];
+	var one_vertebra_length = geo.vecXDnorm(geo.vecXD(bones["back_0"][1][0],bones["back_0"][1][1]));
+	var max_number = d["body_length"];
+	var body_width = d["body_width"];//front direction
+	var rib_width = one_vertebra_length / 2;
+	for (var i=0;i<max_number;i++){
+		var n = 16-i;
+		var id = "back_"+(n).toString();
+		var bone = bones[id];
+		var rib_number = i;
+		two_ribs_balon_creator(
+			bone,
+			back_width,
+			one_vertebra_length,
+			max_number,
+			rib_number,
+			body_width,
+			rib_width,
+			id
+		);
+	}
 }
 
 function balons_creator(d,bones){
@@ -393,6 +413,8 @@ function balons_creator(d,bones){
 	var id = "r_foot";
 	dummy[id] = foot_balon_creator(bone,dis,disup,null,id);
 	
+	//body
+	ribs_balon_creator(d,bones);
 }
 
 function Dummy_Creator(){
