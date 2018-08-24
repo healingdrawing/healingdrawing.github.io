@@ -415,6 +415,8 @@ function balons_creator(d,bones){
 	
 	//body
 	ribs_balon_creator(d,bones);
+	//head
+	
 }
 
 function Dummy_Creator(){
