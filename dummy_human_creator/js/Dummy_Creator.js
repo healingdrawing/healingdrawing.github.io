@@ -347,6 +347,50 @@ function ribs_balon_creator(d,bones){
 		);
 	}
 }
+function head_balon_creator(d,bones){
+	var bone = bones["neck_5"];
+	var cdot = bone[1][1];
+	var axes = rotox(bone[0],90);
+	var head_length = d["head_length"];
+	var head_width = d["head_width"];
+	var head_axis = d["head_axis"];
+	var head_height = d["head_height"];
+	cdot = geo.dotXDoffset(cdot, axes[2], -head_length/2 * head_axis);
+	console.log(axes);
+	//length oz, height oy, width ox
+	//length height profile elipse
+	var va = axes[2]; //oz
+	var vb = axes[1]; //oy
+	var van = geo.vecXDback(va);
+	var vbn = geo.vecXDback(vb);
+	var vec3Dsemiaxes = [va,vb,van,vbn];
+	var a = head_length/2;
+	var b = head_height/2;
+	var semiaxes = [a,b,a,b];
+	
+	var mass = 16; //how much dots have elipse perimeter( and bezier curve later)
+	var angle_proportions = [];
+	for (var i=0;i<mass;i++){ angle_proportions.push(1); }
+	var eli = geo.polygon3D_inside_ellipse(cdot, vec3Dsemiaxes, semiaxes, angle_proportions);
+	eli.shift(); //center dot removed
+	eli.push(eli[0]); //karkas closed for ribbon creation
+	//left half karkas
+	var l_aarc = [];
+	var l_dot = geo.dotXDoffset(cdot,axes[0],-head_width/2);
+	for (var i=0;i<eli.length;i++){ l_aarc.push( geo.curve3D_3dots(cdot,l_dot,eli[i]) ); }
+	//right half karkas
+	var r_aarc = [];
+	var r_dot = geo.dotXDoffset(cdot,axes[0],head_width/2);
+	for (var i=0;i<eli.length;i++){ r_aarc.push( geo.curve3D_3dots(cdot,eli[i],r_dot) ); }
+	//sum
+	var aaarc = [];
+	for (var i=0;i<eli.length;i++){ aaarc.push([l_aarc[i],r_aarc[i]]); }
+	var abezpoints = continued_bez_array_getPoints_maker(aaarc,Math.floor(mass/2)); //.getPoints...
+	var id = "head";
+	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
+	// balon.material = material; //color should be counted before
+	dummy["head"] = balon;
+}
 
 function balons_creator(d,bones){
 	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + ass + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
@@ -416,7 +460,7 @@ function balons_creator(d,bones){
 	//body
 	ribs_balon_creator(d,bones);
 	//head
-	
+	head_balon_creator(d,bones);
 }
 
 function Dummy_Creator(){
