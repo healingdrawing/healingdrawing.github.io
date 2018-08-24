@@ -272,8 +272,8 @@ function size_body_section_creator(){
     
     var tr = document.createElement('tr');
     var n = "body_length";
-    var title = "body_length - % of back length from neck to down";
-    var td = td_number(n,1,title,"0","100","20");
+    var title = "body_length - 8...16 vertebra from neck to down";
+    var td = td_number(n,1,title,"8","16","1");
     tr.appendChild(td);
     var n = "body_width";
     var title = "body_width - front direction chest size";
@@ -840,7 +840,7 @@ function start_data_writer(){
         1,6, //ass
         
         -1,10, //shoulders
-        50,3, //body
+        12,3, //body
         5,3 //foot
         
     ];

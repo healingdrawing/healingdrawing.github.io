@@ -198,7 +198,7 @@ function foot_balon_creator(bone,dis,disup,material=null, id = "any"){
 	return balon;
 }
 
-/**create ribbon rotated skeleton and then cut half data (in foot case) */
+/**create ribbon rotated skeleton and then cut half data (in foot case) not tested not used */
 function half_balon_creator(bone,dis,material=null,id = "any"){
 	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
 	var sdot = bone[1][0]; // start dot
@@ -228,6 +228,47 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	// balon.material = material; //color should be counted before
 	return balon;
 }
+
+/**rib - bones["back_N"] */
+function two_ribs_center_dot3D( rib ){
+	var rez;
+	var sdot = rib[1][0];
+	var edot = rib[1][1];
+	var axis = rib[0][2]; // oz relative
+	var dis = geo.vecXDnorm(geo.vecXD(sdot,edot)) / 2;
+	rez = geo.dotXDoffset(sdot,axis,dis);
+	return rez;
+}
+function two_ribs_side_size(
+	back_width, // side width of body
+	one_vertebra_length,
+	max_number, // full body vertabra's number
+	rib_number, // number of vertebra of body, from neck to down
+){
+	var rez;
+	var long = one_vertebra_length * max_number;
+	var scale = back_width / long; //multiplexer for rez from circle
+	var r = long / 2; //radius of circle for calculate side size
+	var x = r - one_vertebra_length * (rib_number-0.5); //distance from center to rib position
+	var ang = Math.acos( x / r );
+	rez = r * Math.sin(ang) * scale;
+	return rez;
+}
+/**just recalling two_ribs_side_size with back_width = body_width * 2 */
+function two_ribs_front_size(
+	body_width, // front direction chest size
+	one_vertebra_length,
+	max_number, // full body vertabra's number
+	rib_number, // number of vertebra of body, from neck to down
+){
+	var rez;
+	var back_width = body_width * 2;
+	rez = two_ribs_side_size(back_width,one_vertebra_length,max_number,rib_number);
+	return rez;
+}
+function two_ribs_balon_creator(){}
+function ribs_balon_creator(){}
+
 function balons_creator(d,bones){
 	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + ass + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
 	var ids = [
