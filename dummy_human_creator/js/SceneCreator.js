@@ -58,7 +58,7 @@ var createScene = function () {
 	scene = new BABYLON.Scene(engine);
 	scene.clearColor = new BABYLON.Color3(1, 1, 1);
 	// Add a camera to the scene and attach it to the canvas
-	camera = new BABYLON.ArcRotateCamera("Camera", geo.radians(45), geo.radians(45), 800, BABYLON.Vector3.Zero(), scene);
+	camera = new BABYLON.ArcRotateCamera("Camera", geo.radians(45), geo.radians(45), 80, BABYLON.Vector3.Zero(), scene);
 	// camera.setPosition(new BABYLON.Vector3(-400, -400, -400));
     camera.attachControl(canvas, true);
 	
@@ -70,7 +70,7 @@ var createScene = function () {
 	point_light = new BABYLON.PointLight("point_light", new BABYLON.Vector3(500, 500, 500), scene );
 	point_light.intensity = 0.3; point_light.setEnabled(false);
 	
-	axes_creator(400);
+	axes_creator(40);
 
 	// Add and manipulate meshes in the scene
 	// var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:1}, scene);

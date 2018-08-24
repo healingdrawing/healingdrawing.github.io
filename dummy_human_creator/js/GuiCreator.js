@@ -876,7 +876,7 @@ function start_data_writer(){
         0.3,"#FFFFFF",
         500,500,500,
         "#FFFFFF",
-        800,45,45//tr18 lamp
+        80,45,45//tr18 lamp
     ];
     
     for (var i=0;i<size_values.length;i++){ values.push(size_values[i]); }
