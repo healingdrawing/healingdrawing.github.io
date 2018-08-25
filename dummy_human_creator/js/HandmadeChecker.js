@@ -68,7 +68,7 @@ function vec3Drotate(
         geo.vecXDparalleled(vec3D, vec3Daxis) ||
         angle == 0
         ){
-            alert(geo.vecXDparalleled(vec3D, vec3Daxis));
+            // alert(geo.vecXDparalleled(vec3D, vec3Daxis));
             return rez;
         }
     if(geo.vecXDangle(vec3D,vec3Daxis)==0){return vec3D;} //looks like this should be in parallel check... additional statement edit vecXDparalleled_sameside() haxe source

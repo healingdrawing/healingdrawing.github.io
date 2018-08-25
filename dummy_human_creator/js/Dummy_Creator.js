@@ -216,7 +216,7 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	}
 	
 	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
-	if (id=="r_shoulder"){
+	if (id=="r_elbow"){
 		// console.log("id=",id,"abezpoints=",JSON.stringify(abezpoints));
 		
 		console.log("axes = ",axes);
