@@ -802,7 +802,6 @@ function lamp_gui_creator(){
 }
 
 function id_value(id,value){
-    console.log(JSON.stringify(id+" = "+value.toString()));
     document.getElementById(id).value=value;
 }
 
@@ -836,7 +835,7 @@ function start_data_writer(){
         4,2, //palm
         9,4, //hip
         9,3, //shin
-        9,6, //back
+        9,10, //back
         1,6, //ass
         
         -1,10, //shoulders
@@ -851,7 +850,7 @@ function start_data_writer(){
         0,0,0,"#00fe42", //hip
         0,"#00fbfe", //shin
         0,"#003cfe", //foot
-        60,0,0,"#8300fe", //back
+        0,0,0,"#8300fe", //back
         "#fe00b9" //head
     ];
     var l_pose_values = [
@@ -1048,6 +1047,7 @@ function copy_pose_switch_side(){
         document.getElementById(l_pose_nocolors_ids[i]).value = r_val[i];
         document.getElementById(r_pose_nocolors_ids[i]).value = l_val[i];
     }//pose switched
+    delay_refresh();
     showme("switch side pose complete");
 }
 
@@ -1059,6 +1059,7 @@ function copy_pose_left_to_right(){
     for (var i=0;i<r_pose_nocolors_ids.length;i++){
         document.getElementById(r_pose_nocolors_ids[i]).value = l_val[i];
     }//pose switched
+    delay_refresh();
     showme("copy left side pose to right complete");
 }
 
@@ -1070,6 +1071,7 @@ function copy_pose_right_to_left(){
     for (var i=0;i<r_pose_nocolors_ids.length;i++){
         document.getElementById(l_pose_nocolors_ids[i]).value = r_val[i];
     }//pose switched
+    delay_refresh();
     showme("copy right side pose to left complete");
 }
 
@@ -1080,7 +1082,7 @@ var r_pose_reset_ids=[
     "r_hip_fa","r_hip_sa","r_hip_ta",
     "r_shin_fa",
     "r_foot_fa",
-    "r_back_fa","r_back_sa","r_back_ta"
+    "back_fa","back_sa","back_ta"
 ];
 var l_pose_reset_ids=[
     "l_shoulder_fa","l_shoulder_sa","l_shoulder_ta",
@@ -1089,7 +1091,7 @@ var l_pose_reset_ids=[
     "l_hip_fa","l_hip_sa","l_hip_ta",
     "l_shin_fa",
     "l_foot_fa",
-    "l_neck_fa","l_neck_sa","l_neck_ta"
+    "neck_fa","neck_sa","neck_ta"
 ];
 var r_pose_reset_values = [
     0,0,0,
@@ -1114,6 +1116,7 @@ function copy_pose_reset(){
         document.getElementById(r_pose_reset_ids[i]).value = r_pose_reset_values[i];
         document.getElementById(l_pose_reset_ids[i]).value = l_pose_reset_values[i];
     }
+    delay_refresh();
     showme('reset pose complete');
 }
 

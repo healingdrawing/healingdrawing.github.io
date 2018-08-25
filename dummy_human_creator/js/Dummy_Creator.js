@@ -23,7 +23,6 @@ function mat_maker(){
 	
 	for (var i=0;i<mat_ids.length;i++){
 		var id = mat_ids[i];
-		console.log(id);
 		var hexcolorstring = document.getElementById(mat_ids[i]+"co").value;
 		var matname = mat_ids[i]+"mat";
 		dummy_mat[matname] = one_mat_maker(hull,hexcolorstring,matname);
@@ -491,6 +490,13 @@ function balons_creator(d,bones){
 	head_balon_creator(d,bones,material);
 }
 
+function run_step(){ showme("run_step() in development"); }
+function walk_step(){ showme("walk_step() in development"); }
+function jump_step(){ showme("jump_step() in development"); }
+
+function delay_refresh(){
+	setTimeout(Dummy_Creator(),2000);
+}
 function Dummy_Creator(){
 	clearall();
 	
@@ -530,7 +536,6 @@ function clearall(force=false){
 		var ids = clear_ids;
 		for (var i=0;i<clear_rib_ids.length;i++){ ids.push(clear_rib_ids[i]); }
 		if ("head" in dummy) { for(var i=0;i<ids.length;i++){
-			console.log(ids[i]);
 			if (dummy[ids[i]].material) { dummy[ids[i]].material.dispose(true,true) };
 			dummy[ids[i]].dispose(false,true);} dummy={};
 		}
@@ -553,20 +558,19 @@ function prepare_objects_for_export(objs){
 	return rez;
 }
 function save_objmesh(){
-	var text = "Attention! If you try export bottles or tail, export can be super long or impossible,\ndepend of your environment and rocket configuration.\nBecause huge number objects have a huge data of numbers.\n\nFor example firefox javascript engine have RAM limit of usage, etc.\nYou can try use chrome/chromium, export the model piece by piece(\"LOOK\" tab checkboxes), that later to collect it in full.\n\nDefault configuration, which you can see when start the app (base + tail + ring + bottle),\nuses PC configuration (dual core AMD APU with integrated video 1Gb , CPU 3.4 Ghz, 8Gb RAM),\ncan be exported with result file have 21 mb size.\nIf rocket have huge number of elements (bottles or tail)\nfirefox can fail with error \"allocation size overflow\", which you can see after press \"F12\" keyboard.\n\nWhen you see message about \"long running script\", just ignore it, when script will be completed message disappear."
-	if (bottle_section.length>0 || tail_section.length>0) { alert(text); }
 	var exportobjects = []; //exported mesh array
-	if (base_section.length>0) { for (var i=0;i<base_section.length;i++) { exportobjects.push(base_section[i]); } }
-	if (tail_section.length>0) { for (var i=0;i<tail_section.length;i++) { exportobjects.push(tail_section[i]); } }
-	if (ring_section.length>0) { for (var i=0;i<ring_section.length;i++) { exportobjects.push(ring_section[i]); } }
-	if (bottle_section.length>0) { for (var i=0;i<bottle_section.length;i++) { exportobjects.push(bottle_section[i]); } }
+	var date = Date();
+	var ids = [];
+	for (var i=0;i<clear_ids.length;i++){ ids.push( clear_ids[i] ); }
+	for (var i=0;i<clear_rib_ids.length;i++){ ids.push( clear_rib_ids[i] ); }
+	for (var i=0;i<ids.length;i++){ exportobjects.push( dummy[ids[i]] ); }
 	
 	OBJexport = prepare_objects_for_export(exportobjects);
 	
 	var a = document.getElementById('OBJexport');
 	var text = BABYLON.OBJExport.OBJ(OBJexport);
 	var type = "text/plain";
-	var name = "exported_dummy.obj";
+	var name = "exported_dummy_human_"+date+".obj";
 	var file = new Blob([text], {type: type});
 	a.href = URL.createObjectURL(file);
 	a.download = name;

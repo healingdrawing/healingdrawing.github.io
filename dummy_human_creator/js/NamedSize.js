@@ -1,3 +1,3 @@
 function load_named_size(){
-    alert("named size in development");
+    showme("load_named_size() in development");
 }

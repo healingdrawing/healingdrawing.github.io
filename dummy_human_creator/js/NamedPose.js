@@ -1,3 +1,3 @@
 function load_named_pose(){
-    alert("named pose in development");
+    showme("load_named_pose() in development");
 }
