@@ -851,7 +851,7 @@ function start_data_writer(){
         0,0,0,"#00fe42", //hip
         0,"#00fbfe", //shin
         0,"#003cfe", //foot
-        0,0,0,"#8300fe", //back
+        20,0,0,"#8300fe", //back
         "#fe00b9" //head
     ];
     var l_pose_values = [

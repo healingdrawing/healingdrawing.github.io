@@ -147,7 +147,6 @@ function bones_creator(d, c, vx, vy, vz){
 
 /**for ass length. create half balon like mountin from down to top along z axis (axes[2]) */
 function ass_balon_creator(bone,dis,material=null,id = "any"){
-	// console.log("ass bone = ", bone," dis = ",dis);
 	var axes = bone[0]; // [ox,oy,oz]. Bone along oz,side along ox
 	var sdot = bone[1][0]; // start dot
 	sdot = geo.dotXDoffset(sdot,axes[0],dis);
@@ -207,11 +206,28 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	var slever = geo.dotXDoffset(sdot,axes[0],dis);
 	var elever = geo.dotXDoffset(edot,axes[0],dis);
 	var arc = [sdot,slever,elever,edot];
-	var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	//HandmadeChecker.js
+	if (id=="r_shoulder"){
+		console.log(id);
+		console.log("axes = ",axes);
+		var aarc = handmade_arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	}else{
+		var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	}
+	
 	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
 	if (id=="r_shoulder"){
 		// console.log("id=",id,"abezpoints=",JSON.stringify(abezpoints));
-		console.log("id=",id,"abezpoints=",abezpoints);
+		
+		console.log("axes = ",axes);
+		console.log("sdot = ",sdot);
+		console.log("edot = ",edot);
+		console.log("dis = ",dis);
+		console.log("slever = ",slever);
+		console.log("elever = ",elever);
+		console.log("r_shoulder base arc = ",arc);
+		console.log("r_shoulder aarc skeleton = ",aarc);//[...[null,null,null]]
+		console.log("id=",id,"abezpoints=",abezpoints);//fail... second curve in sckeleton from bezier all NaN
 	}
 	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
 	balon.material = material; //color should be counted before
