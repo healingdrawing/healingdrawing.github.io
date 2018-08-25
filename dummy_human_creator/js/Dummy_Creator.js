@@ -112,16 +112,16 @@ function bones_creator(d, c, vx, vy, vz){
 	
 	//r_shoulders
 	var dang = geo.degrees(Math.asin(d["arm_width"]/d["shoulders_width"])) * d["shoulders_bend"];
-	var axes = rotoy(bones["neck_0"][0],90);
-	var bone = relative_bone_creator(bones["neck_0"][1][0],axes,dang,0,0,d["shoulders_width"]/2);
+	var axes = rotoy(bones["back_16"][0],90);
+	var bone = relative_bone_creator(bones["back_16"][1][0],axes,dang,0,0,d["shoulders_width"]/2);
 	bones["r_shoulders"] = bone;
 	//l_shoulders
-	var axes = rotoy(bones["neck_0"][0],-90);
-	var bone = relative_bone_creator(bones["neck_0"][1][0],axes,dang,0,0,d["shoulders_width"]/2);
+	var axes = rotoy(bones["back_16"][0],-90);
+	var bone = relative_bone_creator(bones["back_16"][1][0],axes,dang,0,0,d["shoulders_width"]/2);
 	bones["l_shoulders"] = bone;
 	
 	//r_shoulder
-	var axes = rotox(bones["neck_0"][0],180);
+	var axes = rotox(bones["back_16"][0],180);
 	var bone = relative_bone_creator(bones["r_shoulders"][1][1],axes,d["r_shoulder_fa"],d["r_shoulder_sa"],d["r_shoulder_ta"],d["arm_length"]/2);
 	bones["r_shoulder"] = bone;
 	//l_shoulder
@@ -207,28 +207,29 @@ function one_balon_creator(bone,dis,material=null,id = "any"){
 	var elever = geo.dotXDoffset(edot,axes[0],dis);
 	var arc = [sdot,slever,elever,edot];
 	//HandmadeChecker.js
-	if (id=="r_shoulder"){
-		console.log(id);
-		console.log("axes = ",axes);
-		var aarc = handmade_arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
-	}else{
-		var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
-	}
+	// if (id=="r_elbow"){
+	// 	console.log(id);
+	// 	console.log("axes = ",axes);
+	// 	var aarc = handmade_arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	// }else{
+	// 	var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
+	// }
+	var aarc = arc4_rotated_karkas_maker(arc,sdot,axes[2],16); //rotated arc skeleton
 	
 	var abezpoints = bez_array_getPoints_maker(aarc,8); //.getPoints... for each arc->babylonbezier from aarc
-	if (id=="r_elbow"){
-		// console.log("id=",id,"abezpoints=",JSON.stringify(abezpoints));
+	// if (id=="r_elbow"){
+	// 	// console.log("id=",id,"abezpoints=",JSON.stringify(abezpoints));
 		
-		console.log("axes = ",axes);
-		console.log("sdot = ",sdot);
-		console.log("edot = ",edot);
-		console.log("dis = ",dis);
-		console.log("slever = ",slever);
-		console.log("elever = ",elever);
-		console.log("r_shoulder base arc = ",arc);
-		console.log("r_shoulder aarc skeleton = ",aarc);//[...[null,null,null]]
-		console.log("id=",id,"abezpoints=",abezpoints);//fail... second curve in sckeleton from bezier all NaN
-	}
+	// 	console.log("axes = ",axes);
+	// 	console.log("sdot = ",sdot);
+	// 	console.log("edot = ",edot);
+	// 	console.log("dis = ",dis);
+	// 	console.log("slever = ",slever);
+	// 	console.log("elever = ",elever);
+	// 	console.log("r_shoulder base arc = ",arc);
+	// 	console.log("r_shoulder aarc skeleton = ",aarc);//[...[null,null,null]]
+	// 	console.log("id=",id,"abezpoints=",abezpoints);//fail... second curve in sckeleton from bezier all NaN
+	// }
 	var balon = BABYLON.MeshBuilder.CreateRibbon(id, { pathArray: abezpoints}, scene );
 	balon.material = material; //color should be counted before
 	return balon;
@@ -367,7 +368,6 @@ function head_balon_creator(d,bones,material = null){
 	var head_axis = d["head_axis"];
 	var head_height = d["head_height"];
 	cdot = geo.dotXDoffset(cdot, axes[2], -head_length/2 * head_axis);
-	console.log(axes);
 	//length oz, height oy, width ox
 	//length height profile elipse
 	var va = axes[2]; //oz
@@ -509,7 +509,6 @@ function Dummy_Creator(){
 	//create bones karkas
 	//fa - around vx, sa - around vy, ta - around vz (all relative from ass)
 	var bones = bones_creator(d,c,vx,vy,vz);
-	console.log(bones);
 	balons_creator(d,bones);
 	
 	showme("complete");
