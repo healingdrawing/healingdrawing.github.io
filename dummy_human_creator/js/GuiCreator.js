@@ -926,6 +926,7 @@ function write_data_to_gui(text){
             document.getElementById(oneline[0]).value = oneline[1];
         }
     }
+    delay_refresh();
     document.getElementById("info").value = "GUI loaded from " + text[0];
 }
 
@@ -969,6 +970,7 @@ function write_size_to_gui(text){
             document.getElementById(oneline[0]).value = oneline[1];
         }
     }
+    delay_refresh();
     document.getElementById("info").value = "SIZE loaded from " + text[0];
 }
 
@@ -1016,6 +1018,7 @@ function write_pose_to_gui(text){
             document.getElementById(oneline[0]).value = oneline[1];
         }
     }
+    delay_refresh();
     document.getElementById("info").value = "POSE loaded from " + text[0];
 }
 
