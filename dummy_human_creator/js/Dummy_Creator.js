@@ -344,7 +344,7 @@ function ribs_balon_creator(d,bones,material=null){
 		var n = 16-i;
 		var id = "back_"+(n).toString();
 		var bone = bones[id];
-		var rib_number = i;
+		var rib_number = i+1;
 		two_ribs_balon_creator(
 			bone,
 			back_width,
@@ -402,6 +402,95 @@ function head_balon_creator(d,bones,material = null){
 	dummy["head"] = balon;
 }
 
+function y_deepest_balon_counter(){
+	var y_deepest = 1000;
+	var key = Object.keys(dummy);
+	for (var i=0;i<key.length;i++){
+		var pos = dummy[key[i]].getVerticesData(BABYLON.VertexBuffer.PositionKind);
+		for(var ii=1;ii<pos.length;ii+=3){
+			var y = pos[ii.toString()];
+			if (y<y_deepest){ y_deepest = y; }
+		}
+	}return y_deepest;
+}
+function r_dummy_counter(d){
+	// var body_down_ids = ["hip_length","shin_lenght","foot_length","foot_width"];
+	// var body_up_ids = ["back_length","neck_length","head_height"];
+	// var arm_up_ids = ["back_length","arm_length","palm_length"];
+	// var arm_side_ids = ["arm_length","palm_length","shoulders_width"];
+	var r_bd = d["hip_length"] + d["shin_length"] + d["foot_length"] + d["foot_width"];
+	var r_bu = d["back_length"] + d["neck_length"] + d["head_height"]/2;
+	var r_au = d["back_length"] + d["arm_length"] + d["palm_length"];
+	var r_as = d["arm_length"] + d["palm_length"] + d["shoulders_width"]/2;
+	var r_max = Math.max(r_bd,r_bu,r_au,r_as);
+	return r_max;
+}
+
+
+var cross_ids = [
+	"circle","between_ass_0","between_ass_1","between_legs_0","between_legs_1","between_arms_0","between_arms_1",
+	"r_under_arm","l_under_arm","r_under_leg","l_under_leg"
+];
+
+/**xdot - dot3D of line intersection */
+function cross_line_maker(xdot,vx,vz,length,color,name="any"){
+	var aline = [];
+	var cdot = geo.dotXDoffset(xdot,vx,-length);
+	var edot = geo.dotXDoffset(xdot,vx,length);
+	aline.push([cdot,edot]);
+	var cdot = geo.dotXDoffset(xdot,vz,-length);
+	var edot = geo.dotXDoffset(xdot,vz,length);
+	aline.push([cdot,edot]);
+	return showLineArray(aline,color,name);
+}
+function cross_maker(d,bones,c,vx,vy,vz){
+	var y = y_deepest_balon_counter(); //deepest dummy y
+	//circle
+	var r = r_dummy_counter(d); //dummy radius for lock dummy into circle
+	var cdot = geo.dotXDoffset(c,vy,y);
+	var ring = ring_trajectory(cdot,vy,vx,r);
+	dummy["circle"] = showPath(ring,d["back_co"]);
+	var cross_ass = cross_line_maker(cdot,vx,vz,r,d["back_co"],"between_ass_");
+	dummy["between_ass_0"] = cross_ass[0];
+	dummy["between_ass_1"] = cross_ass[1];
+	
+	//between foots to down
+	var dot_right = bones["r_foot"][1][1];
+	var dot_left = bones["l_foot"][1][1];
+	var v = geo.vecXD(dot_right,dot_left);
+	cdot = geo.dotXDoffset(dot_right, v, geo.vecXDnorm(v)/2);
+	var xdot = [cdot[0], y, cdot[2]];
+	var cross_legs = cross_line_maker(xdot,vx,vz,d["foot_length"]*2,d["r_foot_co"],"between_legs_");
+	dummy["between_legs_0"] = cross_legs[0];
+	dummy["between_legs_1"] = cross_legs[1];
+	//r_under_leg
+	cdot = bones["r_foot"][1][1]; cdot = [cdot[0],y,cdot[2]];
+	ring = ring_trajectory(cdot,vy,vx,d["shin_width"]/2);
+	dummy["r_under_leg"] = showPath(ring,d["r_foot_co"]);
+	//l_under_leg
+	cdot = bones["l_foot"][1][1]; cdot = [cdot[0],y,cdot[2]];
+	ring = ring_trajectory(cdot,vy,vx,d["shin_width"]/2);
+	dummy["l_under_leg"] = showPath(ring,d["l_foot_co"]);
+	
+	//between arms to down
+	var dot_right = bones["r_palm"][1][1];
+	var dot_left = bones["l_palm"][1][1];
+	var v = geo.vecXD(dot_right,dot_left);
+	cdot = geo.dotXDoffset(dot_right, v, geo.vecXDnorm(v)/2);
+	var xdot = [cdot[0], y, cdot[2]];
+	var cross_arms = cross_line_maker(xdot,vx,vz,d["shoulders_width"]*2,d["r_palm_co"],"between_arms_");
+	dummy["between_arms_0"] = cross_arms[0];
+	dummy["between_arms_1"] = cross_arms[1];
+	//r_under_arm
+	cdot = bones["r_palm"][1][1]; cdot = [cdot[0],y,cdot[2]];
+	ring = ring_trajectory(cdot,vy,vx,d["shin_width"]/2);
+	dummy["r_under_arm"] = showPath(ring,d["r_palm_co"]);
+	//l_under_arm
+	cdot = bones["l_palm"][1][1]; cdot = [cdot[0],y,cdot[2]];
+	ring = ring_trajectory(cdot,vy,vx,d["shin_width"]/2);
+	dummy["l_under_arm"] = showPath(ring,d["l_palm_co"]);
+}
+
 function mat_id_counter(id){
 	var matid;
 	if (id.startsWith("back")){ matid = "back_mat"; }
@@ -413,6 +502,7 @@ function mat_id_counter(id){
 }
 function balons_creator(d,bones){
 	//create ribbons for bones + head(need elipsoid 1 1 1 then scale in arc study ) + ass + body face/back (need ribs etc... muddy) + neck(need think how) + foot(half ellipsoid + none standart size sheme)
+	
 	var ids = [
 	"r_shoulders","r_shoulder","r_elbow","r_palm","r_hip","r_shin",
 	"l_shoulders","l_shoulder","l_elbow","l_palm","l_hip","l_shin",
@@ -516,6 +606,7 @@ function Dummy_Creator(){
 	//fa - around vx, sa - around vy, ta - around vz (all relative from ass)
 	var bones = bones_creator(d,c,vx,vy,vz);
 	balons_creator(d,bones);
+	cross_maker(d,bones,c,vx,vy,vz);
 	
 	showme("complete");
 }
@@ -528,7 +619,9 @@ var clear_ids = [
 	"back_0","back_1","back_2","back_3","back_4","back_5","back_6","back_7","back_8","back_9","back_10","back_11","back_12","back_13","back_14","back_15","back_16",
 	"neck_0","neck_1","neck_2","neck_3","neck_4","neck_5",
 	"ass_base","ass_left","ass_right",
-	"r_foot","l_foot"
+	"r_foot","l_foot",
+	"circle","between_ass_0","between_ass_1","between_legs_0","between_legs_1","between_arms_0","between_arms_1",
+	"r_under_arm","l_under_arm","r_under_leg","l_under_leg"
 ];
 function clearall(force=false){
 	if (fresh) { fresh = false; }

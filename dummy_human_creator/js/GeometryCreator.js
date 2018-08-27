@@ -220,15 +220,28 @@ function continued_arc4_rotated_karkas_maker(aarc,cdot,vr,mass,close_karkas=true
     return rez;
 }
 
-function showPathArray(apath){
-    for (var i=0;i<apath.length;i++){ showPath(apath[i]); }
+function showPathArray(apath,hexcolorstring="#888888",name="any"){
+    var rez = [];
+    for (var i=0;i<apath.length;i++){ rez.push(showPath(apath[i],hexcolorstring,name+"_"+i.toString())); }
+    return rez;
 }
-function showPath(path) {
-    var line = BABYLON.Mesh.CreateLines("line", path, scene )
+/**hexcolorstring without alpha(for html color input)... ff will be added inside */
+function showPath(path,hexcolorstring="#888888",name="any") {
+    var color = new BABYLON.Color4.FromHexString(hexcolorstring+"ff");
+    var colors = [];
+    for (var i=0;i<path.length;i++){ colors.push(color); }
+    var line = BABYLON.MeshBuilder.CreateLines(name, {colors:colors,points:path}, scene )
+    return line;
 };
-/** line = [dot3D,dot3D] */
-function showLine(line){
+/** line = [dot3D,dot3D] . hexcolorstring without alpha*/
+function showLine(line,hexcolorstring="#888888",name="any"){
     var line = geo.line3D_2dots(line[0],line[1]);
     var path = bez_maker(line).getPoints();
-    showPath(path);
+    return showPath(path,hexcolorstring,name);
+}
+/**aline = [[dot3D,dot3D],[...]] */
+function showLineArray(aline,hexcolorstring="#888888",name="any"){
+    var rez = [];
+    for (var i=0;i<aline.length;i++){ rez.push(showLine(aline[i],hexcolorstring,name+"_"+i.toString())); }
+    return rez;
 }
