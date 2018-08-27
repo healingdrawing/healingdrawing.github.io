@@ -538,9 +538,9 @@ function balons_creator(d,bones){
 	var id = "ass_base";
 	dummy[id] = one_balon_creator(bone,dis,material,id);
 	//left half
-	var dis = d["hip_width"]/2;
+	var dis = d["hip_width"]*2/4;
 	var axes = bones["ass"][0];
-	var sdot = geo.dotXDoffset( bones["ass"][1][0], axes[2], dis );
+	var sdot = geo.dotXDoffset( bones["ass"][1][0], axes[2], dis/2 );
 	axes = rotoy(axes,90);
 	var asslength = d["hip_width"]/2 + d["ass_length"];
 	var edot = geo.dotXDoffset(sdot,axes[2],asslength);
@@ -550,7 +550,7 @@ function balons_creator(d,bones){
 	dummy[id] = ass_balon_creator(bone,dis,material,id);
 	//right half
 	var axes = bones["ass"][0];
-	var sdot = geo.dotXDoffset( bones["ass"][1][1], axes[2], -dis );
+	var sdot = geo.dotXDoffset( bones["ass"][1][1], axes[2], -dis/2 );
 	axes = rotoy(axes,90);
 	var edot = geo.dotXDoffset(sdot,axes[2],asslength);
 	var bone = [axes,[sdot,edot]];
