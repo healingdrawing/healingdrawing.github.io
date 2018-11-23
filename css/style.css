@@ -12,6 +12,11 @@ body{
     border:0;
     color:rgb(255,255,255);
     font-family: "body";
+    text-shadow:
+        -1px -1px 0 rgb(97, 176, 102),
+		1px -1px 0 rgb(97, 176, 102),
+		-1px 1px 0 rgb(97, 176, 102),
+		1px 1px 0 rgb(97, 176, 102);
 }
 hr{
     border: 0;
