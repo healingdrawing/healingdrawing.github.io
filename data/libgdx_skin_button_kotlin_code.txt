@@ -1,0 +1,113 @@
+//-------
+//KDA.kt
+
+package com.kda
+
+import com.badlogic.gdx.Game
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.GL20
+
+class KDA : Game() {
+    internal var screenWidth:Float = 0.0f
+    internal var screenHeight:Float = 0.0f
+    internal var firsttouch:Boolean = true
+
+    override fun create() {
+        screenWidth = Gdx.graphics.width.toFloat()
+        screenHeight = Gdx.graphics.height.toFloat()
+    }
+
+    override fun render() {
+        Gdx.gl.glClearColor(0f, 0.5f, 0.5f, 1f)
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        if (Gdx.input.justTouched() && firsttouch){
+            if (!firsttouch) println("again inside root render") //never will printed
+            firsttouch = false
+            setScreen(MenuScreen(this))
+        } //switch screen to MenuScreen
+        super.render() //that draw MenuScreen work as expected
+    }
+}
+
+
+//----------------
+//MenuScreen.kt
+
+package com.kda
+
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.ScreenAdapter
+import com.badlogic.gdx.assets.AssetManager
+import com.badlogic.gdx.graphics.GL20
+import com.badlogic.gdx.graphics.g2d.BitmapFont
+import com.badlogic.gdx.graphics.g2d.TextureAtlas
+import com.badlogic.gdx.scenes.scene2d.Stage
+import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import com.badlogic.gdx.scenes.scene2d.ui.Table
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle
+import com.badlogic.gdx.utils.viewport.FitViewport
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
+import com.badlogic.gdx.scenes.scene2d.InputEvent
+
+class MenuScreen(val game:KDA) : ScreenAdapter() {
+    val stage: Stage = Stage(FitViewport(game.screenWidth, game.screenHeight)) //for Actors
+    val asMan: AssetManager = AssetManager() //for manage (load and get) fonts
+    val uiskin: Skin = Skin() //created uses empty constructor. VAL = no need "?" for nullsafety and "!!" that check not null
+    val table: Table = Table() //button keeper, no need skin inside constructor in this case
+    var eng_button: TextButton? = null //will be created later after uiskin will be configured
+    var chn_button: TextButton? = null //will be created later after uiskin will be configured
+    val eng_style: TextButtonStyle = TextButtonStyle() //empty style holder for eng_button
+    val chn_style: TextButtonStyle = TextButtonStyle() //empty style holder for chn_button
+
+    override fun show() {
+
+        Gdx.input.inputProcessor = stage //now buttons will change color when pressed ... Actors touching alive
+
+        asMan.load("bmfonts/eng-32.fnt", BitmapFont::class.java) //english font prepared earlier
+        asMan.load("bmfonts/chn-32.fnt", BitmapFont::class.java) //chinese font prepared earlier
+        asMan.finishLoading() //wait while load complete
+
+        uiskin.addRegions(TextureAtlas(Gdx.files.internal("skin/uiskin.atlas"))) //use downloaded skin
+        uiskin.add("eng-32", asMan.get("bmfonts/eng-32.fnt"), BitmapFont::class.java) //add font to skin...
+        uiskin.add("chn-32", asMan.get("bmfonts/chn-32.fnt"), BitmapFont::class.java) //...that use it later
+        uiskin.load(Gdx.files.internal("skin/uiskin.json")) //upload fonts into skin, now new fonts can be used
+
+        eng_style.font = uiskin.get("eng-32", BitmapFont::class.java) //add new font to button style
+        eng_style.up = uiskin.getDrawable("default-round") //add button up state to button style
+        eng_style.down = uiskin.getDrawable("default-round-down") //add button down state to button style
+        eng_button = TextButton("", uiskin) //button with empty text and uiskin as skin parameter
+        eng_button!!.style = eng_style //use eng_style as eng_button style
+        eng_button!!.setText("test button") //set new text of button label
+        eng_button!!.addListener(object : ClickListener() {
+            override fun clicked(event: InputEvent, x: Float, y: Float) {
+                println("eng_button callback")
+            }
+        }) //now eng_button will send message "eng_button callback" into debug output window inside IDEA
+
+        chn_style.font = uiskin.get("chn-32", BitmapFont::class.java)
+        chn_style.up = uiskin.getDrawable("default-round")
+        chn_style.down = uiskin.getDrawable("default-round-down")
+        chn_button = TextButton("", uiskin)
+        chn_button!!.style = chn_style
+        chn_button!!.setText("测试按钮")
+
+        table.setSize(game.screenWidth, game.screenHeight)
+        table.add(eng_button).expandX().expandY() //add eng_button to first cell of first table row
+        table.row() //add new row into table
+        table.add(chn_button).expandX().expandY() //add chn_button to first cell of second table row
+        stage.addActor(table) //add table with child's into stage
+
+    }
+
+    override fun render(delta: Float) {
+        Gdx.gl.glClearColor(0f, 0f, 0.2f, 1f) //screen fon color
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT) //clear buffers to preset values ... looks like preparing before next rendering
+        stage.act(delta)
+        stage.draw()
+    }
+
+    override fun resize(width: Int, height: Int) {
+        stage.viewport.update(width, height, true)
+    }
+}
