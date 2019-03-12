@@ -13,6 +13,7 @@ function gui_data_reader(id){
 function gui_reader(){
 	var d = {}; //will object with keys as dict
 	var ids = [];
+	ids.push("base_angle")
 	for (var i=0;i<size_ids.length;i++){ ids.push( size_ids[i] ); }
 	for (var i=0;i<r_pose_ids.length;i++){ ids.push( r_pose_ids[i] ); }
 	for (var i=0;i<l_pose_ids.length;i++){ ids.push( l_pose_ids[i] ); }

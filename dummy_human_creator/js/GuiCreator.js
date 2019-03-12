@@ -329,7 +329,6 @@ function size_standart_element_table_creator(name,nobr = false){
     return table;
 }
 var size_ids=[
-    "base_angle",
     "head_length","head_width","head_height","head_axis",
     "neck_length", "neck_width",
     "arm_length", "arm_width",
@@ -821,6 +820,7 @@ function start_data_writer(){
         "distance_view","y_view","z_view"
     ];
     
+    ids.push("base_angle")
     for (var i=0;i<size_ids.length;i++){ ids.push(size_ids[i]); }
     for (var i=0;i<r_pose_ids.length;i++){ ids.push(r_pose_ids[i]); }
     for (var i=0;i<l_pose_ids.length;i++){ ids.push(l_pose_ids[i]); }
@@ -976,6 +976,7 @@ function write_size_to_gui(text){
 
 //pose data save load
 var pose_ids = [];
+pose_ids.push("base_angle")
 for (var i=0;i<r_pose_ids.length;i++){ pose_ids.push(r_pose_ids[i]); }
 for (var i=0;i<l_pose_ids.length;i++){ pose_ids.push(l_pose_ids[i]); }
 
