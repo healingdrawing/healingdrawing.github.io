@@ -16,3 +16,34 @@ body{
 		-1px 1px 0 rgb(120, 100, 85, 0.5),
 		1px 1px 0 rgb(120, 100, 85, 0.5); */
 }
+
+h3.hat{
+    padding:0px;
+    margin:0px;
+    line-height: 0%;
+}
+
+div.hat{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid solid none;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display:inline-block;
+    margin:0px;
+    padding:20px;
+    background: hsl(60, 100%, 90%)
+}
+
+div.beard{
+    border-width:1px;
+    border-style:solid solid solid;
+    border-radius:10px;
+    border-top-left-radius: 0px;
+    /* border-top-right-radius: 0px; */
+    padding:10px;
+    padding-left: 2em;
+    padding-bottom:20px;
+    /* margin-top:-20px; */
+}
