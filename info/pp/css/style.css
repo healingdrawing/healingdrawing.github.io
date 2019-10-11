@@ -1,10 +1,14 @@
+/* @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Oswald:300&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Oswald:200&display=swap'); */
 @font-face {
     font-family: "body";
     src: url("/css/Comfortaa-Bold.ttf");
     }
 
+    
 body{
-    font-family: "body";
+    font-family: 'Oswald', sans-serif;
     line-height: 200%;
     /* text-shadow:
         -1px -1px 0 rgba(120, 100, 85, 0.5),
