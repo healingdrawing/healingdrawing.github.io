@@ -1,7 +1,9 @@
 function generate(){
     var parameters = new URLSearchParams(window.location.search)
-    var product = parameters.get('product')
-    var creator = parameters.get('creator')
+    var product = 'product test'
+    var creator = 'creator test'
+    if(parameters.has('product')) product = parameters.get('product')
+    if(parameters.has('creator')) creator = parameters.get('creator')
     //replace tag inner html
     if(product != ''){
         var tags = document.body.getElementsByClassName('product')
