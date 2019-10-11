@@ -5,6 +5,7 @@ function generate(){
     if(parameters.has('product')) product = parameters.get('product')
     if(parameters.has('creator')) creator = parameters.get('creator')
     //replace tag inner html
+    alert(product)
     if(product != ''){
         var tags = document.body.getElementsByClassName('product')
         for (var i = 0;i< tags.length;i++){tags[i].innerHTML = product}
