@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Open+Sans&family=Oswald&family=Russo+One&display=swap');
+    
+body{
+    font-family: 'Comfortaa', sans-serif;
+    line-height: 200%;
+    background:rgb(83, 73, 55);
+    color:rgb(184, 166, 63)
+}
+
+hat1,hat2,hat3,hat4,hat5,hat6 {font-family: 'Russo One', sans-serif;}
+hat1{
+  display: block;
+  font-size: 2em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat2{
+  display: block;
+  font-size: 1.5em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat3{
+  display: block;
+  font-size: 1.17em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat4{
+  display: block;
+  font-size: 1em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat5{
+  display: block;
+  font-size: .83em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat6{
+  display: block;
+  font-size: .67em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+
+
+h3.hat,h2.hat{
+    font-family: 'Russo One', sans-serif;
+    padding:0px;
+    margin:0px;
+    line-height: 0%;
+}
+
+div.hat{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid solid none;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display:inline-block;
+    margin:0px;
+    padding:20px;
+    background: hsl(60, 100%, 90%)
+}
+
+div.beard{
+    border-width:1px;
+    border-style:solid solid solid;
+    border-radius:10px;
+    border-top-left-radius: 0px;
+    /* border-top-right-radius: 0px; */
+    padding:10px;
+    padding-left: 2em;
+    padding-bottom:20px;
+    /* margin-top:-20px; */
+} 
