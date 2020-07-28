@@ -15,23 +15,45 @@
       gtag('js', new Date());
       gtag('config', 'UA-121264899-1');
       </script>
-      <title>Beach Volleyball Competition 2020</title>
+      <title>Beach Volleyball Competition 2020 manual</title>
     </head>
     
-    <br><hat1>Beach Volleyball Competition 2020</hat1>
+    <br><hat1>Beach Volleyball Competition 2020 manual</hat1>
 
     <br>Game available in next variants:
     <ul>
       <li>
-        free version (with admob banner) for android on <a href="https://play.google.com/store/apps/details?id=com.github.healingdrawing.bvc">Play Store</a> 
+        free version (with admob banner) for android on <a href="https://play.google.com/store/apps/details?id=com.github.healingdrawing.bvc" target="_blank">Play Store</a> 
       </li>
       <li>
-        paid version for desktop (lin, win, mac) on <a href="">Steam</a>
+        paid version for desktop (lin, win, mac) on <a href="" target="_blank">Steam</a>
+      </li>
+    </ul>
+    Discord server invite <a href="https://discord.gg/wFm2UgV" target="_blank">https://discord.gg/wFm2UgV</a>
+    for discussion.
+    <br>
+
+    <a name="up"></a>
+    <br><hat2>sections</hat2>
+    <ul>
+      <li>
+        <a href="#Comfort settings">Comfort settings</a>
+      </li>
+      <li>
+        <a href="#VERSUS menu">VERSUS menu</a>
+      </li>
+      <li>
+        <a href="#TRAINING menu">TRAINING menu</a>
+      </li>
+      <li>
+        <a href="#AI configuration">AI configuration</a>
       </li>
     </ul>
     
-    <br><hat2>Manual</hat2>
-    <br>
+    
+    
+    <a href="#up">&triangle;</a>
+    <br><a name="Comfort settings"></a>
     <div class="hat">
       <hat3>
         Comfort settings
@@ -40,7 +62,7 @@
     <div class="beard">
       <ul>
         <li>
-          choose your language flag, this translate description of "?" menu
+          choose your language flag, to translate description of "?" menu
           <br><img src="img/chooseFlag.png"><hr>
         </li>
         <li>
@@ -56,23 +78,81 @@
         </li>
       </ul>
     </div>
-
-    <div class="hat">
-      <hat3>
-        AI configuration
-      </hat3>
-    </div>
-    <div class="beard">
-      testtext
-    </div>
-
+    
+    <br><a href="#up">&triangle;</a>
+    <br><a name="VERSUS menu"></a>
     <div class="hat">
       <hat3>
         VERSUS menu
       </hat3>
     </div>
     <div class="beard">
-      testtext
+      <ul>
+        <li>
+          "CREATE NETWORK AI ORDER" - post your team AI core to server, that other real players can take it and play vs your team simulation.
+          <br> Partner AI data will generated using "PARTNER" menu settings.
+          <br>Player AI data will generated using your actions when you play. Player AI data will be added into player AI core only after match completed, independant of match result, when popup menu appeared and user return to menu after click/touch on screen. Other case data will not added into player AI core
+        </li>
+        <li>
+          "TAKE NETWORK AI ORDER" - take order from server. After receiving the order use "TRAINING" &rarr; "USER VS AI" that play vs team from order, or use "TRAINING" &rarr; "AI VS AI" that observe match of your team AI vs AI of team from order. After match from "STORY" menu was started, AI from order will replaced by AI from "STORY" match
+        </li>
+      </ul>
+    </div>
+
+    <br><a href="#up">&triangle;</a>
+    <br><a name="TRAINING menu"></a>
+    <div class="hat">
+      <hat3>
+        TRAINING menu
+      </hat3>
+    </div>
+    <div class="beard">
+      <ul>
+        <li>
+          generally allow training the moves. Training each move can be more difficult than match game play process, because, in match game process, to keep the flow, was added early touch delay. This allow you touch to defense, little bit earlier than attack was executed, and your player reaction will fast as possible
+        </li>
+        <li>
+          to execute attack in jump in training mode, you must touch/click on screen in time when ball close to highest point, but in match mode you can touch/click on screen before ball fly close to high point, which is much more comfort
+        </li>
+        <li>
+          to execute safe/slow attack touch/click on screen on your team court side
+        </li>
+        <li>
+          to execute attack touch/click on screen on enemy team court side
+        </li>
+        <li>
+          to begin serve process touch/click on screen on enemy team court side
+        </li>
+        <li>
+          to change player position, before begin serve process, touch/click on screen on your team court side
+        </li>
+      </ul>
+    </div>
+    
+    <br><a href="#up">&triangle;</a>
+    <br><a name="AI configuration"></a>
+    <div class="hat">
+      <hat3>
+        AI configuration
+      </hat3>
+    </div>
+    <div class="beard">
+      <ul>
+        <li>
+          your partner AI settings placed inside "PARTNER" menu
+        </li>
+        <li>
+          AI settings will saved only after "MENU" button pressed inside "PARTNER" menu
+        </li>
+        <li>
+          to control AI behavior section, check control behavior for this section
+          <br><img src="img/partnerMenuScheme.png">
+        </li>
+        <li>
+          choose the master index, it will get the value first. Other will devide proportionally % which master does not use.
+          <br>F.e. if master is 50% , and other is 50% 50% 50% 50%, then master variant of behavior will get from random behavior generator 50% and other variants is 12.5% each
+        </li>
+      </ul>
     </div>
 
   </body>

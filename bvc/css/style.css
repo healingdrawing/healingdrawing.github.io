@@ -1,11 +1,21 @@
+:root{
+  --yb:rgb(123,128,74);
+  --yd:rgb(146,152,88);
+  --yf:rgb(248,255,148);
+  --yborder:rgb(84,88,50);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Open+Sans&family=Oswald&family=Russo+One&display=swap');
     
 body{
     font-family: 'Comfortaa', sans-serif;
     line-height: 200%;
-    background:rgb(83, 73, 55);
-    color:rgb(184, 166, 63)
+    background:var(--yb);
+    color:var(--yf);
 }
+
+a{color:var(--yf)}
+hr{color:var(--yf)}
 
 hat1,hat2,hat3,hat4,hat5,hat6 {font-family: 'Russo One', sans-serif;}
 hat1{
@@ -60,7 +70,7 @@ h3.hat,h2.hat{
 }
 
 div.hat{
-    border-color: black;
+    border-color: var(--yborder);
     border-width: 1px;
     border-style: solid solid none;
     border-radius: 20px;
@@ -69,17 +79,18 @@ div.hat{
     display:inline-block;
     margin:0px;
     padding:20px;
-    background: hsl(60, 100%, 90%)
+    background:var(--yd)
 }
 
 div.beard{
-    border-width:1px;
-    border-style:solid solid solid;
-    border-radius:10px;
-    border-top-left-radius: 0px;
-    /* border-top-right-radius: 0px; */
-    padding:10px;
-    padding-left: 2em;
-    padding-bottom:20px;
-    /* margin-top:-20px; */
+  border-color: var(--yborder);
+  border-width:1px;
+  border-style:solid solid solid;
+  border-radius:10px;
+  border-top-left-radius: 0px;
+  /* border-top-right-radius: 0px; */
+  padding:10px;
+  padding-left: 2em;
+  padding-bottom:20px;
+  /* margin-top:-20px; */
 } 

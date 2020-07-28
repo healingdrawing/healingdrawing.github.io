@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="/mnt/sda3/development/codehost/healingdrawing.github.io/bvc/img/partnerMenuScheme.png"
+   sodipodi:docname="partnerMenuScheme.svg"
+   inkscape:version="1.0 (1.0+r73+1)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 1280 720.00003"
+   height="720"
+   width="1280">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="749.03379"
+     inkscape:cy="198.54013"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:snap-page="true"
+     inkscape:window-width="1504"
+     inkscape:window-height="751"
+     inkscape:window-x="200"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     sodipodi:insensitive="true"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-402.51965)">
+    <image
+       sodipodi:absref="/mnt/sda3/development/codehost/healingdrawing.github.io/bvc/img/partnerMenu.png"
+       xlink:href="partnerMenu.png"
+       y="402.51965"
+       x="0"
+       width="1280"
+       height="720"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image883" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="scheme">
+    <rect
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect934"
+       width="161.8446"
+       height="378.67007"
+       x="474.65851"
+       y="327.61566"
+       ry="16" />
+    <rect
+       ry="16"
+       y="153.67847"
+       x="480.09598"
+       height="93.993866"
+       width="80.926155"
+       id="rect934-3"
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+    <rect
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect934-3-6"
+       width="78.808426"
+       height="69.110596"
+       x="83.7883"
+       y="6.4285712"
+       ry="16" />
+    <text
+       id="text938-7"
+       y="127.10551"
+       x="452.57098"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"><tspan
+         id="tspan940-3"
+         y="127.10551"
+         x="452.57098"
+         sodipodi:role="line">what</tspan><tspan
+         id="tspan901"
+         y="169.7722"
+         x="452.57098"
+         sodipodi:role="line">gender</tspan><tspan
+         y="212.4389"
+         x="452.57098"
+         sodipodi:role="line"
+         id="tspan933">your</tspan><tspan
+         id="tspan897"
+         y="255.10561"
+         x="452.57098"
+         sodipodi:role="line">partner</tspan><tspan
+         id="tspan899"
+         y="297.77231"
+         x="452.57098"
+         sodipodi:role="line">like</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       x="302.26474"
+       y="53.356876"
+       id="text938-7-9"><tspan
+         sodipodi:role="line"
+         x="302.26474"
+         y="53.356876"
+         id="tspan958">gender of your partner</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect934-3-7"
+       width="309.35474"
+       height="225.13675"
+       x="7.6797776"
+       y="88.145927"
+       ry="16" />
+    <text
+       id="text938-7-9-0"
+       y="124.16386"
+       x="161.00198"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"><tspan
+         id="tspan958-9"
+         y="124.16386"
+         x="161.00198"
+         sodipodi:role="line">energy</tspan><tspan
+         y="166.83055"
+         x="161.00198"
+         sodipodi:role="line"
+         id="tspan1001">economy</tspan><tspan
+         y="209.49725"
+         x="161.00198"
+         sodipodi:role="line"
+         id="tspan995">strategy</tspan><tspan
+         y="252.16396"
+         x="161.00198"
+         sodipodi:role="line"
+         id="tspan1005">training</tspan><tspan
+         y="294.83066"
+         x="161.00198"
+         sodipodi:role="line"
+         id="tspan997">schemes</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       x="266.72006"
+       y="512.54468"
+       id="text938-7-9-0-3"><tspan
+         id="tspan997-6"
+         sodipodi:role="line"
+         x="266.72006"
+         y="512.54468">if any </tspan><tspan
+         sodipodi:role="line"
+         x="266.72006"
+         y="555.21136"
+         id="tspan1051">parameter have</tspan><tspan
+         sodipodi:role="line"
+         x="266.72006"
+         y="597.87805"
+         id="tspan1053">no energy then</tspan><tspan
+         sodipodi:role="line"
+         x="266.72006"
+         y="640.5448"
+         id="tspan1055">no power shot</tspan></text>
+    <rect
+       ry="16"
+       y="414.00943"
+       x="7.2270465"
+       height="291.20071"
+       width="465.12027"
+       id="rect934-3-7-1"
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+    <rect
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect934-3-3"
+       width="96.078423"
+       height="89.145134"
+       x="632.9046"
+       y="5.4942665"
+       ry="16" />
+    <text
+       xml:space="preserve"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       x="929.71051"
+       y="41.678856"
+       id="text938-7-6"><tspan
+         sodipodi:role="line"
+         x="929.71051"
+         y="41.678856"
+         id="tspan899-6">random behavior</tspan><tspan
+         id="tspan962"
+         sodipodi:role="line"
+         x="929.71051"
+         y="84.345551">for this section</tspan></text>
+    <rect
+       ry="16"
+       y="182.27095"
+       x="711.99957"
+       height="89.145134"
+       width="96.078423"
+       id="rect934-3-3-2"
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       id="text938-7-6-9"
+       y="189.73491"
+       x="957.59064"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"><tspan
+         y="189.73491"
+         x="957.59064"
+         sodipodi:role="line"
+         id="tspan962-2">master index</tspan><tspan
+         id="tspan1002"
+         y="232.40161"
+         x="957.59064"
+         sodipodi:role="line">not used in</tspan><tspan
+         id="tspan1004"
+         y="275.06833"
+         x="957.59064"
+         sodipodi:role="line">random case</tspan></text>
+    <rect
+       ry="16"
+       y="495.82233"
+       x="635.63202"
+       height="89.145134"
+       width="96.078423"
+       id="rect934-3-3-7"
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       id="text938-5"
+       y="446.95236"
+       x="554.23181"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan940-2"
+         y="446.95236"
+         x="554.23181"
+         sodipodi:role="line">help</tspan><tspan
+         id="tspan887"
+         y="489.61905"
+         x="554.23181"
+         sodipodi:role="line">for</tspan><tspan
+         id="tspan891"
+         y="532.28577"
+         x="554.23181"
+         sodipodi:role="line">section</tspan><tspan
+         id="tspan895"
+         y="574.95251"
+         x="554.23181"
+         sodipodi:role="line">on right</tspan></text>
+    <text
+       id="text938-7-6-0"
+       y="545.30865"
+       x="919.60895"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"><tspan
+         id="tspan899-6-9"
+         y="545.30865"
+         x="919.60895"
+         sodipodi:role="line">control behavior</tspan><tspan
+         y="587.97534"
+         x="919.60895"
+         sodipodi:role="line"
+         id="tspan962-3">for this section</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:0.999418;stroke:#ff0000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect934-3-3-7-6"
+       width="96.078423"
+       height="89.145134"
+       x="709.5752"
+       y="312.78268"
+       ry="16" />
+    <text
+       xml:space="preserve"
+       style="font-size:42.6667px;line-height:1;font-family:'Russo One';-inkscape-font-specification:'Russo One';text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:0.999418;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       x="980.79028"
+       y="352.65338"
+       id="text938-7-6-9-6"><tspan
+         id="tspan962-2-0"
+         sodipodi:role="line"
+         x="980.79028"
+         y="352.65338">master index is</tspan><tspan
+         sodipodi:role="line"
+         x="980.79028"
+         y="395.32007"
+         id="tspan1004-2">general % user, others</tspan><tspan
+         id="tspan1068"
+         sodipodi:role="line"
+         x="980.79028"
+         y="437.98679">devide (100% - master)</tspan><tspan
+         id="tspan1085"
+         sodipodi:role="line"
+         x="980.79028"
+         y="480.65347">proportionally of each %</tspan></text>
+  </g>
+</svg>
