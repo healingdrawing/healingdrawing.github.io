@@ -1,3 +1,67 @@
+:root{
+  --bf:hsla(221, 100%, 79%, 0.74);
+  --bodyc:rgba(230, 230, 230,0.8);
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Open+Sans&family=Oswald&family=Russo+One&display=swap');
+
+hat{
+  font-size: 2em;
+  padding:0px;
+  margin:0px;
+  line-height: 100%;
+}
+hat a, h6 a{
+  text-decoration: none;
+  text-shadow: 1px 1px 16px hsl(220, 30%, 70%);
+}
+h1{text-shadow: 1px 1px 16px rgb(220, 220, 220);}
+
+hat1,hat2,hat3,hat4,hat5,hat6 {font-family: 'Russo One', sans-serif;}
+hat1{
+  /* display: block; */
+  font-size: 2em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat2{
+  /* display: block; */
+  font-size: 1.5em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat3{
+  /* display: block; */
+  font-size: 1.17em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat4{
+  /* display: block; */
+  font-size: 1em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat5{
+  /* display: block; */
+  font-size: .83em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+hat6{
+  /* display: block; */
+  font-size: .67em;
+  padding:0px;
+  margin:0px;
+  line-height: 0%;
+}
+
+/*old styles*/
 *{margin:0; padding:0; border:0;}
 
 @font-face {
@@ -6,29 +70,25 @@
     }
 
 body{
-    background: rgb(15, 89, 29);
+    background: var(--sun);
     margin:0;
     padding:0;
     border:0;
-    color:rgb(255,255,255);
+    color:var(--bodyc);
     font-family: "body";
-    text-shadow:
-        -1px -1px 0 rgba(120, 100, 85, 0.5),
-		1px -1px 0 rgb(120, 100, 85, 0.5),
-		-1px 1px 0 rgb(120, 100, 85, 0.5),
-		1px 1px 0 rgb(120, 100, 85, 0.5);
+    line-height: 200%;
 }
 hr{
     border: 0;
     clear:both;
     display:block;
     width: 100%;               
-    background-color: yellow;
-    height: 1px;
+    background-color: rgb(12,92,146);
+    height: 4px;
 }
-a{color:rgb(255, 255, 185);}
+a{color:var(--bf);}
 
-div#fonsky{
+div#ffonsky{
     position:absolute;
     /* display:inline-block; */
     /* min-height:1000px; */
@@ -47,6 +107,39 @@ div#fonsky{
         rgb(15, 89, 29)
         ); /* Standard syntax (must be last) */
 }
+
+table.karkas{
+    /* position:absolute; */
+    /* display:inline-block; */
+    /* min-height:1000px; */
+    /* min-width:100%; */
+    /* height:1400px; */
+    width:100%;
+    background-image: linear-gradient(
+        rgb(0, 0, 0),
+        rgb(0, 21, 34) 45%,
+        rgb(5, 38, 59)65%,
+        rgb(12,92,146)80%,
+        rgb(2, 22, 36)85%
+        ); /* Standard syntax (must be last) */
+}
+
+table.app{
+  position:absolute;
+  /* display:inline-block; */
+  /* min-height:1000px; */
+  /* min-width:100%; */
+  height:50px;
+  width:100%;
+  background-image: linear-gradient(
+      rgb(2, 22, 36),
+      /* rgb(104, 102, 101)2%,
+      rgb(66, 31, 9)4%, */
+      /* hsl(209, 33%, 50%) 30px, */
+      rgb(2, 22, 36)50px
+      ); /* Standard syntax (must be last) */
+}
+
 div#pagedata{position:absolute;width:100%;}
 img#hd{
     width:400px;
