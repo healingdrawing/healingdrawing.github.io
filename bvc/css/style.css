@@ -1,10 +1,12 @@
 :root{
-  --yb:rgb(123,128,74);
-  --yd:rgb(146,152,88);
-  --yd05:rgba(146,152,88,0.8);
-  --yf:rgb(248,255,148);
-  --yf05:rgba(248,255,148,0.5);
-  --yborder:rgb(84,88,50);
+  /* --yb:rgb(123,128,74); */
+  --yb:hsl(93, 27%, 40%);
+  --yd:hsl(93, 27%, 47%);
+  --yd05:hsla(93, 27%, 47%, 0.8);
+  /* --yf:rgb(248,255,148); */
+  --yf:hsl(66, 100%, 90%);
+  --yf05:hsla(66, 100%, 90%, 0.5);
+  --yborder:hsl(93, 50%, 25%);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Open+Sans&family=Oswald&family=Russo+One&display=swap');
@@ -28,7 +30,7 @@ hat1,hat2,hat3,hat4,hat5,hat6 {font-family: 'Russo One', sans-serif;}
 hat1{
   display: block;
   font-size: 2em;
-  padding:0px;
+  padding:8px 0px;
   margin:0px;
   line-height: 0%;
 }
@@ -151,7 +153,7 @@ ol.ol01{
 }
 
 year{
-  color:var(--yf05);
+  color:var(--yf);
   font-family: "YEAR";
 }
 
@@ -166,11 +168,15 @@ release{
 }
 
 update{
-  color:var(--yf05);
-  /* background:var(--yd05); */
-  border-color: var(--yf05);
-  border-style: solid;
+  color:var(--yf);
+  background:var(--yd05);
+  border-color: var(--yf);
+  border-style: hidden;
   border-width: 1px;
   border-radius:10px;
   padding: 2px 12px;
+}
+
+.right{
+  text-align: right;
 }
