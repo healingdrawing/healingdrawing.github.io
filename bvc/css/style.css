@@ -13,16 +13,18 @@
   --background:hsl(205, 89%, 7%);
   --text:hsla(0, 0%, 90%, 0.8);
   --text05:hsla(0, 0%, 90%, 0.4);
-
+  
   --backhat:hsla(221, 100%, 79%, 0.10);
   --texthat:hsla(0, 0%, 90%, 0.7);
-
+  
   --backmarker:hsla(221, 100%, 79%, 0.37);
-
+  
   --texta:hsla(221, 100%, 79%, 0.74);
-
-
+  
+  
   --border:hsla(221, 100%, 79%, 0.37);
+  --borderrelease:hsla(0, 0%, 70%);
+  --borderupdate:hsla(221, 20%, 50%);
 }
 
 
@@ -61,7 +63,7 @@ marker6,hat6{font-size: .67em;}
 
 hat1,hat2,hat3,hat4,hat5,hat6 {display: block;}
 hat1{padding:8px 0px;}
-
+hat2{padding-left: 8px;}
 
 h3.hat,h2.hat{
     font-family: 'Russo One', sans-serif;
@@ -93,7 +95,18 @@ div.beard{
   padding:10px;
   padding-left: 2em;
   padding-bottom:20px;
-} 
+}
+
+div.box{
+  border-color: var(--border);
+  border-width:1px;
+  border-style:solid;
+  border-radius:10px;
+  padding:20px 2em;
+  padding-left: 0em;
+  margin: 2em;
+  display: table;
+}
 
 ol.ol01{list-style-type: decimal-leading-zero;}
 
@@ -101,18 +114,30 @@ year{color:var(--text); font-family: "YEAR";}
 
 release,update,focus{
   background:var(--backmarker);
-  color:var(--text);
-  border-color: var(--text);
+  border-color: var(--borderrelease);
   border-style: solid;
   border-width: 1px;
-  border-radius:10px;
+  border-radius: 0px 10px 10px 0px;
   padding: 2px 12px;
 }
 
-update{border-style: hidden;}
+prerelease,preupdate{
+  /* background:var(--backmarker); */
+  color:var(--text);
+  border-color: var(--text);
+  color:var(--borderrelease);
+  border-style: solid none solid solid;
+  border-width: 1px;
+  border-radius:10px 0px 0px 10px;
+  padding: 2px 16px 2px 12px;
+  margin-right: -9px;
+}
+
+update,preupdate{border-color: var(--borderupdate);}
 focus{
   background:none;
   border-color:var(--border);
+  border-radius: 10px;
 }
 
 .right{text-align: right;}
