@@ -1,13 +1,31 @@
-:root{
-  /* --yb:rgb(123,128,74); */
+/* :root{
+  --yb:rgb(123,128,74);
   --yb:hsl(93, 27%, 40%);
   --yd:hsl(93, 27%, 47%);
   --yd05:hsla(93, 27%, 47%, 0.8);
-  /* --yf:rgb(248,255,148); */
+  --yf:rgb(248,255,148);
   --yf:hsl(66, 100%, 90%);
   --yf05:hsla(66, 100%, 90%, 0.5);
   --yborder:hsl(93, 50%, 25%);
+} */
+
+:root{
+  --background:hsl(205, 89%, 7%);
+  --text:hsla(0, 0%, 90%, 0.8);
+  --text05:hsla(0, 0%, 90%, 0.4);
+
+  --backhat:hsla(221, 100%, 79%, 0.10);
+  --texthat:hsla(0, 0%, 90%, 0.7);
+
+  --backmarker:hsla(221, 100%, 79%, 0.37);
+
+  --texta:hsla(221, 100%, 79%, 0.74);
+
+
+  --border:hsla(221, 100%, 79%, 0.37);
 }
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Open+Sans&family=Oswald&family=Russo+One&display=swap');
 
@@ -19,100 +37,30 @@
 body{
     font-family: 'Comfortaa', sans-serif;
     line-height: 200%;
-    background:var(--yb);
-    color:var(--yf);
+    background:var(--background);
+    color:var(--text);
 }
 
-a{color:var(--yf)}
-hr{color:var(--yf)}
+a{color:var(--texta); text-decoration: none;}
+a.hat{color:var(--text);}
+hr{color:var(--text)}
 
-hat1,hat2,hat3,hat4,hat5,hat6 {font-family: 'Russo One', sans-serif;}
-hat1{
-  display: block;
-  font-size: 2em;
-  padding:8px 0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat2{
-  display: block;
-  font-size: 1.5em;
+marker1,marker2,marker3,marker4,marker5,marker6,
+hat1,hat2,hat3,hat4,hat5,hat6 {
+  font-family: 'Russo One', sans-serif;
   padding:0px;
   margin:0px;
   line-height: 0%;
 }
-hat3{
-  display: block;
-  font-size: 1.17em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat4{
-  display: block;
-  font-size: 1em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat5{
-  display: block;
-  font-size: .83em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat6{
-  display: block;
-  font-size: .67em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
+marker1,hat1{font-size: 2em;}
+marker2,hat2{font-size: 1.5em;}
+marker3,hat3{font-size: 1.17em;}
+marker4,hat4{font-size: 1em;}
+marker5,hat5{font-size: .83em;}
+marker6,hat6{font-size: .67em;}
 
-marker1,marker2,marker3,marker4,marker5,marker6 {font-family: 'Russo One', sans-serif;}
-marker1{
-  /* display: block; */
-  font-size: 2em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-marker2{
-  /* display: block; */
-  font-size: 1.5em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-marker3{
-  /* display: block; */
-  font-size: 1.17em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-marker4{
-  /* display: block; */
-  font-size: 1em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-marker5{
-  /* display: block; */
-  font-size: .83em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-marker6{
-  /* display: block; */
-  font-size: .67em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
+hat1,hat2,hat3,hat4,hat5,hat6 {display: block;}
+hat1{padding:8px 0px;}
 
 
 h3.hat,h2.hat{
@@ -123,60 +71,48 @@ h3.hat,h2.hat{
 }
 
 div.hat{
-    border-color: var(--yborder);
-    border-width: 1px;
-    border-style: solid solid none;
-    border-radius: 20px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    display:inline-block;
-    margin:0px;
-    padding:20px;
-    background:var(--yd)
+  background:var(--backhat);
+  color:var(--texthat);
+  border-color: var(--border);
+  border-width: 1px;
+  border-style: solid solid none;
+  border-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  display:inline-block;
+  margin:0px;
+  padding:20px;
 }
 
 div.beard{
-  border-color: var(--yborder);
+  border-color: var(--border);
   border-width:1px;
   border-style:solid solid solid;
   border-radius:10px;
   border-top-left-radius: 0px;
-  /* border-top-right-radius: 0px; */
   padding:10px;
   padding-left: 2em;
   padding-bottom:20px;
-  /* margin-top:-20px; */
 } 
 
-ol.ol01{
-  list-style-type: decimal-leading-zero;
-}
+ol.ol01{list-style-type: decimal-leading-zero;}
 
-year{
-  color:var(--yf);
-  font-family: "YEAR";
-}
+year{color:var(--text); font-family: "YEAR";}
 
-release{
-  color:var(--yf);
-  background:var(--yd05);
-  border-color: var(--yf);
+release,update,focus{
+  background:var(--backmarker);
+  color:var(--text);
+  border-color: var(--text);
   border-style: solid;
   border-width: 1px;
   border-radius:10px;
   padding: 2px 12px;
 }
 
-update{
-  color:var(--yf);
-  background:var(--yd05);
-  border-color: var(--yf);
-  border-style: hidden;
-  border-width: 1px;
-  border-radius:10px;
-  padding: 2px 12px;
+update{border-style: hidden;}
+focus{
+  background:none;
+  border-color:var(--border);
 }
 
-.right{
-  text-align: right;
-}
+.right{text-align: right;}
