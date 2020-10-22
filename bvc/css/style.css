@@ -43,7 +43,11 @@ body{
     color:var(--text);
 }
 
-a{color:var(--texta); text-decoration: none;}
+a{
+  font-family: "Russo One";
+  color:var(--texta);
+  text-decoration: none;
+}
 a.hat{color:var(--text);}
 hr{color:var(--text)}
 
@@ -108,7 +112,31 @@ div.box{
   display: table;
 }
 
-ol.ol01{list-style-type: decimal-leading-zero;}
+ol.ol01{
+  counter-reset: item;
+  list-style-type: none;
+  list-style-position: initial !important;
+  transform: rotate(180deg);
+}
+ol.ol01 li{
+  padding-left: 16px;
+  transform: rotate(-180deg);
+  position: relative;
+  
+}
+ol.ol01 li::marker{
+  font-family: "Russo One";
+  text-align: right;
+}
+ol.ol01 li::before{
+  font-family: "Russo One";
+  content: counter(item, decimal-leading-zero) "  "; 
+  counter-increment: item ;
+  left: -1.7em;
+  width: 2em;
+  text-align: right;
+  position: absolute;
+}
 
 year{color:var(--text); font-family: "YEAR";}
 
@@ -118,7 +146,7 @@ release,update,focus{
   border-style: solid;
   border-width: 1px;
   border-radius: 0px 10px 10px 0px;
-  padding: 2px 12px;
+  padding: 2px 12px 2px 8px;
 }
 
 prerelease,preupdate{
@@ -139,5 +167,7 @@ focus{
   border-color:var(--border);
   border-radius: 10px;
 }
+
+fixed{text-decoration: line-through;}
 
 .right{text-align: right;}
