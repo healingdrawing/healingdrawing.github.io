@@ -100,7 +100,7 @@ hat1{
   line-height: 180%;
   padding: 0px 36px;
 }
-hat2{padding-left: 8px;}
+hat2{padding-left: 0.6em;}
 hat3{
   line-height: 220%;
   padding: 0px 24px;
@@ -135,9 +135,9 @@ div.beard{
   border-radius:10px;
   border-top-left-radius: 0px;
   padding-top:10px;
-  padding-right: 4em;
+  padding-right: 1em;
   padding-bottom:20px;
-  padding-left: 4em;
+  padding-left: 2em;
   background: var(--background);
 }
 
@@ -147,35 +147,36 @@ div.box{
   border-style:solid;
   border-radius:10px;
   padding:20px 2em;
-  padding-left: 0em;
   margin: 2em;
   display: inline-block;
 }
 
-ul li::marker{color:var(--text05);}
+ul{
+  padding: 1em;
+}
+ul li::before{left: -1em;}
+ul li::marker{
+  color:var(--text05);
+  left: 2em;
+}
 
 ol.ol01{
   counter-reset: item;
   list-style-type: none;
-  list-style-position: initial !important;
+  /* list-style-position: outside !important; */
   transform: rotate(180deg);
 }
 ol.ol01 li{
   padding-left: 16px;
   transform: rotate(-180deg);
   position: relative;
-  
-}
-ol.ol01 li::marker{
-  font-family: "Russo One";
-  text-align: right;
 }
 ol.ol01 li::before{
   font-family: "Russo One";
   content: counter(item, decimal-leading-zero) "  "; 
   counter-increment: item ;
-  left: -1.7em;
-  width: 2em;
+  left: -1em;
+  /* width: 1em; */
   text-align: right;
   position: absolute;
   color:var(--text05);
