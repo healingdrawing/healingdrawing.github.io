@@ -7,10 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Open+Sans&family=Oswald&family=Russo+One&display=swap');
 
 hat{
-  font-size: 2em;
+  font-size: 1.2em;
   padding:0px;
   margin:0px;
-  line-height: 100%;
+  line-height: 160%;
 }
 hat a, h6 a{
   text-decoration: none;
@@ -18,49 +18,30 @@ hat a, h6 a{
 }
 h1{text-shadow: 1px 1px 16px rgb(220, 220, 220);}
 
-hat1,hat2,hat3,hat4,hat5,hat6 {font-family: 'Russo One', sans-serif;}
-hat1{
-  /* display: block; */
-  font-size: 2em;
+h1, h2, h3, h4, h5, h6{
+  line-height:120%;
+  /* margin: 20px; */
+  padding: 20px;
+}
+hat1,hat2,hat3,hat4,hat5,hat6 {
+  font-family: 'Russo One', sans-serif;
   padding:0px;
   margin:0px;
   line-height: 0%;
 }
-hat2{
-  /* display: block; */
-  font-size: 1.5em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat3{
-  /* display: block; */
-  font-size: 1.17em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat4{
-  /* display: block; */
-  font-size: 1em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat5{
-  /* display: block; */
-  font-size: .83em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
-hat6{
-  /* display: block; */
-  font-size: .67em;
-  padding:0px;
-  margin:0px;
-  line-height: 0%;
-}
+h1{font-size: .66em;}
+h2{font-size: .5em;}
+h3{font-size: .39em;}
+h4{font-size: .3em;}
+h5{font-size: .25em;}
+h6{font-size: .2em;}
+
+hat1{font-size: 1.32em;}
+hat2{font-size: 1em;}
+hat3{font-size: .78em;}
+hat4{font-size: .6em;}
+hat5{font-size: .5em;}
+hat6{font-size: .4em;}
 
 /*old styles*/
 *{margin:0; padding:0; border:0;}
@@ -78,6 +59,7 @@ body{
     color:var(--bodyc);
     font-family: "body";
     line-height: 200%;
+    font-size: 300%;
 }
 hr{
     border: 0;
@@ -91,9 +73,6 @@ a{color:var(--bf);}
 
 div#fonsky{
     position:absolute;
-    /* display:inline-block; */
-    /* min-height:1000px; */
-    /* min-width:100%; */
     height:100%;
     width:100%;
     background: linear-gradient(
@@ -110,11 +89,6 @@ div#fonsky{
 }
 
 table.karkas{
-    /* position:absolute; */
-    /* display:inline-block; */
-    /* min-height:1000px; */
-    /* min-width:100%; */
-    /* height:1400px; */
     width:100%;
     background-image: linear-gradient(
         rgb(0, 0, 0),
@@ -127,23 +101,20 @@ table.karkas{
 
 table.app{
   position:absolute;
-  /* display:inline-block; */
-  /* min-height:1000px; */
-  /* min-width:100%; */
   height:50px;
   width:100%;
   background-image: linear-gradient(
       rgb(2, 22, 36),
-      /* rgb(104, 102, 101)2%,
-      rgb(66, 31, 9)4%, */
-      /* hsl(209, 33%, 50%) 30px, */
       rgb(2, 22, 36)50px
       ); /* Standard syntax (must be last) */
 }
 
+td{border: white solid 2px;}
+
 div#pagedata{position:absolute;width:100%;}
 img#hd{
-    width:400px;
+    width:200px;
+    padding-top: 50px;
 }
 table{
     width:100%;
@@ -157,3 +128,4 @@ td{vertical-align: top;}
 .app_show{width: 200px;}
 .x3app_show{width: 600px;}
 td#places{line-height: 190%;}
+img#DA{width: 300px;}
