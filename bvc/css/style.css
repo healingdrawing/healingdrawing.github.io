@@ -9,7 +9,7 @@
   --yborder:hsl(93, 50%, 25%);
 } */
 
-:root{
+/* :root{
   --background:hsl(205, 89%, 7%);
   --text:hsla(0, 0%, 90%, 0.8);
   --text05:hsla(0, 0%, 90%, 0.4);
@@ -25,6 +25,30 @@
   --border:hsla(221, 100%, 79%, 0.37);
   --borderrelease:hsla(0, 0%, 70%);
   --borderupdate:hsla(221, 20%, 50%);
+} */
+
+:root{
+  --testBack:hsl(161, 89%, 7%);
+  --hueBack:150;
+  --hueJump:16;
+  --lText:90%; /*general text lightness*/
+
+
+  --hueFace:calc(var(--hueBack) + var(--hueJump));
+  --background:hsl(var(--hueBack), 89%, 7%);
+  --text:hsl(0, 0%, var(--lText));
+  --text05:hsla(0, 0%, var(--lText), 0.6);
+  
+  --backhat:hsla(var(--hueFace), 100%, 79%, 0.10);
+  --texthat:hsl(0, 0%, calc(var(--lText) * 0.9));
+  
+  
+  --texta:hsla(var(--hueFace), 100%, 79%, 0.74);
+  
+  
+  --border:hsla(var(--hueFace), 100%, 79%, 0.37);
+  --borderrelease:hsla(0, 0%, 70%);
+  --borderupdate:hsla(var(--hueFace), 20%, 50%);
 }
 
 
@@ -48,7 +72,7 @@ a{
   color:var(--texta);
   text-decoration: none;
 }
-a.hat{color:var(--text);}
+a.hat{color:var(--texta);}
 hr{color:var(--text)}
 
 marker1,marker2,marker3,marker4,marker5,marker6,
@@ -65,7 +89,10 @@ marker4,hat4{font-size: 1em;}
 marker5,hat5{font-size: .83em;}
 marker6,hat6{font-size: .67em;}
 
-hat1,hat2,hat3,hat4,hat5,hat6 {display: block;}
+hat1,hat2,hat3,hat4,hat5,hat6 {
+  color:var(--texthat);
+  display: block;
+}
 hat1{padding:8px 0px;}
 hat2{padding-left: 8px;}
 
@@ -112,6 +139,8 @@ div.box{
   display: table;
 }
 
+ul li::marker{color:var(--text05);}
+
 ol.ol01{
   counter-reset: item;
   list-style-type: none;
@@ -136,12 +165,13 @@ ol.ol01 li::before{
   width: 2em;
   text-align: right;
   position: absolute;
+  color:var(--text05);
 }
 
 year{color:var(--text); font-family: "YEAR";}
 
 release,update,focus{
-  background:var(--backmarker);
+  background:var(--border);
   border-color: var(--borderrelease);
   border-style: solid;
   border-width: 1px;
@@ -150,7 +180,6 @@ release,update,focus{
 }
 
 prerelease,preupdate{
-  /* background:var(--backmarker); */
   color:var(--text);
   border-color: var(--text);
   color:var(--borderrelease);
