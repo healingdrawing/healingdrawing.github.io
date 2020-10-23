@@ -70,10 +70,13 @@ body{
 a{
   font-family: "Russo One";
   color:var(--texta);
-  text-decoration: none;
+  text-decoration-line: none;
 }
 a.hat{color:var(--texta);}
 hr{color:var(--text)}
+
+img{max-width: 100%;}
+iframe{max-width: 100%;}
 
 marker1,marker2,marker3,marker4,marker5,marker6,
 hat1,hat2,hat3,hat4,hat5,hat6 {
@@ -91,10 +94,15 @@ marker6,hat6{font-size: .67em;}
 
 hat1,hat2,hat3,hat4,hat5,hat6 {
   color:var(--texthat);
-  display: block;
 }
-hat1{padding:8px 0px;}
+hat1{
+  line-height: 140%;
+  padding: 0px 20px;
+}
 hat2{padding-left: 8px;}
+hat3{
+  padding: 0px 10px;
+}
 
 h3.hat,h2.hat{
     font-family: 'Russo One', sans-serif;
@@ -113,8 +121,9 @@ div.hat{
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   display:inline-block;
+  padding:10px;
   margin:0px;
-  padding:20px;
+  margin-right: 20px;
 }
 
 div.beard{
@@ -125,7 +134,9 @@ div.beard{
   border-top-left-radius: 0px;
   padding:10px;
   padding-left: 2em;
+  padding-right: 2em;
   padding-bottom:20px;
+  background: var(--background);
 }
 
 div.box{
@@ -136,7 +147,7 @@ div.box{
   padding:20px 2em;
   padding-left: 0em;
   margin: 2em;
-  display: table;
+  display: inline-block;
 }
 
 ul li::marker{color:var(--text05);}
