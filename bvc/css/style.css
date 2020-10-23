@@ -120,34 +120,34 @@ div.hat{
   border-color: var(--border);
   border-width: 1px;
   border-style: solid solid none;
-  border-radius: 20px;
+  border-radius: 60px;/*x3*/
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   display:inline-block;
   padding:0px;
   margin:0px;
-  margin-right: 20px;
+  margin-right: 60px;/*x3*/
 }
 
 div.beard{
   border-color: var(--border);
-  border-width:1px;
+  border-width:2px;
   border-style:solid solid solid;
-  border-radius:10px;
+  border-radius:30px;/*x3*/
   border-top-left-radius: 0px;
-  padding-top:10px;
+  padding-top:0.5em;
   padding-right: 1em;
-  padding-bottom:20px;
+  padding-bottom:1em;
   padding-left: 2em;
   background: var(--background);
 }
 
 div.box{
   border-color: var(--border);
-  border-width:1px;
+  border-width:2px;
   border-style:solid;
-  border-radius:10px;
-  padding:20px 2em;
+  border-radius:30px;/*x3*/
+  padding:0px 2em;
   margin: 2em;
   display: inline-block;
 }
@@ -155,10 +155,14 @@ div.box{
 ul{
   padding: 1em;
 }
-ul li::before{left: -1em;}
+ul li{padding-left: 1em;}
+div.box ul li{
+  line-height: 300%;
+}
+/* ul li::before{} */
 ul li::marker{
   color:var(--text05);
-  left: 2em;
+  
 }
 
 ol.ol01{
@@ -177,7 +181,7 @@ ol.ol01 li::before{
   content: counter(item, decimal-leading-zero) "  "; 
   counter-increment: item ;
   left: -1.5em;
-  /* width: 1em; */
+  width: 1.2em;
   text-align: right;
   position: absolute;
   color:var(--text05);
@@ -189,9 +193,9 @@ release,update,focus{
   background:var(--border);
   border-color: var(--borderrelease);
   border-style: solid;
-  border-width: 1px;
-  border-radius: 0px 10px 10px 0px;
-  padding: 2px 12px 2px 8px;
+  border-width: 2px;
+  border-radius: 0px 30px 30px 0px;/*x3*/
+  padding: 6px 36px 6px 24px;/*x3*/
 }
 
 prerelease,preupdate{
@@ -199,17 +203,17 @@ prerelease,preupdate{
   border-color: var(--text);
   color:var(--borderrelease);
   border-style: solid none solid solid;
-  border-width: 1px;
-  border-radius:10px 0px 0px 10px;
-  padding: 2px 16px 2px 12px;
-  margin-right: -9px;
+  border-width: 2px;
+  border-radius:30px 0px 0px 30px;/*x3*/
+  padding: 6px 48px 6px 36px;/*x3*/
+  margin-right: -27px;/*x3*/
 }
 
 update,preupdate{border-color: var(--borderupdate);}
 focus{
   background:none;
   border-color:var(--border);
-  border-radius: 10px;
+  border-radius: 30px;/*x3*/
 }
 
 fixed{text-decoration: line-through;}
