@@ -109,7 +109,7 @@ table.app{
       ); /* Standard syntax (must be last) */
 }
 
-td{border: white solid 2px;}
+/* td{border: white solid 2px;} */
 
 div#pagedata{position:absolute;width:100%;}
 img#hd{
