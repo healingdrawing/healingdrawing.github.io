@@ -99,12 +99,12 @@ hat1,hat2,hat3,hat4,hat5,hat6 {
 }
 hat1{
   line-height: 180%;
-  padding: 0px 36px;
+  padding: 0px 108px;/*x3*/
 }
 hat2{padding-left: 0.6em;}
 hat3{
   line-height: 220%;
-  padding: 0px 24px;
+  padding: 0px 72px;/*x3*/
 }
 
 h3.hat,h2.hat{
@@ -118,7 +118,7 @@ div.hat{
   background:var(--backhat);
   color:var(--texthat);
   border-color: var(--border);
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid solid none;
   border-radius: 60px;/*x3*/
   border-bottom-left-radius: 0px;
