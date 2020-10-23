@@ -65,6 +65,7 @@ body{
     line-height: 200%;
     background:var(--background);
     color:var(--text);
+    font-size: 300%;
 }
 
 a{
@@ -175,7 +176,7 @@ ol.ol01 li::before{
   font-family: "Russo One";
   content: counter(item, decimal-leading-zero) "  "; 
   counter-increment: item ;
-  left: -1em;
+  left: -1.5em;
   /* width: 1em; */
   text-align: right;
   position: absolute;
