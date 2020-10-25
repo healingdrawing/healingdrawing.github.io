@@ -41,21 +41,23 @@ body{
     /* font-size: 200%; */
 }
 
-@media(max-width: 720px){
+@media(max-width: 480px){
   :root{
     --scale:1;
     --beardRadius:calc(var(--fontSize) * var(--scale) * 2);
   }
   div.beard{
+    background:firebrick !important;/*not work*/
     border-top-right-radius: 0px;
   }
 }
-@media(min-width:721px), (max-width:1440px){
+@media(min-width:481px), (max-width:1440px){
   :root{
     --scale:1.5;
     --beardRadius:calc(var(--fontSize) * var(--scale) * 2);
   }
   div.beard{
+    background:green;
     border-top-right-radius: 0px;
   }
 }
@@ -69,6 +71,7 @@ body{
     display:inline-block;
   }
   div.beard{
+    background:navy;
     border-top-right-radius: var(--beardRadius);
   }
 }
