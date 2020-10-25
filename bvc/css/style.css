@@ -61,7 +61,7 @@
   }
 
 body{
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Comfortaa', sans-serif !important;
     line-height: 200%;
     background:var(--background);
     color:var(--text);
@@ -69,7 +69,7 @@ body{
 }
 
 a{
-  font-family: "Russo One";
+  font-family: "Russo One" !important;
   color:var(--texta);
   text-decoration-line: none;
 }
@@ -81,7 +81,7 @@ iframe{max-width: 100%;}
 
 marker1,marker2,marker3,marker4,marker5,marker6,
 hat1,hat2,hat3,hat4,hat5,hat6 {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Russo One', sans-serif !important;
   padding:0px;
   margin:0px;
   line-height: 0%;
@@ -108,7 +108,7 @@ hat3{
 }
 
 h3.hat,h2.hat{
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Russo One', sans-serif !important;
     padding:0px;
     margin:0px;
     line-height: 0%;
@@ -177,7 +177,7 @@ ol.ol01 li{
   position: relative;
 }
 ol.ol01 li::before{
-  font-family: "Russo One";
+  font-family: "Russo One" !important;
   content: counter(item, decimal-leading-zero) "  "; 
   counter-increment: item ;
   left: -1.5em;
@@ -187,7 +187,7 @@ ol.ol01 li::before{
   color:var(--text05);
 }
 
-year{color:var(--text); font-family: "YEAR";}
+year{color:var(--text); font-family: "YEAR" !important;}
 
 release,update,focus{
   background:var(--border);

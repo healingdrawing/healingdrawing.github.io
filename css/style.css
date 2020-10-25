@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6{
   padding: 20px;
 }
 hat1,hat2,hat3,hat4,hat5,hat6 {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Russo One', sans-serif !important;
   padding:0px;
   margin:0px;
   line-height: 0%;
@@ -57,7 +57,7 @@ body{
     padding:0;
     border:0;
     color:var(--bodyc);
-    font-family: "body";
+    font-family: "body" !important;
     line-height: 200%;
     font-size: 300%;
 }
