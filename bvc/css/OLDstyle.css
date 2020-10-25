@@ -1,3 +1,32 @@
+/* :root{
+  --yb:rgb(123,128,74);
+  --yb:hsl(93, 27%, 40%);
+  --yd:hsl(93, 27%, 47%);
+  --yd05:hsla(93, 27%, 47%, 0.8);
+  --yf:rgb(248,255,148);
+  --yf:hsl(66, 100%, 90%);
+  --yf05:hsla(66, 100%, 90%, 0.5);
+  --yborder:hsl(93, 50%, 25%);
+} */
+
+/* :root{
+  --background:hsl(205, 89%, 7%);
+  --text:hsla(0, 0%, 90%, 0.8);
+  --text05:hsla(0, 0%, 90%, 0.4);
+  
+  --backhat:hsla(221, 100%, 79%, 0.10);
+  --texthat:hsla(0, 0%, 90%, 0.7);
+  
+  --backmarker:hsla(221, 100%, 79%, 0.37);
+  
+  --texta:hsla(221, 100%, 79%, 0.74);
+  
+  
+  --border:hsla(221, 100%, 79%, 0.37);
+  --borderrelease:hsla(0, 0%, 70%);
+  --borderupdate:hsla(221, 20%, 50%);
+} */
+
 :root{
   --testBack:hsl(161, 89%, 7%);
   --hueBack:150;
@@ -36,16 +65,7 @@ body{
     line-height: 200%;
     background:var(--background);
     color:var(--text);
-    /* font-size: 200%; */
-}
-
-@media(max-width: 720px){
-  body{font-size: 100%;}
-}
-@media(min-width:721px){
-  body{
-    font-size: 200%;
-  }
+    font-size: 300%;
 }
 
 a{
