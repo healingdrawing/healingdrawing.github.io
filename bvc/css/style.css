@@ -44,15 +44,34 @@ body{
 @media(max-width: 720px){
   :root{
     --scale:1;
-    }
+  }
+  div.beard{
+    border-top-right-radius: 0px;
+  }
 }
-@media(min-width:721px){
+@media(min-width:721px), (max-width:1440px){
+  :root{
+    --scale:1.5;
+  }
+  div.beard{
+    border-top-right-radius: 0px;
+  }
+}
+@media(min-width:1441px){
   :root{
     --scale:2;
   }
+  div.hat{
+    margin-right: 2em;
+    display:inline-block;
+  }
 }
 
-body{font-size: calc(var(--fontSize) * var(--scale));}
+
+body{
+  font-size: calc(var(--fontSize) * var(--scale));
+
+}
 
 a{
   font-family: "Russo One" !important;
@@ -85,12 +104,16 @@ hat1,hat2,hat3,hat4,hat5,hat6 {
 }
 hat1{
   line-height: 180%;
-  padding: 0px 108px;/*x3*/
+  /* padding: 0px 108px; */
+  padding: 0px calc(var(--fontSize) * 3 * var(--scale));/*x3*/
 }
-hat2{padding-left: 0.6em;}
+hat2{
+  padding-left: 0.6em;
+}
 hat3{
   line-height: 220%;
-  padding: 0px 72px;/*x3*/
+  /* padding: 0px 72px; */
+  padding: 0px 1.9em;
 }
 
 h3.hat,h2.hat{
@@ -106,20 +129,22 @@ div.hat{
   border-color: var(--border);
   border-width: 2px;
   border-style: solid solid none;
-  border-radius: 60px;/*x3*/
+  /* border-radius: 60px; */
+  border-radius: calc(var(--fontSize) * var(--scale) * 4);
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  display:inline-block;
+  /* display:inline-block; */
   padding:0px;
   margin:0px;
-  margin-right: 60px;/*x3*/
+  /* margin-right: 60px; */
 }
 
 div.beard{
   border-color: var(--border);
   border-width:2px;
   border-style:solid solid solid;
-  border-radius:30px;/*x3*/
+  /* border-radius:30px; */
+  border-radius: calc(var(--fontSize) * var(--scale) * 2);
   border-top-left-radius: 0px;
   padding-top:0.5em;
   padding-right: 1em;
