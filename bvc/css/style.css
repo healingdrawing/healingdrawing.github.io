@@ -20,6 +20,8 @@
   --border:hsla(var(--hueFace), 100%, 79%, 0.37);
   --borderrelease:hsla(0, 0%, 70%);
   --borderupdate:hsla(var(--hueFace), 20%, 50%);
+
+  --fontSize:16px;
 }
 
 
@@ -40,13 +42,17 @@ body{
 }
 
 @media(max-width: 720px){
-  body{font-size: 100%;}
+  :root{
+    --scale:1;
+    }
 }
 @media(min-width:721px){
-  body{
-    font-size: 200%;
+  :root{
+    --scale:2;
   }
 }
+
+body{font-size: calc(var(--fontSize) * var(--scale));}
 
 a{
   font-family: "Russo One" !important;
