@@ -41,46 +41,55 @@ body{
     /* font-size: 200%; */
 }
 
-@media(max-width: 480px){
+@media(max-width: 720px){
   :root{
     --scale:1;
-    --beardRadius:calc(var(--fontSize) * var(--scale) * 2);
+    /* --beardRadius:calc(var(--fontSize) * var(--scale) * 2); */
+    --beardRadius:32px;
   }
+  body{font-size: 16px !important;}
   div.beard{
-    background:firebrick !important;/*not work*/
-    border-top-right-radius: 0px;
+    background:firebrick !important;
+    border-bottom-left-radius: 32px !important;
+    border-bottom-right-radius: 32px !important;
+    border-top-right-radius: 0px !important;
   }
 }
-@media(min-width:481px), (max-width:1440px){
+@media(min-width:721px), (max-width:1440px){
   :root{
     --scale:1.5;
-    --beardRadius:calc(var(--fontSize) * var(--scale) * 2);
+    /* --beardRadius:calc(var(--fontSize) * var(--scale) * 2); */
+    --beardRadius:48px;
   }
+  body{font-size: 24px;}
   div.beard{
     background:green;
-    border-top-right-radius: 0px;
+    border-bottom-left-radius: 48px ;
+    border-bottom-right-radius: 48px ;
+    border-top-right-radius: 0px ;
   }
 }
 @media(min-width:1441px){
   :root{
     --scale:2;
-    --beardRadius:calc(var(--fontSize) * var(--scale) * 2);
+    /* --beardRadius:calc(var(--fontSize) * var(--scale) * 2); */
+    --beardRadius:64px;
   }
   div.hat{
-    margin-right: 2em;
+    margin-right: 128px;
     display:inline-block;
   }
+  body{font-size: 32px;}
   div.beard{
     background:navy;
-    border-top-right-radius: var(--beardRadius);
+    border-bottom-left-radius: 64px ;
+    border-bottom-right-radius: 64px ;
+    border-top-right-radius: 64px ;
   }
 }
 
 
-body{
-  font-size: calc(var(--fontSize) * var(--scale));
-
-}
+/* body{font-size: calc(var(--fontSize) * var(--scale));} */
 
 a{
   font-family: "Russo One" !important;
@@ -109,12 +118,12 @@ marker6,hat6{font-size: .67em;}
 
 hat1,hat2,hat3,hat4,hat5,hat6 {
   color:var(--texthat);
-  display: block;
+  display: inline-block;
 }
 hat1{
   line-height: 180%;
   /* padding: 0px 108px; */
-  padding: 0px calc(var(--fontSize) * 3 * var(--scale));/*x3*/
+  padding: 0px calc(var(--fontSize) * 3 * var(--scale));
 }
 hat2{
   padding-left: 0.6em;
@@ -144,7 +153,9 @@ div.hat{
   border-bottom-right-radius: 0px;
   /* display:inline-block; */
   padding:0px;
-  margin:0px;
+  margin-top:0px;
+  margin-left:0px;
+  margin-bottom:0px;
   /* margin-right: 60px; */
 }
 
@@ -153,8 +164,8 @@ div.beard{
   border-width:2px;
   border-style:solid solid solid;
   /* border-radius:30px; */
-  border-bottom-left-radius: var(--beardRadius);
-  border-bottom-right-radius: var(--beardRadius);
+  /* border-bottom-left-radius: var(--beardRadius) !important; */
+  /* border-bottom-right-radius: var(--beardRadius) !important; */
   border-top-left-radius: 0px;
   padding-top:0.7em;
   padding-right: 1em;
