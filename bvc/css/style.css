@@ -57,7 +57,6 @@ body{
     border-radius: 0px 16px 16px 0px !important;
     padding: 3px 18px 3px 12px !important;
   }
-  release,update{}
   prerelease,preupdate{
     border-radius:16px 0px 0px 16px !important;
     padding: 3px 8px 3px 18px !important;
@@ -85,7 +84,6 @@ body{
     border-radius: 0px 24px 24px 0px;
     padding: 4.5px 27px 4.5px 18px;
   }
-  release,update{}
   prerelease,preupdate{
     border-radius:24px 0px 0px 24px;
     padding: 4.5px 12px 4.5px 27px;
@@ -241,19 +239,22 @@ ul li::marker{
 ol.ol01{
   counter-reset: item;
   list-style-type: none;
-  /* list-style-position: outside !important; */
   transform: rotate(180deg);
 }
 ol.ol01 li{
-  padding-left: var(--fontSize);
+  /* padding-left: var(--fontSize); */
+  /* margin-left: 0px; */
   transform: rotate(-180deg);
   position: relative;
 }
 ol.ol01 li::before{
   font-family: "Russo One" !important;
-  content: counter(item, decimal-leading-zero) "  "; 
+  font-size:0.875em;
+  content: counter(item, decimal-leading-zero) " "; 
   counter-increment: item ;
-  left: -1.5em;
+  left: -1.7em;
+  /* top: -0.5em; */
+  top: 0.03em;
   width: 1.2em;
   text-align: right;
   position: absolute;
@@ -267,7 +268,6 @@ release,update,focus{
   border-color: var(--borderrelease);
   border-style: solid;
   border-width: 2px;
-  /* padding: 6px 36px 6px 24px; */
 }
 
 prerelease,preupdate{
@@ -276,9 +276,6 @@ prerelease,preupdate{
   color:var(--borderrelease);
   border-style: solid none solid solid;
   border-width: 2px;
-  /* border-radius:30px 0px 0px 30px; */
-  /* padding: 6px 48px 6px 36px; */
-  /* margin-right: -27px; */
 }
 
 update,preupdate{border-color: var(--borderupdate);}
