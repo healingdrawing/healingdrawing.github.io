@@ -4,7 +4,6 @@
   --hueJump:16;
   --lText:90%; /*general text lightness*/
 
-
   --hueFace:calc(var(--hueBack) + var(--hueJump));
   --background:hsl(var(--hueBack), 89%, 7%);
   --text:hsl(0, 0%, var(--lText));
@@ -13,15 +12,11 @@
   --backhat:hsla(var(--hueFace), 100%, 79%, 0.10);
   --texthat:hsl(0, 0%, calc(var(--lText) * 0.9));
   
-  
   --texta:hsla(var(--hueFace), 100%, 79%, 0.74);
-  
   
   --border:hsla(var(--hueFace), 100%, 79%, 0.37);
   --borderrelease:hsla(0, 0%, 70%);
   --borderupdate:hsla(var(--hueFace), 20%, 50%);
-
-  --fontSize:16px;
 }
 
 
@@ -38,15 +33,10 @@ body{
     line-height: 200%;
     background:var(--background);
     color:var(--text);
-    /* font-size: 200%; */
 }
 
 @media(max-width: 720px){
-  :root{
-    --scale:1;
-    /* --beardRadius:calc(var(--fontSize) * var(--scale) * 2); */
-    --beardRadius:32px;
-  }
+  /*scale1*/
   body{font-size: 16px !important;}
   focus{
     border-radius: 16px !important;
@@ -61,19 +51,20 @@ body{
     border-radius:16px 0px 0px 16px !important;
     padding: 3px 8px 3px 18px !important;
   }
+  div.hat{border-radius: 48px;}
   div.beard{
     background:firebrick !important;
     border-bottom-left-radius: 32px !important;
     border-bottom-right-radius: 32px !important;
     border-top-right-radius: 0px !important;
   }
+  hat1{
+    padding: 8px 32px 0px 32px !important;
+    text-align: center;
+  }
 }
 @media(min-width:721px), (max-width:1440px){
-  :root{
-    --scale:1.5;
-    /* --beardRadius:calc(var(--fontSize) * var(--scale) * 2); */
-    --beardRadius:48px;
-  }
+  /*scale 1.5*/
   body{font-size: 24px;}
   focus{
     border-radius: 24px;
@@ -88,23 +79,17 @@ body{
     border-radius:24px 0px 0px 24px;
     padding: 4.5px 12px 4.5px 27px;
   }
+  div.hat{border-radius: 72px;}
   div.beard{
     background:green;
     border-bottom-left-radius: 48px ;
     border-bottom-right-radius: 48px ;
     border-top-right-radius: 0px ;
   }
+  hat1{padding: 12px 48px 0px 48px ;}
 }
 @media(min-width:1441px){
-  :root{
-    --scale:2;
-    /* --beardRadius:calc(var(--fontSize) * var(--scale) * 2); */
-    --beardRadius:64px;
-  }
-  div.hat{
-    margin-right: 128px;
-    display:inline-block;
-  }
+  /*scale 2*/
   body{font-size: 32px;}
   focus{
     border-radius: 32px;
@@ -119,16 +104,19 @@ body{
     border-radius:32px 0px 0px 32px;
     padding: 6px 16px 6px 36px;
   }
+  div.hat{
+    border-radius: 96px;
+    margin-right: 128px;
+    display:inline-block;
+  }
   div.beard{
     background:navy;
     border-bottom-left-radius: 64px ;
     border-bottom-right-radius: 64px ;
     border-top-right-radius: 64px ;
   }
+  hat1{padding: 16px 64px 0px 64px ;}
 }
-
-
-/* body{font-size: calc(var(--fontSize) * var(--scale));} */
 
 a{
   font-family: "Russo One" !important;
@@ -144,8 +132,8 @@ iframe{max-width: 100%;}
 marker1,marker2,marker3,marker4,marker5,marker6,
 hat1,hat2,hat3,hat4,hat5,hat6 {
   font-family: 'Russo One', sans-serif !important;
-  padding:0px;
-  margin:0px;
+  /* padding:0px; */
+  /* margin:0px; */
   line-height: 0%;
 }
 marker1,hat1{font-size: 2em;}
@@ -161,8 +149,6 @@ hat1,hat2,hat3,hat4,hat5,hat6 {
 }
 hat1{
   line-height: 180%;
-  /* padding: 0px 108px; */
-  padding: 0px calc(var(--fontSize) * 3 * var(--scale));
 }
 hat2{
   padding-left: 0.6em;
@@ -173,51 +159,36 @@ hat3{
   padding: 0px 1.9em;
 }
 
-h3.hat,h2.hat{
-    font-family: 'Russo One', sans-serif !important;
-    padding:0px;
-    margin:0px;
-    line-height: 0%;
-}
-
 div.hat{
   background:var(--backhat);
   color:var(--texthat);
   border-color: var(--border);
   border-width: 2px;
   border-style: solid solid none;
-  /* border-radius: 60px; */
-  border-radius: calc(var(--fontSize) * var(--scale) * 4);
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  /* display:inline-block; */
   padding:0px;
   margin-top:0px;
   margin-left:0px;
   margin-bottom:0px;
-  /* margin-right: 60px; */
 }
 
 div.beard{
   border-color: var(--border);
   border-width:2px;
   border-style:solid solid solid;
-  /* border-radius:30px; */
-  /* border-bottom-left-radius: var(--beardRadius) !important; */
-  /* border-bottom-right-radius: var(--beardRadius) !important; */
   border-top-left-radius: 0px;
   padding-top:0.7em;
   padding-right: 1em;
   padding-bottom:1em;
   padding-left: 2em;
-  /* background: var(--background); */
 }
 
 div.box{
   border-color: var(--border);
   border-width:2px;
   border-style:solid;
-  border-radius:30px;/*x3*/
+  border-radius:30px;
   padding:0px 2em;
   margin: 2em;
   display: inline-block;
@@ -242,8 +213,6 @@ ol.ol01{
   transform: rotate(180deg);
 }
 ol.ol01 li{
-  /* padding-left: var(--fontSize); */
-  /* margin-left: 0px; */
   transform: rotate(-180deg);
   position: relative;
 }
