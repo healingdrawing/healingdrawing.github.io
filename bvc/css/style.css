@@ -133,8 +133,6 @@ iframe{max-width: 100%;}
 marker1,marker2,marker3,marker4,marker5,marker6,
 hat1,hat2,hat3,hat4,hat5,hat6 {
   font-family: 'Russo One', sans-serif !important;
-  /* padding:0px; */
-  /* margin:0px; */
   line-height: 0%;
 }
 marker1,hat1{font-size: 2em;}
@@ -156,7 +154,6 @@ hat2{
 }
 hat3{
   line-height: 220%;
-  /* padding: 0px 72px; */
   padding: 0px 1.9em;
 }
 
