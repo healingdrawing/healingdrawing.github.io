@@ -64,28 +64,28 @@ body{
 }
 @media(min-width:481px), (max-width: 720px){
   /*scale1*/
-  body{font-size: 16px !important;}
+  body{font-size: 16px ;}
   focus{
-    border-radius: 16px !important;
-    padding: 4px 20px 4px 16px !important;
-    margin-right: 4px !important;
+    border-radius: 16px ;
+    padding: 4px 20px 4px 16px ;
+    margin-right: 4px ;
   }
   release,update{
-    border-radius: 0px 16px 16px 0px !important;
-    padding: 3px 18px 3px 12px !important;
+    border-radius: 0px 16px 16px 0px ;
+    padding: 3px 18px 3px 12px ;
   }
   prerelease,preupdate{
-    border-radius:16px 0px 0px 16px !important;
-    padding: 3px 8px 3px 18px !important;
+    border-radius:16px 0px 0px 16px ;
+    padding: 3px 8px 3px 18px ;
   }
   div.hat{border-radius: 48px;}
   div.beard{
-    border-bottom-left-radius: 32px !important;
-    border-bottom-right-radius: 32px !important;
-    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 32px ;
+    border-bottom-right-radius: 32px ;
+    border-top-right-radius: 0px ;
   }
   hat1{
-    padding: 8px 32px 0px 32px !important;
+    padding: 8px 32px 0px 32px ;
     text-align: center;
   }
 }
