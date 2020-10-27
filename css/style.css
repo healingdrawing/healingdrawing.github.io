@@ -8,28 +8,40 @@
 
 /*20201027 new stuff*/
 @media (max-width:480px){
+  body{
+    font-size: 18px;
+  }
   .leftBox,.rightBox{
-    /* background:firebrick ; */
+    background:firebrick ;
     width:100%;
     min-width: 360px;
   }
 }
 @media(min-width: 481px) and (max-width: 720px){
+  body{
+    font-size: 24px;
+  }
   .leftBox,.rightBox{
-    /* background:green; */
+    background:green;
     width:100% !important;
     min-width: 360px;
   }
 }
 @media(min-width:721px) and (max-width:1440px){
+  body{
+    font-size: 36px;
+  }
   .leftBox,.rightBox{
-    /* background:navy; */
+    background:navy;
     width:50%;
   }
 }
 @media(min-width:1441px){
+  body{
+    font-size: 48px;
+  }
   .leftBox,.rightBox{
-    /* background:black; */
+    background:black;
     width:50%;
   }
 }
@@ -41,7 +53,7 @@ body{
   color:var(--bodyc);
   font-family: "Comfortaa" !important;
   line-height: 200%;
-  font-size: 300%;
+  /* font-size: 300%; */
 }
 
 .bigBox{
