@@ -77,7 +77,13 @@ body{
   color:var(--bodyc);
   font-family: "Comfortaa" !important;
   line-height: 200%;
-  /* font-size: 300%; */
+}
+
+.leftBoxTutorial{/*tutorials.html*/
+  display: block;
+  overflow: auto;
+  text-align: left;
+  padding: 20px !important;
 }
 
 .bigBox{
@@ -85,7 +91,7 @@ body{
   display: block;
   overflow: auto;
   text-align: center;
-  padding: 20px !important; /*control using media*/
+  padding: 20px !important;
 }
 .bigBox#topBox{
   background-image: linear-gradient(
