@@ -14,7 +14,7 @@
   .leftBox,.rightBox{
     background:firebrick ;
     width:100%;
-    min-width: 360px;
+    min-width: 320px;
   }
 }
 @media(min-width: 481px) and (max-width: 720px){
@@ -24,7 +24,7 @@
   .leftBox,.rightBox{
     background:green;
     width:100% !important;
-    min-width: 360px;
+    min-width: 440px;
   }
 }
 @media(min-width:721px) and (max-width:1440px){
