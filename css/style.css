@@ -12,7 +12,7 @@
     font-size: 18px;
   }
   .leftBox,.rightBox{
-    background:firebrick ;
+    /* background:firebrick ; */
     width:100%;
     min-width: 320px;
   }
@@ -22,7 +22,7 @@
     font-size: 24px;
   }
   .leftBox,.rightBox{
-    background:green;
+    /* background:green; */
     width:100% !important;
     min-width: 440px;
   }
@@ -32,7 +32,7 @@
     font-size: 36px;
   }
   .leftBox,.rightBox{
-    background:navy;
+    /* background:navy; */
     width:50%;
   }
 }
@@ -41,7 +41,7 @@
     font-size: 48px;
   }
   .leftBox,.rightBox{
-    background:black;
+    /* background:black; */
     width:50%;
   }
 }
