@@ -128,7 +128,7 @@ img#hd{
 .right{text-align:right;}
 .center{text-align:center;}
 
-td{border: white solid 2px !important;}
+/* td{border: white solid 2px !important;} */
 
 .x3app_show{
   width: 100%;
