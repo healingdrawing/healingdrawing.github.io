@@ -37,32 +37,32 @@ body{
 
 @media(max-width: 480px){
   /*scale 0.75 (12 of 16) added for tiny mobile*/
-  body{font-size: 12px !important;}
+  body{font-size: 12px;}
   focus{
-    border-radius: 12px !important;
-    padding: 3px 15px 3px 12px !important;
-    margin-right: 3px !important;
+    border-radius: 12px;
+    padding: 3px 15px 3px 12px;
+    margin-right: 3px;
   }
   release,update{
-    border-radius: 0px 12px 12px 0px !important;
-    padding: 3px 14px 3px 9px !important;
+    border-radius: 0px 12px 12px 0px;
+    padding: 3px 14px 3px 9px;
   }
   prerelease,preupdate{
-    border-radius:12px 0px 0px 12px !important;
-    padding: 3px 6px 3px 14px !important;
+    border-radius:12px 0px 0px 12px;
+    padding: 3px 6px 3px 14px;
   }
   div.hat{border-radius: 36px;}
   div.beard{
-    border-bottom-left-radius: 24px !important;
-    border-bottom-right-radius: 24px !important;
-    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-top-right-radius: 0px;
   }
   hat1{
-    padding: 6px 24px 0px 24px !important;
+    padding: 6px 24px 0px 24px;
     text-align: center;
   }
 }
-@media(min-width:481px), (max-width: 720px){
+@media(min-width:481px) and (max-width: 720px){
   /*scale1*/
   body{font-size: 16px ;}
   focus{
@@ -89,7 +89,7 @@ body{
     text-align: center;
   }
 }
-@media(min-width:721px), (max-width:1440px){
+@media(min-width:721px) and (max-width:1440px){
   /*scale 1.5*/
   body{font-size: 24px;}
   focus{
