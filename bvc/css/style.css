@@ -255,6 +255,30 @@ ol.ol01 li::before{
   color:var(--text05);
 }
 
+ol.ol02{
+  counter-reset: item;
+  list-style-type: none;
+  transform: rotate(180deg);
+}
+ol.ol02 li{
+  transform: rotate(-180deg);
+  position: relative;
+}
+ol.ol02 li::before{
+  font-family: "Comfortaa" !important;
+  font-size:0.7em;
+  content: counter(item, decimal-leading-zero) "."; 
+  counter-increment: item ;
+  left: -1.7em;
+  /* top: -0.5em; */
+  top: 0.09em;
+  width: 1.2em;
+  text-align: right;
+  position: absolute;
+  color:var(--text05);
+}
+ol.ol02 li{left:-0.5em;}
+
 year{color:var(--text); font-family: "YEAR" !important;}
 
 release,update,focus{
