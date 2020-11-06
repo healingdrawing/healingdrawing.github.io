@@ -302,6 +302,10 @@ focus{
   border-color:var(--border);
 }
 
+release,update,focus,prerelease,preupdate{
+  white-space:nowrap;
+}
+
 fixed{text-decoration: line-through;}
 
 .right{text-align: right;}
