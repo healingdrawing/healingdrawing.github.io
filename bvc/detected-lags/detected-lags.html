@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BEACH VOLLEYBALL COMPETITION. STEAM ANDROID game manual</title>
+    <meta name="description"
+        content="BEACH VOLLEYBALL COMPETITION video game manual. Steam and Android volleyball simulator. Free demo. Gameplay video. Basic settings description. Screenshots." />
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="BEACH VOLLEYBALL COMPETITION video game. STEAM ANDROID game manual" />
+    <meta property="twitter:title" content="BEACH VOLLEYBALL COMPETITION video game. STEAM ANDROID game manual" />
+    <meta property="go:description"
+        content="Beach volleyball simulator. Free demo. Discord invite. Gameplay video. Basic settings description. Screenshots." />
+    <meta property="twitter:description"
+        content="Beach volleyball simulator. Free demo. Discord invite. Gameplay video. Basic settings description. Screenshots." />
+    <meta property="og:image" content="https://healingdrawing.github.io/bvc/img/meta/twitter-card.png" />
+
+    <meta property="twitter:image" content="https://healingdrawing.github.io/bvc/img/meta/twitter.png" />
+
+    <meta property="og:url" content="https://healingdrawing.github.io/bvc/bvc.html" />
+    <meta property="tiwtter:card" content="https://healingdrawing.github.io/bvc/img/meta/twitter-card.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Healing Drawing" />
+    <meta property="og:image:url" content="https://healingdrawing.github.io/bvc/img/meta/twitter-card.png" />
+    <meta property="og:image:secure_url" content="https://healingdrawing.github.io/bvc/img/meta/twitter-card.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Beach line on background, and beach volleyball ball on foreground." />
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/meta/icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121264899-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-121264899-1');
+    </script>
+</head>
+
+<body>
+
+    <div class="hat">
+        <hat3>
+            <a class="hat" title="jump up" href="../bvc.html#detected-lags">
+                Detected lags
+            </a>
+        </hat3>
+    </div>
+    <div class="beard">
+        <!-- add elements to the end to show in beginning, list heavy customized -->
+        <ol class="ol01" reversed>
+            <li>
+                <prerelease>before</prerelease>
+                <release>android</release> when android device locked manually and unlocked, in time of match, there is
+                lags
+                often, ball freezing or characters disappear. That fix it, out in menu and start match again.
+            </li>
+            <li>
+                <preupdate>before</preupdate>
+                <update>general</update> some vibrations and sliding when action time not enough long, for comfort
+                switching.
+            </li>
+            <li>
+                <preupdate>before</preupdate>
+                <update>general</update>
+                <fixed>detected AI digging and fail with defense, after later user blocking, when ball sound play "bang"
+                    , but
+                    trajectory not changed</fixed>.
+            </li>
+            <li>
+                <preupdate>before</preupdate>
+                <update>general</update> once crush first time "training 1 move &rarr; item" pressed, or "story &rarr;
+                choose
+                level". After second and later app starts, all ok. This detected only with obfuscated version.
+            </li>
+            <li>
+                <preupdate>before</preupdate>
+                <update>general</update>
+                <fixed>detected digging and no toss from AI side, after : player &rarr; blocking prepare &rarr; move to
+                    defense
+                    &rarr; success defense &rarr; then AI confused and vibrate (once detected)</fixed>.
+            </li>
+            <li>
+                <preupdate>before</preupdate>
+                <update>general</update>
+                <fixed>detected in manual mode, player move on place after partner good defense, and ball fall to
+                    ground. After
+                    wrong(early) touch before serve beginned, when partner execute defense, but player action was
+                    executed too by
+                    user touch screen</fixed>.
+            </li>
+            <li>
+                <preupdate>before</preupdate>
+                <update>general</update> detected animation vibration, in side change flow.
+            </li>
+            <li>
+                <prerelease>before</prerelease>
+                <release>android</release> different cpu speed can produce different deviation of AI behavior, up to
+                "super
+                skill" for serve(slow cpu case), when AI several times in a row execute: serve &rarr; net &rarr; enemy
+                side
+                &rarr; very hard to defense.
+            </li>
+            <li>
+                <prerelease>before</prerelease>
+                <release>android</release>
+                <fixed>after match done &rarr; go back into menu , the banner still displayed (once detected). Go to
+                    match again
+                    and exit again. This hide banner . This safe for your progress etc</fixed>.
+            </li>
+            <li>
+                <preupdate>
+                    <year>2020-10-22</year>
+                </preupdate>
+                <update>general</update> - after point completed using complex condition "punch in court area &rarr;
+                ball
+                crosses the net in out area include case of touch the antenna" the menu indicator show "atak | ground
+                &gt; in"
+                which can be percepted as attacker win point, but point calculated correct way.
+            </li>
+            <li>
+                <preupdate>
+                    <year>2020-10-22</year>
+                </preupdate>
+                <update>general</update> - after point completed using complex condition "blocking &rarr; ball touch net
+                &rarr;
+                ball touch ground between blocker and net area, close to net columns and out" ball can be hidden behind
+                net
+                column, because there is no separated syntax for ball+column collision. Ball+net collision realized. The
+                next
+                point starts in the usual way.
+            </li>
+            <li>
+                <preupdate>
+                    <year>2020-11-20</year>
+                </preupdate>
+                <update>general</update> - once detected, along three months testing(if anyone else detect this, please
+                report,
+                and it will prevented using precalculated little displacement of ball, before bouncing back to attacker
+                side,
+                after weak punch). Really unexpected behavior. After agressive blocking &rarr; ball touch net &rarr;
+                ball bounce
+                under block to blocker side &rarr; second character of team come to ball and disappear. To fix it user
+                need
+                return to menu and start match again.
+            </li>
+        </ol>
+    </div>
+
+</body>
+
+</html>
