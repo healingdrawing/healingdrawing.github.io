@@ -1,0 +1,7 @@
+{
+    "editor.trimAutoWhitespace": false,
+    "editor.renderWhitespace": "all",
+    "files.trimFinalNewlines": true,
+    "editor.useTabStops": false,
+    "editor.tabSize": 2
+}
