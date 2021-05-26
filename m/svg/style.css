@@ -27,7 +27,7 @@ text-align:left;
 }
 
 td{border:1px solid rgb(0,166,255);}
-.tablehead{font-weight:;color:rgb(0,255,255);}
+.tablehead{color:rgb(0,255,255);}
 span{color:rgb(9, 13, 24);font-size:120%;}
 div.sub{margin-left:20px;position:inherit;text-indent:-10px;}
 table.tablecenter{text-align:center;}
