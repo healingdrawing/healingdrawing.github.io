@@ -12,7 +12,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="1.0.2 (1.0.2+r75+1)"
-   sodipodi:docname="structures_002_okta_center.svg">
+   sodipodi:docname="city_okta_center.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#818181"
@@ -108,9 +108,9 @@
             <dc:title>formalldistort.org</dc:title>
           </cc:Agent>
         </dc:publisher>
-        <dc:identifier>http://www.formalldistort.org/svg/structures_002_okta_center.svg</dc:identifier>
+        <dc:identifier>http://www.formalldistort.org/svg/city_okta_center.svg</dc:identifier>
         <dc:source>http://www.l4soft.narod.ru/</dc:source>
-        <dc:relation>http://www.l4soft.narod.ru/svg/download/structures_002_okta_center.svg</dc:relation>
+        <dc:relation>http://www.l4soft.narod.ru/svg/download/city_okta_center.svg</dc:relation>
         <dc:contributor>
           <cc:Agent>
             <dc:title>http://www.iskazkigolos.narod.ru http://www.nashsever.narod.ru</dc:title>
@@ -172,7 +172,7 @@
          y="585"
          x="5"
          id="tspan2988-0-43"
-         sodipodi:role="line">structures_002_okta_center.svg</tspan></text>
+         sodipodi:role="line">city_okta_center.svg</tspan></text>
     <circle
        id="path4432"
        style="fill:none;stroke:#000000;stroke-width:2.5;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
