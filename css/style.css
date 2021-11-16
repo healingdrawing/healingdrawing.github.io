@@ -224,5 +224,5 @@ img#DA{width: 260px;}
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerCodeScroller] > div {margin-top:-100% !important;}
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerHumanDummy] > div {margin-top:-500% !important;}
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerGradientGenerator] > div {margin-top:-300% !important;}
-.spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerRocketCreator] > div {margin-top:-200% !important;}
-.spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerWheelCreator] > div {margin-top:-200% !important;}
+.spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerRocketCreator] > div {margin-top:-300% !important;}
+.spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerWheelCreator] > div {margin-top:-300% !important;}
