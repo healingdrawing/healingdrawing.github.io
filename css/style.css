@@ -222,7 +222,11 @@ img#DA{width: 260px;}
 .spoilerbutton + .spoiler {padding: 0px 8px !important;}
 /*for each item because -100% fail with big text*/
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerCodeScroller] > div {margin-top:-100% !important;}
+
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerHumanDummy] > div {margin-top:-500% !important;}
+
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerGradientGenerator] > div {margin-top:-300% !important;}
+
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerRocketCreator] > div {margin-top:-300% !important;}
+
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerWheelCreator] > div {margin-top:-300% !important;}
