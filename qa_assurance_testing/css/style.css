@@ -1,0 +1,37 @@
+div{
+  margin:4px;
+}
+
+.questionLabel, .answerLabel, .explanationLabel{font-weight: bold;}
+
+/*marker style*/
+m{
+  color:white;
+  font-weight: bold;
+  background-color: black;
+  border-radius: 3px;
+  margin: 0px 4px !important;
+  padding: 0px 6px;
+}
+
+mm{
+  color:white;
+  font-weight: bold;
+  background-color: firebrick;
+  border-radius: 3px;
+  margin: 0px 4px !important;
+  padding: 0px 6px;
+}
+
+img{
+  min-width: 400px;
+  width: 720px;
+  max-width: 100%;
+}
+
+table,td{
+  border: 1px solid;
+  border-collapse: collapse;
+  padding:2px;
+}
+.bold{font-weight: bold;}
