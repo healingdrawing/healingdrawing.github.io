@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Information</title>
+</head>
+<body>
+	<h1>User Information</h1>
+	<table>
+		<tr>
+			<th>User ID</th>
+			<th>User Login</th>
+		</tr>
+		<tbody id="users"></tbody>
+	</table>
+
+  <!-- the task minimum requirements
+  You will have to create a profile UI where you can see your own school information.
+  This information/data is present on the graphQL endpoint, where you will have to query it.
+  
+  Your profile must have at least 3 sections of content at your choice, for example:
+  - Basic user identification
+  - XP amount
+  - level
+  
+  Beside those sections it will have a mandatory section for the generation of statistic graphs.
+  You will have to do at least two different statistic graphs for the data given.
+  - XP earned in a time period (progress over time)
+  - Levels over time
+  
+  You must use all the types of querying present above (normal, nested and using arguments), do not forget that you can use the types together or separately.
+
+  normal query(to get id from the login):
+  
+  {
+    user (where: { login: { _eq: "lenivaya10003" }}) {
+      id 
+      login
+    }
+  }
+  
+  query with parameters:
+  
+  {
+    transaction (where: { userId: { _eq: 465 }}) {
+      id 
+      amount
+      type
+      createdAt
+    }
+  }
+
+  query with nested syntax and with parameters(use login to check was login changed... data corrupted... or not):
+  
+  {
+  transaction (where: { userId: { _eq: 465 }}) {
+    id 
+    type
+    amount
+    user{
+      login
+    }
+    createdAt
+  }
+}
+
+  
+implement first get the user id from the login inside input box, default value is "lenivaya10003"
+
+if login not found, show message "user with login ... not found"
+else fetch the data from the server and show it on screen using graphics
+
+  -->
+  
+	<script>
+		fetch('https://01.gritlab.ax/api/graphql-engine/v1/graphql', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ query: '{user(where: { login: { _eq: "lenivaya10003" } }) { id login } }' })
+		})
+		.then(res => res.json())
+		.then(res => {
+			const users = res.data.user;
+			const tbody = document.getElementById('users');
+			users.forEach(user => {
+        //if (user.login === "lenivaya10003"){
+				const tr = document.createElement('tr');
+				// const idTd = document.createElement('td');
+				const loginTd = document.createElement('td');
+				// idTd.textContent = user.id;
+				loginTd.textContent = user.login;
+				// tr.appendChild(idTd);
+				tr.appendChild(loginTd);
+				tbody.appendChild(tr);
+        //}
+      });
+		})
+		.catch(err => console.error(err));
+	</script>
+</body>
+</html>
