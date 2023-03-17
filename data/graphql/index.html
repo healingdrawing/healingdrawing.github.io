@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>User Information</title>
-</head>
-<body>
-	<h1>User Information</h1>
-	<table>
-		<tr>
-			<th>User ID</th>
-			<th>User Login</th>
-		</tr>
-		<tbody id="users"></tbody>
-	</table>
+  <head>
+    <title>User Information</title>
+  </head>
+  <body>
+    <h1>User Information</h1>
+    <table>
+      <tr>
+        <th>User ID</th>
+        <th>User Login</th>
+      </tr>
+      <tbody id="users"></tbody>
+    </table>
 
-  <!-- the task minimum requirements
+    <!-- the task minimum requirements
   You will have to create a profile UI where you can see your own school information.
   This information/data is present on the graphQL endpoint, where you will have to query it.
   
@@ -53,7 +53,7 @@
   
   {
   transaction (where: { userId: { _eq: 465 }}) {
-    id 
+    id - looks like not available...strange
     type
     amount
     user{
@@ -70,31 +70,67 @@ if login not found, show message "user with login ... not found"
 else fetch the data from the server and show it on screen using graphics
 
   -->
-  
-	<script>
-		fetch('https://01.gritlab.ax/api/graphql-engine/v1/graphql', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ query: '{user(where: { login: { _eq: "lenivaya10003" } }) { id login } }' })
-		})
-		.then(res => res.json())
-		.then(res => {
-			const users = res.data.user;
-			const tbody = document.getElementById('users');
-			users.forEach(user => {
-        //if (user.login === "lenivaya10003"){
-				const tr = document.createElement('tr');
-				// const idTd = document.createElement('td');
-				const loginTd = document.createElement('td');
-				// idTd.textContent = user.id;
-				loginTd.textContent = user.login;
-				// tr.appendChild(idTd);
-				tr.appendChild(loginTd);
-				tbody.appendChild(tr);
-        //}
-      });
-		})
-		.catch(err => console.error(err));
-	</script>
-</body>
+
+    <script>
+      fetch("https://01.gritlab.ax/api/graphql-engine/v1/graphql", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query:
+            '{user(where: { login: { _eq: "lenivaya10003" } }) { id login } }',
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          const users = res.data.user;
+          const tbody = document.getElementById("users");
+          users.forEach((user) => {
+            //if (user.login === "lenivaya10003"){
+            const tr = document.createElement("tr");
+            // const idTd = document.createElement('td');
+            const loginTd = document.createElement("td");
+            // idTd.textContent = user.id;
+            loginTd.textContent = user.login;
+            // tr.appendChild(idTd);
+            tr.appendChild(loginTd);
+            tbody.appendChild(tr);
+            //}
+
+            // now use the user.id to fetch the data from the server, and show it on screen using graphics
+            console.log("user.id ", user.id);
+            fetch("https://01.gritlab.ax/api/graphql-engine/v1/graphql", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                query: `{ transaction (where: { userId: { _eq: ${user.id} }}) { type amount user{ login } createdAt } }`,
+              }),
+            })
+              .then((res) => res.json())
+              .then((rez) => {
+                console.log(rez);
+                const transactions = rez.data.transaction;
+                const tbody = document.getElementById("users");
+                transactions.forEach((transaction) => {
+                  const tr = document.createElement("tr");
+                  const typeTd = document.createElement("td");
+                  const amountTd = document.createElement("td");
+                  const loginTd = document.createElement("td");
+                  const createdAtTd = document.createElement("td");
+                  typeTd.textContent = transaction.type;
+                  amountTd.textContent = transaction.amount;
+                  loginTd.textContent = transaction.user.login;
+                  createdAtTd.textContent = transaction.createdAt;
+                  tr.appendChild(typeTd);
+                  tr.appendChild(amountTd);
+                  tr.appendChild(loginTd);
+                  tr.appendChild(createdAtTd);
+                  tbody.appendChild(tr);
+                });
+              })
+              .catch((err) => console.error(err));
+          });
+        })
+        .catch((err) => console.error(err));
+    </script>
+  </body>
 </html>
