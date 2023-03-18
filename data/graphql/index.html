@@ -87,6 +87,19 @@
 }
 
   
+{
+  result(where:  {userLogin: {_eq: "lenivaya10003"} grade: {_eq:1} }){
+    grade
+    createdAt
+    user {
+      id
+      login
+    }
+  }
+}
+
+
+
 implement first get the user id from the login inside input box, default value is "lenivaya10003"
 
 if login not found, show message "user with login ... not found"
