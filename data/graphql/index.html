@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <script src="billboard.pkgd.min.js"></script>
+    <style type="text/css">
+      body {
+        color: lightgray;
+        background-color: black;
+        align-content: center;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid;
+      }
+
+      #rotatedAxisGroupedBar .base-line line {
+        stroke-width: 3px;
+        stroke: #000;
+      }
+    </style>
     <title>User Information</title>
   </head>
   <body>
     <h1>User Information</h1>
+    <span id="userLogin"></span>
+    <div id="rotatedAxisGroupedBar"></div>
+
     <table>
       <tr>
         <th>User ID</th>
@@ -53,7 +76,7 @@
   
   {
   transaction (where: { userId: { _eq: 465 }}) {
-    id - looks like not available...strange
+    id - looks like not available...strange, removed and works at the moment
     type
     amount
     user{
@@ -72,6 +95,9 @@ else fetch the data from the server and show it on screen using graphics
   -->
 
     <script>
+      var userLogin;
+      var userXp;
+
       fetch("https://01.gritlab.ax/api/graphql-engine/v1/graphql", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -102,13 +128,27 @@ else fetch the data from the server and show it on screen using graphics
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                query: `{ transaction (where: { userId: { _eq: ${user.id} }}) { type amount user{ login } createdAt } }`,
+                query: `{ transaction (where: { userId: { _eq: ${user.id} }}) { path type amount user{ login } createdAt } }`,
               }),
             })
               .then((res) => res.json())
               .then((rez) => {
                 console.log(rez);
                 const transactions = rez.data.transaction;
+
+                /*sort transactions by time*/
+                transactions.sort((a, b) => {
+                  return new Date(a.createdAt) - new Date(b.createdAt);
+                });
+
+                /*filter only transactions where type === "xp", and sorted by date createdAt ascending*/
+                const xpTransactions = transactions
+                  .filter((transaction) => transaction.type === "xp")
+                  .sort((a, b) => {
+                    return new Date(a.createdAt) - new Date(b.createdAt);
+                  });
+                console.log("xpTransactions ", xpTransactions);
+
                 const tbody = document.getElementById("users");
                 transactions.forEach((transaction) => {
                   const tr = document.createElement("tr");
@@ -119,10 +159,16 @@ else fetch the data from the server and show it on screen using graphics
                   typeTd.textContent = transaction.type;
                   amountTd.textContent = transaction.amount;
                   loginTd.textContent = transaction.user.login;
-                  createdAtTd.textContent = transaction.createdAt;
+                  // time in milliseconds
+                  tms = Date.parse(transaction.createdAt);
+                  // time in seconds
+                  tss = tms / 1000;
+                  createdAtTd.textContent = tss;
+                  //createdAtTd.textContent = transaction.createdAt;
+
                   tr.appendChild(typeTd);
                   tr.appendChild(amountTd);
-                  tr.appendChild(loginTd);
+                  // tr.appendChild(loginTd);
                   tr.appendChild(createdAtTd);
                   tbody.appendChild(tr);
                 });
@@ -131,6 +177,54 @@ else fetch the data from the server and show it on screen using graphics
           });
         })
         .catch((err) => console.error(err));
+
+      var chart = bb.generate({
+        data: {
+          columns: [
+            ["Male", -83, -143, -100, -120, -150, -85],
+            ["Female", 130, 100, 140, 175, 150, 50],
+          ],
+          type: "bar", // for ESM specify as: bar()
+          groups: [["Male", "Female"]],
+          labels: {
+            format: function (v, id) {
+              return Math.abs(v);
+            },
+          },
+        },
+        axis: {
+          rotated: true,
+          x: {
+            show: false,
+          },
+          y: {
+            tick: {
+              format: function (v) {
+                return Math.abs(v);
+              },
+            },
+          },
+        },
+        grid: {
+          y: {
+            show: true,
+            lines: [
+              {
+                value: 0,
+                class: "base-line",
+              },
+            ],
+          },
+        },
+        tooltip: {
+          format: {
+            value: function (v) {
+              return Math.abs(v);
+            },
+          },
+        },
+        bindto: "#rotatedAxisGroupedBar",
+      });
     </script>
   </body>
 </html>
