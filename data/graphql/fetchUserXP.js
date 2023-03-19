@@ -1,4 +1,4 @@
-const fetchUserXp = async (userId) => {
+const fetchUserXp = async (userId, userLogin) => {
   fetch("https://01.gritlab.ax/api/graphql-engine/v1/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -13,7 +13,7 @@ const fetchUserXp = async (userId) => {
 
       /*check all logins is lenivaya10003, so login was not changed */
       transactions.some((transaction) => {
-        if (transaction.user.login !== "lenivaya10003") {
+        if (transaction.user.login !== userLogin) {
           console.error("login was changed, data can be corrupted");
           return true;
         }

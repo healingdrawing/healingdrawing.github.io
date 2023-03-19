@@ -17,7 +17,7 @@ const fetchUserId = async () => {
           "userLogin"
         ).textContent = `login: ${user.login}`;
         // now use the user.id to fetch the data from the server, and show it on screen using graphics
-        fetchUserXp(user.id);
+        fetchUserXp(user.id, user.login);
       });
 
       console.log("before grade, users ", users);
@@ -25,7 +25,7 @@ const fetchUserId = async () => {
         document.getElementById(
           "userGrade"
         ).textContent = `grade: ${user.grade}`;
-        fetchUserGrade(user.id);
+        fetchUserGrade(user.id, user.login);
       });
     })
     .catch((err) => console.error(err));
