@@ -2,38 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="style.css" />
     <script src="billboard.pkgd.min.js"></script>
-    <style type="text/css">
-      body {
-        color: lightgray;
-        background-color: black;
-        align-content: center;
-      }
 
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        border: 1px solid;
-      }
-
-      #rotatedAxisGroupedBar .base-line line {
-        stroke-width: 3px;
-        stroke: #000;
-      }
-    </style>
     <title>User Information</title>
   </head>
   <body>
     <h1>User Information</h1>
-    <span id="userLogin"></span>
+    <div id="userLogin"></div>
+    <div id="userXp"></div>
+    <div id="userGrade"></div>
     <div id="rotatedAxisGroupedBar"></div>
 
     <table>
       <tr>
-        <th>User ID</th>
-        <th>User Login</th>
+        <th>XP</th>
+        <th>createdAt</th>
       </tr>
-      <tbody id="users"></tbody>
+      <tbody id="xpTable"></tbody>
+    </table>
+
+    <table>
+      <tr>
+        <th>grade</th>
+        <th>createdAt</th>
+      </tr>
+      <tbody id="gradeTable"></tbody>
     </table>
 
     <!-- the task minimum requirements
@@ -107,137 +102,10 @@ else fetch the data from the server and show it on screen using graphics
 
   -->
 
-    <script>
-      var userLogin;
-      var userXp;
-
-      fetch("https://01.gritlab.ax/api/graphql-engine/v1/graphql", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          query:
-            '{user(where: { login: { _eq: "lenivaya10003" } }) { id login } }',
-        }),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          const users = res.data.user;
-          const tbody = document.getElementById("users");
-          users.forEach((user) => {
-            //if (user.login === "lenivaya10003"){
-            const tr = document.createElement("tr");
-            // const idTd = document.createElement('td');
-            const loginTd = document.createElement("td");
-            // idTd.textContent = user.id;
-            loginTd.textContent = user.login;
-            // tr.appendChild(idTd);
-            tr.appendChild(loginTd);
-            tbody.appendChild(tr);
-            //}
-
-            // now use the user.id to fetch the data from the server, and show it on screen using graphics
-            console.log("user.id ", user.id);
-            fetch("https://01.gritlab.ax/api/graphql-engine/v1/graphql", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                query: `{ transaction (where: { userId: { _eq: ${user.id} }}) { path type amount user{ login } createdAt } }`,
-              }),
-            })
-              .then((res) => res.json())
-              .then((rez) => {
-                console.log(rez);
-                const transactions = rez.data.transaction;
-
-                /*sort transactions by time*/
-                transactions.sort((a, b) => {
-                  return new Date(a.createdAt) - new Date(b.createdAt);
-                });
-
-                /*filter only transactions where type === "xp", and sorted by date createdAt ascending*/
-                const xpTransactions = transactions
-                  .filter((transaction) => transaction.type === "xp")
-                  .sort((a, b) => {
-                    return new Date(a.createdAt) - new Date(b.createdAt);
-                  });
-                console.log("xpTransactions ", xpTransactions);
-
-                const tbody = document.getElementById("users");
-                transactions.forEach((transaction) => {
-                  const tr = document.createElement("tr");
-                  const typeTd = document.createElement("td");
-                  const amountTd = document.createElement("td");
-                  const loginTd = document.createElement("td");
-                  const createdAtTd = document.createElement("td");
-                  typeTd.textContent = transaction.type;
-                  amountTd.textContent = transaction.amount;
-                  loginTd.textContent = transaction.user.login;
-                  // time in milliseconds
-                  tms = Date.parse(transaction.createdAt);
-                  // time in seconds
-                  tss = tms / 1000;
-                  createdAtTd.textContent = tss;
-                  //createdAtTd.textContent = transaction.createdAt;
-
-                  tr.appendChild(typeTd);
-                  tr.appendChild(amountTd);
-                  // tr.appendChild(loginTd);
-                  tr.appendChild(createdAtTd);
-                  tbody.appendChild(tr);
-                });
-              })
-              .catch((err) => console.error(err));
-          });
-        })
-        .catch((err) => console.error(err));
-
-      var chart = bb.generate({
-        data: {
-          columns: [
-            ["Male", -83, -143, -100, -120, -150, -85],
-            ["Female", 130, 100, 140, 175, 150, 50],
-          ],
-          type: "bar", // for ESM specify as: bar()
-          groups: [["Male", "Female"]],
-          labels: {
-            format: function (v, id) {
-              return Math.abs(v);
-            },
-          },
-        },
-        axis: {
-          rotated: true,
-          x: {
-            show: false,
-          },
-          y: {
-            tick: {
-              format: function (v) {
-                return Math.abs(v);
-              },
-            },
-          },
-        },
-        grid: {
-          y: {
-            show: true,
-            lines: [
-              {
-                value: 0,
-                class: "base-line",
-              },
-            ],
-          },
-        },
-        tooltip: {
-          format: {
-            value: function (v) {
-              return Math.abs(v);
-            },
-          },
-        },
-        bindto: "#rotatedAxisGroupedBar",
-      });
-    </script>
+    <script src="fetchUserXP.js"></script>
+    <script src="fetchUserGrade.js"></script>
+    <script src="fetchUserId.js"></script>
+    <script src="fetch.js"></script>
+    <script src="graphs.js"></script>
   </body>
 </html>

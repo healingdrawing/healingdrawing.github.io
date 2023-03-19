@@ -1,0 +1,16 @@
+body {
+  color: lightgray;
+  background-color: black;
+  align-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid;
+}
+
+#rotatedAxisGroupedBar .base-line line {
+  stroke-width: 3px;
+  stroke: #000;
+}
