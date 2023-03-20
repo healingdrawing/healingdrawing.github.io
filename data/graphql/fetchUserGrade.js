@@ -36,21 +36,21 @@ const fetchUserGrade = async (userId, userLogin) => {
       let sumGrade = 0;
       results.forEach((result) => {
         sumGrade += result.grade;
-        const tr = document.createElement("tr");
-        const gradeTd = document.createElement("td");
-        const createdAtTd = document.createElement("td");
-        gradeTd.textContent = result.grade;
-        // time in milliseconds
-        tms = Date.parse(result.createdAt);
-        // time in seconds
-        tss = tms / 1000;
-        createdAtTd.textContent = tss;
-        //createdAtTd.textContent = transaction.createdAt;
+        // const tr = document.createElement("tr");
+        // const gradeTd = document.createElement("td");
+        // const createdAtTd = document.createElement("td");
+        // gradeTd.textContent = result.grade;
+        // // time in milliseconds
+        // tms = Date.parse(result.createdAt);
+        // // time in seconds
+        // tss = tms / 1000;
+        // createdAtTd.textContent = tss;
+        // //createdAtTd.textContent = transaction.createdAt;
 
-        tr.appendChild(gradeTd);
-        // tr.appendChild(loginTd);
-        tr.appendChild(createdAtTd);
-        tbody.appendChild(tr);
+        // tr.appendChild(gradeTd);
+        // // tr.appendChild(loginTd);
+        // tr.appendChild(createdAtTd);
+        // tbody.appendChild(tr);
       });
       document.getElementById("userGrade").textContent = `grade: ${sumGrade}`;
     })

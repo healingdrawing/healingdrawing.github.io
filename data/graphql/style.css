@@ -1,13 +1,24 @@
 body {
-  color: lightgray;
-  background-color: black;
+  /* color: lightgray;
+  background-color: black; */
   align-content: center;
 }
 
 table {
   border-collapse: collapse;
-  width: 100%;
   border: 1px solid;
+  width: 100%;
+  align-items: center;
+}
+
+tr:hover {
+  background-color: #d6eeee;
+}
+
+table td,
+th {
+  border: 1px solid;
+  text-align: center;
 }
 
 #rotatedAxisGroupedBar .base-line line {
