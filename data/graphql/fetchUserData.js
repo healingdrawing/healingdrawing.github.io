@@ -6,7 +6,7 @@ var userXp = [];
 /** for grade */
 var userGrade;
 
-// do not use .then() in async function
+// do not use .then() in async function, it makes code unreadable after .then() nesting
 const fetchUserData = async () => {
   const response = await fetch(
     "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
@@ -30,7 +30,7 @@ const fetchUserData = async () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          query: `{ transaction (where: { userId: { _eq: ${user.id} } createdAt:{_gt:"2022-08-30T23:59:59+00:00"}}) { path type amount user{ login } createdAt } }`,
+          query: `{ transaction (where: { userId: { _eq: ${user.id} } type: { _eq: "xp" } }) { path type amount user{ login } createdAt } }`,
         }),
       }
     );
@@ -49,53 +49,45 @@ const fetchUserData = async () => {
       return new Date(a.createdAt) - new Date(b.createdAt);
     });
 
-    /*filter only transactions where type === "xp", and sorted by date createdAt ascending*/
-    const xpTransactions = transactions
-      .filter((transaction) => transaction.type === "xp")
-      .sort((a, b) => {
-        return new Date(a.createdAt) - new Date(b.createdAt);
-      });
-    console.log("xpTransactions ", xpTransactions);
-
     const tbody = document.getElementById("xpTable");
     let sumXp = 0;
-    xpTransactions.forEach((transaction) => {
+    let index = 0;
+    transactions.forEach((transaction) => {
       sumXp += transaction.amount;
       const tr = document.createElement("tr");
+      const indexTd = document.createElement("td");
       const amountTd = document.createElement("td");
       const createdAtTd = document.createElement("td");
+      indexTd.textContent = index;
+      index++;
       amountTd.textContent = transaction.amount;
-      // time in milliseconds
-      tms = Date.parse(transaction.createdAt);
-      // time in seconds
-      tss = tms / 1000;
-      createdAtTd.textContent = tss;
       createdAtTd.textContent = transaction.createdAt;
-
+      tr.appendChild(indexTd);
       tr.appendChild(amountTd);
-      // tr.appendChild(loginTd);
       tr.appendChild(createdAtTd);
       tbody.appendChild(tr);
     });
-    document.getElementById("userXp").textContent = `xp: ${sumXp}`;
-    userXp = formatUserXpData(xpTransactions);
+    document.getElementById(
+      "userXp"
+    ).textContent = `Type "xp" transactions ∑ amount: ${sumXp}`;
+    userXp = formatUserXpData(transactions);
 
     // graph
     let columns = [
-      ["Xp transactions (curriculum)", ...userXp[0]],
+      ['transaction with type equals "xp"[bytes]', ...userXp[0]],
       ["Time (from previous transaction) to get xp[minutes]", ...userXp[1]],
     ];
 
     var chart = bb.generate({
       size: {
-        height: 800,
+        height: 24 * userXp[0].length,
       },
       data: {
         columns: columns,
         type: "bar",
         groups: [
           [
-            "Xp transactions (curriculum)",
+            'transaction with type equals "xp"[bytes]',
             "Time (from previous transaction) to get xp[minutes]",
           ],
         ],
