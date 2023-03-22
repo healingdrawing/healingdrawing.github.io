@@ -4,10 +4,11 @@ var userLogin;
 /**for xp */
 var userXp = [];
 /** for grade */
-var userGrade;
+var userGrade = 0;
 
 // do not use .then() in async function, it makes code unreadable after .then() nesting
 const fetchUserData = async () => {
+  // fetch user id by login
   const response = await fetch(
     "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
     {
@@ -24,6 +25,46 @@ const fetchUserData = async () => {
   users.forEach(async (user) => {
     document.getElementById("userLogin").textContent = `login: ${user.login}`;
     // now use the user.id to fetch the data from the server
+
+    // fetch user grade
+    const gradeResponse = await fetch(
+      "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: `{
+          result(where:  {userId: {_eq: ${user.id}} grade: {_gt:0} }){
+            grade
+            createdAt
+            user {
+              login
+            }
+          }
+        }`,
+        }),
+      }
+    );
+
+    const gradeData = await gradeResponse.json();
+    const results = gradeData.data.result;
+    /*check all logins is lenivaya10003, so login was not changed */
+    results.some((result) => {
+      if (result.user.login !== user.login) {
+        console.error("login was changed, data can be corrupted");
+        return true;
+      }
+    });
+
+    // calculate sum of grade
+    results.forEach((result) => {
+      userGrade += result.grade;
+    });
+    document.getElementById(
+      "userGrade"
+    ).textContent = `Results grade ∑ amount: ${userGrade}`;
+
+    // fetch user xp
     const response = await fetch(
       "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
       {
