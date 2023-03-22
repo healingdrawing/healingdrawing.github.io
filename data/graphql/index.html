@@ -7,26 +7,18 @@
   </head>
   <body>
     <h1>User Information</h1>
-    <div id="userLogin"></div>
-    <div id="userXp"></div>
-    <div id="userGrade"></div>
-    <div id="rotatedAxisGroupedBar"></div>
+    <div id="userLogin"><red>user login fetch error</red></div>
+    <div id="userXp"><red>user xp fetch error</red></div>
+    <div id="userGrade"><red>user grades fetch error</red></div>
+    <div id="rotatedAxisGroupedBar" class="hidden"></div>
 
-    <table>
+    <table id="show-me" class="hidden">
       <tr>
         <th>index</th>
         <th>incoming XP</th>
         <th>createdAt</th>
       </tr>
       <tbody id="xpTable"></tbody>
-    </table>
-
-    <table>
-      <tr>
-        <th>grade</th>
-        <th>createdAt</th>
-      </tr>
-      <tbody id="gradeTable"></tbody>
     </table>
 
     <!-- the task minimum requirements
@@ -100,11 +92,6 @@ else fetch the data from the server and show it on screen using graphics
 
   -->
     <script src="billboard.pkgd.min.js"></script>
-    <!-- <script src="vars.js"></script> -->
-    <!-- <script src="fetchUserXP.js"></script> -->
-    <script src="fetchUserGrade.js"></script>
     <script src="fetchUserData.js"></script>
-    <!-- <script src="fetch.js"></script> -->
-    <!-- <script src="graphs.js"></script> -->
   </body>
 </html>

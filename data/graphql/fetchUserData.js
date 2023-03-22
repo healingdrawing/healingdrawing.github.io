@@ -1,11 +1,4 @@
-// to collect data for display in top of the page
-/**perhaps for legend, not sure */
-var userLogin;
-/**for xp */
-var userXp = [];
-/** for grade */
-var userGrade = 0;
-
+var userXp = []; // for sum of transactions with type equals to "xp"
 // do not use .then() in async function, it makes code unreadable after .then() nesting
 const fetchUserData = async () => {
   // fetch user id by login
@@ -24,9 +17,10 @@ const fetchUserData = async () => {
   const users = data.data.user;
   users.forEach(async (user) => {
     document.getElementById("userLogin").textContent = `login: ${user.login}`;
-    // now use the user.id to fetch the data from the server
+    // now use the user.id to fetch the data from the api
 
     // fetch user grade
+    var userGrades = 0; // for sum of grades
     const gradeResponse = await fetch(
       "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
       {
@@ -58,11 +52,11 @@ const fetchUserData = async () => {
 
     // calculate sum of grade
     results.forEach((result) => {
-      userGrade += result.grade;
+      userGrades += result.grade;
     });
     document.getElementById(
       "userGrade"
-    ).textContent = `Results grade ∑ amount: ${userGrade}`;
+    ).textContent = `Results grade ∑ amount: ${userGrades}`;
 
     // fetch user xp
     const response = await fetch(
@@ -112,11 +106,11 @@ const fetchUserData = async () => {
       "userXp"
     ).textContent = `Type "xp" transactions ∑ amount: ${sumXp}`;
     userXp = formatUserXpData(transactions);
-
+    console.log(userXp);
     // graph
     let columns = [
       ['transaction with type equals "xp"[bytes]', ...userXp[0]],
-      ["Time (from previous transaction) to get xp[minutes]", ...userXp[1]],
+      ["time (from previous transaction) to get xp[minutes]", ...userXp[1]],
     ];
 
     var chart = bb.generate({
@@ -129,12 +123,16 @@ const fetchUserData = async () => {
         groups: [
           [
             'transaction with type equals "xp"[bytes]',
-            "Time (from previous transaction) to get xp[minutes]",
+            "time (from previous transaction) to get xp[minutes]",
           ],
         ],
         labels: {
           format: function (v, id) {
-            return Math.abs(v);
+            if (id === 'transaction with type equals "xp"[bytes]') {
+              return -v;
+            } else {
+              return Math.abs(v);
+            }
           },
         },
       },
@@ -174,14 +172,20 @@ const fetchUserData = async () => {
       },
       tooltip: {
         format: {
-          value: function (v) {
-            return Math.abs(v);
+          value: function (v, r, id) {
+            if (id === 'transaction with type equals "xp"[bytes]') {
+              return -v;
+            } else {
+              return Math.abs(v);
+            }
           },
         },
       },
       bindto: "#rotatedAxisGroupedBar",
     });
   });
+  document.getElementById("show-me").classList.remove("hidden");
+  document.getElementById("rotatedAxisGroupedBar").classList.remove("hidden");
 };
 
 /**format data for graph object */

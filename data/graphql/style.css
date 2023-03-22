@@ -9,6 +9,7 @@ table {
   border: 1px solid;
   width: 100%;
   align-items: center;
+  background-color: white;
 }
 
 tr:hover {
@@ -19,6 +20,14 @@ table td,
 th {
   border: 1px solid;
   text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+red {
+  color: red;
 }
 
 #rotatedAxisGroupedBar .base-line line {
