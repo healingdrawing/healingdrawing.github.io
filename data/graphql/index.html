@@ -3,24 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
-    <title>User Information</title>
+    <title>Task Graphql</title>
   </head>
   <body>
-    <h1>User Information</h1>
-    <div id="userLogin"><red>user login fetch error</red></div>
-    <div id="userXp"><red>user xp fetch error</red></div>
-    <div id="userGrade"><red>user grades fetch error</red></div>
-    <div id="rotatedAxisGroupedBar" class="hidden"></div>
+    <h1>Use this at your own risk</h1>
+    <div id="logoutLink">logout</div>
+    <div id="loginView">
+      <form id="loginForm" method="post">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="enter user login or email"
+          value="lenivaya10003"
+        />
+        <br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="enter password"
+        />
+        <br />
+        <input type="submit" value="login" />
+      </form>
+    </div>
+    <div id="userView">
+      <div id="userLogin"><red>user login fetch error</red></div>
+      <div id="userXp"><red>user xp fetch error</red></div>
+      <div id="userGrade"><red>user grades fetch error</red></div>
+      <div id="rotatedAxisGroupedBar" class="hidden"></div>
 
-    <table id="show-me" class="hidden">
-      <tr>
-        <th>index</th>
-        <th>incoming XP</th>
-        <th>createdAt</th>
-      </tr>
-      <tbody id="xpTable"></tbody>
-    </table>
-
+      <table id="showMe" class="hidden">
+        <tr>
+          <th>index</th>
+          <th>incoming XP</th>
+          <th>createdAt</th>
+        </tr>
+        <tbody id="xpTable"></tbody>
+      </table>
+    </div>
+    <div id="errorView" class="hidden"></div>
     <!-- the task minimum requirements
   You will have to create a profile UI where you can see your own school information.
   This information/data is present on the graphQL endpoint, where you will have to query it.
@@ -92,6 +115,7 @@ else fetch the data from the server and show it on screen using graphics
 
   -->
     <script src="billboard.pkgd.min.js"></script>
-    <script src="fetchUserData.js"></script>
+    <script src="signin.js" type="module"></script>
+    <script src="fetchUserData.js" type="module"></script>
   </body>
 </html>

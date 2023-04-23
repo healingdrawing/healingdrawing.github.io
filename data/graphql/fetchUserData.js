@@ -1,19 +1,52 @@
+// const form = document.getElementById("loginForm");
+
+function login(token) {
+  document.getElementById("loginView").classList.add("hidden");
+  document.getElementById("userView").classList.remove("hidden");
+}
+
+function logout() {
+  document.getElementById("login").value = "";
+  document.getElementById("password").value = "";
+
+  document.getElementById("userLogin").innerHTML =
+    "<red>user login fetch error</red>";
+  document.getElementById("userXp").innerHTML =
+    "<red>user xp fetch error</red>";
+  document.getElementById("userGrade").innerHTML =
+    "<red>user grade fetch error</red>";
+
+  document.getElementById("showMe").classList.add("hidden");
+  document.getElementById("xpTable").innerHTML = "";
+
+  document.getElementById("rotatedAxisGroupedBar").classList.add("hidden");
+  document.getElementById("rotatedAxisGroupedBar").innerHTML = "";
+
+  document.getElementById("loginView").classList.remove("hidden");
+  document.getElementById("userView").classList.add("hidden");
+}
+
 var userXp = []; // for sum of transactions with type equals to "xp"
 // do not use .then() in async function, it makes code unreadable after .then() nesting
-const fetchUserData = async () => {
+export const fetchUserData = async (token) => {
+  // fucking bullshit
+  const query1 =
+    '{user(where: { login: { _eq: "lenivaya10003" } }) { id login } }';
   // fetch user id by login
   const response = await fetch(
     "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query:
-          '{user(where: { login: { _eq: "lenivaya10003" } }) { id login } }',
-      }),
+      headers: {
+        Authorization: `Bearer ` + token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: query1 }),
     }
   );
   const data = await response.json();
+  console.log("fuking token from fuking z01 shitmakers", token);
+  console.log("fuking data from z01 shitmakers", data);
   const users = data.data.user;
   users.forEach(async (user) => {
     document.getElementById("userLogin").textContent = `login: ${user.login}`;
@@ -25,7 +58,10 @@ const fetchUserData = async () => {
       "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: `Bearer ` + token,
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           query: `{
           result(where:  {userId: {_eq: ${user.id}} grade: {_gt:0} }){
@@ -63,7 +99,10 @@ const fetchUserData = async () => {
       "https://01.gritlab.ax/api/graphql-engine/v1/graphql",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: `Bearer ` + token,
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           query: `{ transaction (where: { userId: { _eq: ${user.id} } type: { _eq: "xp" } }) { path type amount user{ login } createdAt } }`,
         }),
@@ -106,7 +145,7 @@ const fetchUserData = async () => {
       "userXp"
     ).textContent = `Type "xp" transactions ∑ amount: ${sumXp}`;
     userXp = formatUserXpData(transactions);
-    console.log(userXp);
+    console.log("userXp two arrays ", userXp);
     // graph
     let columns = [
       ['transaction with type equals "xp"[bytes]', ...userXp[0]],
@@ -184,7 +223,7 @@ const fetchUserData = async () => {
       bindto: "#rotatedAxisGroupedBar",
     });
   });
-  document.getElementById("show-me").classList.remove("hidden");
+  document.getElementById("showMe").classList.remove("hidden");
   document.getElementById("rotatedAxisGroupedBar").classList.remove("hidden");
 };
 
@@ -208,11 +247,12 @@ function formatUserXpData(xpTransactions) {
     let time = Math.floor((item.x - data[index - 1].x) / 1000 / 60);
     return time;
   });
-  userXp.push(amount);
-  userXp.push(delta);
+  // in case of no return used
+  // userXp.push(amount);
+  // userXp.push(delta);
   // return array of arrays with amount and delta time
   return [amount, delta];
 }
 
-fetchUserData();
+// fetchUserData();
 // fetchUserGrade();
