@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Use this at your own risk</h1>
-    <div id="logoutLink">logout</div>
+    <button type="button" id="logoutLink" class="hidden">logout</button>
     <div id="loginView">
       <form id="loginForm" method="post">
         <input
@@ -29,9 +29,9 @@
       </form>
     </div>
     <div id="userView">
-      <div id="userLogin"><red>user login fetch error</red></div>
-      <div id="userXp"><red>user xp fetch error</red></div>
-      <div id="userGrade"><red>user grades fetch error</red></div>
+      <div id="userLogin"></div>
+      <div id="userXp"></div>
+      <div id="userGrade"></div>
       <div id="rotatedAxisGroupedBar" class="hidden"></div>
 
       <table id="showMe" class="hidden">
@@ -43,7 +43,7 @@
         <tbody id="xpTable"></tbody>
       </table>
     </div>
-    <div id="errorView" class="hidden"></div>
+    <div id="errorView" class="red"></div>
     <!-- the task minimum requirements
   You will have to create a profile UI where you can see your own school information.
   This information/data is present on the graphQL endpoint, where you will have to query it.

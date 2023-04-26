@@ -1,9 +1,6 @@
 // const form = document.getElementById("loginForm");
 
-function login(token) {
-  document.getElementById("loginView").classList.add("hidden");
-  document.getElementById("userView").classList.remove("hidden");
-}
+function login() {}
 
 function logout() {
   document.getElementById("login").value = "";

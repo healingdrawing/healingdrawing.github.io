@@ -40,6 +40,10 @@ loginForm.addEventListener("submit", async (event) => {
   var base64Str = btoa(String.fromCharCode.apply(null, byteArr));
 
   try {
+    document.getElementById("loginView").classList.add("hidden");
+    document.getElementById("userView").classList.remove("hidden");
+    document.getElementById("logoutLink").classList.remove("hidden");
+
     const response = await fetch("https://01.gritlab.ax/api/auth/signin", {
       method: "POST",
       headers: {
@@ -58,11 +62,12 @@ loginForm.addEventListener("submit", async (event) => {
       // Store the token in a cookie with an expiration time
       const expires = new Date(Date.now() + 24 * 60 * 60 * 1000);
       document.cookie = `token=${token};expires=${expires.toUTCString()}`;
-      loginDiv.className = "hide";
+      loginDiv.classList.add("hidden");
       await fetchUserData(token);
     }
   } catch (error) {
     console.error(error);
+    errorDiv.innerHTML = `${error}`;
   }
 });
 
