@@ -1,7 +1,7 @@
 :root{
-  --c1:#EBF7E3;
-  --c2:#9BD770;
-  --c3:#66B032;
+  --c1:#d4eec3;
+  --c2:#9dc87e;
+  --c3:#699d43;
   --c4:#375F1B;
   --c5:#1B3409;
 }
@@ -60,6 +60,9 @@ div.leftright{
   display: flex;
   padding: 0vw 2vw;
   margin:0;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  margin-bottom: 4vw;
   background-color: var(--c5);
   text-align: center;
   border-radius: 50% 50% 50% 50%;

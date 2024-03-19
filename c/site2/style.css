@@ -1,8 +1,8 @@
 :root{
-  --c1:#b0caf8;
-  --c2:#6395f2;
-  --c3:#1258DC;
-  --c4:#0A337F;
+  --c1:hsl(218, 84%, 90%);
+  --c2:hsl(219, 40%, 80%);
+  --c3:hsl(219, 50%, 70%);
+  --c4:hsl(219, 60%, 30%);
   --c5:#091834;
 }
 
@@ -60,6 +60,9 @@ div.leftright{
   display: flex;
   padding: 0vw 2vw;
   margin:0;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  margin-bottom: 4vw;
   background-color: var(--c5);
   text-align: center;
   border-radius: 50% 50% 50% 50%;
