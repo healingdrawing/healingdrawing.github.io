@@ -1,0 +1,93 @@
+:root{
+  --c1:#D4F7D4;
+  --c2:#559E54;
+  --c3:#FC7307;
+  --c4:#183BF0;
+  --c5:#091034;
+}
+
+body{
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
+  background-color: var(--c2);
+}
+
+h1,h2{padding-left: 2vw;}
+
+div.toptext{
+  padding: 2vw;
+}
+
+div.button_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.button_info{
+  padding: 2vw;
+  width: 50%;
+}
+
+div.container{
+  margin-top: 4vw;
+  width: 100%;
+  text-align: center;
+}
+
+div.the_button{
+  display:inline-block;
+  background-color: var(--c4);
+  border-radius: 50%;
+  padding-top: 4vw;
+  padding-bottom: 4vw;  
+}
+
+button{
+  font-size: 4vw;
+  border-top-right-radius: 8vw;
+  border-bottom-left-radius: 8vw;
+  margin: 4vw;
+  padding: 4vw;
+  border: none;
+  cursor: pointer;
+  background-color: var(--c3);
+  color: var(--c1);
+}
+
+div.leftright{
+  display: flex;
+  padding: 0vw 4vw;
+  margin:0;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  margin-bottom: 4vw;
+  background-color: var(--c5);
+  text-align: center;
+  border-radius: 50% 50% 50% 50%;
+}
+
+div.left{
+  float: left;
+  background-color: var(--c3);
+  margin: 2vw;
+  margin-top: -2vw;
+  margin-bottom: 8vw;
+  padding: 8vw;
+  border-bottom-right-radius: 2vw;
+  border-top-right-radius: 22vw;
+  border-bottom-left-radius: 22vw;
+}
+
+div.right{
+  float:right;
+  background-color: var(--c3);
+  margin: 2vw;
+  margin-top: -2vw;
+  margin-bottom: 8vw;
+  padding: 8vw;
+  border-bottom-left-radius: 2vw;
+  border-top-left-radius: 22vw;
+  border-bottom-right-radius: 22vw;
+}
