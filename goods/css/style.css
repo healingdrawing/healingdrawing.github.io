@@ -27,5 +27,7 @@ a{
   margin-top: 0.1em;
   border-top-left-radius: 0.25em;
   border-top-right-radius: 0.25em;
-  padding: 0.25em;
+  padding: 1em;
+  padding-top: 0.6em;
+  padding-bottom: 0.7em;
 }
