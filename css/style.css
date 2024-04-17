@@ -83,6 +83,7 @@ body{
   color:var(--bodyc);
   font-family: "Comfortaa" !important;
   line-height: 200%;
+  max-width: 100%;
 }
 
 .leftBoxTutorial{/*tutorials.html*/
@@ -239,3 +240,26 @@ img#DA{width: 260px;}
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerRocketCreator] > div {margin-top:-300% !important;}
 
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerWheelCreator] > div {margin-top:-300% !important;}
+
+/*new restyle section 2024*/
+
+.sm-container{ /*social-media-container for links*/
+  display: flex;
+  background: greenyellow;
+  text-align: center;
+  
+}
+
+.sm-card{ /*social-media-card for one link*/
+  width: 6vw;
+  height: 4vw !important;
+  margin-left: 2vw !important;
+  margin-right: 2vw !important;
+  background: darkgray;
+}
+
+.sm-icon{ /*social-media-icon for icon control*/
+  background: gray;
+  width: 4vw;
+  transform:translateY(-3vw)
+}
