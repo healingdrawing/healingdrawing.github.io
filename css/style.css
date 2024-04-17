@@ -244,22 +244,24 @@ img#DA{width: 260px;}
 /*new restyle section 2024*/
 
 .sm-container{ /*social-media-container for links*/
-  display: flex;
-  background: greenyellow;
-  text-align: center;
-  
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4vw; /* Optional: Adds space between grid items */
+  column-gap: 8vw;
+  /* background: greenyellow; */
 }
 
 .sm-card{ /*social-media-card for one link*/
-  width: 6vw;
-  height: 4vw !important;
-  margin-left: 2vw !important;
-  margin-right: 2vw !important;
+  border-radius: 2vw;
+  text-align: center;
+  height: 4vw;
   background: darkgray;
 }
 
 .sm-icon{ /*social-media-icon for icon control*/
+  position: absolute;
+  transform: translate(-50%,-60%);
   background: gray;
-  width: 4vw;
-  transform:translateY(-3vw)
+  width: 6vw;
+  filter: drop-shadow(0vw 0vw 0.25vw green);
 }
