@@ -1,9 +1,16 @@
+:root{
+  --desktop_columns: 4;
+  --desktop_card_width: calc(64vw / var(--desktop_columns));
+}
+
 .card-container{
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4vw; /* Optional: Adds space between grid items */
-  column-gap: 8vw;
+  grid-template-columns: repeat(var(--desktop_columns), 1fr);
+  gap: 1vw;
+  /* column-gap: 8vw; */
+  
+  text-align: center;
   
   
   background: rgb(48, 13, 56);
@@ -11,12 +18,28 @@
 
 .app-card{
   position: relative;
+  display: inline-block;
+  width: var(--desktop_card_width);
+  height: var(--desktop_card_width);
 }
 
 .app-media{
   position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+}
+
+.app-media img{
+  width: 100%;
+  height:100%;
+  object-fit:contain !important;
 }
 
 .app-title{
   position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
