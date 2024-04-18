@@ -1,0 +1,27 @@
+
+/* social media links section */
+
+.sm-container{ /*social-media-container for links*/
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4vw; /* Optional: Adds space between grid items */
+  column-gap: 8vw;
+  
+  background: rgb(76, 114, 20);
+}
+
+.sm-card{ /*social-media-card for one link*/
+  border-radius: 2vw;
+  text-align: center;
+  height: 4vw;
+  background: darkgray;
+}
+
+.sm-icon{ /*social-media-icon for icon control*/
+  position: absolute;
+  transform: translate(-50%,-60%);
+  background: gray;
+  width: 6vw;
+  filter: drop-shadow(0vw 0vw 0.25vw green);
+}

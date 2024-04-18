@@ -1,0 +1,9 @@
+.regulations{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4vw; /* Optional: Adds space between grid items */
+  column-gap: 8vw;
+  
+  background: rgb(76, 114, 20);
+}

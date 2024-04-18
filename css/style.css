@@ -240,28 +240,3 @@ img#DA{width: 260px;}
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerRocketCreator] > div {margin-top:-300% !important;}
 
 .spoilerbutton[value="show description spoiler"] + .spoiler[id=spoilerWheelCreator] > div {margin-top:-300% !important;}
-
-/*new restyle section 2024*/
-
-.sm-container{ /*social-media-container for links*/
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 4vw; /* Optional: Adds space between grid items */
-  column-gap: 8vw;
-  /* background: greenyellow; */
-}
-
-.sm-card{ /*social-media-card for one link*/
-  border-radius: 2vw;
-  text-align: center;
-  height: 4vw;
-  background: darkgray;
-}
-
-.sm-icon{ /*social-media-icon for icon control*/
-  position: absolute;
-  transform: translate(-50%,-60%);
-  background: gray;
-  width: 6vw;
-  filter: drop-shadow(0vw 0vw 0.25vw green);
-}

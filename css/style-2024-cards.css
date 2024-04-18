@@ -1,0 +1,22 @@
+.card-container{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4vw; /* Optional: Adds space between grid items */
+  column-gap: 8vw;
+  
+  
+  background: rgb(48, 13, 56);
+}
+
+.app-card{
+  position: relative;
+}
+
+.app-media{
+  position: absolute;
+}
+
+.app-title{
+  position: absolute;
+}
