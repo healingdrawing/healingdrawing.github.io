@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Jersey+10+Charted&family=Karantina:wght@300;400;700&family=Squada+One&family=Teko:wght@300..700&family=Wire+One&display=swap');
+
+.karantina-light {
+  font-family: "Karantina", system-ui;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.karantina-regular {
+  font-family: "Karantina", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.karantina-bold {
+  font-family: "Karantina", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.wire-one-regular {
+  font-family: "Wire One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bungee-inline-regular {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.squada-one-regular {
+  font-family: "Squada One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 300 to 700
+*/
+
+.teko-400 {
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jersey-10-charted-regular {
+  font-family: "Jersey 10 Charted", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root{
+  --triad1: #00ffaa;
+  --triad2:#aa00ff;
+  --triad2dark: hsl(280, 100%, 10%);
+  --triad3: #ffaa00;
+}

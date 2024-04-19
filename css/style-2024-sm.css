@@ -2,26 +2,37 @@
 /* social media links section */
 
 .sm-container{ /*social-media-container for links*/
-  position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 4vw; /* Optional: Adds space between grid items */
   column-gap: 8vw;
-  
-  background: rgb(76, 114, 20);
+  margin-top: 4vw !important;
 }
 
 .sm-card{ /*social-media-card for one link*/
   border-radius: 2vw;
   text-align: center;
   height: 4vw;
-  background: darkgray;
+  background: radial-gradient(
+    circle at center,
+    /* var(--triad3) 75%, */
+    hsla(0, 0%, 0%, 0.0) 75%,
+    var(--triad1)
+    );
+}
+
+.sm-card:hover{
+  background: radial-gradient(
+    circle at center,
+    hsla(0, 0%, 0%, 0.0) 70%,
+    var(--triad2)
+    );
 }
 
 .sm-icon{ /*social-media-icon for icon control*/
   position: absolute;
   transform: translate(-50%,-60%);
-  background: gray;
+  /* background: gray; */
   width: 6vw;
-  filter: drop-shadow(0vw 0vw 0.25vw green);
+  filter: drop-shadow(0vw 0vw 0.25vw var(--triad1));
 }
