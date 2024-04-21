@@ -30,7 +30,8 @@
   height: 100%;
   display: grid;
   mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
- -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+  transition: opacity var(--transition_time) ease-in-out;
 }
 
 .app-media img{
@@ -60,6 +61,7 @@
   font-size:2vw;
   color: var(--triad2dark) !important;
   filter: drop-shadow(0vw 0vw 0.25vw var(--triad1)) !important;
+  transition: all 1s;
 }
 
 .app-card:hover .app-title a{
@@ -72,8 +74,7 @@
   
 }
 
-.app-card:hover .app-title a::after {
-  content: attr(data-title); /* Use a custom attribute for the tooltip text */
+.app-card .app-title a::after {
   position: absolute;
   bottom: 100%; /* Position the tooltip above the element */
   left: 50%;
@@ -84,19 +85,21 @@
   font-family: "Teko", sans-serif;
   font-weight: 700;
   font-size: 2vw;
-  
   padding-left: 1vw;
   padding-right: 1vw;
   border-radius: 1vw;
+  
+  content: attr(data-title); /* Use a custom attribute for the tooltip text */
   opacity: 0;
   visibility: hidden;
   white-space: nowrap;
-  z-index: 1000; /* Ensure the tooltip is above other elements */
+  transition: opacity var(--transition_time), visibility var(--transition_time);
 }
 
-.app-card:hover .app-title a:hover::after {
-  animation: showTooltip 1s forwards;
-  animation-delay: 2s; 
+.app-card:hover .app-title a::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: var(--transition_delay);
 }
 
 .app-card:hover .app-media{

@@ -59,6 +59,8 @@
   --triad2:#aa00ff;
   --triad2dark: hsl(280, 100%, 10%);
   --triad3: #ffaa00;
+  --transition_time: 1s;
+  --transition_delay: 2s;
 }
 
 @keyframes showTooltip {
