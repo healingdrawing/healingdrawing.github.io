@@ -16,26 +16,60 @@
 }
 
 .sm-card{ /*social-media-card for one link*/
-  border-radius: 2vw;
+  position: relative;
+  display: inline-block;
   text-align: center;
   width: 10vw;
   height: 4vw;
   background: radial-gradient(
-    /* circle at center, */
-    /* var(--triad3) 75%, */
     var(--triad2),
     hsla(0, 0%, 0%, 0.0) 25%
     );
 }
+.sm-card:hover{ animation: expand 0.5s ease-in-out infinite; }
 
-.sm-card:hover{
-  background: radial-gradient(
-    circle at center,
-    hsla(0, 0%, 0%, 0.0) 70%,
-    var(--triad2)
-    );
+@keyframes expand {
+  0% { background: radial-gradient( var(--triad1), transparent 25%); }
+  10% { background: radial-gradient(transparent 5%, var(--triad1), transparent 30% ); }
+  20% { background: radial-gradient(transparent 10%, var(--triad1), transparent 35% ); }
+  30% { background: radial-gradient(transparent 15%, var(--triad1), transparent 40% ); }
+  40% { background: radial-gradient(transparent 20%, var(--triad1), transparent 45% ); }
+  50% { background: radial-gradient(transparent 25%, var(--triad1), transparent 50% ); }
+  60% { background: radial-gradient(transparent 30%, var(--triad1), transparent 55% ); }
+  70% { background: radial-gradient(transparent 35%, var(--triad1), transparent 60% ); }
+  80% { background: radial-gradient(transparent 40%, var(--triad1), transparent 65% ); }
+  90% { background: radial-gradient(var(--triad1), transparent 25%, transparent 40%, var(--triad1), transparent 65% ); }
+  100% { background: radial-gradient(var(--triad1), transparent 25% ); }
+  
 }
 
+.sm-card::after {
+  content: attr(data-title); /* Use a custom attribute for the tooltip text */
+  position: absolute;
+  bottom: 100%; /* Position the tooltip above the element */
+  left: 50%;
+  transform: translateX(-50%); /* Center the tooltip */
+  
+  background-color: var(--triad2dark); /* Background color of the tooltip */
+  color: var(--triad2); /* Text color of the tooltip */
+  font-family: "Teko", sans-serif;
+  font-weight: 700;
+  font-size: 2vw;
+  
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 1vw;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 1000; /* Ensure the tooltip is above other elements */
+ }
+ 
+ .sm-card:hover::after {
+  animation: showTooltip 1s forwards;
+  animation-delay: 2s; 
+ }
+ 
 .sm-card .sm-icon{ /*social-media-icon control*/
   position: absolute;
   transform: translate(-50%,-70%);

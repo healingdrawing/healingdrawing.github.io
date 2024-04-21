@@ -19,4 +19,33 @@
 
 .regulations a{
   color: var(--triad2);
+  position: relative;
+  display: inline-block;
 }
+
+.regulations a::after {
+  content: attr(data-title); /* Use a custom attribute for the tooltip text */
+  position: absolute;
+  bottom: 100%; /* Position the tooltip above the element */
+  left: 50%;
+  transform: translate(-50%, 40%);
+  
+  background-color: var(--triad2dark); /* Background color of the tooltip */
+  color: var(--triad2); /* Text color of the tooltip */
+  font-family: "Teko", sans-serif;
+  font-weight: 700;
+  font-size: 2vw;
+  
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 1vw;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 1000; /* Ensure the tooltip is above other elements */
+ }
+ 
+ .regulations a:hover::after {
+  animation: showTooltip 1s forwards;
+  animation-delay: 2s; 
+ }
