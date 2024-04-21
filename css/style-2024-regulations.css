@@ -1,9 +1,22 @@
 .regulations{
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4vw; /* Optional: Adds space between grid items */
-  column-gap: 8vw;
   
-  background: var(--triad2dark);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4vw;
+  column-gap: 8vw;
+  justify-items: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Centers the grid itself horizontally */
+  align-content: center; /* Centers the grid itself vertically */
+  
+  color: var(--triad3);
+  background: linear-gradient( to top, var(--triad2dark), transparent 75%);
+  font-family: "Jersey 10 Charted", sans-serif;
+  font-weight: 400;
+  font-size: 1.5vw;
+}
+
+.regulations a{
+  color: var(--triad2);
 }

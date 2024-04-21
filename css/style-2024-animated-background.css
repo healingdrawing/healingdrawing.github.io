@@ -1,9 +1,9 @@
 .animated-background {
   position: relative;
-  border: red 1px solid !important;
+  display: grid;
+  justify-items: center;
   text-align: center;
   margin: 0;
-  /* height: 100vh; */
   font-weight: 100;
   background: radial-gradient(
     farthest-side at center,
