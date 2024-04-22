@@ -56,20 +56,11 @@
 
 :root{
   --triad1: #00ffaa;
+  --triad1-rgb: 0, 255, 170; /*for sm gradient animation*/
   --triad2:#aa00ff;
   --triad2dark: hsl(280, 100%, 10%);
   --triad3: #ffaa00;
-  --transition_time: 1s;
-  --transition_delay: 2s;
-}
-
-@keyframes showTooltip {
-  0% {
-  opacity: 0;
-  visibility: hidden;
-  }
-  100% {
-  opacity: 1;
-  visibility: visible;
-  }
+  --expand-time: 0.5s;
+  --transition-time: 1s;
+  --transition-delay: 2s;
 }

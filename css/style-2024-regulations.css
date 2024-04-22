@@ -3,12 +3,8 @@
   
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4vw;
-  column-gap: 8vw;
-  justify-items: center; /* Centers items horizontally */
-  align-items: center; /* Centers items vertically */
-  justify-content: center; /* Centers the grid itself horizontally */
-  align-content: center; /* Centers the grid itself vertically */
+  
+  width: calc(100% - 8vw);
   
   color: var(--triad3);
   background: linear-gradient( to top, var(--triad2dark), transparent 75%);
@@ -17,6 +13,9 @@
   font-size: 1.5vw;
 }
 
+.regulations .the-most-left-grid-element{ justify-self: start; }
+.regulations .the-most-right-grid-element{ justify-self: end; }
+
 .regulations a{
   color: var(--triad2);
   position: relative;
@@ -24,7 +23,6 @@
 }
 
 .regulations a::after {
-  content: attr(data-title); /* Use a custom attribute for the tooltip text */
   position: absolute;
   bottom: 100%; /* Position the tooltip above the element */
   left: 50%;
@@ -39,13 +37,16 @@
   padding-left: 1vw;
   padding-right: 1vw;
   border-radius: 1vw;
+  
+  content: attr(data-title); /* Use a custom attribute for the tooltip text */
   opacity: 0;
   visibility: hidden;
   white-space: nowrap;
-  z-index: 1000; /* Ensure the tooltip is above other elements */
- }
+  transition: opacity var(--transition-time), visibility var(--transition-time);
+}
  
- .regulations a:hover::after {
-  animation: showTooltip 1s forwards;
-  animation-delay: 2s; 
- }
+.regulations a:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: var(--transition-delay);
+}

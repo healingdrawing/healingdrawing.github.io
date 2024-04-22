@@ -1,3 +1,15 @@
+:root{
+  --left1: 0%; /* 0% +81 */
+  --left2: 15%; /* 15% */
+  --left3: -15%; /* -15% */
+  --left4: -34%; /* -34% */
+  --left5: -57%; /* -57% */
+  --left6: -81%; /* -81% */
+  --left7: 37%; /* 37% */
+  --left8: 62%; /* 62% */
+  --left9: 85%; /* 85% */
+}
+
 .animated-background {
   position: relative;
   display: grid;
@@ -71,6 +83,7 @@ animation: floatUp 4s infinite linear;
  -moz-transform: scale(1.0);
  -o-transform: scale(1.0);
 transform: scale(1.0);
+left: var(--left1);
 }
 
 .x2{
@@ -82,7 +95,7 @@ animation: floatUp 7s infinite linear;
 -moz-transform: scale(1.6);
 -o-transform: scale(1.6);
 transform: scale(1.6);
-left: 15%;
+left: var(--left2);
 }
 
 .x3{
@@ -94,7 +107,7 @@ animation: floatUp 2.5s infinite linear;
 -moz-transform: scale(.5);
 -o-transform: scale(.5);
 transform: scale(.5);
-left: -15%;
+left: var(--left3);
 }
 
 .x4{
@@ -106,7 +119,7 @@ animation: floatUp 4.5s infinite linear;
 -moz-transform: scale(1.2);
 -o-transform: scale(1.2);
 transform: scale(1.2);
-left: -34%;
+left: var(--left4);
 }
 
 .x5{
@@ -118,7 +131,7 @@ animation: floatUp 8s infinite linear;
 -moz-transform: scale(2.2);
 -o-transform: scale(2.2);
 transform: scale(2.2);
-left: -57%;
+left: var(--left5);
 }
 
 .x6{
@@ -130,7 +143,7 @@ animation: floatUp 3s infinite linear;
 -moz-transform: scale(.8);
 -o-transform: scale(.8);
 transform: scale(.8);
-left: -81%;
+left: var(--left6);
 }
 
 .x7{
@@ -142,7 +155,7 @@ animation: floatUp 5.3s infinite linear;
 -moz-transform: scale(3.2);
 -o-transform: scale(3.2);
 transform: scale(3.2);
-left: 37%;
+left: var(--left7);
 }
 
 .x8{
@@ -154,7 +167,7 @@ animation: floatUp 4.7s infinite linear;
 -moz-transform: scale(1.7);
 -o-transform: scale(1.7);
 transform: scale(1.7);
-left: 62%;
+left: var(--left8);
 }
 
 .x9{
@@ -166,7 +179,7 @@ animation: floatUp 4.1s infinite linear;
 -moz-transform: scale(0.9);
 -o-transform: scale(0.9);
 transform: scale(0.9);
-left: 85%;
+left: var(--left9);
 }
 
 button:focus{
@@ -202,75 +215,6 @@ outline: none;
 100%{top: -100vh; opacity: 0;}
 }
 
-.header{
-position: absolute;
-top: 40%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-family: 'Roboto', sans-serif;
-font-weight: 200;
-color: white;
-font-size: 2em;
-}
-
-#head1, #head2,#head3, #head4, #head5{
-opacity: 0;
-}
-
-#head1{
--webkit-animation: fadeOut 1 5s ease-in;
--moz-animation: fadeOut 1 5s ease-in;
--o-animation: fadeOut 1 5s ease-in;
-animation: fadeOut 1 5s ease-in;
-}
-
-#head2{
--webkit-animation: fadeOut 1 5s ease-in;
--moz-animation: fadeOut 1 5s ease-in;
--o-animation: fadeOut 1 5s ease-in;
-animation: fadeOut 1 5s ease-in;
--webkit-animation-delay: 6s;
--moz-animation-delay: 6s;
--o-animation-delay: 6s;
-animation-delay: 6s;
-}
-
-#head3{
--webkit-animation: fadeOut 1 5s ease-in;
--moz-animation: fadeOut 1 5s ease-in;
--o-animation: fadeOut 1 5s ease-in;
-animation: fadeOut 1 5s ease-in;
--webkit-animation-delay: 12s;
--moz-animation-delay: 12s;
--o-animation-delay: 12s;
-animation-delay: 12s;
-}
-
-#head4{
--webkit-animation: fadeOut 1 5s ease-in;
--moz-animation: fadeOut 1 5s ease-in;
--o-animation: fadeOut 1 5s ease-in;
-animation: fadeOut 1 5s ease-in;
--webkit-animation-delay: 17s;
--moz-animation-delay: 17s;
--o-animation-delay: 17s;
-animation-delay: 17s;
-}
-
-#head5{
--webkit-animation: finalFade 1 5s ease-in;
--moz-animation: finalFade 1 5s ease-in;
--o-animation: finalFade 1 5s ease-in;
-animation: finalFade 1 5s ease-in;
--webkit-animation-fill-mode: forwards;
--moz-animation-fill-mode: forwards;
--o-animation-fill-mode: forwards;
-animation-fill-mode: forwards;
--webkit-animation-delay: 22s;
--moz-animation-delay: 22s;
--o-animation-delay: 22s;
-animation-delay: 22s;
-}
 
 @-webkit-keyframes fadeIn{
 from{opacity: 0;}
@@ -342,19 +286,8 @@ to{opacity: 1;}
 }
 
 @keyframes finalFade{
-0%{opacity: 0;}
-30%{opacity: 1;}
-80%{opacity: .9;}
-100%{opacity: 1;}
-}
-
-#footer{
-font-family: 'Roboto', sans-serif;
-font-size: 1.2em;
-color: white;
-position: fixed;
--webkit-transform: translate(95vw,90vh);
--moz-transform: translate(95vw,90vh);
-transform: translate(95vw,90vh);
-transform: translate(95vw,90vh);
+  0%{opacity: 0;}
+  30%{opacity: 1;}
+  80%{opacity: .9;}
+  100%{opacity: 1;}
 }

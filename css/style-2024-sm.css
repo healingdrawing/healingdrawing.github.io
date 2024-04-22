@@ -26,25 +26,23 @@
     hsla(0, 0%, 0%, 0.0) 25%
     );
 }
-.sm-card:hover{ animation: expand 0.5s ease-in-out infinite; }
+.sm-card:hover{ animation: expand var(--expand-time) ease-in-out infinite; }
 
 @keyframes expand {
-  0% { background: radial-gradient( var(--triad1), transparent 25%); }
-  10% { background: radial-gradient(transparent 5%, var(--triad1), transparent 30% ); }
-  20% { background: radial-gradient(transparent 10%, var(--triad1), transparent 35% ); }
-  30% { background: radial-gradient(transparent 15%, var(--triad1), transparent 40% ); }
-  40% { background: radial-gradient(transparent 20%, var(--triad1), transparent 45% ); }
-  50% { background: radial-gradient(transparent 25%, var(--triad1), transparent 50% ); }
-  60% { background: radial-gradient(transparent 30%, var(--triad1), transparent 55% ); }
-  70% { background: radial-gradient(transparent 35%, var(--triad1), transparent 60% ); }
-  80% { background: radial-gradient(transparent 40%, var(--triad1), transparent 65% ); }
-  90% { background: radial-gradient(var(--triad1), transparent 25%, transparent 40%, var(--triad1), transparent 65% ); }
-  100% { background: radial-gradient(var(--triad1), transparent 25% ); }
-  
+  0% { background: radial-gradient( rgba(var(--triad1-rgb), 1.0), transparent 25%); }
+  10% { background: radial-gradient(transparent 8%, rgba(var(--triad1-rgb), 0.9), transparent 30% ); }
+  20% { background: radial-gradient(transparent 16%, rgba(var(--triad1-rgb), 0.8), transparent 35% ); }
+  30% { background: radial-gradient(transparent 24%, rgba(var(--triad1-rgb), 0.7), transparent 40% ); }
+  40% { background: radial-gradient(transparent 32%, rgba(var(--triad1-rgb), 0.6), transparent 45% ); }
+  50% { background: radial-gradient(transparent 40%, rgba(var(--triad1-rgb), 0.5), transparent 50% ); }
+  60% { background: radial-gradient(transparent 48%, rgba(var(--triad1-rgb), 0.4), transparent 55% ); }
+  70% { background: radial-gradient(transparent 56%, rgba(var(--triad1-rgb), 0.3), transparent 60% ); }
+  80% { background: radial-gradient(transparent 64%, rgba(var(--triad1-rgb), 0.2), transparent 65% ); }
+  90% { background: radial-gradient(rgba(var(--triad1-rgb), 1.0), transparent 25%, transparent 64%, rgba(var(--triad1-rgb), 0.2), transparent 65% ); }
+  100% { background: radial-gradient(rgba(var(--triad1-rgb), 1.0), transparent 25% ); }
 }
 
 .sm-card::after {
-  content: attr(data-title); /* Use a custom attribute for the tooltip text */
   position: absolute;
   bottom: 100%; /* Position the tooltip above the element */
   left: 50%;
@@ -55,25 +53,26 @@
   font-family: "Teko", sans-serif;
   font-weight: 700;
   font-size: 2vw;
-  
   padding-left: 1vw;
   padding-right: 1vw;
   border-radius: 1vw;
+  
+  content: attr(data-title); /* Use a custom attribute for the tooltip text */
   opacity: 0;
   visibility: hidden;
   white-space: nowrap;
-  z-index: 1000; /* Ensure the tooltip is above other elements */
+  transition: opacity var(--transition-time), visibility var(--transition-time);
  }
  
  .sm-card:hover::after {
-  animation: showTooltip 1s forwards;
-  animation-delay: 2s; 
+  opacity: 1;
+  visibility: visible;
+  transition-delay: var(--transition-delay);
  }
  
 .sm-card .sm-icon{ /*social-media-icon control*/
   position: absolute;
   transform: translate(-50%,-70%);
-  /* background: gray; */
   width: 6vw;
   filter: drop-shadow(0vw 0vw 0.5vw var(--triad2));
 }
@@ -81,7 +80,6 @@
 .sm-card:hover .sm-icon{ /*social-media-icon control*/
   position: absolute;
   transform: translate(-50%,-70%);
-  /* background: gray; */
   width: 6vw;
   filter: drop-shadow(0vw 0vw 0.5vw var(--triad1));
 }
