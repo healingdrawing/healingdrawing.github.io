@@ -23,12 +23,62 @@
     padding-top: 3vw;
     padding-bottom: 3vw;
     border-radius: 4vw;
-    width: 100%; /*single column only*/
-    
+    width: 100%; /*single column only*/    
   }
   
   .sm-container{
     width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 18vw;
+    margin-top: 20vw !important;
+    margin-bottom: 20vw !important;
+  }
+  
+  .sm-card{
+    width: 16vw;
+    height: 8vw;
+  }
+  
+  .sm-card::after{
+    font-size: 6vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    border-radius: 4vw;
+    
+    transform: translate(-50%, -80%);
+  }
+  
+  .sm-card .sm-icon{
+    width: 13vw;
+    transform: translate(-50%,-80%);
+  }
+  
+  .sm-card:hover .sm-icon{ /*social-media-icon control*/
+    transform: translate(-50%,-90%);
+    width: 16vw;
+  }
+  
+  .regulations{
+    font-size: 4vw;
+    padding-bottom: 8vw;
+    padding-right: 4vw;
+    padding-left: 4vw;  
+  }
+  
+  .regulations a{
+    font-size: 5vw;
+  }
+  
+  .regulations a::after{
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    border-radius: 4vw;
+    font-size: 6vw;
+    transform: translate(-50%, -10%);
   }
 }
 @media(min-width: 481px) and (max-width: 720px){

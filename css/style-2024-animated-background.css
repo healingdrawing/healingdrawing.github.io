@@ -21,10 +21,11 @@
     farthest-side at center,
     var(--triad1),
     var(--triad2dark));
-  -webkit-overflow-Y: hidden;
-  -moz-overflow-Y: hidden;
-  -o-overflow-Y: hidden;
-  overflow-y: hidden;
+  -webkit-overflow: hidden;
+  -moz-overflow: hidden;
+  -o-overflow: hidden;
+  overflow: hidden;
+  
   -webkit-animation: fadeIn 1 1s ease-out;
   -moz-animation: fadeIn 1 1s ease-out;
   -o-animation: fadeIn 1 1s ease-out;

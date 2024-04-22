@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Teko:wght@300..700&display=swap');
 
+/*examples of the classes from fonts.google.com*/
+
 /*
 <uniquifier>: Use a unique and descriptive class name
 <weight>: Use a value from 300 to 700
 */
 
-.teko-400 {
+/* .teko-400 {
   font-family: "Teko", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -16,7 +18,7 @@
   font-family: "Jersey 10 Charted", sans-serif;
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 :root{
   --triad1: #00ffaa;
@@ -50,3 +52,5 @@
   --desktop-columns: 4;
   --desktop-card-width: calc(64vw / var(--desktop-columns));
 }
+
+*{ margin:0 ; padding:0 ; border:0px; text-decoration: none; }
