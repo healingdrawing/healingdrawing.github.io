@@ -4,15 +4,20 @@
 .sm-container{ /*social-media-container for links*/
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  row-gap: 6vw; /* Optional: Adds space between grid items */
+  row-gap: 6vw;
   /* column-gap: 8vw; */
   margin-top: 8vw !important;
   margin-bottom: 8vw !important;
-  /* background: var(--triad2dark); */
   background: linear-gradient( to bottom, var(--triad2dark), transparent 75%);
-  padding-left: 4vw !important;
-  padding-right: 4vw !important;
+  /* padding-left: 4vw !important;
+  padding-right: 4vw !important; */
   border-radius: 1vw;
+  
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
 }
 
 .sm-card{ /*social-media-card for one link*/

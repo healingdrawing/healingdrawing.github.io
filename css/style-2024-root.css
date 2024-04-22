@@ -1,40 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Jersey+10+Charted&family=Karantina:wght@300;400;700&family=Squada+One&family=Teko:wght@300..700&family=Wire+One&display=swap');
-
-.karantina-light {
-  font-family: "Karantina", system-ui;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.karantina-regular {
-  font-family: "Karantina", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.karantina-bold {
-  font-family: "Karantina", system-ui;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.wire-one-regular {
-  font-family: "Wire One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.bungee-inline-regular {
-  font-family: "Bungee Inline", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.squada-one-regular {
-  font-family: "Squada One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Teko:wght@300..700&display=swap');
 
 /*
 <uniquifier>: Use a unique and descriptive class name
@@ -57,10 +21,32 @@
 :root{
   --triad1: #00ffaa;
   --triad1-rgb: 0, 255, 170; /*for sm gradient animation*/
+  --triad1dark: hsl(160, 100%, 10%);
+  
   --triad2:#aa00ff;
   --triad2dark: hsl(280, 100%, 10%);
+  
   --triad3: #ffaa00;
+  --triad3dark: hsl(40, 100%, 10%);
+  
   --expand-time: 0.5s;
   --transition-time: 1s;
   --transition-delay: 2s;
+  
+  --mobile-top-font-size: 5vw;
+  --mobile-card-font-size: 7vw;
+  --mobile-columns: 1;
+  --mobile-card-width: calc(50vw / var(--mobile-columns));
+  
+  --tablet-top-font-size: 5vw;
+  --tablet-columns: 2;
+  --tablet-card-width: calc(64vw / var(--tablet-columns));
+  
+  --laptop-top-font-size: 5vw;
+  --laptop-columns: 3;
+  --laptop-card-width: calc(64vw / var(--laptop-columns));
+  
+  --desktop-top-font-size: 5vw;
+  --desktop-columns: 4;
+  --desktop-card-width: calc(64vw / var(--desktop-columns));
 }
