@@ -18,8 +18,6 @@
 .app-card{
   position: relative;
   display: inline-block;
-  /* width: var(--desktop-card-width);
-  height: var(--desktop-card-width); */
 }
 
 .app-media{
@@ -85,10 +83,6 @@
   color: var(--triad2);
   font-family: "Teko", sans-serif;
   font-weight: 700;
-  /* font-size: 4vw; */
-  /* padding-left: 1vw;
-  padding-right: 1vw; */
-  /* border-radius: 1vw; */
   
   content: attr(data-title); /* Use a custom attribute for the tooltip text */
   opacity: 0;

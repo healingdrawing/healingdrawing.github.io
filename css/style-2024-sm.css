@@ -3,15 +3,7 @@
 
 .sm-container{ /*social-media-container for links*/
   display: grid;
-  /* grid-template-columns: repeat(5, 1fr);
-  row-gap: 6vw; */
-  /* column-gap: 8vw; */
-  /* margin-top: 8vw !important;
-  margin-bottom: 8vw !important; */
   background: linear-gradient( to bottom, var(--triad2dark), transparent 75%);
-  /* padding-left: 4vw !important;
-  padding-right: 4vw !important; */
-  /* border-radius: 1vw; */
   
   justify-content: center;
   justify-self: center;
@@ -24,8 +16,7 @@
   position: relative;
   display: inline-block;
   text-align: center;
-  /* width: 10vw;
-  height: 4vw; */
+  
   background: radial-gradient(
     var(--triad2),
     hsla(0, 0%, 0%, 0.0) 25%
@@ -52,16 +43,11 @@
    /* Position the tooltip above the element */
   bottom: 100%;
   left: 50%;
-  /* transform: translate(-50%, 100%); */
   
   background-color: var(--triad2dark); /* Background color of the tooltip */
   color: var(--triad2); /* Text color of the tooltip */
   font-family: "Teko", sans-serif;
   font-weight: 700;
-  /* font-size: 2vw;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  border-radius: 1vw; */
   
   content: attr(data-title); /* Use a custom attribute for the tooltip text */
   filter:
@@ -84,15 +70,11 @@
  
 .sm-card .sm-icon{ /*social-media-icon control*/
   position: absolute;
-  /* transform: translate(-50%,-70%); */
-  /* width: 10vw; */
   filter: drop-shadow(0vw 0vw 0.5vw var(--triad2));
   transition: all var(--expand-time);
 }
 
 .sm-card:hover .sm-icon{ /*social-media-icon control*/
   position: absolute;
-  /* transform: translate(-50%,-70%); */
-  /* width: 6vw; */
   filter: drop-shadow(0vw 0vw 0.5vw var(--triad1));
 }

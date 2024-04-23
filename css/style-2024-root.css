@@ -56,13 +56,13 @@
   --laptop-app-card-title-a-after-font-size: 2vw;
   --laptop-regulations-font-size: 2.5vw;
   
-  /* --laptop-top-font-size: 5vw;
-  --laptop-columns: 3;
-  --laptop-card-width: calc(64vw / var(--laptop-columns));
-   */
   --desktop-top-font-size: 5vw;
+  --desktop-card-font-size: 2vw;
   --desktop-columns: 4;
   --desktop-card-width: calc(64vw / var(--desktop-columns));
+  --desktop-app-card-title-a-after-font-size: 1.6vw;
+  --desktop-regulations-font-size: 2vw;
+  
 }
 
 *{ margin:0 ; padding:0 ; border:0px; text-decoration: none; }
