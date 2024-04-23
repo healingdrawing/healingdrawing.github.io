@@ -39,15 +39,27 @@
   --mobile-card-font-size: 7vw;
   --mobile-columns: 1;
   --mobile-card-width: calc(50vw / var(--mobile-columns));
+  --mobile-app-card-title-a-after-font-size: 6vw;
+  --mobile-regulations-font-size: 4vw;
   
   --tablet-top-font-size: 5vw;
+  --tablet-card-font-size: 4vw;
   --tablet-columns: 2;
   --tablet-card-width: calc(64vw / var(--tablet-columns));
+  --tablet-app-card-title-a-after-font-size: 4vw;
+  --tablet-regulations-font-size: 4vw;
   
   --laptop-top-font-size: 5vw;
+  --laptop-card-font-size: 2.9vw;
   --laptop-columns: 3;
   --laptop-card-width: calc(64vw / var(--laptop-columns));
+  --laptop-app-card-title-a-after-font-size: 2vw;
+  --laptop-regulations-font-size: 2.5vw;
   
+  /* --laptop-top-font-size: 5vw;
+  --laptop-columns: 3;
+  --laptop-card-width: calc(64vw / var(--laptop-columns));
+   */
   --desktop-top-font-size: 5vw;
   --desktop-columns: 4;
   --desktop-card-width: calc(64vw / var(--desktop-columns));
