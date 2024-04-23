@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Teko:wght@300..700&display=swap');
+
+/*examples of the classes from fonts.google.com*/
+
+/*
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 300 to 700
+*/
+
+/* .teko-400 {
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jersey-10-charted-regular {
+  font-family: "Jersey 10 Charted", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+:root{
+  --triad1: #00ffaa;
+  --triad1-rgb: 0, 255, 170; /*for sm gradient animation*/
+  --triad1dark: hsl(160, 100%, 10%);
+  
+  --triad2:#aa00ff;
+  --triad2dark: hsl(280, 100%, 10%);
+  
+  --triad3: #ffaa00;
+  --triad3dark: hsl(40, 100%, 10%);
+  
+  --expand-time: 0.5s;
+  --transition-time: 1s;
+  --transition-delay: 2s;
+  
+  --mobile-top-font-size: 5vw;
+  --mobile-card-font-size: 7vw;
+  --mobile-columns: 1;
+  --mobile-card-width: calc(50vw / var(--mobile-columns));
+  --mobile-app-card-title-a-after-font-size: 6vw;
+  --mobile-regulations-font-size: 4vw;
+  
+  --tablet-top-font-size: 5vw;
+  --tablet-card-font-size: 4vw;
+  --tablet-columns: 2;
+  --tablet-card-width: calc(64vw / var(--tablet-columns));
+  --tablet-app-card-title-a-after-font-size: 4vw;
+  --tablet-regulations-font-size: 4vw;
+  
+  --laptop-top-font-size: 5vw;
+  --laptop-card-font-size: 2.9vw;
+  --laptop-columns: 3;
+  --laptop-card-width: calc(64vw / var(--laptop-columns));
+  --laptop-app-card-title-a-after-font-size: 2vw;
+  --laptop-regulations-font-size: 2.5vw;
+  
+  --desktop-top-font-size: 5vw;
+  --desktop-card-font-size: 2vw;
+  --desktop-columns: 4;
+  --desktop-card-width: calc(64vw / var(--desktop-columns));
+  --desktop-app-card-title-a-after-font-size: 1.6vw;
+  --desktop-regulations-font-size: 2vw;
+  
+}
+
+*{ margin:0 ; padding:0 ; border:0px; text-decoration: none; }

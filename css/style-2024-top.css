@@ -1,0 +1,12 @@
+.top-container{
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+  position: relative;
+  background: linear-gradient( to bottom, var(--triad2dark), transparent 75%);
+  
+  font-family: "Jersey 10 Charted", sans-serif;
+  font-size: 5vw;
+  text-align: center;
+  color: var(--triad3);
+  /* text-shadow: 0vw 0vw 0.25vw var(--triad1) !important; */
+}

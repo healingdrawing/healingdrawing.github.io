@@ -1,0 +1,80 @@
+
+/* social media links section */
+
+.sm-container{ /*social-media-container for links*/
+  display: grid;
+  background: linear-gradient( to bottom, var(--triad2dark), transparent 75%);
+  
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.sm-card{ /*social-media-card for one link*/
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  
+  background: radial-gradient(
+    var(--triad2),
+    hsla(0, 0%, 0%, 0.0) 25%
+    );
+}
+.sm-card:hover{ animation: expand var(--expand-time) ease-in-out infinite; }
+
+@keyframes expand {
+  0% { background: radial-gradient( rgba(var(--triad1-rgb), 1.0), transparent 25%); }
+  10% { background: radial-gradient(transparent 8%, rgba(var(--triad1-rgb), 0.9), transparent 30% ); }
+  20% { background: radial-gradient(transparent 16%, rgba(var(--triad1-rgb), 0.8), transparent 35% ); }
+  30% { background: radial-gradient(transparent 24%, rgba(var(--triad1-rgb), 0.7), transparent 40% ); }
+  40% { background: radial-gradient(transparent 32%, rgba(var(--triad1-rgb), 0.6), transparent 45% ); }
+  50% { background: radial-gradient(transparent 40%, rgba(var(--triad1-rgb), 0.5), transparent 50% ); }
+  60% { background: radial-gradient(transparent 48%, rgba(var(--triad1-rgb), 0.4), transparent 55% ); }
+  70% { background: radial-gradient(transparent 56%, rgba(var(--triad1-rgb), 0.3), transparent 60% ); }
+  80% { background: radial-gradient(transparent 64%, rgba(var(--triad1-rgb), 0.2), transparent 65% ); }
+  90% { background: radial-gradient(rgba(var(--triad1-rgb), 1.0), transparent 25%, transparent 64%, rgba(var(--triad1-rgb), 0.2), transparent 65% ); }
+  100% { background: radial-gradient(rgba(var(--triad1-rgb), 1.0), transparent 25% ); }
+}
+
+.sm-card::after {
+  position: absolute;
+   /* Position the tooltip above the element */
+  bottom: 100%;
+  left: 50%;
+  
+  background-color: var(--triad2dark); /* Background color of the tooltip */
+  color: var(--triad2); /* Text color of the tooltip */
+  font-family: "Teko", sans-serif;
+  font-weight: 700;
+  
+  content: attr(data-title); /* Use a custom attribute for the tooltip text */
+  filter:
+  drop-shadow(0px 0px 0.75vw var(--triad1))
+  drop-shadow(0px 0px 0.75vw var(--triad1))
+  drop-shadow(0px 0px 0.75vw var(--triad1))
+  !important;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 1000;
+  transition: opacity var(--transition-time), visibility var(--transition-time);
+ }
+ 
+ .sm-card:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: var(--transition-delay);
+ }
+ 
+.sm-card .sm-icon{ /*social-media-icon control*/
+  position: absolute;
+  filter: drop-shadow(0vw 0vw 0.5vw var(--triad2));
+  transition: all var(--expand-time);
+}
+
+.sm-card:hover .sm-icon{ /*social-media-icon control*/
+  position: absolute;
+  filter: drop-shadow(0vw 0vw 0.5vw var(--triad1));
+}

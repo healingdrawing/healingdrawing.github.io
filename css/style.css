@@ -83,6 +83,7 @@ body{
   color:var(--bodyc);
   font-family: "Comfortaa" !important;
   line-height: 200%;
+  max-width: 100%;
 }
 
 .leftBoxTutorial{/*tutorials.html*/
