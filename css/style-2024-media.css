@@ -1,6 +1,7 @@
 @media (max-width:480px){ /* mobile (just a name to recognize) */
   .top-container{
     font-size: var(--mobile-top-font-size);
+    margin-bottom: 15.5vw;
   }
   
   .card-container{
@@ -84,6 +85,7 @@
 @media(min-width: 481px) and (max-width: 720px){ /* tablet */
   .top-container{
     font-size: var(--tablet-top-font-size);
+    margin-bottom: 20.5vw;
   }
   
   .card-container{
@@ -166,6 +168,7 @@
 @media(min-width:721px) and (max-width:1440px){ /* laptop */
   .top-container{
     font-size: var(--laptop-top-font-size);
+    margin-bottom: 11vw;
   }
 
   .card-container{
@@ -248,6 +251,7 @@
 @media(min-width:1441px){
   .top-container{
     font-size: var(--desktop-top-font-size);
+    margin-bottom: 7vw;
   }
   
   .card-container{
