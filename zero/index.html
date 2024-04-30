@@ -40,7 +40,10 @@
           Copy all your solutions into folder outside repository, before allow to any initiative person to help you make commits and pulls using terminal, because terminal is not safe absolutely. And in case of your helper fail, you will be victim, and the helper will be just surprised.
         </li>
         <li>
-          If vscode requires "pull", before do it, copy all visible files (your code/solutions) from repository folder into another folder, for emergency case, to always have backup.
+          <b>If you made wrong commit, just overwrite the mistake by new correct commit</b>. This approach not the perfect one, but much more safe than try to rollback or undo commit, what can easily fuckup everything in beginner's opinion, and produce headache and non-mandatory frustration.
+        </li>
+        <li>
+          When vscode requires "pull", before do it, copy all visible files (your code/solutions) from repository folder into another folder, for emergency case, to always have backup.
         </li>
         <li>
           When create repository, check the option "initialize repository. Add readme ..." .
@@ -108,6 +111,11 @@
     
     <ol>
       <li>
+        After change the repository files and save the changes, you will see marker, with number of unstaged changes, nearby the "source control" tab icon.
+        
+        <img src="img/unstaged-changes.png" alt="">
+      </li>
+      <li>
         Open "source control" tab, and press "+" on the group of changes to stage all changes into commit.
         
         <img src="img/stage-all-changes.png" alt="">
@@ -117,6 +125,34 @@
         
         <img src="img/commit-message-commit-button.png" alt="">
       </li>
+      <li>
+        Press "Sync Changes" button, and wait while process complete.
+      </li>
+      <li>
+        If every thing was ok, now your changes uploaded into internet remote git(gitea, github ... ) repository. Sometimes, when sequence of steps above was executed incorrect, the vscode requires make "pull" first.
+      </li>
+    </ol>
+    
+    <h2>
+      The case when vscode requires "Pull" first.
+    </h2>
+    
+    <ol>
+      <li>
+        Close dialog, which requires "Pull".
+      </li>
+      <li>
+        <b>Copy all files with your code into folder outside repository</b>, to have simple backup. In emergency case(when no other ways found, and time is limited) you can just recreate repository, and copy paste your file into recreated repository. But this case is rare enough, in case you make steps properly, and only you edit your repository.
+      </li>
+      <li>
+        Press "Pull (Rebase)", and agree with dialog. After that repository will be updated with last data from remote version of the repository.
+        
+        <img src="img/pull-rebase.png" alt="">
+      </li>
+      <li>
+        Check the updated version of code is correct, then try "Sync Changes" again.
+      </li>
+      <li>If something not good enough, f.e. version of code not enough fresh, modify the code(use your backup) and continue common way.</li>
     </ol>
     
   </body>
