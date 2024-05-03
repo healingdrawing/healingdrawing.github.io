@@ -7,6 +7,10 @@ img{
   width: 100%;
 }
 
+h3 {
+  padding-top: 1em;
+}
+
 li{
   padding: 20px
 }
