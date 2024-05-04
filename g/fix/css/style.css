@@ -15,3 +15,7 @@ h3 {
 li{
   padding: 20px
 }
+
+*{
+  scroll-behavior: smooth;
+}
