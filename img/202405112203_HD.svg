@@ -71,11 +71,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
-     inkscape:cx="160"
+     inkscape:cx="266"
      inkscape:cy="458"
      inkscape:document-units="px"
      inkscape:current-layer="g4"
-     showgrid="true"
+     showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
      guidecolor="#c400ff"
@@ -103,7 +103,7 @@
        spacingx="45"
        spacingy="45"
        units="px"
-       visible="true" />
+       visible="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -143,11 +143,11 @@
        cy="325"
        cx="324.99997"
        id="circle2"
-       style="opacity:1;fill:#00ffaa;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.996078"
+       style="opacity:1;fill:#1ae5a1;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.996078"
        rx="399.99997"
        ry="400" />
     <path
-       style="fill:#fefffe;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-linejoin:round"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-linejoin:round"
        d="m 100,100 h 180 c 270,0 270,270 270,270 V 550 H 370 280 C 100,550 100,370 100,370 v -90 z"
        id="path7"
        sodipodi:nodetypes="ccccccccc" />
