@@ -18,9 +18,102 @@
   </head>
   
   <body class="s2">
+    <button id="stop_resizing_button">Stop Resizing</button>
+    
+    <p id="section0" class="t s3">
+      Content
+    </p>
     <ul>
-      <li class="nav">source</li>
-      <li class="nav">install</li>
+      <a href="https://deno.com"><li class="nav">Source</li></a>
+      <a href="#section1"></a><li class="nav">Configure</li>
     </ul>
+    
+    <p id="section1" class="t s3">
+      Configure
+    </p>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      curl -fsSL https://deno.land/install.sh | sh
+    </p>
+    
+    <p>
+      To install Deno. Then follow the terminal tips, to <span class="m">update the PATH variable</span>.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno upgrade
+    </p>
+    
+    <p>To upgrade Deno.</p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno install -Arf jsr:@deno/deployctl
+    </p>
+    
+    <p>
+      To install deployment tool.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deployctl --help
+    </p>
+    
+    <p>To check installation.</p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      rm -rf $HOME/.deno
+    </p>
+    
+    <p>To uninstall Deno.</p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno info
+    </p>
+    
+    <p>To get info about cash configuration.</p>
+    
+    <p class="x s1">
+      DENO_DIR location: /home/user/.cache/deno
+      Remote modules cache: /home/user/.cache/deno/deps
+      npm modules cache: /home/user/.cache/deno/npm
+      Emitted modules cache: /home/user/.cache/deno/gen
+      Language server registries cache: /home/user/.cache/deno/registries
+      Origin storage: /home/user/.cache/deno/location_data
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      rm -rf /home/user/.cache/deno
+    </p>
+    
+    <p>To remove recursively cashed Deno files(use previous output paths).</p>
+    
+    
   </body>
+  <script src="../script.js"></script>
 </html>
