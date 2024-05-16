@@ -62,7 +62,7 @@
 *{ transition: all var(--transition-time); }
 
 body{
-  background: hsl(210, 20%, 40%);
+  background: hsl(160, 20%, 40%);
   color: hsl(60, 30%, 90%);
   
   font-family: "Reddit Mono", monospace;
@@ -80,36 +80,90 @@ body{
   font-optical-sizing: auto;
   font-weight: 700;
   line-height: 100%;
+  filter:
+  drop-shadow(0px 0px 0.1em black)
 }
 
-/* code */
-.c{
+/* code and terminal commands */
+.c, .x{
   font-family: "Reddit Mono", monospace;
   font-style: normal;
   font-optical-sizing: auto;
   font-weight: 400;
+  white-space: pre-wrap;
+  white-space-collapse: preserve-spaces;
   line-height: 100%;
+  
   letter-spacing: 0px;
   background: black;
   width: fit-content;
+  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-/* text */
-.x{
-  
+.c {
+  counter-reset: itemCounter; /* Initialize the counter */
+}
+
+.c div {
+  display: flex;
+  counter-increment: itemCounter; /* Increment the counter for each div */
+}
+
+.c div::before {
+  content: counter(itemCounter) ". "; /* Display the counter before the div content */
+}
+
+.cx{
+  border-left: hsl(160, 20%, 40%) 4px solid;
+  padding: 4px;
+  margin: 8px;
+  width: fit-content;
+}
+
+/* execute command in terminal console */
+.x div::after {
+  content: " ↩"; /* Display the counter before the div content */
+  color: hsl(160, 20%, 40%);
+}
+
+/* marker */
+.m{
+  background: black;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 /*digits*/
-.d{ font-family: "Micro 5 Charted", sans-serif; }
+.d{ font-family: "Micro 5 Charted", sans-serif; letter-spacing: 0px; }
 .d::before, .d::after{content: "\00a0";}
 
 li{
   /* border: yellow 1px solid; */
-  background: hsl(160, 20%, 40%);
-  width:fit-content;
+  background: hsl(210, 20%, 40%);
+  width: fit-content;
   margin-top: 20px;
   padding: 10px;
   padding-left: 30px;
-  padding-right: 30px;
-  
+  padding-right: 30px;  
+}
+
+/* for clickable list and clickable single list items*/
+ul.nav li, li.nav{
+  cursor: pointer;
+  filter:
+  drop-shadow(0px 0px 0.1em)
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none; /* Removes underline */
+  color:inherit; /* Inherits the color from the parent element */
+}
+
+img{
+  max-width: 100%;
+  border: 1px solid black;
+  filter:
+  drop-shadow(0px 0px 0.2em black)
 }

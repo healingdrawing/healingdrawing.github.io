@@ -38,3 +38,28 @@ function stop_resizing() {
 
 // Add event listener to the button to stop resizing
 document.getElementById('stop_resizing_button').addEventListener('click', stop_resizing);
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all elements with class "c"
+    var elements = document.querySelectorAll('.c,.x');
+    
+    // Function to calculate indentation
+    function calculateIndentation(element) {
+        var lines = element.textContent.split('\n').slice(1, -1);
+        var indents = lines.map(line => line.match(/^\s*/)[0].length);
+        return Math.min(...indents);
+    }
+    
+    // Iterate over each element
+    elements.forEach(function(element) {
+        // Calculate the minimum indentation
+        var minIndent = calculateIndentation(element);
+        
+        // Modify the text content by removing the minimum indentation
+        // var modifiedText = element.textContent.split('\n').slice(1, -1).join('<br>\n').replace(new RegExp(`^\\s{${minIndent}}`, 'gm'), '');
+        var modifiedText = element.textContent.split('\n').slice(1, -1).map(text => `<div class="cx">${text}</div>`).join('').replace(new RegExp(`<div class="cx">\\s{${minIndent}}`, 'gm'), '<div class="cx">');
+        
+        // Update the element's text content with the modified text
+        element.innerHTML = modifiedText;
+    });
+});
