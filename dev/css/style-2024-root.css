@@ -59,7 +59,7 @@
 */
 
 :root{ --transition-time: 1s; }
-*{ transition: all var(--transition-time); }
+*{ transition: all var(--transition-time); scroll-behavior: smooth;}
 
 body{
   background: hsl(160, 20%, 40%);

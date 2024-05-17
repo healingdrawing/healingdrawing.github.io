@@ -24,13 +24,14 @@
       Content
     </p>
     <ul>
-      <a href="https://deno.com"><li class="nav">Source</li></a>
-      <a href="#section1"></a><li class="nav">Configure</li>
+      <a href="https://deno.com"><li class="nav">Deno Source</li></a>
+      <a href="#section1"><li class="nav">Configure Deno</li></a>
+      <a href="#section2"><li class="nav">Manage Deno Projects</li></a>
     </ul>
     
     <a href="#section0">
       <p id="section1" class="t s3">
-        Configure
+        Configure Deno
       </p>
     </a>
     
@@ -115,6 +116,49 @@
     
     <p>To remove recursively cashed Deno files(use previous output paths).</p>
     
+    <a href="#section0">
+      <p id="section2" class="t s3">
+        Manage Deno Projects
+      </p>
+    </a>
+
+    <p>Terminal:</p>
+
+    <p class="x s1">
+      deno init
+    </p>
+
+    <p>To create Deno project inside the terminal current folder</p>
+
+    <hr>
+    
+    <p>Terminal:</p>
+
+    <p class="x s1">
+      deno init basic-project
+    </p>
+
+    <p>To create Deno project inside new folder <span class="m">basic-project</span></p>
+    
+    <p>Execution of <span class="m">deno init</span> command for already created project will skip all files created before. So your project will not be damaged.</p>
+    
+    <p class="o s1">
+      Skipped creating main.ts as it already exists
+      ℹ️ Skipped creating main_test.ts as it already exists
+      ℹ️ Skipped creating deno.json as it already exists
+      ✅ Project initialized
+
+      Run these commands to get started
+
+        # Run the program
+        deno run main.ts
+
+        # Run the program and watch for file changes
+        deno task dev
+
+        # Run the tests
+        deno test
+    </p>
     
   </body>
   <script src="../script.js"></script>
