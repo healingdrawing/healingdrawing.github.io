@@ -41,7 +41,7 @@ document.getElementById('stop_resizing_button').addEventListener('click', stop_r
 
 document.addEventListener('DOMContentLoaded', function() {
     // Select all elements with class "c"
-    var elements = document.querySelectorAll('.c,.x');
+    var elements = document.querySelectorAll('.c,.x,.o');
     
     // Function to calculate indentation
     function calculateIndentation(element) {
