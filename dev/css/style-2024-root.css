@@ -81,7 +81,9 @@ body{
   font-weight: 700;
   line-height: 100%;
   filter:
-  drop-shadow(0px 0px 0.1em black)
+  drop-shadow(0px 0px 0.1em black);
+  padding-top: 1.6em;
+  padding-bottom: 0.4em;
 }
 
 /* code + terminal commands + terminal output */
@@ -166,4 +168,11 @@ img{
   border: 1px solid black;
   filter:
   drop-shadow(0px 0px 0.2em black)
+}
+
+hr {
+  border: none; /* Removes the shadow */
+  background-color: hsl(60, 30%, 90%);
+  height: 0.01em; /* Adjusts the thickness of the line */
+  margin-bottom: 3em;
 }
