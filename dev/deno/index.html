@@ -31,6 +31,8 @@
       <a href="#section4"><li class="nav">Types and Type Declarations</li></a>
       <a href="#section5"><li class="nav">Private Modules and Repositories</li></a>
       <a href="#section6"><li class="nav">Runtime APIs</li></a>
+      <a href="#section7"><li class="nav">Importing NPM Packages</li></a>
+      <a href="#section8"><li class="nav">Node API Compatibility List</li></a>
     </ul>
     
     <a href="#section0">
@@ -289,6 +291,57 @@
     </a>
     
     <a href="https://deno.land/api">Runtime APIs</a>
+    
+    <a href="#section0">
+      <p id="section7" class="t s3">
+        Importing NPM Packages
+      </p>
+    </a>
+    
+    <p>main.js</p>
+    
+    <p class="c s1">
+      import { emojify } from "npm:node-emoji@2";
+      console.log(emojify(":t-rex: :heart: NPM"));
+    </p>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno run main.js
+    </p>
+    
+    <p>Output:</p>
+    
+    <p class="o s1">
+      🦖 ❤️ NPM
+    </p>
+    
+    <p>As described in docs, using of npm packages is unstable. Do not use it without strict needs.</p>
+    
+    <p>Copypaste from terminal:</p>
+    
+    <p class="o s1">
+      > emojify(":heart:");
+      "❤️"
+      > emojify(":t-rex:");
+      "🦖"
+      >
+    </p>
+    
+    <p>Screenshot from terminal:</p>
+    
+    <img src="img/import-npm.png" alt="terminal screenshot">
+    
+    <p>In some reasons the &quot; symbol after the heart symbol is recolored in the black color(fail even with this simple example above). Also looks like import returns <span class="m">undefined</span> which probably some trash too.</p>
+    
+    <a href="#section0">
+      <p id="section8" class="t s3">
+        Node API Compatibility List
+      </p>
+    </a>
+    
+    <a href="https://docs.deno.com/runtime/manual/node/compatibility">Node API Compatibility List</a>
     
   </body>
   <script src="../script.js"></script>
