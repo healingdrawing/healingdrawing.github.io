@@ -161,6 +161,100 @@
         deno test
     </p>
     
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno cache --reload my_module.ts
+    </p>
+    
+    <p>
+      To force Deno to refetch and recompile modules into the cache.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno vendor main.ts test.deps.ts https://deno.land/std/path/mod.ts
+    </p>
+    
+    <p>To download all remote dependencies of the specified modules into a local <span class="m">vendor</span> folder.</p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno run --no-remote --import-map=vendor/import_map.json main.ts
+    </p>
+    
+    <p>
+      To run + force Deno use the modules in the <span class="m">vendor</span> folder.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno check module.ts
+    </p>
+    
+    <p>
+      To type-check without execution.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno run module.ts
+    </p>
+    
+    <p>
+      To execute without type-check.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno check --all module.ts
+    </p>
+    
+    <p>
+      To also type-check remote modules and npm packages.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno run --check module.ts
+    </p>
+    
+    <p>
+      To type-check before execution.
+    </p>
+    
+    <hr>
+    
+    <p>Terminal:</p>
+    
+    <p class="x s1">
+      deno run --check=all module.ts
+    </p>
+    
+    <p>
+      To also type-check remote modules and npm packages before execution.
+    </p>
+    
     <a href="#section0">
       <p id="section3" class="t s3">
         API changes and deprecations
