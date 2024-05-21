@@ -57,7 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Modify the text content by removing the minimum indentation
         // var modifiedText = element.textContent.split('\n').slice(1, -1).join('<br>\n').replace(new RegExp(`^\\s{${minIndent}}`, 'gm'), '');
-        var modifiedText = element.textContent.split('\n').slice(1, -1).map(text => `<div class="cx">${text}</div>`).join('').replace(new RegExp(`<div class="cx">\\s{${minIndent}}`, 'gm'), '<div class="cx">');
+        var modifiedText = element.textContent
+        .replaceAll(" > ","&#65125;")
+        .replaceAll(" < ","&#65124;")
+        // now we can display jsx, but can not copypaste code.
+        .split('\n').slice(1, -1).map(text => `<div class="cx">${text}</div>`).join('').replace(new RegExp(`<div class="cx">\\s{${minIndent}}`, 'gm'), '<div class="cx">');
         
         // Update the element's text content with the modified text
         element.innerHTML = modifiedText;

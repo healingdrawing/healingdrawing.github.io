@@ -33,6 +33,8 @@
       <a href="#section6"><li class="nav">Runtime APIs</li></a>
       <a href="#section7"><li class="nav">Importing NPM Packages</li></a>
       <a href="#section8"><li class="nav">Node API Compatibility List</li></a>
+      <a href="#section9"><li class="nav">JSX import source pragma(compiler directive)</li></a>
+      <a href="#section10"><li class="nav">Basic Twind(tailwind-in-js) example</li></a>
     </ul>
     
     <a href="#section0">
@@ -344,11 +346,10 @@
     <a href="https://docs.deno.com/runtime/manual/node/compatibility">Node API Compatibility List</a>
     
     <a href="#section0">
-      <p id="section8" class="t s3">
+      <p id="section9" class="t s3">
         JSX import source pragma(compiler directive)
       </p>
     </a>
-    
     <p>To use Preact from esm.sh, add in the source code file leading comments <span class="m">@jsxImportSource</span> pragma</p>
     
     <p class="c s1">
@@ -356,11 +357,56 @@
       
       export function App() {
         return (
-          // jsx syntax
+           < div > 
+             < h1 > Hello, world! < /h1 > 
+           < /div > 
         );
       }
     </p>
+      
+    <a href="#section0">
+      <p id="section10" class="t s3">
+        Basic Twind(tailwind-in-js) example
+      </p>
+    </a>
     
+    <p class="c s1">
+      import { extract, install } from "https://esm.sh/@twind/core@1.1.3";
+      import presetTailwind from "https://esm.sh/@twind/preset-tailwind@1.1.4";
+
+      install({
+        presets: [
+          presetTailwind(),
+          {
+            theme: {
+              fontFamily: {
+                sans: ["Helvetica", "sans-serif"],
+                serif: ["Times", "serif"],
+              },
+            },
+          },
+        ],
+      });
+
+      function renderBody() {
+        return ` < !DOCTYPE html > 
+           < html lang="en" > 
+             < body class="font-sans" > 
+               < h1 class="text(3xl blue-500)" > Hello from Deno < /h1 > 
+             < /body > 
+           < /html > 
+        `;
+      }
+
+      function ssr() {
+        const body = renderBody();
+        const { html, css } = extract(body);
+        return html.replace(" < /head > ", ` < style data-twind > ${css} < /style >  < /head > `);
+      }
+
+      console.log(ssr());
+    </p>
+      
   </body>
   <script src="../script.js"></script>
 </html>

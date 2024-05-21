@@ -176,3 +176,8 @@ hr {
   height: 0.01em; /* Adjusts the thickness of the line */
   margin-bottom: 3em;
 }
+
+.z{
+  padding: 4px !important;
+  margin: 40px !important;
+}

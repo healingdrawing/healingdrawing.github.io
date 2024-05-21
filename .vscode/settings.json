@@ -3,5 +3,6 @@
     "editor.renderWhitespace": "all",
     "files.trimFinalNewlines": true,
     "editor.useTabStops": false,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "html.validate.styles": false
 }
