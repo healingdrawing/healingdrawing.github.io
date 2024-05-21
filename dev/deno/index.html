@@ -343,6 +343,24 @@
     
     <a href="https://docs.deno.com/runtime/manual/node/compatibility">Node API Compatibility List</a>
     
+    <a href="#section0">
+      <p id="section8" class="t s3">
+        JSX import source pragma(compiler directive)
+      </p>
+    </a>
+    
+    <p>To use Preact from esm.sh, add in the source code file leading comments <span class="m">@jsxImportSource</span> pragma</p>
+    
+    <p class="c s1">
+      /** @jsxImportSource https://esm.sh/preact */
+      
+      export function App() {
+        return (
+          // jsx syntax
+        );
+      }
+    </p>
+    
   </body>
   <script src="../script.js"></script>
 </html>
