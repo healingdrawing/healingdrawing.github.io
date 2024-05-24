@@ -35,6 +35,7 @@
       <a href="#section8"><li class="nav">Node API Compatibility List</li></a>
       <a href="#section9"><li class="nav">JSX import source pragma(compiler directive)</li></a>
       <a href="#section10"><li class="nav">Basic Twind(tailwind-in-js) example</li></a>
+      <a href="#section11"><li class="nav">Basic deno-dom(DOM and HTML parser) example</li></a>
     </ul>
     
     <a href="#section0">
@@ -136,7 +137,7 @@
       deno init
     </p>
 
-    <p>To create Deno project inside the terminal current folder</p>
+    <p>To create Deno project inside the terminal current folder.</p>
 
     <hr>
     
@@ -146,7 +147,7 @@
       deno init basic-project
     </p>
 
-    <p>To create Deno project inside new folder <span class="m">basic-project</span></p>
+    <p>To create Deno project inside new folder <span class="m">basic-project</span>.</p>
     
     <p>Execution of <span class="m">deno init</span> command for already created project will skip all files created before. So your project will not be damaged.</p>
     
@@ -357,9 +358,9 @@
       
       export function App() {
         return (
-           < div > 
-             < h1 > Hello, world! < /h1 > 
-           < /div > 
+          &lt;div&gt;
+            &lt;h1&gt;Hello, world!&lt;/h1&gt;
+          &lt;/div&gt;
         );
       }
     </p>
@@ -389,22 +390,45 @@
       });
 
       function renderBody() {
-        return ` < !DOCTYPE html > 
-           < html lang="en" > 
-             < body class="font-sans" > 
-               < h1 class="text(3xl blue-500)" > Hello from Deno < /h1 > 
-             < /body > 
-           < /html > 
+        return `&lt;!DOCTYPE html&gt;
+          &lt;html lang="en"&gt;
+            &lt;body class="font-sans"&gt;
+              &lt;h1 class="text(3xl blue-500)"&gt;Hello from Deno&lt;/h1&gt;
+            &lt;/body&gt;
+          &lt;/html&gt;
         `;
       }
 
       function ssr() {
         const body = renderBody();
         const { html, css } = extract(body);
-        return html.replace(" < /head > ", ` < style data-twind > ${css} < /style >  < /head > `);
+        return html.replace("&lt;/head&gt;", `&lt;style data-twind&gt;${css}&lt;/style&gt;&lt;/head&gt;`);
       }
 
       console.log(ssr());
+    </p>
+    
+    <a href="#section0">
+      <p id="section11" class="t s3">
+        Basic deno-dom(DOM and HTML parser) example
+      </p>
+    </a>
+    
+    <p class="c s1">
+      import {
+        DOMParser,
+        initParser,
+      } from "https://deno.land/x/deno_dom/deno-dom-wasm-noinit.ts";
+      
+      (async () => {
+        // initialize when you need it, but not at the top level
+        await initParser();
+      
+        const doc = new DOMParser().parseFromString(
+          `&lt;h1&gt;Lorem ipsum dolor...&lt;/h1&gt;`,
+          "text/html",
+        );
+      })();
     </p>
       
   </body>
