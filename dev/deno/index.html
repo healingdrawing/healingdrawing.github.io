@@ -37,6 +37,9 @@
       <a href="#section10"><li class="nav">Basic Twind(tailwind-in-js) example</li></a>
       <a href="#section11"><li class="nav">Basic deno-dom(DOM and HTML parser) example</li></a>
       <a href="#section12"><li class="nav">Managing Dependencies</li></a>
+      <a href="#section13"><li class="nav">Permissions(manage Deno security model)</li></a>
+      <a href="#section14"><li class="nav">Fetch Data</li></a>
+      <a href="#section15"><li class="nav">Files and Streams</li></a>
     </ul>
     
     <a href="#section0">
@@ -505,7 +508,100 @@
         To force deno to refetch and recompile modules into the cache, use <span class="m">deno cache --reload target_module.ts</span>
       </p>
     </a>
-      
+    
+    <a href="#section0">
+      <p id="section13" class="t s3">
+        Permissions(manage Deno security model)
+      </p>
+    </a>
+    
+    <a href="https://docs.deno.com/runtime/manual/basics/permissions">Permissions</a>
+    
+    <a href="#section0">
+      <p id="section14" class="t s3">
+        Fetch Data
+      </p>
+    </a>
+    
+    <p>To make a call over the web possible, add the <span class="m">--allow-net</span> flag to the <span class="m">deno run</span> terminal command.</p>
+    
+    <p class="x s1">
+      deno run --allow-net fetch.ts
+    </p>
+    
+    <hr>
+    
+    <p>The <span class="m">fetch.ts</span> file.</p>
+    
+    <p class="c s1">
+      /**
+       * Output: JSON Data
+       */
+      const jsonResponse = await fetch("https://api.github.com/users/denoland");
+      const jsonData = await jsonResponse.json();
+
+      console.log(jsonData);
+
+      /**
+       * Output: HTML Data
+       */
+      const textResponse = await fetch("https://deno.land/");
+      const textData = await textResponse.text();
+
+      console.log(textData);
+
+      /**
+       * Output: Error Message
+       */
+      try {
+        await fetch("https://does.not.exist/");
+      } catch (error) {
+        console.log(error);
+      }
+    </p>
+    
+    <a href="#section0">
+      <p id="section15" class="t s3">
+        Files and Streams
+      </p>
+    </a>
+    
+    <p>To convert a Deno file into a writable or readable stream use syntax with terminal command:</p>
+    
+    <p class="x s1">
+      deno run --allow-read --allow-write --allow-net fetch_file.ts
+    </p>
+    
+    <p>The <span class="m">fetch_file.ts</span> file.</p>
+    
+    <p class="c s1">
+      /** Receiving a file */
+      const fileResponse = await fetch("https://deno.land/logo.svg");
+      if (fileResponse.body) {
+        const file = await Deno.open(
+          "./logo.svg",
+          {
+            write: true,
+            create: true
+          }
+        );
+        await fileResponse.body.pipeTo(file.writable);
+      }
+
+      /** Sending a file */
+      const file = await Deno.open(
+        "./logo.svg",
+        { read: true }
+      );
+      await fetch(
+        "https://example.com/",
+        {
+          method: "POST",
+          body: file.readable
+        }
+      );
+    </p>
+    
   </body>
   <script src="../script.js"></script>
 </html>
