@@ -36,6 +36,7 @@
       <a href="#section9"><li class="nav">JSX import source pragma(compiler directive)</li></a>
       <a href="#section10"><li class="nav">Basic Twind(tailwind-in-js) example</li></a>
       <a href="#section11"><li class="nav">Basic deno-dom(DOM and HTML parser) example</li></a>
+      <a href="#section12"><li class="nav">Managing Dependencies</li></a>
     </ul>
     
     <a href="#section0">
@@ -430,6 +431,80 @@
         );
       })();
     </p>
+    
+    <a href="#section0">
+      <p id="section12" class="t s3">
+        Managing Dependencies
+      </p>
+    </a>
+    
+    <p>Example:</p>
+    
+    <p>File <span class="m">deps.ts</span> (use to manage dependencies).</p>
+    
+    <p class="c s1">
+      export * as http from "jsr:@std/http";
+      export * as path from "jsr:@std/path";
+      
+      export {
+        add,
+        multiply,
+      } as remote_lib from "https://x.nest.land/ramda@0.27.0/source/index.js";
+      
+      export {
+        add,
+        multiply,
+      } as local_lib from "./arithmetic.ts";
+    </p>
+    
+    <hr>
+    
+    <p>File <span class="m">arithmetic.ts</span>.</p>
+    
+    <p class="c s1">
+      /**
+       * arithmetic.ts
+       */
+      export function add(a: number, b: number): number {
+        return a + b;
+      }
+
+      export function multiply(a: number, b: number): number {
+        return a * b;
+      }
+      
+      export interface Foo {}
+      export class Bar {}
+      export const bang = "bang";
+    </p>
+    
+    <hr>
+    
+    <p>File <span class="m">main.ts</span>.</p>
+    
+    <p class="c s1">
+      import { path, remote_lib } from "./deps.ts";
+    </p>
+    
+    <hr>
+    
+    <a href="https://docs.deno.com/runtime/manual/basics/modules/integrity_checking">
+      <p>
+        By using a lock file (with the <span class="m">--lock</span> command line flag), you can ensure that the code pulled from a URL is the same as it was during initial development.
+      </p>
+    </a>
+    
+    <a href="https://docs.deno.com/runtime/manual/tools/vendor">
+      <p>
+        For production deployment use <span class="m">deno vendor</span> subcommand to manage the host of the URL goes down case.
+      </p>
+    </a>
+    
+    <a href="https://docs.deno.com/runtime/manual/basics/modules/reloading_modules">
+      <p>
+        To force deno to refetch and recompile modules into the cache, use <span class="m">deno cache --reload target_module.ts</span>
+      </p>
+    </a>
       
   </body>
   <script src="../script.js"></script>
