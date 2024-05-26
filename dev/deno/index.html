@@ -39,7 +39,7 @@
       <a href="#section12"><li class="nav">Managing Dependencies</li></a>
       <a href="#section13"><li class="nav">Permissions(manage Deno security model)</li></a>
       <a href="#section14"><li class="nav">Fetch Data</li></a>
-      <a href="#section15"><li class="nav">Files and Streams</li></a>
+      <a href="#section15"><li class="nav">...wip</li></a>
     </ul>
     
     <a href="#section0">
@@ -525,71 +525,49 @@
     
     <p>To make a call over the web possible, add the <span class="m">--allow-net</span> flag to the <span class="m">deno run</span> terminal command.</p>
     
+    <p>To convert a Deno file into a writable and readable stream or read and write files add <span class="m">--allow-read --allow-write</span> flags to the <span class="m">deno run</span> terminal command.</p>
+    
     <p class="x s1">
-      deno run --allow-net fetch.ts
+      deno run --allow-read --allow-write --allow-net manage_data.ts
     </p>
     
     <hr>
     
-    <p>The <span class="m">fetch.ts</span> file.</p>
+    <p>The <span class="m">manage_data.ts</span> file.</p>
     
     <p class="c s1">
-      /**
-       * Output: JSON Data
-       */
-      const jsonResponse = await fetch("https://api.github.com/users/denoland");
-      const jsonData = await jsonResponse.json();
+      /** Output: JSON Data */
+      const json_response = await fetch("https://api.github.com/users/denoland");
+      const json_data = await json_response.json();
+      console.log(json_data);
 
-      console.log(jsonData);
+      /** Output: HTML Data */
+      const text_response = await fetch("https://deno.land/");
+      const text_data = await text_response.text();
+      console.log(text_data);
 
-      /**
-       * Output: HTML Data
-       */
-      const textResponse = await fetch("https://deno.land/");
-      const textData = await textResponse.text();
-
-      console.log(textData);
-
-      /**
-       * Output: Error Message
-       */
+      /** Output: Error Message */
       try {
         await fetch("https://does.not.exist/");
       } catch (error) {
         console.log(error);
       }
-    </p>
-    
-    <a href="#section0">
-      <p id="section15" class="t s3">
-        Files and Streams
-      </p>
-    </a>
-    
-    <p>To convert a Deno file into a writable or readable stream use syntax with terminal command:</p>
-    
-    <p class="x s1">
-      deno run --allow-read --allow-write --allow-net fetch_file.ts
-    </p>
-    
-    <p>The <span class="m">fetch_file.ts</span> file.</p>
-    
-    <p class="c s1">
+      
       /** Receiving a file */
-      const fileResponse = await fetch("https://deno.land/logo.svg");
-      if (fileResponse.body) {
-        const file = await Deno.open(
+      const file_response = await fetch("https://deno.land/logo.svg");
+      if (file_response.body) {
+        const save_here = await Deno.open(
           "./logo.svg",
           {
             write: true,
             create: true
           }
         );
-        await fileResponse.body.pipeTo(file.writable);
+        await file_response.body.pipeTo(save_here.writable);
       }
 
       /** Sending a file */
-      const file = await Deno.open(
+      const send_file = await Deno.open(
         "./logo.svg",
         { read: true }
       );
@@ -597,10 +575,42 @@
         "https://example.com/",
         {
           method: "POST",
-          body: file.readable
+          body: send_file.readable
         }
       );
+      
+      /** read file */
+      const text = await Deno.readTextFile("./people.json");
+      console.log(text);
+      
+      /** write file */
+      await Deno.writeTextFile("./hello.txt", "Hello World!");
+      console.log("File written to ./hello.txt");
+      
+      /** append to the file */
+      await Deno.writeTextFile("./hello.txt", "This text will be appended.", {
+        append: true,
+      });
+      
+      /** write serialized json object to a file */
+      function writeJson(path: string, data: object): string {
+        try {
+          /** can be "await Deno.writeTextFile" for async function */
+          Deno.writeTextFileSync(path, JSON.stringify(data));
+          return "written " + path;
+        } catch (e) {
+          return e.message;
+        }
+      }
+      console.log(writeJson("./data.json", { hello: "World" }));
     </p>
+    
+    <a href="#section0">
+      <p id="section15" class="t s3">
+        ...wip
+      </p>
+    </a>
+    
     
   </body>
   <script src="../script.js"></script>
