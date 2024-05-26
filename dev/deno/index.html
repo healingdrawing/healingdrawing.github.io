@@ -613,6 +613,49 @@
     
     <a href="https://docs.deno.com/runtime/tutorials/hashbang">Making Scripts Executable With a Hashbang (Shebang)</a>
     
+    <a href="#section0">
+      <p id="section16" class="t s3">
+        Manage External Environment
+      </p>
+    </a>
+    
+    <p>
+      The <a href="https://www.man7.org/linux/man-pages/man1/env.1.html"><span class="m">
+        env</span></a> runs a program in a modified environment.
+    </p>
+    
+    <p>
+      <span class="m">(--allow-env)</span> Runtime <a href="https://deno.land/api?s=Deno.Env"><span class="m">Deno.Env</span></a> interface to interact with the process environment variables.
+    </p>
+    
+    <p>
+      <span class="m">(--allow-env)</span> Runtime <a href="https://deno.land/api?s=Deno.env"><span class="m">Deno.env</span></a> provides environment variables.
+    </p>
+    
+    <p>
+      <span class="m">(--allow-env)</span> Runtime <a href="https://deno.land/api?s=Deno.args"><span class="m">Deno.args</span></a> accesses the command line arguments.
+    </p>
+    
+    <p>
+      <span class="m">(--allow-read)</span> File System <span class="m">Deno.open</span> is used to get a handle to a file.
+    </p>
+    
+    <p>
+      <a href="https://deno.land/api?s=ReadableStream"><span class="m">ReadableStream</span></a> interface represents a readable stream of byte data.
+    </p>
+    
+    <p>
+      <a href="https://deno.land/api?s=WritableStream"><span class="m">WritableStream</span></a> interface provides a standard abstraction for writing streaming data to a destination, known as a sink.
+    </p>
+    
+    <p>
+      File System <a href="https://deno.land/api?s=Deno.FsFile#prop_readable"><span class="m">Deno.FsFile.readable</span></a> is used to get a readable stream from the file. This readable stream closes the file when it is finished reading, so it is not necessary to close the file explicitly.
+    </p>
+    
+    <p>
+      File System <a href="https://deno.land/api?s=Deno.FsFile#prop_writable"><span class="m">Deno.FsFile.writable</span></a> is used to write the contents of the file.
+    </p>
+    
   </body>
   <script src="../script.js"></script>
 </html>
