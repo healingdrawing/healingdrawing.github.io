@@ -597,7 +597,7 @@
         try {
           /** can be "await Deno.writeTextFile" for async function */
           Deno.writeTextFileSync(path, JSON.stringify(data));
-          return "written " + path;
+          return "written to " + path;
         } catch (e) {
           return e.message;
         }
