@@ -624,36 +624,103 @@
         env</span></a> runs a program in a modified environment.
     </p>
     
+    <hr>
+    
     <p>
       <span class="m">(--allow-env)</span> Runtime <a href="https://deno.land/api?s=Deno.Env"><span class="m">Deno.Env</span></a> interface to interact with the process environment variables.
     </p>
+    
+    <hr>
     
     <p>
       <span class="m">(--allow-env)</span> Runtime <a href="https://deno.land/api?s=Deno.env"><span class="m">Deno.env</span></a> provides environment variables.
     </p>
     
+    <hr>
+    
     <p>
       <span class="m">(--allow-env)</span> Runtime <a href="https://deno.land/api?s=Deno.args"><span class="m">Deno.args</span></a> accesses the command line arguments.
     </p>
     
-    <p>
-      <span class="m">(--allow-read)</span> File System <span class="m">Deno.open</span> is used to get a handle to a file.
-    </p>
+    <hr>
     
     <p>
       <a href="https://deno.land/api?s=ReadableStream"><span class="m">ReadableStream</span></a> interface represents a readable stream of byte data.
     </p>
     
+    <hr>
+    
     <p>
       <a href="https://deno.land/api?s=WritableStream"><span class="m">WritableStream</span></a> interface provides a standard abstraction for writing streaming data to a destination, known as a sink.
     </p>
+    
+    <hr>
     
     <p>
       File System <a href="https://deno.land/api?s=Deno.FsFile#prop_readable"><span class="m">Deno.FsFile.readable</span></a> is used to get a readable stream from the file. This readable stream closes the file when it is finished reading, so it is not necessary to close the file explicitly.
     </p>
     
+    <hr>
+    
     <p>
       File System <a href="https://deno.land/api?s=Deno.FsFile#prop_writable"><span class="m">Deno.FsFile.writable</span></a> is used to write the contents of the file.
+    </p>
+    
+    <hr>
+    
+    <p>
+      <span class="m">(--allow-read)</span> File System <span class="m">Deno.open</span> is used to get a handle to a file.
+    </p>
+    
+    <hr>
+        
+    <p>
+      <span class="m">(--allow-write)</span> File System <a href="https://deno.land/api?s=Deno.remove"><span class="m">Deno.remove</span> Removes the named file or directory.</a>
+    </p>
+    
+    <p class="c s1">
+      await Deno.remove("/path/to/empty_dir/or/file");
+      await Deno.remove("/path/to/populated_dir/or/file", { recursive: true });
+    </p>
+    
+    <hr>
+    
+    <p>
+      <span class="m">(--allow-read --allow-write)</span> File System <a href="https://deno.land/api?s=Deno.rename"><span class="m">Deno.rename</span></a>
+    </p>
+    
+    <hr>
+    
+    <p>
+      <span class="m">(--allow-write)</span> File System <a href="https://deno.land/api?s=Deno.mkdir"><span class="m">Deno.mkdir</span></a> creates a new directory with the specified path.
+    </p>
+    
+    <hr>
+    
+    <p>
+      <span class="m">(--allow-read --allow-write)</span> File System <a href="https://deno.land/api?s=Deno.create"><span class="m">Deno.create</span></a> creates a new directory with the specified path.
+    </p>
+    
+    <hr>
+    
+    <p>
+      <span class="m">(--allow-read)</span> File System <a href="https://deno.land/api?s=Deno.readDir"><span class="m">Deno.readDir</span></a> reads the directory given by <span class="m">path</span> and returns an async iterable of <a href="https://deno.land/api?s=Deno.DirEntry"><span class="m">Deno.DirEntry</span></a> information about a directory entry.
+    </p>
+    
+    <p class="c s1">
+      for await (const dirEntry of Deno.readDir("/")) {
+        console.log(dirEntry.name);
+      }
+    </p>
+    
+    <hr>
+    
+    <p>
+      <span>(--allow-write)</span> File System <a href="https://deno.land/api?s=Deno.chmod"><span class="m">Deno.chmod</span></a> changes the permission of a specific file/directory of specified path using sequence of 3 octal numbers.
+    </p>
+    
+    <p class="c s1">
+      await Deno.chmod("/path/to/file", 0o666);
     </p>
     
   </body>
