@@ -8,6 +8,10 @@ img{
   width: 100%;
 }
 
+.mini{
+  width: 1em;
+}
+
 h3 {
   padding-top: 1em;
 }
