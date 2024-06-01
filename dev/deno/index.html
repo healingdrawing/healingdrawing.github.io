@@ -41,6 +41,7 @@
       <a href="#section14"><li class="nav">Manage Data (Fetch, Read, Write, Append)</li></a>
       <a href="#section15"><li class="nav">Making Scripts Executable (Unix only)</li></a>
       <a href="#section16"><li class="nav">Manage External Environment</li></a>
+      <a href="#section17"><li class="nav">Manage built-in KV(key/value) Database</li></a>
     </ul>
     
     <a href="#section0">
@@ -722,6 +723,47 @@
     
     <p class="c s1">
       await Deno.chmod("/path/to/file", 0o666);
+    </p>
+    
+    <a href="#section0">
+      <p id="section17" class="t s3">
+        Manage built-in KV(key/value) Database
+      </p>
+    </a>
+    
+    <p>
+      Steps to create the database, place it in desirable folder and use.
+    </p>
+    
+    <p>
+      1. Create database in project root folder. Include <span class="m">const kv = await Deno.openKv("db");</span> syntax in your <span class="m">main.ts</span> file. After the first success execution the database files will be created in root folder.
+    </p>
+    
+    <p>
+      2. Create desirable folder structure and move created database files inside destination folder. After that check the correct path to new database destination using next syntax in <span class="m">main.ts</span>. Correct the appendix of <span class="m">join</span> according to your file structure.
+    </p>
+    
+    <p class="c s1">
+      import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
+      const db_path = join(Deno.cwd(), "some/path/to/db");
+      console.log(db_path);
+      // const kv = await Deno.openKv("db"); // commented to avoid recreate in root
+    </p>
+    
+    <p>
+      3. When <span class="m">db_path</span> looks correct, use it to manage database.
+    </p>
+    
+    <p class="c s1">
+      import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
+      const db_path = join(Deno.cwd(), "correct/path/to/db");
+      console.log(db_path);
+      const kv = await Deno.openKv(db_path);
+      console.log(kv); // to print and confirm some structure in console
+    </p>
+    
+    <p>
+      After correct settings, you can use key/value database in deno deploy as part of deployed repository. Under the hood deno uses external provider to manage built-in databases. Free plan has some limitations(according to official docs).
     </p>
     
   </body>
