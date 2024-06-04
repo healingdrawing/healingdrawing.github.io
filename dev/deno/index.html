@@ -760,6 +760,49 @@
       console.log(db_path);
       const kv = await Deno.openKv(db_path);
       console.log(kv); // to print and confirm some structure in console
+      
+      // create interfaces for later type assertion (as TypeName)
+      // also interfaces can be placed in separated file f.e. "model.ts" and then imported using
+      // import { Fruit, Product } from "./model.ts";
+      export interface Fruit {
+        fruit_name: string;
+        growed_in: string;
+      }
+      
+      export interface Product {
+        product_name: string;
+        production_year: number;
+      }
+      
+      // prepare data to use in database
+      // -----------------
+      // item for database
+      const fresh_fruit: Fruit = {
+        name: "ice orange";
+        growed_in: "Antarctica";
+      };
+      // --------------------------------------
+      // database category, like sql table name
+      const category = "fruits";
+      // -----------------------------
+      // unique identifier of the item
+      const unique_key = fresh_fruit.name;
+      // ---------------------------
+      // set recording into database
+      await kv.set([category, unique_key], fresh_fruit);
+      // ----------------------
+      // get item from database using type assertion
+      const polar_fruit_one = await kv.get(["fruits", "ice orange"]);
+      const ac = r.value as Author;
+      // ------------------------------------------
+      // get item from database using inline syntax
+      const polar_fruit_two = await kv.get&lt;Fruit&gt;(["fruits", "ice_orange"]);
+      // -----------------------
+      // some check (demo needs)
+      console.log(
+        (polar_fruit_one.growed_in === polar_fruit_two.growed_in)
+        && (polar_fruit_two.growed_in === "Antarctica")
+      );
     </p>
     
     <p>
