@@ -793,7 +793,7 @@
       // ----------------------
       // get item from database using type assertion
       const polar_fruit_one = await kv.get(["fruits", "ice orange"]);
-      const ac = r.value as Author;
+      const ac = r.value as Fruit;
       // ------------------------------------------
       // get item from database using inline syntax
       const polar_fruit_two = await kv.get&lt;Fruit&gt;(["fruits", "ice_orange"]);
