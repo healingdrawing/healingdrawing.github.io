@@ -42,6 +42,7 @@
       <a href="#section15"><li class="nav">Making Scripts Executable (Unix only)</li></a>
       <a href="#section16"><li class="nav">Manage External Environment</li></a>
       <a href="#section17"><li class="nav">Manage built-in KV(key/value) Database</li></a>
+      <a href="#section18"><li class="nav">Debug Development(deno.json tasks)</li></a>
     </ul>
     
     <a href="#section0">
@@ -820,6 +821,31 @@
         Deno KV supports key expiration, allowing developers to control time to live (TTL) for keys in a KV database. This allows an expiration timestamp to be associated with a key, after which the key will be automatically deleted from the database:
       </a>
     </p>
+    
+    <a href="#section0">
+      <p id="section18" class="t s3">
+        Debug Development(deno.json tasks)
+      </p>
+    </a>
+    
+    <p>
+      A <span class="m">deno.json</span> file, created using <span class="m">deno init</span> command.
+    </p>
+    
+    <p class="c s1">
+      {
+        "tasks": {
+          "dev": "deno run --watch main.ts",
+          "test": "deno run --allow-all --unstable-kv main_test.ts",
+          "bang": "deno run --inspect-wait --allow-all --unstable-kv main.ts"
+        }
+      }
+    </p>
+    
+    <p>
+      The <span class="m">--inspect-wait</span> flag, forcing the execution to wait up to chrome(or chromium) debugger will be connected, using <span class="m">chrome://inspect/</span> -&gt; <span class="m">reload</span> gui in browser.
+    </p>
+    
     
   </body>
   <script src="../script.js"></script>
