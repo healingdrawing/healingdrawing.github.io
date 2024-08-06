@@ -294,6 +294,18 @@
       To <span class="m">format recursively all files</span> code according to standards.
     </p>
     
+    <hr>
+    
+    <p>At the top of the file add comment line:</p>
+    
+    <p class="c s1">
+      // deno-lint-ignore-file
+    </p>
+    
+    <p>
+      To <span class="m">ignore linting of this file</span>. Can be useful in case of use any <span class="m">*.js</span> libraries, f.e.<span class="m">vue.esm-browser.prod.js</span> as frontend side injections, in case of soft upgrade etc.
+    </p>
+    
     <a href="#section0">
       <p id="section3" class="t s3">
         API changes and deprecations
