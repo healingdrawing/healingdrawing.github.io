@@ -8,7 +8,9 @@ function hide_raw_content(){ content.classList.add('hidden'); }
 hide_raw_content();
 
 /**The "it" is binded to div, otherwise "this" operates with "document.window" */
-function show_translation(it) { it.style.color = 'whitesmoke'; }
+function show_translation(it) {
+  it.style.color = (it.style.color!= 'whitesmoke')? 'whitesmoke':'black';
+}
 
 function parse_all(){
   // parse
