@@ -1,251 +1,85 @@
-
 w200atlas.png
-size: 2048,512
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
+size:2048,1024
+repeat:none
 rp0
-  rotate: false
-  xy: 1214, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:608,468,200,113
 rp1
-  rotate: false
-  xy: 810, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:406,698,200,113
 rp10
-  rotate: false
-  xy: 204, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1214,813,200,113
 rp11
-  rotate: false
-  xy: 406, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,468,200,113
 rp12
-  rotate: false
-  xy: 608, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:406,123,200,113
 rp13
-  rotate: false
-  xy: 810, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1012,813,200,113
 rp14
-  rotate: false
-  xy: 406, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,698,200,113
 rp15
-  rotate: false
-  xy: 608, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:810,468,200,113
 rp16
-  rotate: false
-  xy: 810, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:2,117,200,113
 rp17
-  rotate: false
-  xy: 1012, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1012,468,200,113
 rp18
-  rotate: false
-  xy: 608, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1012,698,200,113
 rp19
-  rotate: false
-  xy: 810, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:2,232,200,113
 rp2
-  rotate: false
-  xy: 1012, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1214,698,200,113
 rp20
-  rotate: false
-  xy: 1416, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1416,813,200,113
 rp21
-  rotate: false
-  xy: 1618, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:406,468,200,113
 rp22
-  rotate: false
-  xy: 1820, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,813,200,113
 rp23
-  rotate: false
-  xy: 1416, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,123,200,113
 rp24
-  rotate: false
-  xy: 2, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:406,583,200,113
 rp25
-  rotate: false
-  xy: 2, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:608,238,200,113
 rp26
-  rotate: false
-  xy: 204, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:2,2,200,113
 rp27
-  rotate: false
-  xy: 2, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:406,813,200,113
 rp28
-  rotate: false
-  xy: 204, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1012,583,200,113
 rp29
-  rotate: false
-  xy: 406, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,353,200,113
 rp3
-  rotate: false
-  xy: 1214, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:608,583,200,113
 rp30
-  rotate: false
-  xy: 406, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:1214,583,200,113
 rp31
-  rotate: false
-  xy: 608, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:810,583,200,113
 rp32
-  rotate: false
-  xy: 2, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:608,813,200,113
 rp33
-  rotate: false
-  xy: 1214, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,8,200,113
 rp34
-  rotate: false
-  xy: 204, 117
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:810,698,200,113
+rp35
+bounds:2,726,200,200
+rp36
+bounds:608,353,200,113
+rp37
+bounds:810,813,200,113
+rp38
+bounds:2,577,200,147
+rp39
+bounds:406,353,200,113
 rp4
-  rotate: false
-  xy: 1416, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:2,462,200,113
+rp40
+bounds:204,583,200,113
 rp5
-  rotate: false
-  xy: 1012, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:406,238,200,113
 rp6
-  rotate: false
-  xy: 1012, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:608,698,200,113
 rp7
-  rotate: false
-  xy: 1416, 232
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:810,353,200,113
 rp8
-  rotate: false
-  xy: 1618, 347
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:204,238,200,113
 rp9
-  rotate: false
-  xy: 1214, 2
-  size: 200, 113
-  orig: 200, 113
-  offset: 0, 0
-  index: -1
+bounds:2,347,200,113
