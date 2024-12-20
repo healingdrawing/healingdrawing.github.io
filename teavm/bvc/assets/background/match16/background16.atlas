@@ -1,0 +1,13 @@
+
+background16.png
+size: 128,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+topLeft16
+  rotate: false
+  xy: 2, 2
+  size: 112, 146
+  orig: 1280, 720
+  offset: 194, 463
+  index: -1

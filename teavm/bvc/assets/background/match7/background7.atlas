@@ -1,0 +1,27 @@
+
+background7.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top7
+  rotate: false
+  xy: 959, 31
+  size: 362, 277
+  orig: 1280, 720
+  offset: 521, 390
+  index: -1
+topLeft7
+  rotate: false
+  xy: 2, 2
+  size: 499, 306
+  orig: 1280, 720
+  offset: 0, 414
+  index: -1
+topRight7
+  rotate: false
+  xy: 503, 52
+  size: 454, 256
+  orig: 1280, 720
+  offset: 826, 464
+  index: -1

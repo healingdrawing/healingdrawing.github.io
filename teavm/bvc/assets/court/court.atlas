@@ -1,0 +1,104 @@
+
+court.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+court-column-close-back
+  rotate: false
+  xy: 1305, 349
+  size: 12, 125
+  orig: 1280, 720
+  offset: 634, 87
+  index: -1
+court-column-far-back
+  rotate: false
+  xy: 1305, 349
+  size: 12, 125
+  orig: 1280, 720
+  offset: 634, 319
+  index: -1
+court-column-close-front
+  rotate: false
+  xy: 1291, 349
+  size: 12, 125
+  orig: 1280, 720
+  offset: 634, 87
+  index: -1
+court-column-far-front
+  rotate: false
+  xy: 1319, 349
+  size: 12, 125
+  orig: 1280, 720
+  offset: 634, 319
+  index: -1
+court-left
+  rotate: false
+  xy: 1279, 242
+  size: 6, 232
+  orig: 1280, 720
+  offset: 176, 87
+  index: -1
+court-right
+  rotate: false
+  xy: 1279, 242
+  size: 6, 232
+  orig: 1280, 720
+  offset: 1098, 87
+  index: -1
+court-net
+  rotate: false
+  xy: 1287, 240
+  size: 2, 234
+  orig: 1280, 720
+  offset: 639, 211
+  index: -1
+court-sand
+  rotate: false
+  xy: 2, 59
+  size: 1275, 415
+  orig: 1280, 720
+  offset: 2, 0
+  index: -1
+court-stick-close-back
+  rotate: false
+  xy: 2, 2
+  size: 4, 50
+  orig: 1280, 720
+  offset: 638, 212
+  index: -1
+court-stick-far-back
+  rotate: false
+  xy: 2, 2
+  size: 4, 50
+  orig: 1280, 720
+  offset: 638, 444
+  index: -1
+court-stick-close-front
+  rotate: false
+  xy: 1279, 195
+  size: 4, 45
+  orig: 1280, 720
+  offset: 638, 217
+  index: -1
+court-stick-far-front
+  rotate: false
+  xy: 1279, 195
+  size: 4, 45
+  orig: 1280, 720
+  offset: 638, 449
+  index: -1
+court-up
+  rotate: false
+  xy: 2, 54
+  size: 928, 3
+  orig: 1280, 720
+  offset: 176, 316
+  index: -1
+court-down
+  rotate: false
+  xy: 2, 54
+  size: 928, 3
+  orig: 1280, 720
+  offset: 176, 87
+  index: -1

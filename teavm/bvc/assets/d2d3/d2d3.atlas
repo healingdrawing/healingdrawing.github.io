@@ -1,0 +1,20 @@
+
+d2d3.png
+size: 2048, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+d2
+  rotate: false
+  xy: 644, 2
+  size: 640, 560
+  orig: 640, 560
+  offset: 0, 0
+  index: -1
+d3
+  rotate: false
+  xy: 2, 2
+  size: 640, 560
+  orig: 640, 560
+  offset: 0, 0
+  index: -1

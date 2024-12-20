@@ -1,0 +1,3345 @@
+
+mch.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+clothesBack-femaleGymBarAbsR
+  rotate: false
+  xy: 827, 51
+  size: 30, 40
+  orig: 268, 268
+  offset: 118, 123
+  index: -1
+clothesBack-femaleGymBarPushUpsR
+  rotate: false
+  xy: 1819, 206
+  size: 28, 46
+  orig: 268, 268
+  offset: 124, 119
+  index: -1
+clothesBack-femaleGymPullUpDoneD
+  rotate: false
+  xy: 881, 45
+  size: 24, 36
+  orig: 268, 268
+  offset: 122, 193
+  index: -1
+clothesBack-femaleLieBackOLegsD
+  rotate: false
+  xy: 954, 18
+  size: 20, 29
+  orig: 268, 268
+  offset: 124, 125
+  index: -1
+clothesBack-femaleLieBackSHipsR
+  rotate: false
+  xy: 1322, 152
+  size: 34, 24
+  orig: 268, 268
+  offset: 103, 124
+  index: -1
+clothesBack-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1322, 152
+  size: 34, 24
+  orig: 268, 268
+  offset: 103, 124
+  index: -1
+clothesBack-femaleLieFaceU
+  rotate: false
+  xy: 1849, 259
+  size: 55, 17
+  orig: 268, 268
+  offset: 108, 131
+  index: -1
+clothesBack-femaleNurseSitCrossD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-femalePilotSitCrossD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-femaleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-malePilotLieBackSRD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleScientistStayControlR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleScientistStayFullR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleScientistStayReadR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleSitFatD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleSpaceSuitSitR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-maleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-femaleLieFaceU
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-femaleNurseSitCrossD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-femalePilotSitCrossD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-femaleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-malePilotLieBackSRD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleScientistStayControlR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleScientistStayFullR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleScientistStayReadR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleSitFatD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleSpaceSuitSitR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesFace-maleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsBack-femaleLieFaceU
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsBack-femaleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsBack-maleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-femaleLieFaceU
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-femaleSitCrossD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-femaleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleDrunkedDogBottleR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleGymBarPushUpsR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleGymSitBicepsD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleGymSitShouldersD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleNerdSitFatD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-malePunkSitCrossShinD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleScientistStayControlR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleScientistStayFullR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleScientistStayReadR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleSitCrossShinD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleSitCrossShinD2
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleSitFatD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleSitLotosR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleSpaceSuitSitR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hairsFace-maleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+shadows-maleSpaceSuitSitR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+skinFace-maleStayMilitaryD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-femaleSitLotosD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-femaleStayWallBackR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-maleNerdSitFatD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-malePilotLieBackSRD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-malePunkSitFatD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-maleSitGroundD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-maleSitLotosD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-maleSitLotosR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticBack-maleStayWallBackD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-femaleGymBarAbsR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-femaleGymBarPushUpsR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-femaleSitLotosD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleGymBarAbsR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleGymBarPushUpsR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleGymPullUpOneHandD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleGymSitShouldersD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleSitLotosD
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleSitLotosR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+staticFace-maleSpaceSuitSitR
+  rotate: false
+  xy: 1727, 451
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+clothesBack-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 2001, 361
+  size: 44, 35
+  orig: 268, 268
+  offset: 103, 123
+  index: -1
+clothesBack-femalePunkSitCrossD
+  rotate: false
+  xy: 1917, 213
+  size: 28, 47
+  orig: 268, 268
+  offset: 120, 117
+  index: -1
+clothesBack-femalePunkSitCrossD2
+  rotate: false
+  xy: 1917, 213
+  size: 28, 47
+  orig: 268, 268
+  offset: 120, 117
+  index: -1
+clothesBack-femalePunkSitGroundD
+  rotate: false
+  xy: 1133, 134
+  size: 24, 26
+  orig: 268, 268
+  offset: 122, 127
+  index: -1
+clothesBack-femaleSitGroundD
+  rotate: false
+  xy: 1133, 134
+  size: 24, 26
+  orig: 268, 268
+  offset: 122, 127
+  index: -1
+clothesBack-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1919, 174
+  size: 24, 37
+  orig: 268, 268
+  offset: 122, 127
+  index: -1
+clothesBack-femaleSitGroundKneeD
+  rotate: false
+  xy: 1919, 174
+  size: 24, 37
+  orig: 268, 268
+  offset: 122, 127
+  index: -1
+clothesBack-femaleSitCrossD
+  rotate: false
+  xy: 1363, 284
+  size: 26, 65
+  orig: 268, 268
+  offset: 121, 117
+  index: -1
+clothesBack-femaleSitCrossD2
+  rotate: false
+  xy: 1947, 221
+  size: 31, 47
+  orig: 268, 268
+  offset: 118, 117
+  index: -1
+clothesBack-femaleSitCrossD3
+  rotate: false
+  xy: 1947, 221
+  size: 31, 47
+  orig: 268, 268
+  offset: 118, 117
+  index: -1
+clothesBack-femaleSitLotosD
+  rotate: false
+  xy: 1971, 175
+  size: 24, 36
+  orig: 268, 268
+  offset: 122, 128
+  index: -1
+clothesBack-femaleSitLotosR
+  rotate: false
+  xy: 1412, 183
+  size: 17, 28
+  orig: 268, 268
+  offset: 126, 136
+  index: -1
+clothesBack-femaleStayWallBackR
+  rotate: false
+  xy: 1391, 213
+  size: 38, 63
+  orig: 268, 268
+  offset: 121, 78
+  index: -1
+clothesBack-maleDrunkedDogBottleR
+  rotate: false
+  xy: 2007, 239
+  size: 32, 37
+  orig: 268, 268
+  offset: 118, 109
+  index: -1
+clothesBack-maleDrunkedLieFaceR
+  rotate: false
+  xy: 649, 125
+  size: 64, 39
+  orig: 268, 268
+  offset: 75, 112
+  index: -1
+clothesBack-maleGymBarAbsR
+  rotate: false
+  xy: 1980, 213
+  size: 25, 25
+  orig: 268, 268
+  offset: 125, 121
+  index: -1
+clothesBack-maleGymBarPushUpsR
+  rotate: false
+  xy: 933, 21
+  size: 19, 26
+  orig: 268, 268
+  offset: 123, 117
+  index: -1
+clothesBack-maleGymPullUpOneHandD
+  rotate: false
+  xy: 1795, 180
+  size: 22, 26
+  orig: 268, 268
+  offset: 124, 117
+  index: -1
+clothesBack-maleGymSitBicepsD
+  rotate: false
+  xy: 1575, 191
+  size: 47, 22
+  orig: 268, 268
+  offset: 112, 119
+  index: -1
+clothesBack-maleGymSitShouldersD
+  rotate: false
+  xy: 1360, 189
+  size: 50, 22
+  orig: 268, 268
+  offset: 109, 119
+  index: -1
+clothesBack-maleLieBackSRD
+  rotate: false
+  xy: 1431, 167
+  size: 19, 15
+  orig: 268, 268
+  offset: 123, 127
+  index: -1
+clothesBack-maleLieBackSRD2
+  rotate: false
+  xy: 727, 150
+  size: 56, 36
+  orig: 268, 268
+  offset: 123, 106
+  index: -1
+clothesBack-malePunkPeeR
+  rotate: false
+  xy: 795, 22
+  size: 30, 67
+  orig: 268, 268
+  offset: 122, 100
+  index: -1
+clothesBack-malePunkSitCrossShinD
+  rotate: false
+  xy: 1891, 180
+  size: 26, 25
+  orig: 268, 268
+  offset: 121, 116
+  index: -1
+clothesBack-maleSitCrossShinD
+  rotate: false
+  xy: 1891, 180
+  size: 26, 25
+  orig: 268, 268
+  offset: 121, 116
+  index: -1
+clothesBack-maleSitCrossShinD2
+  rotate: false
+  xy: 1891, 180
+  size: 26, 25
+  orig: 268, 268
+  offset: 121, 116
+  index: -1
+clothesBack-malePunkSitFatD
+  rotate: false
+  xy: 725, 2
+  size: 54, 19
+  orig: 268, 268
+  offset: 107, 115
+  index: -1
+clothesBack-maleNerdSitFatD
+  rotate: false
+  xy: 725, 2
+  size: 54, 19
+  orig: 268, 268
+  offset: 107, 115
+  index: -1
+clothesBack-malePunkSitGroundD
+  rotate: false
+  xy: 1360, 166
+  size: 34, 21
+  orig: 268, 268
+  offset: 117, 125
+  index: -1
+clothesBack-malePunkVomitWallR
+  rotate: false
+  xy: 1849, 173
+  size: 24, 37
+  orig: 268, 268
+  offset: 125, 109
+  index: -1
+clothesBack-maleSitGroundD
+  rotate: false
+  xy: 214, 262
+  size: 14, 14
+  orig: 268, 268
+  offset: 127, 125
+  index: -1
+clothesBack-maleSitLotosD
+  rotate: false
+  xy: 230, 108
+  size: 21, 10
+  orig: 268, 268
+  offset: 124, 128
+  index: -1
+clothesBack-maleSitLotosR
+  rotate: false
+  xy: 2025, 178
+  size: 21, 27
+  orig: 268, 268
+  offset: 124, 118
+  index: -1
+clothesBack-maleStayWallBackD
+  rotate: false
+  xy: 994, 57
+  size: 24, 24
+  orig: 268, 268
+  offset: 122, 115
+  index: -1
+clothesFace-femaleGymBarAbsR
+  rotate: false
+  xy: 1026, 108
+  size: 22, 33
+  orig: 268, 268
+  offset: 126, 123
+  index: -1
+clothesFace-femaleGymBarPushUpsR
+  rotate: false
+  xy: 579, 363
+  size: 15, 23
+  orig: 268, 268
+  offset: 125, 119
+  index: -1
+clothesFace-femaleGymPullUpDoneD
+  rotate: false
+  xy: 950, 80
+  size: 24, 29
+  orig: 268, 268
+  offset: 122, 191
+  index: -1
+clothesFace-femaleLieBackOLegsD
+  rotate: false
+  xy: 986, 2
+  size: 20, 16
+  orig: 268, 268
+  offset: 124, 138
+  index: -1
+clothesFace-femaleLieBackSHipsR2
+  rotate: false
+  xy: 897, 2
+  size: 24, 17
+  orig: 268, 268
+  offset: 110, 131
+  index: -1
+clothesFace-femaleLieBackSHipsR
+  rotate: false
+  xy: 897, 2
+  size: 24, 17
+  orig: 268, 268
+  offset: 110, 131
+  index: -1
+clothesFace-femaleMechanicSitCrossD
+  rotate: false
+  xy: 962, 111
+  size: 17, 21
+  orig: 268, 268
+  offset: 125, 143
+  index: -1
+clothesFace-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 785, 169
+  size: 9, 17
+  orig: 268, 268
+  offset: 110, 131
+  index: -1
+clothesFace-femalePunkSitGroundD
+  rotate: false
+  xy: 881, 21
+  size: 22, 22
+  orig: 268, 268
+  offset: 123, 129
+  index: -1
+clothesFace-femaleSitGroundD
+  rotate: false
+  xy: 881, 21
+  size: 22, 22
+  orig: 268, 268
+  offset: 123, 129
+  index: -1
+clothesFace-femaleSitCrossD
+  rotate: false
+  xy: 663, 3
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+clothesFace-femalePunkSitCrossD
+  rotate: false
+  xy: 663, 3
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+clothesFace-femalePunkSitCrossD2
+  rotate: false
+  xy: 663, 3
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+clothesFace-femaleSitCrossD3
+  rotate: false
+  xy: 624, 2
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+clothesFace-femaleSitCrossD2
+  rotate: false
+  xy: 624, 2
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+clothesFace-femaleSitGroundKneeD
+  rotate: false
+  xy: 1071, 106
+  size: 18, 22
+  orig: 268, 268
+  offset: 125, 129
+  index: -1
+clothesFace-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1071, 106
+  size: 18, 22
+  orig: 268, 268
+  offset: 125, 129
+  index: -1
+clothesFace-femaleSitLotosD
+  rotate: false
+  xy: 1000, 110
+  size: 24, 31
+  orig: 268, 268
+  offset: 122, 133
+  index: -1
+clothesFace-femaleSitLotosR
+  rotate: false
+  xy: 1410, 368
+  size: 10, 5
+  orig: 268, 268
+  offset: 124, 177
+  index: -1
+clothesFace-femaleStayWallBackR
+  rotate: false
+  xy: 861, 21
+  size: 18, 29
+  orig: 268, 268
+  offset: 130, 135
+  index: -1
+clothesFace-maleDrunkedDogBottleR
+  rotate: false
+  xy: 2, 2
+  size: 58, 16
+  orig: 268, 268
+  offset: 82, 110
+  index: -1
+clothesFace-maleDrunkedLieFaceR
+  rotate: false
+  xy: 2009, 294
+  size: 37, 30
+  orig: 268, 268
+  offset: 129, 116
+  index: -1
+clothesFace-maleGymBarAbsR
+  rotate: false
+  xy: 993, 83
+  size: 23, 25
+  orig: 268, 268
+  offset: 127, 121
+  index: -1
+clothesFace-maleGymBarPushUpsR
+  rotate: false
+  xy: 1008, 2
+  size: 16, 16
+  orig: 268, 268
+  offset: 126, 117
+  index: -1
+clothesFace-maleGymPullUpOneHandD
+  rotate: false
+  xy: 781, 2
+  size: 11, 19
+  orig: 268, 268
+  offset: 133, 117
+  index: -1
+clothesFace-maleGymSitBicepsD
+  rotate: false
+  xy: 1746, 187
+  size: 47, 19
+  orig: 268, 268
+  offset: 112, 119
+  index: -1
+clothesFace-maleGymSitShouldersD
+  rotate: false
+  xy: 1230, 192
+  size: 50, 19
+  orig: 268, 268
+  offset: 109, 119
+  index: -1
+clothesFace-maleLieBackSRD
+  rotate: false
+  xy: 337, 2
+  size: 16, 9
+  orig: 268, 268
+  offset: 125, 133
+  index: -1
+clothesFace-maleLieBackSRD2
+  rotate: false
+  xy: 337, 2
+  size: 16, 9
+  orig: 268, 268
+  offset: 125, 133
+  index: -1
+clothesFace-maleNerdSitFatD
+  rotate: false
+  xy: 976, 78
+  size: 15, 31
+  orig: 268, 268
+  offset: 136, 138
+  index: -1
+clothesFace-malePunkSitFatD
+  rotate: false
+  xy: 976, 78
+  size: 15, 31
+  orig: 268, 268
+  offset: 136, 138
+  index: -1
+clothesFace-malePunkPeeR
+  rotate: false
+  xy: 973, 50
+  size: 19, 26
+  orig: 268, 268
+  offset: 131, 135
+  index: -1
+clothesFace-malePunkSitGroundD
+  rotate: false
+  xy: 827, 93
+  size: 15, 11
+  orig: 268, 268
+  offset: 126, 152
+  index: -1
+clothesFace-maleSitGroundD
+  rotate: false
+  xy: 827, 93
+  size: 15, 11
+  orig: 268, 268
+  offset: 126, 152
+  index: -1
+clothesFace-malePunkVomitWallR
+  rotate: false
+  xy: 844, 93
+  size: 38, 26
+  orig: 268, 268
+  offset: 117, 78
+  index: -1
+clothesFace-maleSitCrossShinD2
+  rotate: false
+  xy: 310, 2
+  size: 25, 14
+  orig: 268, 268
+  offset: 122, 116
+  index: -1
+clothesFace-malePunkSitCrossShinD
+  rotate: false
+  xy: 310, 2
+  size: 25, 14
+  orig: 268, 268
+  offset: 122, 116
+  index: -1
+clothesFace-maleSitCrossShinD
+  rotate: false
+  xy: 310, 2
+  size: 25, 14
+  orig: 268, 268
+  offset: 122, 116
+  index: -1
+clothesFace-maleSitLotosD
+  rotate: false
+  xy: 1525, 196
+  size: 20, 5
+  orig: 268, 268
+  offset: 124, 133
+  index: -1
+clothesFace-maleSitLotosR
+  rotate: false
+  xy: 1107, 108
+  size: 15, 15
+  orig: 268, 268
+  offset: 124, 151
+  index: -1
+clothesFace-maleStayWallBackD
+  rotate: false
+  xy: 945, 49
+  size: 26, 29
+  orig: 268, 268
+  offset: 121, 135
+  index: -1
+hairsBack-femaleGymBarAbsR
+  rotate: false
+  xy: 1452, 167
+  size: 18, 15
+  orig: 268, 268
+  offset: 112, 165
+  index: -1
+hairsBack-femaleGymBarPushUpsR
+  rotate: false
+  xy: 949, 2
+  size: 18, 14
+  orig: 268, 268
+  offset: 135, 166
+  index: -1
+hairsBack-femaleGymPullUpDoneD
+  rotate: false
+  xy: 1016, 20
+  size: 12, 13
+  orig: 268, 268
+  offset: 128, 230
+  index: -1
+hairsBack-femaleLieBackOLegsD
+  rotate: false
+  xy: 794, 5
+  size: 26, 15
+  orig: 268, 268
+  offset: 121, 151
+  index: -1
+hairsBack-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1997, 177
+  size: 26, 28
+  orig: 268, 268
+  offset: 76, 121
+  index: -1
+hairsBack-femaleLieBackSHipsR
+  rotate: false
+  xy: 1997, 177
+  size: 26, 28
+  orig: 268, 268
+  offset: 76, 121
+  index: -1
+hairsBack-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 1997, 177
+  size: 26, 28
+  orig: 268, 268
+  offset: 76, 121
+  index: -1
+hairsBack-femaleNurseSitCrossD
+  rotate: false
+  xy: 1390, 147
+  size: 12, 17
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+hairsBack-femalePilotSitCrossD
+  rotate: false
+  xy: 1446, 153
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 170
+  index: -1
+hairsBack-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1446, 153
+  size: 12, 12
+  orig: 268, 268
+  offset: 128, 170
+  index: -1
+hairsBack-femalePunkSitCrossD2
+  rotate: false
+  xy: 1412, 162
+  size: 17, 19
+  orig: 268, 268
+  offset: 127, 170
+  index: -1
+hairsBack-femalePunkSitCrossD
+  rotate: false
+  xy: 1412, 162
+  size: 17, 19
+  orig: 268, 268
+  offset: 127, 170
+  index: -1
+hairsBack-femalePunkSitGroundD
+  rotate: false
+  xy: 1025, 35
+  size: 16, 20
+  orig: 268, 268
+  offset: 126, 163
+  index: -1
+hairsBack-femaleSitGroundD
+  rotate: false
+  xy: 1025, 35
+  size: 16, 20
+  orig: 268, 268
+  offset: 126, 163
+  index: -1
+hairsBack-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1875, 188
+  size: 14, 22
+  orig: 268, 268
+  offset: 127, 163
+  index: -1
+hairsBack-femaleSitCrossD
+  rotate: false
+  xy: 1913, 356
+  size: 8, 2
+  orig: 268, 268
+  offset: 130, 170
+  index: -1
+hairsBack-femaleSitCrossD2
+  rotate: false
+  xy: 1211, 160
+  size: 17, 32
+  orig: 268, 268
+  offset: 125, 150
+  index: -1
+hairsBack-femaleSitCrossD3
+  rotate: false
+  xy: 1211, 160
+  size: 17, 32
+  orig: 268, 268
+  offset: 125, 150
+  index: -1
+hairsBack-femaleSitGroundKneeD
+  rotate: false
+  xy: 1396, 167
+  size: 14, 20
+  orig: 268, 268
+  offset: 127, 163
+  index: -1
+hairsBack-femaleSitLotosD
+  rotate: false
+  xy: 573, 323
+  size: 13, 15
+  orig: 268, 268
+  offset: 127, 167
+  index: -1
+hairsBack-femaleSitLotosR
+  rotate: false
+  xy: 1091, 111
+  size: 14, 15
+  orig: 268, 268
+  offset: 124, 167
+  index: -1
+hairsBack-femaleStayWallBackR
+  rotate: false
+  xy: 1026, 2
+  size: 16, 16
+  orig: 268, 268
+  offset: 129, 168
+  index: -1
+hairsBack-maleDrunkedDogBottleR
+  rotate: false
+  xy: 1802, 346
+  size: 3, 2
+  orig: 268, 268
+  offset: 178, 135
+  index: -1
+hairsBack-maleDrunkedLieFaceR
+  rotate: false
+  xy: 1000, 20
+  size: 14, 13
+  orig: 268, 268
+  offset: 169, 133
+  index: -1
+hairsBack-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 1460, 154
+  size: 12, 11
+  orig: 268, 268
+  offset: 128, 170
+  index: -1
+hairsBack-maleGymBarAbsR
+  rotate: false
+  xy: 377, 177
+  size: 16, 13
+  orig: 268, 268
+  offset: 114, 165
+  index: -1
+hairsBack-maleGymBarPushUpsR
+  rotate: false
+  xy: 785, 150
+  size: 16, 17
+  orig: 268, 268
+  offset: 137, 158
+  index: -1
+hairsBack-maleGymPullUpOneHandD
+  rotate: false
+  xy: 1875, 171
+  size: 14, 15
+  orig: 268, 268
+  offset: 117, 164
+  index: -1
+hairsBack-maleGymSitBicepsD
+  rotate: false
+  xy: 1997, 207
+  size: 8, 4
+  orig: 268, 268
+  offset: 128, 156
+  index: -1
+hairsBack-maleGymSitShouldersD
+  rotate: false
+  xy: 500, 120
+  size: 8, 3
+  orig: 268, 268
+  offset: 130, 169
+  index: -1
+hairsBack-maleLieBackSRD2
+  rotate: false
+  xy: 1121, 308
+  size: 11, 12
+  orig: 268, 268
+  offset: 100, 145
+  index: -1
+hairsBack-maleLieBackSRD
+  rotate: false
+  xy: 1121, 308
+  size: 11, 12
+  orig: 268, 268
+  offset: 100, 145
+  index: -1
+hairsBack-malePilotLieBackSRD
+  rotate: false
+  xy: 1121, 308
+  size: 11, 12
+  orig: 268, 268
+  offset: 100, 145
+  index: -1
+hairsBack-maleNerdSitFatD
+  rotate: false
+  xy: 253, 108
+  size: 9, 10
+  orig: 268, 268
+  offset: 129, 162
+  index: -1
+hairsBack-malePunkPeeR
+  rotate: false
+  xy: 1000, 35
+  size: 23, 20
+  orig: 268, 268
+  offset: 154, 160
+  index: -1
+hairsBack-malePunkSitCrossShinD
+  rotate: false
+  xy: 982, 134
+  size: 10, 7
+  orig: 268, 268
+  offset: 129, 166
+  index: -1
+hairsBack-malePunkSitFatD
+  rotate: false
+  xy: 976, 20
+  size: 22, 28
+  orig: 268, 268
+  offset: 123, 162
+  index: -1
+hairsBack-malePunkSitGroundD
+  rotate: false
+  xy: 1159, 145
+  size: 9, 15
+  orig: 268, 268
+  offset: 129, 165
+  index: -1
+hairsBack-malePunkVomitWallR
+  rotate: false
+  xy: 1575, 340
+  size: 18, 19
+  orig: 268, 268
+  offset: 175, 134
+  index: -1
+hairsBack-maleScientistStayControlR
+  rotate: false
+  xy: 109, 15
+  size: 3, 3
+  orig: 268, 268
+  offset: 142, 169
+  index: -1
+hairsBack-maleScientistStayFullR
+  rotate: false
+  xy: 109, 15
+  size: 3, 3
+  orig: 268, 268
+  offset: 142, 169
+  index: -1
+hairsBack-maleScientistStayReadR
+  rotate: false
+  xy: 109, 15
+  size: 3, 3
+  orig: 268, 268
+  offset: 142, 169
+  index: -1
+hairsBack-maleSitCrossShinD
+  rotate: false
+  xy: 1418, 145
+  size: 12, 15
+  orig: 268, 268
+  offset: 128, 166
+  index: -1
+hairsBack-maleSitCrossShinD2
+  rotate: false
+  xy: 1418, 145
+  size: 12, 15
+  orig: 268, 268
+  offset: 128, 166
+  index: -1
+hairsBack-maleSitFatD
+  rotate: false
+  xy: 355, 2
+  size: 9, 9
+  orig: 268, 268
+  offset: 129, 163
+  index: -1
+hairsBack-maleSitGroundD
+  rotate: false
+  xy: 1030, 20
+  size: 12, 13
+  orig: 268, 268
+  offset: 128, 165
+  index: -1
+hairsBack-maleSitLotosD
+  rotate: false
+  xy: 1432, 151
+  size: 12, 14
+  orig: 268, 268
+  offset: 128, 168
+  index: -1
+hairsBack-maleSitLotosR
+  rotate: false
+  xy: 802, 360
+  size: 2, 4
+  orig: 268, 268
+  offset: 136, 170
+  index: -1
+hairsBack-maleSpaceSuitSitR
+  rotate: false
+  xy: 797, 273
+  size: 3, 2
+  orig: 268, 268
+  offset: 136, 169
+  index: -1
+hairsBack-maleStayWallBackD
+  rotate: false
+  xy: 838, 2
+  size: 13, 12
+  orig: 268, 268
+  offset: 127, 167
+  index: -1
+hairsFace-femaleGymBarAbsR
+  rotate: false
+  xy: 1071, 90
+  size: 15, 14
+  orig: 268, 268
+  offset: 113, 166
+  index: -1
+hairsFace-femaleGymBarPushUpsR
+  rotate: false
+  xy: 969, 2
+  size: 15, 14
+  orig: 268, 268
+  offset: 136, 166
+  index: -1
+hairsFace-femaleGymPullUpDoneD
+  rotate: false
+  xy: 715, 153
+  size: 10, 11
+  orig: 268, 268
+  offset: 129, 232
+  index: -1
+hairsFace-femaleLieBackOLegsD
+  rotate: false
+  xy: 583, 2
+  size: 23, 12
+  orig: 268, 268
+  offset: 123, 153
+  index: -1
+hairsFace-femaleLieBackSHipsR
+  rotate: false
+  xy: 1018, 83
+  size: 20, 23
+  orig: 268, 268
+  offset: 80, 124
+  index: -1
+hairsFace-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1018, 83
+  size: 20, 23
+  orig: 268, 268
+  offset: 80, 124
+  index: -1
+hairsFace-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 1018, 83
+  size: 20, 23
+  orig: 268, 268
+  offset: 80, 124
+  index: -1
+hairsFace-femaleNurseSitCrossD
+  rotate: false
+  xy: 638, 2
+  size: 12, 13
+  orig: 268, 268
+  offset: 128, 168
+  index: -1
+hairsFace-femalePilotSitCrossD
+  rotate: false
+  xy: 1947, 213
+  size: 10, 6
+  orig: 268, 268
+  offset: 129, 175
+  index: -1
+hairsFace-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1947, 213
+  size: 10, 6
+  orig: 268, 268
+  offset: 129, 175
+  index: -1
+hairsFace-femalePunkSitCrossD
+  rotate: false
+  xy: 1547, 190
+  size: 13, 11
+  orig: 268, 268
+  offset: 129, 176
+  index: -1
+hairsFace-femalePunkSitCrossD2
+  rotate: false
+  xy: 1547, 190
+  size: 13, 11
+  orig: 268, 268
+  offset: 129, 176
+  index: -1
+hairsFace-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 974, 326
+  size: 12, 20
+  orig: 268, 268
+  offset: 128, 164
+  index: -1
+hairsFace-femaleSitCrossD2
+  rotate: false
+  xy: 1306, 160
+  size: 14, 29
+  orig: 268, 268
+  offset: 127, 152
+  index: -1
+hairsFace-femaleSitCrossD3
+  rotate: false
+  xy: 1306, 160
+  size: 14, 29
+  orig: 268, 268
+  offset: 127, 152
+  index: -1
+hairsFace-femaleSitGroundD
+  rotate: false
+  xy: 1827, 350
+  size: 14, 4
+  orig: 268, 268
+  offset: 127, 164
+  index: -1
+hairsFace-femalePunkSitGroundD
+  rotate: false
+  xy: 1827, 350
+  size: 14, 4
+  orig: 268, 268
+  offset: 127, 164
+  index: -1
+hairsFace-femaleSitGroundKneeD
+  rotate: false
+  xy: 486, 120
+  size: 12, 3
+  orig: 268, 268
+  offset: 128, 164
+  index: -1
+hairsFace-femaleSitLotosD
+  rotate: false
+  xy: 1520, 454
+  size: 10, 7
+  orig: 268, 268
+  offset: 129, 173
+  index: -1
+hairsFace-femaleSitLotosR
+  rotate: false
+  xy: 1404, 146
+  size: 12, 14
+  orig: 268, 268
+  offset: 125, 168
+  index: -1
+hairsFace-femaleStayWallBackR
+  rotate: false
+  xy: 608, 2
+  size: 14, 12
+  orig: 268, 268
+  offset: 130, 171
+  index: -1
+hairsFace-maleDrunkedLieFaceR
+  rotate: false
+  xy: 1058, 143
+  size: 11, 7
+  orig: 268, 268
+  offset: 170, 138
+  index: -1
+hairsFace-maleGymBarAbsR
+  rotate: false
+  xy: 822, 2
+  size: 14, 12
+  orig: 268, 268
+  offset: 114, 166
+  index: -1
+hairsFace-maleGymPullUpOneHandD
+  rotate: false
+  xy: 812, 91
+  size: 13, 13
+  orig: 268, 268
+  offset: 117, 166
+  index: -1
+hairsFace-malePilotLieBackSRD
+  rotate: false
+  xy: 128, 99
+  size: 8, 7
+  orig: 268, 268
+  offset: 101, 150
+  index: -1
+hairsFace-maleLieBackSRD
+  rotate: false
+  xy: 128, 99
+  size: 8, 7
+  orig: 268, 268
+  offset: 101, 150
+  index: -1
+hairsFace-maleLieBackSRD2
+  rotate: false
+  xy: 128, 99
+  size: 8, 7
+  orig: 268, 268
+  offset: 101, 150
+  index: -1
+hairsFace-malePunkPeeR
+  rotate: false
+  xy: 981, 111
+  size: 17, 21
+  orig: 268, 268
+  offset: 157, 156
+  index: -1
+hairsFace-malePunkSitFatD
+  rotate: false
+  xy: 1107, 125
+  size: 18, 10
+  orig: 268, 268
+  offset: 125, 177
+  index: -1
+hairsFace-malePunkSitGroundD
+  rotate: false
+  xy: 1050, 474
+  size: 2, 8
+  orig: 268, 268
+  offset: 133, 171
+  index: -1
+hairsFace-malePunkVomitWallR
+  rotate: false
+  xy: 573, 307
+  size: 13, 14
+  orig: 268, 268
+  offset: 179, 136
+  index: -1
+hairsFace-maleSitGroundD
+  rotate: false
+  xy: 116, 99
+  size: 10, 7
+  orig: 268, 268
+  offset: 129, 170
+  index: -1
+hairsFace-maleSitLotosD
+  rotate: false
+  xy: 472, 299
+  size: 10, 5
+  orig: 268, 268
+  offset: 129, 175
+  index: -1
+hairsFace-maleStayWallBackD
+  rotate: false
+  xy: 573, 299
+  size: 10, 6
+  orig: 268, 268
+  offset: 129, 172
+  index: -1
+shadows-femaleGymBarAbsR
+  rotate: false
+  xy: 1913, 360
+  size: 86, 55
+  orig: 268, 268
+  offset: 117, 114
+  index: -1
+shadows-femaleGymBarPushUpsR
+  rotate: false
+  xy: 1939, 270
+  size: 33, 88
+  orig: 268, 268
+  offset: 117, 78
+  index: -1
+shadows-femaleGymPullUpDoneD
+  rotate: false
+  xy: 1431, 205
+  size: 48, 76
+  orig: 268, 268
+  offset: 110, 153
+  index: -1
+shadows-femaleLieBackOLegsD
+  rotate: false
+  xy: 1107, 137
+  size: 24, 23
+  orig: 268, 268
+  offset: 122, 136
+  index: -1
+shadows-femaleLieFaceU
+  rotate: false
+  xy: 973, 196
+  size: 74, 65
+  orig: 268, 268
+  offset: 97, 89
+  index: -1
+shadows-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 907, 111
+  size: 53, 21
+  orig: 268, 268
+  offset: 94, 123
+  index: -1
+shadows-femaleLieBackSHipsR
+  rotate: false
+  xy: 907, 111
+  size: 53, 21
+  orig: 268, 268
+  offset: 94, 123
+  index: -1
+shadows-femaleLieBackSHipsR2
+  rotate: false
+  xy: 907, 111
+  size: 53, 21
+  orig: 268, 268
+  offset: 94, 123
+  index: -1
+shadows-femalePunkSitCrossD
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femaleNurseSitCrossD
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femalePilotSitCrossD
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femalePunkSitCrossD2
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femaleSitCrossD
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femaleSitCrossD2
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femaleSitCrossD3
+  rotate: false
+  xy: 1294, 212
+  size: 26, 75
+  orig: 268, 268
+  offset: 121, 93
+  index: -1
+shadows-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1237, 213
+  size: 55, 74
+  orig: 268, 268
+  offset: 98, 96
+  index: -1
+shadows-femaleSitGroundD
+  rotate: false
+  xy: 900, 270
+  size: 72, 76
+  orig: 268, 268
+  offset: 98, 96
+  index: -1
+shadows-femalePunkSitGroundD
+  rotate: false
+  xy: 900, 270
+  size: 72, 76
+  orig: 268, 268
+  offset: 98, 96
+  index: -1
+shadows-femaleSitGroundKneeD
+  rotate: false
+  xy: 1849, 278
+  size: 55, 76
+  orig: 268, 268
+  offset: 98, 96
+  index: -1
+shadows-femaleSitLotosD
+  rotate: false
+  xy: 907, 134
+  size: 42, 51
+  orig: 268, 268
+  offset: 113, 114
+  index: -1
+shadows-femaleSitLotosR
+  rotate: false
+  xy: 951, 134
+  size: 29, 51
+  orig: 268, 268
+  offset: 127, 120
+  index: -1
+shadows-femaleStayMilitaryD
+  rotate: false
+  xy: 1358, 144
+  size: 30, 20
+  orig: 268, 268
+  offset: 119, 146
+  index: -1
+shadows-femaleStayWallBackR
+  rotate: false
+  xy: 1724, 197
+  size: 20, 54
+  orig: 268, 268
+  offset: 127, 116
+  index: -1
+shadows-maleDrunkedDogBottleR
+  rotate: false
+  xy: 711, 366
+  size: 93, 51
+  orig: 268, 268
+  offset: 99, 96
+  index: -1
+shadows-maleDrunkedLieFaceR
+  rotate: false
+  xy: 1305, 490
+  size: 130, 20
+  orig: 268, 268
+  offset: 69, 125
+  index: -1
+shadows-maleGymBarAbsR
+  rotate: false
+  xy: 900, 348
+  size: 86, 55
+  orig: 268, 268
+  offset: 117, 114
+  index: -1
+shadows-maleGymBarPushUpsR
+  rotate: false
+  xy: 1391, 278
+  size: 34, 88
+  orig: 268, 268
+  offset: 113, 78
+  index: -1
+shadows-maleGymPullUpOneHandD
+  rotate: false
+  xy: 553, 12
+  size: 28, 111
+  orig: 268, 268
+  offset: 125, 78
+  index: -1
+shadows-maleGymSitBicepsD
+  rotate: false
+  xy: 988, 314
+  size: 60, 75
+  orig: 268, 268
+  offset: 104, 85
+  index: -1
+shadows-maleGymSitShouldersD
+  rotate: false
+  xy: 727, 188
+  size: 68, 87
+  orig: 268, 268
+  offset: 100, 85
+  index: -1
+shadows-maleLieBackSRD2
+  rotate: false
+  xy: 1539, 454
+  size: 95, 56
+  orig: 268, 268
+  offset: 107, 95
+  index: -1
+shadows-maleLieBackSRD
+  rotate: false
+  xy: 1539, 454
+  size: 95, 56
+  orig: 268, 268
+  offset: 107, 95
+  index: -1
+shadows-maleNerdSitFatD
+  rotate: false
+  xy: 806, 360
+  size: 40, 57
+  orig: 268, 268
+  offset: 114, 122
+  index: -1
+shadows-malePilotLieBackSRD
+  rotate: false
+  xy: 1636, 454
+  size: 95, 56
+  orig: 268, 268
+  offset: 107, 95
+  index: -1
+shadows-malePunkPeeR
+  rotate: false
+  xy: 848, 408
+  size: 50, 78
+  orig: 268, 268
+  offset: 129, 95
+  index: -1
+shadows-malePunkSitFatD
+  rotate: false
+  xy: 1849, 212
+  size: 40, 45
+  orig: 268, 268
+  offset: 114, 122
+  index: -1
+shadows-malePunkVomitWallR
+  rotate: false
+  xy: 1247, 289
+  size: 54, 71
+  orig: 268, 268
+  offset: 129, 103
+  index: -1
+shadows-maleScientistStayFullR
+  rotate: false
+  xy: 1170, 147
+  size: 9, 14
+  orig: 268, 268
+  offset: 130, 157
+  index: -1
+shadows-maleScientistStayReadR
+  rotate: false
+  xy: 1945, 171
+  size: 24, 40
+  orig: 268, 268
+  offset: 130, 131
+  index: -1
+shadows-maleScientistStayControlR
+  rotate: false
+  xy: 1945, 171
+  size: 24, 40
+  orig: 268, 268
+  offset: 130, 131
+  index: -1
+shadows-maleSitCrossShinD2
+  rotate: false
+  xy: 114, 2
+  size: 31, 95
+  orig: 268, 268
+  offset: 118, 74
+  index: -1
+shadows-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 114, 2
+  size: 31, 95
+  orig: 268, 268
+  offset: 118, 74
+  index: -1
+shadows-malePunkSitCrossShinD
+  rotate: false
+  xy: 114, 2
+  size: 31, 95
+  orig: 268, 268
+  offset: 118, 74
+  index: -1
+shadows-maleSitCrossShinD
+  rotate: false
+  xy: 114, 2
+  size: 31, 95
+  orig: 268, 268
+  offset: 118, 74
+  index: -1
+shadows-maleSitFatD
+  rotate: false
+  xy: 844, 121
+  size: 40, 57
+  orig: 268, 268
+  offset: 114, 122
+  index: -1
+shadows-maleSitGroundD
+  rotate: false
+  xy: 884, 83
+  size: 21, 34
+  orig: 268, 268
+  offset: 124, 130
+  index: -1
+shadows-malePunkSitGroundD
+  rotate: false
+  xy: 884, 83
+  size: 21, 34
+  orig: 268, 268
+  offset: 124, 130
+  index: -1
+shadows-maleSitLotosD
+  rotate: false
+  xy: 982, 143
+  size: 42, 51
+  orig: 268, 268
+  offset: 113, 114
+  index: -1
+shadows-maleSitLotosR
+  rotate: false
+  xy: 1026, 143
+  size: 30, 51
+  orig: 268, 268
+  offset: 128, 120
+  index: -1
+shadows-maleStayMilitaryD
+  rotate: false
+  xy: 1268, 165
+  size: 36, 24
+  orig: 268, 268
+  offset: 116, 148
+  index: -1
+shadows-maleStayWallBackD
+  rotate: false
+  xy: 1906, 262
+  size: 31, 92
+  orig: 268, 268
+  offset: 117, 78
+  index: -1
+skinBack-femaleGymBarAbsR
+  rotate: false
+  xy: 1827, 430
+  size: 91, 80
+  orig: 268, 268
+  offset: 114, 98
+  index: -1
+skinBack-femaleGymBarPushUpsR
+  rotate: false
+  xy: 223, 3
+  size: 39, 103
+  orig: 268, 268
+  offset: 114, 75
+  index: -1
+skinBack-femaleGymPullUpDoneD
+  rotate: false
+  xy: 848, 351
+  size: 50, 55
+  orig: 268, 268
+  offset: 109, 185
+  index: -1
+skinBack-femaleLieBackOLegsD
+  rotate: false
+  xy: 1049, 197
+  size: 62, 54
+  orig: 268, 268
+  offset: 103, 108
+  index: -1
+skinBack-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1733, 451
+  size: 92, 59
+  orig: 268, 268
+  offset: 85, 105
+  index: -1
+skinBack-femaleLieBackSHipsR
+  rotate: false
+  xy: 1733, 451
+  size: 92, 59
+  orig: 268, 268
+  offset: 85, 105
+  index: -1
+skinBack-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 1733, 451
+  size: 92, 59
+  orig: 268, 268
+  offset: 85, 105
+  index: -1
+skinBack-femaleLieFaceU
+  rotate: false
+  xy: 900, 405
+  size: 86, 77
+  orig: 268, 268
+  offset: 91, 88
+  index: -1
+skinBack-femaleNurseSitCrossD
+  rotate: false
+  xy: 147, 2
+  size: 36, 104
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-femalePunkSitCrossD
+  rotate: false
+  xy: 147, 2
+  size: 36, 104
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-femalePunkSitCrossD2
+  rotate: false
+  xy: 147, 2
+  size: 36, 104
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-femaleSitCrossD2
+  rotate: false
+  xy: 147, 2
+  size: 36, 104
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-femaleSitCrossD3
+  rotate: false
+  xy: 147, 2
+  size: 36, 104
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-femalePilotSitCrossD
+  rotate: false
+  xy: 886, 119
+  size: 19, 59
+  orig: 268, 268
+  offset: 124, 122
+  index: -1
+skinBack-femaleMechanicSitCrossD
+  rotate: false
+  xy: 886, 119
+  size: 19, 59
+  orig: 268, 268
+  offset: 124, 122
+  index: -1
+skinBack-femalePunkSitGroundD
+  rotate: false
+  xy: 1050, 378
+  size: 82, 91
+  orig: 268, 268
+  offset: 93, 92
+  index: -1
+skinBack-femaleSitGroundD
+  rotate: false
+  xy: 1050, 378
+  size: 82, 91
+  orig: 268, 268
+  offset: 93, 92
+  index: -1
+skinBack-femaleSitCrossD
+  rotate: false
+  xy: 185, 2
+  size: 36, 104
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-femaleSitGroundKneeD
+  rotate: false
+  xy: 1520, 361
+  size: 77, 91
+  orig: 268, 268
+  offset: 93, 92
+  index: -1
+skinBack-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1520, 361
+  size: 77, 91
+  orig: 268, 268
+  offset: 93, 92
+  index: -1
+skinBack-femaleSitLotosD
+  rotate: false
+  xy: 1575, 267
+  size: 55, 71
+  orig: 268, 268
+  offset: 107, 110
+  index: -1
+skinBack-femaleSitLotosR
+  rotate: false
+  xy: 1632, 202
+  size: 40, 67
+  orig: 268, 268
+  offset: 124, 112
+  index: -1
+skinBack-femaleStayMilitaryD
+  rotate: false
+  xy: 1163, 163
+  size: 46, 29
+  orig: 268, 268
+  offset: 111, 143
+  index: -1
+skinBack-femaleStayWallBackR
+  rotate: false
+  xy: 797, 170
+  size: 39, 101
+  orig: 268, 268
+  offset: 120, 79
+  index: -1
+skinBack-maleDrunkedDogBottleR
+  rotate: false
+  xy: 230, 120
+  size: 118, 55
+  orig: 268, 268
+  offset: 80, 96
+  index: -1
+skinBack-maleDrunkedLieFaceR
+  rotate: false
+  xy: 230, 177
+  size: 145, 43
+  orig: 268, 268
+  offset: 57, 109
+  index: -1
+skinBack-maleGymBarAbsR
+  rotate: false
+  xy: 379, 224
+  size: 91, 80
+  orig: 268, 268
+  offset: 114, 98
+  index: -1
+skinBack-maleGymBarPushUpsR
+  rotate: false
+  xy: 1259, 362
+  size: 42, 103
+  orig: 268, 268
+  offset: 111, 75
+  index: -1
+skinBack-maleGymPullUpOneHandD
+  rotate: false
+  xy: 1675, 331
+  size: 50, 121
+  orig: 268, 268
+  offset: 116, 77
+  index: -1
+skinBack-maleGymSitBicepsD
+  rotate: false
+  xy: 724, 277
+  size: 76, 87
+  orig: 268, 268
+  offset: 96, 82
+  index: -1
+skinBack-maleGymSitShouldersD
+  rotate: false
+  xy: 1181, 368
+  size: 76, 97
+  orig: 268, 268
+  offset: 96, 82
+  index: -1
+skinBack-maleLieBackSRD
+  rotate: false
+  xy: 1305, 425
+  size: 103, 63
+  orig: 268, 268
+  offset: 101, 94
+  index: -1
+skinBack-maleLieBackSRD2
+  rotate: false
+  xy: 1305, 425
+  size: 103, 63
+  orig: 268, 268
+  offset: 101, 94
+  index: -1
+skinBack-malePilotLieBackSRD
+  rotate: false
+  xy: 907, 49
+  size: 36, 29
+  orig: 268, 268
+  offset: 101, 128
+  index: -1
+skinBack-malePunkPeeR
+  rotate: false
+  xy: 486, 125
+  size: 67, 103
+  orig: 268, 268
+  offset: 116, 76
+  index: -1
+skinBack-malePunkSitFatD
+  rotate: false
+  xy: 264, 18
+  size: 71, 100
+  orig: 268, 268
+  offset: 98, 81
+  index: -1
+skinBack-maleNerdSitFatD
+  rotate: false
+  xy: 264, 18
+  size: 71, 100
+  orig: 268, 268
+  offset: 98, 81
+  index: -1
+skinBack-maleSitFatD
+  rotate: false
+  xy: 264, 18
+  size: 71, 100
+  orig: 268, 268
+  offset: 98, 81
+  index: -1
+skinBack-malePunkSitGroundD
+  rotate: false
+  xy: 844, 268
+  size: 54, 81
+  orig: 268, 268
+  offset: 107, 96
+  index: -1
+skinBack-maleSitGroundD
+  rotate: false
+  xy: 844, 268
+  size: 54, 81
+  orig: 268, 268
+  offset: 107, 96
+  index: -1
+skinBack-malePunkVomitWallR
+  rotate: false
+  xy: 1599, 340
+  size: 74, 112
+  orig: 268, 268
+  offset: 113, 72
+  index: -1
+skinBack-maleScientistStayControlR
+  rotate: false
+  xy: 1891, 207
+  size: 24, 50
+  orig: 268, 268
+  offset: 130, 130
+  index: -1
+skinBack-maleScientistStayReadR
+  rotate: false
+  xy: 1891, 207
+  size: 24, 50
+  orig: 268, 268
+  offset: 130, 130
+  index: -1
+skinBack-maleScientistStayFullR
+  rotate: false
+  xy: 1391, 368
+  size: 17, 55
+  orig: 268, 268
+  offset: 128, 125
+  index: -1
+skinBack-maleSitCrossShinD2
+  rotate: false
+  xy: 2006, 398
+  size: 40, 112
+  orig: 268, 268
+  offset: 114, 69
+  index: -1
+skinBack-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 2006, 398
+  size: 40, 112
+  orig: 268, 268
+  offset: 114, 69
+  index: -1
+skinBack-malePunkSitCrossShinD
+  rotate: false
+  xy: 2006, 398
+  size: 40, 112
+  orig: 268, 268
+  offset: 114, 69
+  index: -1
+skinBack-maleSitCrossShinD
+  rotate: false
+  xy: 2006, 398
+  size: 40, 112
+  orig: 268, 268
+  offset: 114, 69
+  index: -1
+skinBack-maleSitLotosD
+  rotate: false
+  xy: 1121, 237
+  size: 56, 69
+  orig: 268, 268
+  offset: 106, 112
+  index: -1
+skinBack-maleSitLotosR
+  rotate: false
+  xy: 1632, 271
+  size: 41, 67
+  orig: 268, 268
+  offset: 123, 112
+  index: -1
+skinBack-maleSpaceSuitSitR
+  rotate: false
+  xy: 1020, 57
+  size: 16, 24
+  orig: 268, 268
+  offset: 123, 156
+  index: -1
+skinBack-maleStayMilitaryD
+  rotate: false
+  xy: 907, 80
+  size: 41, 29
+  orig: 268, 268
+  offset: 113, 143
+  index: -1
+skinBack-maleStayWallBackD
+  rotate: false
+  xy: 451, 8
+  size: 57, 110
+  orig: 268, 268
+  offset: 102, 69
+  index: -1
+skinFace-femaleGymBarAbsR
+  rotate: false
+  xy: 1827, 356
+  size: 84, 72
+  orig: 268, 268
+  offset: 119, 102
+  index: -1
+skinFace-femaleGymBarPushUpsR
+  rotate: false
+  xy: 1811, 254
+  size: 36, 94
+  orig: 268, 268
+  offset: 116, 80
+  index: -1
+skinFace-femaleGymPullUpDoneD
+  rotate: false
+  xy: 1282, 191
+  size: 38, 19
+  orig: 268, 268
+  offset: 115, 215
+  index: -1
+skinFace-femaleLieBackOLegsD
+  rotate: false
+  xy: 1179, 237
+  size: 56, 50
+  orig: 268, 268
+  offset: 106, 111
+  index: -1
+skinFace-femaleLieBackSHipsR2
+  rotate: false
+  xy: 1050, 322
+  size: 82, 54
+  orig: 268, 268
+  offset: 91, 108
+  index: -1
+skinFace-femaleLieBackSHipsR
+  rotate: false
+  xy: 1050, 322
+  size: 82, 54
+  orig: 268, 268
+  offset: 91, 108
+  index: -1
+skinFace-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 1050, 322
+  size: 82, 54
+  orig: 268, 268
+  offset: 91, 108
+  index: -1
+skinFace-femaleLieFaceU
+  rotate: false
+  xy: 350, 120
+  size: 50, 55
+  orig: 268, 268
+  offset: 109, 109
+  index: -1
+skinFace-femaleNurseSitCrossD
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femalePilotSitCrossD
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femalePunkSitCrossD
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femalePunkSitCrossD2
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femaleSitCrossD
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femaleSitCrossD2
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femaleSitCrossD3
+  rotate: false
+  xy: 1778, 245
+  size: 31, 99
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1185, 289
+  size: 60, 77
+  orig: 268, 268
+  offset: 105, 96
+  index: -1
+skinFace-femaleSitGroundD
+  rotate: false
+  xy: 1303, 290
+  size: 58, 59
+  orig: 268, 268
+  offset: 105, 104
+  index: -1
+skinFace-femalePunkSitGroundD
+  rotate: false
+  xy: 1303, 290
+  size: 58, 59
+  orig: 268, 268
+  offset: 105, 104
+  index: -1
+skinFace-femaleSitGroundKneeD
+  rotate: false
+  xy: 1059, 253
+  size: 60, 67
+  orig: 268, 268
+  offset: 105, 96
+  index: -1
+skinFace-femaleSitLotosD
+  rotate: false
+  xy: 1134, 308
+  size: 49, 57
+  orig: 268, 268
+  offset: 109, 116
+  index: -1
+skinFace-femaleSitLotosR
+  rotate: false
+  xy: 774, 91
+  size: 36, 57
+  orig: 268, 268
+  offset: 126, 119
+  index: -1
+skinFace-femaleStayMilitaryD
+  rotate: false
+  xy: 264, 2
+  size: 44, 14
+  orig: 268, 268
+  offset: 112, 147
+  index: -1
+skinFace-femaleStayWallBackR
+  rotate: false
+  xy: 1360, 213
+  size: 29, 69
+  orig: 268, 268
+  offset: 121, 105
+  index: -1
+skinFace-maleDrunkedDogBottleR
+  rotate: false
+  xy: 488, 340
+  size: 89, 46
+  orig: 268, 268
+  offset: 97, 104
+  index: -1
+skinFace-maleDrunkedLieFaceR
+  rotate: false
+  xy: 1054, 471
+  size: 125, 39
+  orig: 268, 268
+  offset: 72, 110
+  index: -1
+skinFace-maleGymBarAbsR
+  rotate: false
+  xy: 1303, 351
+  size: 86, 72
+  orig: 268, 268
+  offset: 117, 102
+  index: -1
+skinFace-maleGymBarPushUpsR
+  rotate: false
+  xy: 1481, 273
+  size: 37, 97
+  orig: 268, 268
+  offset: 115, 80
+  index: -1
+skinFace-maleGymPullUpOneHandD
+  rotate: false
+  xy: 677, 20
+  size: 46, 103
+  orig: 268, 268
+  offset: 118, 81
+  index: -1
+skinFace-maleGymSitBicepsD
+  rotate: false
+  xy: 905, 187
+  size: 66, 81
+  orig: 268, 268
+  offset: 101, 86
+  index: -1
+skinFace-maleGymSitShouldersD
+  rotate: false
+  xy: 659, 166
+  size: 66, 92
+  orig: 268, 268
+  offset: 101, 86
+  index: -1
+skinFace-maleLieBackSRD2
+  rotate: false
+  xy: 974, 263
+  size: 83, 49
+  orig: 268, 268
+  offset: 103, 106
+  index: -1
+skinFace-maleLieBackSRD
+  rotate: false
+  xy: 974, 263
+  size: 83, 49
+  orig: 268, 268
+  offset: 103, 106
+  index: -1
+skinFace-malePilotLieBackSRD
+  rotate: false
+  xy: 974, 263
+  size: 83, 49
+  orig: 268, 268
+  offset: 103, 106
+  index: -1
+skinFace-maleNerdSitFatD
+  rotate: false
+  xy: 988, 391
+  size: 60, 91
+  orig: 268, 268
+  offset: 104, 86
+  index: -1
+skinFace-malePunkSitFatD
+  rotate: false
+  xy: 988, 391
+  size: 60, 91
+  orig: 268, 268
+  offset: 104, 86
+  index: -1
+skinFace-maleSitFatD
+  rotate: false
+  xy: 988, 391
+  size: 60, 91
+  orig: 268, 268
+  offset: 104, 86
+  index: -1
+skinFace-malePunkPeeR
+  rotate: false
+  xy: 1520, 276
+  size: 53, 83
+  orig: 268, 268
+  offset: 128, 93
+  index: -1
+skinFace-malePunkVomitWallR
+  rotate: false
+  xy: 663, 260
+  size: 59, 94
+  orig: 268, 268
+  offset: 126, 87
+  index: -1
+skinFace-maleScientistStayControlR
+  rotate: false
+  xy: 1050, 97
+  size: 19, 44
+  orig: 268, 268
+  offset: 133, 134
+  index: -1
+skinFace-maleScientistStayReadR
+  rotate: false
+  xy: 1050, 97
+  size: 19, 44
+  orig: 268, 268
+  offset: 133, 134
+  index: -1
+skinFace-maleScientistStayFullR
+  rotate: false
+  xy: 1181, 150
+  size: 9, 11
+  orig: 268, 268
+  offset: 133, 167
+  index: -1
+skinFace-maleSitCrossShinD
+  rotate: false
+  xy: 555, 125
+  size: 34, 103
+  orig: 268, 268
+  offset: 116, 72
+  index: -1
+skinFace-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 555, 125
+  size: 34, 103
+  orig: 268, 268
+  offset: 116, 72
+  index: -1
+skinFace-malePunkSitCrossShinD
+  rotate: false
+  xy: 555, 125
+  size: 34, 103
+  orig: 268, 268
+  offset: 116, 72
+  index: -1
+skinFace-maleSitCrossShinD2
+  rotate: false
+  xy: 555, 125
+  size: 34, 103
+  orig: 268, 268
+  offset: 116, 72
+  index: -1
+skinFace-maleSitGroundD
+  rotate: false
+  xy: 1525, 203
+  size: 48, 71
+  orig: 268, 268
+  offset: 110, 100
+  index: -1
+skinFace-malePunkSitGroundD
+  rotate: false
+  xy: 1525, 203
+  size: 48, 71
+  orig: 268, 268
+  offset: 110, 100
+  index: -1
+skinFace-maleSitLotosD
+  rotate: false
+  xy: 1674, 197
+  size: 48, 54
+  orig: 268, 268
+  offset: 110, 119
+  index: -1
+skinFace-maleSitLotosR
+  rotate: false
+  xy: 725, 27
+  size: 36, 62
+  orig: 268, 268
+  offset: 126, 116
+  index: -1
+skinFace-maleSpaceSuitSitR
+  rotate: false
+  xy: 1562, 189
+  size: 9, 12
+  orig: 268, 268
+  offset: 126, 167
+  index: -1
+skinFace-maleStayWallBackD
+  rotate: false
+  xy: 1427, 283
+  size: 52, 87
+  orig: 268, 268
+  offset: 105, 85
+  index: -1
+staticBack-femaleGymBarAbsR
+  rotate: false
+  xy: 2, 387
+  size: 210, 123
+  orig: 268, 268
+  offset: 0, 10
+  index: -1
+staticBack-femaleGymBarPushUpsR
+  rotate: false
+  xy: 214, 278
+  size: 157, 114
+  orig: 268, 268
+  offset: 0, 31
+  index: -1
+staticBack-femaleGymPullUpDoneD
+  rotate: false
+  xy: 116, 108
+  size: 112, 152
+  orig: 268, 268
+  offset: 79, 38
+  index: -1
+staticBack-femaleLieBackOLegsD
+  rotate: false
+  xy: 1437, 372
+  size: 81, 89
+  orig: 268, 268
+  offset: 94, 82
+  index: -1
+staticBack-femaleLieBackSHipsR
+  rotate: false
+  xy: 711, 488
+  size: 188, 22
+  orig: 268, 268
+  offset: 67, 114
+  index: -1
+staticBack-femaleLieFaceU
+  rotate: false
+  xy: 596, 412
+  size: 113, 98
+  orig: 268, 268
+  offset: 77, 79
+  index: -1
+staticBack-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1746, 208
+  size: 30, 44
+  orig: 268, 268
+  offset: 120, 53
+  index: -1
+staticBack-femalePilotSitCrossD
+  rotate: false
+  xy: 1746, 208
+  size: 30, 44
+  orig: 268, 268
+  offset: 120, 53
+  index: -1
+staticBack-femaleNurseSitCrossD
+  rotate: false
+  xy: 859, 52
+  size: 20, 39
+  orig: 268, 268
+  offset: 125, 75
+  index: -1
+staticBack-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 2009, 326
+  size: 37, 33
+  orig: 268, 268
+  offset: 72, 112
+  index: -1
+staticBack-femalePunkSitCrossD
+  rotate: false
+  xy: 1058, 152
+  size: 47, 43
+  orig: 268, 268
+  offset: 110, 104
+  index: -1
+staticBack-femalePunkSitCrossD2
+  rotate: false
+  xy: 1974, 283
+  size: 33, 75
+  orig: 268, 268
+  offset: 119, 51
+  index: -1
+staticBack-femaleSitCrossD3
+  rotate: false
+  xy: 1974, 283
+  size: 33, 75
+  orig: 268, 268
+  offset: 119, 51
+  index: -1
+staticBack-femalePunkSitGroundD
+  rotate: false
+  xy: 2007, 207
+  size: 30, 30
+  orig: 268, 268
+  offset: 119, 138
+  index: -1
+staticBack-femalePunkSitGroundKneeD
+  rotate: false
+  xy: 1181, 467
+  size: 122, 43
+  orig: 268, 268
+  offset: 52, 102
+  index: -1
+staticBack-femaleSitCrossD
+  rotate: false
+  xy: 802, 273
+  size: 40, 85
+  orig: 268, 268
+  offset: 115, 85
+  index: -1
+staticBack-femaleSitCrossD2
+  rotate: false
+  xy: 725, 91
+  size: 47, 57
+  orig: 268, 268
+  offset: 111, 88
+  index: -1
+staticBack-femaleSitGroundD
+  rotate: false
+  xy: 373, 306
+  size: 110, 77
+  orig: 268, 268
+  offset: 77, 85
+  index: -1
+staticBack-femaleSitGroundKneeD
+  rotate: false
+  xy: 2, 20
+  size: 110, 77
+  orig: 268, 268
+  offset: 77, 85
+  index: -1
+staticBack-femaleSitLotosR
+  rotate: false
+  xy: 1113, 241
+  size: 6, 10
+  orig: 268, 268
+  offset: 156, 132
+  index: -1
+staticBack-femaleStayMilitaryD
+  rotate: false
+  xy: 2009, 278
+  size: 37, 14
+  orig: 268, 268
+  offset: 115, 73
+  index: -1
+staticBack-maleDrunkedDogBottleR
+  rotate: false
+  xy: 62, 2
+  size: 45, 16
+  orig: 268, 268
+  offset: 138, 87
+  index: -1
+staticBack-maleDrunkedLieFaceR
+  rotate: false
+  xy: 1107, 162
+  size: 54, 32
+  orig: 268, 268
+  offset: 83, 105
+  index: -1
+staticBack-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 421, 9
+  size: 28, 109
+  orig: 268, 268
+  offset: 119, 60
+  index: -1
+staticBack-maleGymBarAbsR
+  rotate: false
+  xy: 2, 262
+  size: 210, 123
+  orig: 268, 268
+  offset: 0, 10
+  index: -1
+staticBack-maleGymBarPushUpsR
+  rotate: false
+  xy: 214, 394
+  size: 158, 116
+  orig: 268, 268
+  offset: 0, 29
+  index: -1
+staticBack-maleGymPullUpOneHandD
+  rotate: false
+  xy: 2, 99
+  size: 112, 161
+  orig: 268, 268
+  offset: 79, 35
+  index: -1
+staticBack-maleGymSitBicepsD
+  rotate: false
+  xy: 374, 385
+  size: 112, 125
+  orig: 268, 268
+  offset: 59, 74
+  index: -1
+staticBack-maleGymSitShouldersD
+  rotate: false
+  xy: 488, 388
+  size: 106, 122
+  orig: 268, 268
+  offset: 81, 77
+  index: -1
+staticBack-maleLieBackSRD
+  rotate: false
+  xy: 1437, 463
+  size: 100, 47
+  orig: 268, 268
+  offset: 43, 120
+  index: -1
+staticBack-maleLieBackSRD2
+  rotate: false
+  xy: 1172, 194
+  size: 56, 41
+  orig: 268, 268
+  offset: 92, 117
+  index: -1
+staticBack-malePunkPeeR
+  rotate: false
+  xy: 1575, 215
+  size: 55, 50
+  orig: 268, 268
+  offset: 108, 73
+  index: -1
+staticBack-malePunkSitCrossShinD
+  rotate: false
+  xy: 1071, 130
+  size: 23, 20
+  orig: 268, 268
+  offset: 122, 163
+  index: -1
+staticBack-malePunkSitGroundD
+  rotate: false
+  xy: 1819, 176
+  size: 28, 28
+  orig: 268, 268
+  offset: 125, 98
+  index: -1
+staticBack-malePunkVomitWallR
+  rotate: false
+  xy: 812, 106
+  size: 30, 62
+  orig: 268, 268
+  offset: 161, 74
+  index: -1
+staticBack-maleScientistStayFullR
+  rotate: false
+  xy: 827, 16
+  size: 32, 33
+  orig: 268, 268
+  offset: 120, 63
+  index: -1
+staticBack-maleScientistStayReadR
+  rotate: false
+  xy: 1113, 196
+  size: 57, 39
+  orig: 268, 268
+  offset: 120, 63
+  index: -1
+staticBack-maleScientistStayControlR
+  rotate: false
+  xy: 1113, 196
+  size: 57, 39
+  orig: 268, 268
+  offset: 120, 63
+  index: -1
+staticBack-maleSitCrossShinD
+  rotate: false
+  xy: 337, 13
+  size: 40, 105
+  orig: 268, 268
+  offset: 115, 75
+  index: -1
+staticBack-maleSitCrossShinD2
+  rotate: false
+  xy: 552, 230
+  size: 34, 67
+  orig: 268, 268
+  offset: 117, 55
+  index: -1
+staticBack-maleSitFatD
+  rotate: false
+  xy: 591, 125
+  size: 56, 40
+  orig: 268, 268
+  offset: 106, 85
+  index: -1
+staticBack-maleSpaceSuitSitR
+  rotate: false
+  xy: 838, 180
+  size: 65, 86
+  orig: 268, 268
+  offset: 108, 83
+  index: -1
+staticBack-maleStayMilitaryD
+  rotate: false
+  xy: 677, 2
+  size: 36, 16
+  orig: 268, 268
+  offset: 118, 75
+  index: -1
+staticFace-femaleGymPullUpDoneD
+  rotate: false
+  xy: 923, 2
+  size: 24, 17
+  orig: 268, 268
+  offset: 122, 191
+  index: -1
+staticFace-femaleLieBackOLegsD
+  rotate: false
+  xy: 1431, 184
+  size: 38, 19
+  orig: 268, 268
+  offset: 115, 88
+  index: -1
+staticFace-femaleLieBackSHipsR
+  rotate: false
+  xy: 861, 2
+  size: 34, 17
+  orig: 268, 268
+  offset: 176, 136
+  index: -1
+staticFace-femaleLieFaceU
+  rotate: false
+  xy: 1891, 167
+  size: 22, 11
+  orig: 268, 268
+  offset: 123, 153
+  index: -1
+staticFace-femaleMechanicSitCrossD
+  rotate: false
+  xy: 1322, 200
+  size: 36, 88
+  orig: 268, 268
+  offset: 116, 76
+  index: -1
+staticFace-femaleNurseSitCrossD
+  rotate: false
+  xy: 379, 10
+  size: 40, 108
+  orig: 268, 268
+  offset: 115, 75
+  index: -1
+staticFace-femalePilotSitCrossD
+  rotate: false
+  xy: 591, 167
+  size: 66, 92
+  orig: 268, 268
+  offset: 116, 76
+  index: -1
+staticFace-femalePunkLieBackSHipsR
+  rotate: false
+  xy: 1980, 240
+  size: 25, 41
+  orig: 268, 268
+  offset: 175, 119
+  index: -1
+staticFace-femalePunkSitCrossD2
+  rotate: false
+  xy: 763, 23
+  size: 30, 66
+  orig: 268, 268
+  offset: 125, 75
+  index: -1
+staticFace-femalePunkSitCrossD
+  rotate: false
+  xy: 763, 23
+  size: 30, 66
+  orig: 268, 268
+  offset: 125, 75
+  index: -1
+staticFace-femaleSitCrossD2
+  rotate: false
+  xy: 763, 23
+  size: 30, 66
+  orig: 268, 268
+  offset: 125, 75
+  index: -1
+staticFace-femaleSitCrossD3
+  rotate: false
+  xy: 763, 23
+  size: 30, 66
+  orig: 268, 268
+  offset: 125, 75
+  index: -1
+staticFace-femalePunkSitGroundD
+  rotate: false
+  xy: 1920, 417
+  size: 84, 93
+  orig: 268, 268
+  offset: 92, 92
+  index: -1
+staticFace-femaleSitCrossD
+  rotate: false
+  xy: 553, 2
+  size: 17, 8
+  orig: 268, 268
+  offset: 138, 133
+  index: -1
+staticFace-femaleSitGroundD
+  rotate: false
+  xy: 1322, 178
+  size: 36, 20
+  orig: 268, 268
+  offset: 116, 171
+  index: -1
+staticFace-femaleSitGroundKneeD
+  rotate: false
+  xy: 1230, 166
+  size: 36, 24
+  orig: 268, 268
+  offset: 116, 161
+  index: -1
+staticFace-femaleSitLotosR
+  rotate: false
+  xy: 377, 192
+  size: 23, 28
+  orig: 268, 268
+  offset: 124, 117
+  index: -1
+staticFace-femaleStayMilitaryD
+  rotate: false
+  xy: 583, 16
+  size: 42, 107
+  orig: 268, 268
+  offset: 113, 73
+  index: -1
+staticFace-femaleStayWallBackR
+  rotate: false
+  xy: 1481, 196
+  size: 42, 75
+  orig: 268, 268
+  offset: 116, 71
+  index: -1
+staticFace-maleDrunkedDogBottleR
+  rotate: false
+  xy: 230, 222
+  size: 147, 54
+  orig: 268, 268
+  offset: 54, 96
+  index: -1
+staticFace-maleDrunkedLieFaceR
+  rotate: false
+  xy: 901, 484
+  size: 151, 26
+  orig: 268, 268
+  offset: 55, 128
+  index: -1
+staticFace-maleGeneralSitCrossShinD
+  rotate: false
+  xy: 510, 3
+  size: 41, 120
+  orig: 268, 268
+  offset: 114, 63
+  index: -1
+staticFace-maleGymSitBicepsD
+  rotate: false
+  xy: 907, 21
+  size: 24, 26
+  orig: 268, 268
+  offset: 124, 101
+  index: -1
+staticFace-maleLieBackSRD
+  rotate: false
+  xy: 596, 356
+  size: 104, 54
+  orig: 268, 268
+  offset: 32, 105
+  index: -1
+staticFace-maleLieBackSRD2
+  rotate: false
+  xy: 472, 230
+  size: 78, 67
+  orig: 268, 268
+  offset: 128, 92
+  index: -1
+staticFace-maleNerdSitFatD
+  rotate: false
+  xy: 1727, 346
+  size: 73, 103
+  orig: 268, 268
+  offset: 97, 79
+  index: -1
+staticFace-malePilotLieBackSRD
+  rotate: false
+  xy: 711, 419
+  size: 135, 67
+  orig: 268, 268
+  offset: 71, 92
+  index: -1
+staticFace-malePunkPeeR
+  rotate: false
+  xy: 1729, 254
+  size: 47, 90
+  orig: 268, 268
+  offset: 115, 76
+  index: -1
+staticFace-malePunkSitCrossShinD
+  rotate: false
+  xy: 1410, 375
+  size: 25, 113
+  orig: 268, 268
+  offset: 122, 69
+  index: -1
+staticFace-malePunkSitFatD
+  rotate: false
+  xy: 588, 261
+  size: 73, 93
+  orig: 268, 268
+  offset: 97, 79
+  index: -1
+staticFace-malePunkSitGroundD
+  rotate: false
+  xy: 485, 299
+  size: 86, 39
+  orig: 268, 268
+  offset: 79, 95
+  index: -1
+staticFace-malePunkVomitWallR
+  rotate: false
+  xy: 1675, 253
+  size: 52, 76
+  orig: 268, 268
+  offset: 113, 72
+  index: -1
+staticFace-maleScientistStayControlR
+  rotate: false
+  xy: 402, 120
+  size: 46, 102
+  orig: 268, 268
+  offset: 121, 68
+  index: -1
+staticFace-maleScientistStayFullR
+  rotate: false
+  xy: 450, 120
+  size: 34, 102
+  orig: 268, 268
+  offset: 115, 68
+  index: -1
+staticFace-maleScientistStayReadR
+  rotate: false
+  xy: 1134, 367
+  size: 45, 102
+  orig: 268, 268
+  offset: 121, 68
+  index: -1
+staticFace-maleSitCrossShinD2
+  rotate: false
+  xy: 1096, 128
+  size: 9, 22
+  orig: 268, 268
+  offset: 138, 119
+  index: -1
+staticFace-maleSitCrossShinD
+  rotate: false
+  xy: 1096, 128
+  size: 9, 22
+  orig: 268, 268
+  offset: 138, 119
+  index: -1
+staticFace-maleSitFatD
+  rotate: false
+  xy: 1778, 208
+  size: 39, 35
+  orig: 268, 268
+  offset: 114, 154
+  index: -1
+staticFace-maleSitGroundD
+  rotate: false
+  xy: 652, 2
+  size: 9, 13
+  orig: 268, 268
+  offset: 134, 113
+  index: -1
+staticFace-maleStayMilitaryD
+  rotate: false
+  xy: 627, 17
+  size: 48, 106
+  orig: 268, 268
+  offset: 110, 74
+  index: -1
+staticFace-maleStayWallBackD
+  rotate: false
+  xy: 1802, 350
+  size: 23, 99
+  orig: 268, 268
+  offset: 122, 65
+  index: -1

@@ -1,0 +1,27 @@
+
+background15.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top15
+  rotate: false
+  xy: 2, 318
+  size: 1280, 314
+  orig: 1280, 720
+  offset: 0, 406
+  index: -1
+topLeft15
+  rotate: false
+  xy: 2, 2
+  size: 429, 314
+  orig: 1280, 720
+  offset: 0, 406
+  index: -1
+topRight15
+  rotate: false
+  xy: 1284, 332
+  size: 415, 300
+  orig: 1280, 720
+  offset: 865, 420
+  index: -1

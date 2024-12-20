@@ -1,0 +1,20 @@
+
+background6.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+topLeft6
+  rotate: false
+  xy: 2, 32
+  size: 467, 291
+  orig: 1280, 720
+  offset: 0, 429
+  index: -1
+topRight6
+  rotate: false
+  xy: 471, 2
+  size: 329, 321
+  orig: 1280, 720
+  offset: 951, 399
+  index: -1

@@ -1,0 +1,27 @@
+
+background2.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top2
+  rotate: false
+  xy: 2, 2
+  size: 928, 247
+  orig: 1280, 720
+  offset: 176, 473
+  index: -1
+topLeft2
+  rotate: false
+  xy: 932, 89
+  size: 58, 79
+  orig: 1280, 720
+  offset: 60, 493
+  index: -1
+topRight2
+  rotate: false
+  xy: 932, 170
+  size: 58, 79
+  orig: 1280, 720
+  offset: 1162, 493
+  index: -1

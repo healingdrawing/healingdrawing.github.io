@@ -1,0 +1,27 @@
+
+background12.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top12
+  rotate: false
+  xy: 2, 106
+  size: 1107, 291
+  orig: 1280, 720
+  offset: 85, 429
+  index: -1
+topLeft12
+  rotate: false
+  xy: 2, 2
+  size: 294, 102
+  orig: 1280, 720
+  offset: 28, 463
+  index: -1
+topRight12
+  rotate: false
+  xy: 1111, 289
+  size: 137, 108
+  orig: 1280, 720
+  offset: 1114, 492
+  index: -1

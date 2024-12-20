@@ -1,0 +1,27 @@
+
+background9.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top9
+  rotate: false
+  xy: 2, 189
+  size: 1155, 298
+  orig: 1280, 720
+  offset: 63, 408
+  index: -1
+topLeft9
+  rotate: false
+  xy: 2, 2
+  size: 191, 185
+  orig: 1280, 720
+  offset: 58, 444
+  index: -1
+topRight9
+  rotate: false
+  xy: 1159, 249
+  size: 304, 238
+  orig: 1280, 720
+  offset: 960, 393
+  index: -1

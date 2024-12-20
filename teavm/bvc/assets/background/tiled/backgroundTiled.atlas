@@ -1,0 +1,62 @@
+
+backgroundTiled.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+asphalt-110-125
+  rotate: false
+  xy: 1284, 351
+  size: 348, 87
+  orig: 348, 87
+  offset: 0, 0
+  index: -1
+backM5
+  rotate: false
+  xy: 1284, 21
+  size: 58, 198
+  orig: 58, 198
+  offset: 0, 0
+  index: -1
+borderM2
+  rotate: false
+  xy: 1542, 317
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+forestGroundM15
+  rotate: false
+  xy: 1284, 221
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+rockGroundM152
+  rotate: false
+  xy: 2, 36
+  size: 1280, 86
+  orig: 1280, 87
+  offset: 0, 0
+  index: -1
+sand
+  rotate: false
+  xy: 2, 124
+  size: 1280, 314
+  orig: 1280, 314
+  offset: 0, 0
+  index: -1
+squareStoneAreaM10
+  rotate: false
+  xy: 1634, 406
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+squareStoneAreaM2
+  rotate: false
+  xy: 2, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1

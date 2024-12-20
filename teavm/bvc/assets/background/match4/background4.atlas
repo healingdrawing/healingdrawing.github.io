@@ -1,0 +1,27 @@
+
+background4.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top4
+  rotate: false
+  xy: 2, 2
+  size: 254, 171
+  orig: 1280, 720
+  offset: 531, 490
+  index: -1
+topLeft4
+  rotate: false
+  xy: 446, 170
+  size: 409, 295
+  orig: 1280, 720
+  offset: 0, 425
+  index: -1
+topRight4
+  rotate: false
+  xy: 2, 175
+  size: 442, 290
+  orig: 1280, 720
+  offset: 838, 430
+  index: -1

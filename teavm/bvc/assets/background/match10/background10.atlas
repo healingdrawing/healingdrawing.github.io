@@ -1,0 +1,27 @@
+
+background10.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top10
+  rotate: false
+  xy: 2, 274
+  size: 824, 233
+  orig: 1280, 720
+  offset: 228, 487
+  index: -1
+topLeft10
+  rotate: false
+  xy: 2, 2
+  size: 175, 270
+  orig: 1280, 720
+  offset: 0, 450
+  index: -1
+topRight10
+  rotate: false
+  xy: 179, 2
+  size: 173, 270
+  orig: 1280, 720
+  offset: 1107, 450
+  index: -1

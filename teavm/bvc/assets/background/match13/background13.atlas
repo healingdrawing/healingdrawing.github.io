@@ -1,0 +1,27 @@
+
+background13.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top13
+  rotate: false
+  xy: 2, 2
+  size: 582, 188
+  orig: 1280, 720
+  offset: 349, 460
+  index: -1
+topLeft13
+  rotate: false
+  xy: 736, 45
+  size: 123, 145
+  orig: 1280, 720
+  offset: 60, 464
+  index: -1
+topRight13
+  rotate: false
+  xy: 586, 33
+  size: 148, 157
+  orig: 1280, 720
+  offset: 1104, 464
+  index: -1

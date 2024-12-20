@@ -1,0 +1,27 @@
+
+background8.png
+size: 1024,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top8
+  rotate: false
+  xy: 2, 2
+  size: 287, 119
+  orig: 1280, 720
+  offset: 390, 477
+  index: -1
+topLeft8
+  rotate: false
+  xy: 291, 2
+  size: 287, 119
+  orig: 1280, 720
+  offset: 22, 403
+  index: -1
+topRight8
+  rotate: false
+  xy: 580, 3
+  size: 287, 118
+  orig: 1280, 720
+  offset: 981, 424
+  index: -1

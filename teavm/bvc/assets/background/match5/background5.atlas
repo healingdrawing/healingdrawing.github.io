@@ -1,0 +1,27 @@
+
+background5.png
+size: 2048,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top5
+  rotate: false
+  xy: 2, 2
+  size: 348, 227
+  orig: 1280, 720
+  offset: 466, 493
+  index: -1
+topLeft5
+  rotate: false
+  xy: 702, 2
+  size: 348, 227
+  orig: 1280, 720
+  offset: 2, 493
+  index: -1
+topRight5
+  rotate: false
+  xy: 352, 2
+  size: 348, 227
+  orig: 1280, 720
+  offset: 930, 493
+  index: -1

@@ -1,0 +1,27 @@
+
+background3.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+top3
+  rotate: false
+  xy: 2, 2
+  size: 622, 314
+  orig: 1280, 720
+  offset: 330, 406
+  index: -1
+topLeft3
+  rotate: false
+  xy: 925, 47
+  size: 208, 269
+  orig: 1280, 720
+  offset: 0, 432
+  index: -1
+topRight3
+  rotate: false
+  xy: 626, 50
+  size: 297, 266
+  orig: 1280, 720
+  offset: 983, 435
+  index: -1

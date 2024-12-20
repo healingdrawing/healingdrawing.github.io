@@ -1,0 +1,2 @@
+9 layers characters for background.
+first and last layer named static is colored, other white mask.
