@@ -49,10 +49,15 @@
         height: 20px;
         width: 0%;
       }
+      #canvas{
+        height: 100vh;              /* Fill full height of the visible screen */
+        width: auto;                /* Width adjusts automatically */
+        aspect-ratio: 16 / 9;       /* same as 1280/720 */
+      }
     </style>
 </head>
 <body oncontextmenu="return false" onload="main()">
-<div>
+<div style="text-align: center;">
   <div id="progress">
     <img id="progress-img" src="startup-logo.png">
     <div id="progress-box">
