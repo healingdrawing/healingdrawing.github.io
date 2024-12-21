@@ -2,20 +2,15 @@
 /* social media links section */
 
 .sm-container{ /*social-media-container for links*/
-  display: grid;
   background: linear-gradient( to bottom, var(--triad2dark), transparent 75%);
-  
-  justify-content: center;
-  justify-self: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
 }
 
 .sm-card{ /*social-media-card for one link*/
   position: relative;
   display: inline-block;
-  text-align: center;
   
   background: radial-gradient(
     var(--triad2),
