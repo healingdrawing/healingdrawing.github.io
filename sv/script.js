@@ -21,7 +21,7 @@ function parse_all(){
       filtered += '<div class="text">' + all_split[i].replace("[t] ","") + '</div>';
     }else{
       var word_split = all_split[i].split("\n");
-      if (word_split.length > 1){
+      if (word_split.length === 2){
         filtered += '<div class="word"><div class="sv">'
         + word_split[0]
         + '</div><div class="ru" onclick="show_translation(this)">'
