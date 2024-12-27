@@ -8,8 +8,16 @@ function hide_raw_content(){ content.classList.add('hidden'); }
 hide_raw_content();
 
 /**The "it" is binded to div, otherwise "this" operates with "document.window" */
-function show_translation(it) {
-  it.style.color = (it.style.color!= 'whitesmoke')? 'whitesmoke':'black';
+function show_hide_translation(it) {
+  if (it.children.length < 2) console.error("Translation not found.", it.children);
+  let t = it.children[1] // translation div
+  if (t.classList.contains("face")) {
+    t.classList.remove("face");
+    t.classList.add("back");
+  } else {
+    t.classList.remove("back")
+    t.classList.add("face")
+  }
 }
 
 function parse_all(){
@@ -17,29 +25,36 @@ function parse_all(){
   var all_split = content.innerHTML.split("\n\n");
   var filtered = "";
   for (i=0;i<all_split.length;i++){
-    if (all_split[i].startsWith("[t] ")){
-      filtered += '<div class="text">' + all_split[i].replace("[t] ","") + '</div>';
+    if (all_split[i].startsWith("[t] ")){ // text/phrase found
+      let text_split = all_split[i].split("\n")
+      if (text_split.length === 2) {
+        filtered += '<div class="text" onclick="show_hide_translation(this)">'
+        + '<div class="sv">' + text_split[0].replace("[t] ","") + '</div>'
+        + '<div class="ru back">' + text_split[1] + '</div></div>';
+      }
     }else{
       let word_split = all_split[i].split("\n");
-      if (word_split.length === 2){
+      if (word_split.length === 2){ // svenska found and translation found
         let sv_split = word_split[0].split("|")
-        if (sv_split.length === 2){
-          filtered += '<div class="word"><div class="sv" title="'
+        if (sv_split.length === 2){ // indefinite and definite forms found
+          filtered += '<div class="word" onclick="show_hide_translation(this)">'
+          + '<div class="sv" title="'
           + sv_split[0] + '">'
           + sv_split[1]
-          + '</div><div class="ru" onclick="show_translation(this)">'
+          + '</div>|<div class="ru back">'
           + word_split[1]
           + '</div></div>'
-        } else {
-          filtered += '<div class="word"><div class="sv">'
+        } else { // no indefinite form provided
+          filtered += '<div class="word" onclick="show_hide_translation(this)">'
+          + '<div class="sv">'
           + word_split[0]
-          + '</div><div class="ru" onclick="show_translation(this)">'
+          + '</div>|<div class="ru back">'
           + word_split[1]
           + '</div></div>';
         }
         
       } else {
-        console.log("broken word record", word_split)
+        console.log("parse fail. Broken word record", word_split)
       }
       
     }

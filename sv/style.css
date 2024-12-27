@@ -1,25 +1,38 @@
+:root{
+  --face: whitesmoke;
+  --back: black;
+}
+
 body {
-  background-color: black;
-  color: whitesmoke;
+  background-color: var(--back);
+  color: var(--face);
+}
+
+.face {
+  color: var(--face)
+}
+
+.back {
+  color: var(--back)
 }
 
 #top {
   display: inline-block;
-  background-color: whitesmoke;
-  color: black;
+  background-color: var(--face);
+  color: var(--back);
   padding : 5px;
-  border-radius: 10px;
-  
+  border-radius: 10px;  
 }
 
 .hidden {display: none;}
 
 .text, .word {
   display: inline-block;
-  border: 1px solid whitesmoke;
+  border: 1px solid;
   border-radius: 10px;
   margin: 2px;
   padding: 2px;
+  cursor: pointer;
 }
 
 .sv, .ru {
@@ -32,7 +45,7 @@ body {
   font-weight: bold;
 }
 
-.ru {
-  border-left: 2px solid whitesmoke;
-  color:black;
+.text {
+  display: inline-flex;
+  flex-direction: column;
 }
