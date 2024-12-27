@@ -43,7 +43,6 @@ body {
 }
 
 .sv, .ru {
-  display: inline-block;
   margin: 0px;
   padding: 2px;
 }
@@ -53,6 +52,5 @@ body {
 }
 
 .text {
-  display: inline-flex;
   flex-direction: column;
 }
