@@ -20,13 +20,24 @@ function parse_all(){
     if (all_split[i].startsWith("[t] ")){
       filtered += '<div class="text">' + all_split[i].replace("[t] ","") + '</div>';
     }else{
-      var word_split = all_split[i].split("\n");
+      let word_split = all_split[i].split("\n");
       if (word_split.length === 2){
-        filtered += '<div class="word"><div class="sv">'
-        + word_split[0]
-        + '</div><div class="ru" onclick="show_translation(this)">'
-        + word_split[1]
-        + '</div></div>';        
+        let sv_split = word_split[0].split("|")
+        if (sv_split.length === 2){
+          filtered += '<div class="word"><div class="sv" title="'
+          + sv_split[0] + '">'
+          + sv_split[1]
+          + '</div><div class="ru" onclick="show_translation(this)">'
+          + word_split[1]
+          + '</div></div>'
+        } else {
+          filtered += '<div class="word"><div class="sv">'
+          + word_split[0]
+          + '</div><div class="ru" onclick="show_translation(this)">'
+          + word_split[1]
+          + '</div></div>';
+        }
+        
       } else {
         console.log("broken word record", word_split)
       }
