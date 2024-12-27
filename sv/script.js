@@ -21,18 +21,35 @@ function show_hide_translation(it) {
 }
 
 function parse_all(){
+  let number = 1;
+  let text_section = true; // to separate text using new line
+  let word_section = true; // to separate word + text using hr
   // parse
   var all_split = content.innerHTML.split("\n\n");
   var filtered = "";
   for (i=0;i<all_split.length;i++){
     if (all_split[i].startsWith("[t] ")){ // text/phrase found
+      
+      if (text_section) {
+        word_section = true
+        text_section = false;
+        filtered += '<br>';
+      }
+      
       let text_split = all_split[i].split("\n")
       if (text_split.length === 2) {
         filtered += '<div class="text" onclick="show_hide_translation(this)">'
         + '<div class="sv">' + text_split[0].replace("[t] ","") + '</div>'
         + '<div class="ru back">' + text_split[1] + '</div></div>';
       }
-    }else{
+    }else{ //word found
+      
+      if (word_section) {
+        text_section = true;
+        word_section = false;
+        filtered += '<div class="separator"><hr>'+ number++ +"<hr></div>";
+      }
+      
       let word_split = all_split[i].split("\n");
       if (word_split.length === 2){ // svenska found and translation found
         let sv_split = word_split[0].split("|")

@@ -8,6 +8,13 @@ body {
   color: var(--face);
 }
 
+.separator {
+  display: flex;
+  flex-direction: row;
+}
+
+.separator hr {width: 100%; margin: auto 2px auto 2px;}
+
 .face {
   color: var(--face)
 }
@@ -27,7 +34,7 @@ body {
 .hidden {display: none;}
 
 .text, .word {
-  display: inline-block;
+  display: inline-flex;
   border: 1px solid;
   border-radius: 10px;
   margin: 2px;
