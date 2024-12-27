@@ -47,7 +47,9 @@ function parse_all(){
       if (word_section) {
         text_section = true;
         word_section = false;
-        filtered += '<div class="separator"><hr>'+ number++ +"<hr></div>";
+        filtered += '<div class="separator"><div class="line"></div><div class="number">'
+        + number++ 
+        + '</div><div class="line"></div></div>';
       }
       
       let word_split = all_split[i].split("\n");

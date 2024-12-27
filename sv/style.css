@@ -10,10 +10,20 @@ body {
 
 .separator {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  margin: 1em auto 1em auto;
 }
 
-.separator hr {width: 100%; margin: auto 2px auto 2px;}
+.separator .line {
+  flex-grow: 1; /* Allow the line to grow and fill space */
+  border: 1px solid;
+}
+
+.separator .number {
+  border: 2px solid;
+  padding: 4px;
+  border-radius: 10px;
+}
 
 .face {
   color: var(--face)
@@ -27,7 +37,7 @@ body {
   display: inline-block;
   background-color: var(--face);
   color: var(--back);
-  padding : 5px;
+  padding : 4px;
   border-radius: 10px;  
 }
 
@@ -43,7 +53,6 @@ body {
 }
 
 .sv, .ru {
-  margin: 0px;
   padding: 2px;
 }
 
