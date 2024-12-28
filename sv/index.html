@@ -10,10 +10,13 @@
   
   
   <body>
-  <div id="top" onclick="show_hide_menu()">menu</div>
-  <div id="menu">
-    menu to control font and darkmode
-    <a href="/">homepage</a>
+  <div id="menu_button" class="minor click fixed" onclick="show_hide_menu()">menu</div>
+  <div id="menu" class="menu_div fixed">
+    <div class="click minor" onclick="show_hide_menu()">hide</div>
+    <div class="click" onclick="show_hide_extra()" title="en ett att">extra</div>
+    <div class="click" onclick="show_hide_translations()" title="all translations">translate</div>
+    <div class="click" onclick="switch_translations()" title="switch translations">switch</div>
+    <a href="/" class="icon_link minor" title="homepage"><img class="menu_icon" src="/img/HD.png" alt="homepage icon"></a>
   </div>
   <div id="filtered"></div>
   <div id="content">
