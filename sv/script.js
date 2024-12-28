@@ -70,18 +70,45 @@ function parse_all(){
   for (i=0;i<all_split.length;i++){
     if (all_split[i].startsWith("[t] ")){ // text/phrase found
       
-      if (text_section) {
-        word_section = true
-        text_section = false;
-        filtered += '<br>';
+      // check for long text
+      let [sentences, translations] = all_split[i].split("[t] ")[1].split("\n");
+      sentences = sentences.split(".");
+      translations = translations.split(".");
+      
+      if (translations.length !== sentences.length) {
+        console.error("incorrect sentences/translations found", sentences, translations);
+        continue;
       }
       
-      let text_split = all_split[i].split("\n")
-      if (text_split.length === 2) {
-        filtered += '<div class="text" onclick="show_hide_translation(this)">'
-        + '<div class="sv">' + text_split[0].replace("[t] ","") + '</div>'
-        + '<div class="ru back">' + text_split[1] + '</div></div>';
+      if (sentences.length > 1){
+        word_section = true
+        text_section = false;
+        filtered += '<div class="separator"><div class="line"></div><div class="marker">📖</div><div class="line"></div></div>';
       }
+      else if (text_section) {
+        word_section = true
+        text_section = false;
+        filtered += '<br>'; // case of new line after words
+      }
+      
+      for (let i=0;i< sentences.length;i++){
+        if (sentences[i] === "" || translations[i] === "") {
+          console.error("empty sentence/translation found", sentences, translations);
+          continue;
+        }
+        filtered += '<div class="text" onclick="show_hide_translation(this)">'
+        + '<div class="sv">' + sentences[i] + '</div>'
+        + '<div class="ru back">' + translations[i] + '</div></div>';
+      }
+      
+      if (sentences.length > 1) filtered += '<div class="separator"><div class="line"></div><div class="marker">💆🏻</div><div class="line"></div></div>';
+      
+      // let text_split = all_split[i].split("\n")
+      // if (text_split.length === 2) {
+      //   filtered += '<div class="text" onclick="show_hide_translation(this)">'
+      //   + '<div class="sv">' + text_split[0].replace("[t] ","") + '</div>'
+      //   + '<div class="ru back">' + text_split[1] + '</div></div>';
+      // }
     }else{ //word found
       
       if (word_section) {

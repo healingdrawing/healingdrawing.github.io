@@ -25,6 +25,10 @@ body {
   border-radius: 10px;
 }
 
+.separator .marker{
+  font-size: 2em;
+}
+
 .face {
   color: var(--face)
 }
