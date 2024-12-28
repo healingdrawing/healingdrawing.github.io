@@ -76,7 +76,7 @@ function parse_all(){
       translations = translations.split(".");
       
       if (translations.length !== sentences.length) {
-        console.error("incorrect sentences/translations found", sentences, translations);
+        console.error("incorrect sentences/translations batch found", sentences, translations);
         continue;
       }
       
@@ -92,23 +92,18 @@ function parse_all(){
       }
       
       for (let i=0;i< sentences.length;i++){
-        if (sentences[i] === "" || translations[i] === "") {
-          console.error("empty sentence/translation found", sentences, translations);
+        let sen = sentences[i].trim();
+        let tra = translations[i].trim();
+        if (sen === "" || tra === "") {
+          console.error("empty sentence/translation pair found", sentences, translations);
           continue;
         }
         filtered += '<div class="text" onclick="show_hide_translation(this)">'
-        + '<div class="sv">' + sentences[i] + '</div>'
-        + '<div class="ru back">' + translations[i] + '</div></div>';
+        + '<div class="sv">' + sen + '</div>'
+        + '<div class="ru back">' + tra + '</div></div>';
       }
       
       if (sentences.length > 1) filtered += '<div class="separator"><div class="line"></div><div class="marker">💆🏻</div><div class="line"></div></div>';
-      
-      // let text_split = all_split[i].split("\n")
-      // if (text_split.length === 2) {
-      //   filtered += '<div class="text" onclick="show_hide_translation(this)">'
-      //   + '<div class="sv">' + text_split[0].replace("[t] ","") + '</div>'
-      //   + '<div class="ru back">' + text_split[1] + '</div></div>';
-      // }
     }else{ //word found
       
       if (word_section) {
