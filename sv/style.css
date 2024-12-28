@@ -33,12 +33,35 @@ body {
   color: var(--back)
 }
 
-#top {
-  display: inline-block;
+.click {
   background-color: var(--face);
   color: var(--back);
-  padding : 4px;
-  border-radius: 10px;  
+  margin: 1px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fixed{
+  position:fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.menu_div{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu_icon{
+  padding: 0 1px;
+  height: calc(1em + 10px);
+  vertical-align: middle; /*needs an align-items property to work*/
+}
+
+.minor{
+  opacity: 0.3;
 }
 
 .hidden {display: none;}
@@ -52,8 +75,12 @@ body {
   cursor: pointer;
 }
 
-.sv, .ru {
-  padding: 2px;
+.sv, .ru, .enettatt {
+  padding: 2px 4px;
+}
+
+.sv, .enettatt {
+  border-right: 1px solid;
 }
 
 .sv {
