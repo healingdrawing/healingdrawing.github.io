@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	
+	<title>hirakana</title>
+	
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	
+	<link rel="shortcut icon" type="image/png" href="./favicon.png">
+	
+	
+	<script type="text/javascript" src="./hirakana.js"></script>
+	
+	<script>
+		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
+		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById ("viewport");
+			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
+	</script>
+	
+	<style>
+		:root{
+      --fullvh: 100vh;
+      --fullvw: 100vw;
+    }
+		html{  margin: 0; padding: 0; overflow: hidden; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      background: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+		#openfl-content {
+      background: black;
+    }
+
+    /* split to horizontal and vertical screens, to prevent cut sides */
+    /*wider than or equal*/
+    @media (min-aspect-ratio: 720/1280){
+      #openfl-content > * {
+        min-height: var(--fullvh);
+        height: var(--fullvh);
+        max-height: var(--fullvh);
+        min-width: calc(var(--fullvh) * (720/1280));
+        width: calc(var(--fullvh) * (720/1280));
+        max-width: calc(var(--fullvh) * (720/1280));
+      }
+    }
+
+    /* other */
+    @media (max-aspect-ratio: 720/1280) {
+      #openfl-content > * {
+        min-height: calc(var(--fullvw) * (1280/720));
+        height: calc(var(--fullvw) * (1280/720));
+        max-height: calc(var(--fullvw) * (1280/720));
+        min-width: var(--fullvw);
+        width: var(--fullvw);
+        max-width: var(--fullvw);
+        
+      }
+    }
+    
+		@font-face {
+			font-family: 'Philosopher Regular';
+			src: url('assets/data/Philosopher-Regular.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Noto Emoji_catsnumbers';
+			src: url('assets/data/emoji.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Togoshi Mincho';
+			src: url('assets/data/togoshi-mincho.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Lobster Regular';
+			src: url('assets/data/Lobster-Regular.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Nokia Cellphone FC Small';
+			src: url('flixel/fonts/nokiafc22.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Monsterrat';
+			src: url('flixel/fonts/monsterrat.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+	</style>
+	
+</head>
+<body>
+	
+	<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
+	
+	<div id="openfl-content"></div>
+	
+	<script type="text/javascript">
+		lime.embed ("hirakana", "openfl-content", 720, 1280, { parameters: {} });
+	</script>
+	
+</body>
+</html>
