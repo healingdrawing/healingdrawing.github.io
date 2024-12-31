@@ -100,3 +100,12 @@
 .app-card:hover .app-media{
   opacity: 0.1;
 }
+
+.lazy{
+  opacity: 0.0;
+}
+
+.lazy:hover{
+  opacity: 1;
+  transition-duration: var(--transition-time);
+}
