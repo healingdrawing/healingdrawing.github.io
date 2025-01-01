@@ -116,7 +116,7 @@ function parse_all(){
       
       let word_split = all_split[i].split("\n");
       if (word_split.length === 2){ // svenska found and translation found
-        let sv_split = word_split[0].split("|")
+        let sv_split = word_split[0].split("|").map((raw) => raw.trim())
         if (sv_split.length === 2){ // en ett att forms found
           filtered += '<div class="word" onclick="show_hide_translation(this)">'
           + '<div class="enettatt hidden">'
