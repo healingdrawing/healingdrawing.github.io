@@ -66,15 +66,16 @@ function parse_all(){
   let text_section = true; // to separate text using new line
   let word_section = true; // to separate word + text using hr
   // parse
-  var all_split = content.innerHTML.split("\n\n");
+  var all_split = content.innerHTML.trim().split("\n\n");
+  console.log(all_split)
   var filtered = "";
   for (i=0;i<all_split.length;i++){
     if (all_split[i].startsWith("[t] ")){ // text/phrase found
       
       // check for long text
       let [sentences, translations] = all_split[i].split("[t] ")[1].split("\n");
-      sentences = sentences.split(".  ");
-      translations = translations.split(".  ");
+      sentences = sentences.split("  ");
+      translations = translations.split("  ");
       
       if (translations.length !== sentences.length) {
         console.error("incorrect sentences/translations batch found", sentences, translations);
