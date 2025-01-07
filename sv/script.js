@@ -62,6 +62,7 @@ function show_hide_extra(){
 
 function parse_all(){
   let number = 1;
+  let text_number = 1; // to visually separate, more than one sentence sequence.
   let text_section = true; // to separate text using new line
   let word_section = true; // to separate word + text using hr
   // parse
@@ -72,8 +73,8 @@ function parse_all(){
       
       // check for long text
       let [sentences, translations] = all_split[i].split("[t] ")[1].split("\n");
-      sentences = sentences.split(".");
-      translations = translations.split(".");
+      sentences = sentences.split(".  ");
+      translations = translations.split(".  ");
       
       if (translations.length !== sentences.length) {
         console.error("incorrect sentences/translations batch found", sentences, translations);
@@ -83,7 +84,10 @@ function parse_all(){
       if (sentences.length > 1){
         word_section = true
         text_section = false;
-        filtered += '<div class="separator"><div class="line"></div><div class="marker">📖</div><div class="line"></div></div>';
+        filtered += '<div class="separator"><div class="line"></div><div class="marker">'
+        + '📖'
+        + text_number++
+        + '</div><div class="line"></div></div>';
       }
       else if (text_section) {
         word_section = true
@@ -103,7 +107,7 @@ function parse_all(){
         + '<div class="ru back">' + tra + '</div></div>';
       }
       
-      if (sentences.length > 1) filtered += '<div class="separator"><div class="line"></div><div class="marker">💆🏻</div><div class="line"></div></div>';
+      // if (sentences.length > 1) filtered += '<div class="separator"><div class="line"></div><div class="marker">💆🏻</div><div class="line"></div></div>';
     }else{ //word found
       
       if (word_section) {
