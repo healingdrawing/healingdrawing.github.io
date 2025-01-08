@@ -20,13 +20,16 @@ body {
 }
 
 .separator .number {
-  border: 2px solid;
-  padding: 4px;
-  border-radius: 10px;
+  /* border-left: 2px solid; */
+  /* border-right: 2px solid; */
+  /* border-radius: 10px; */
+  padding: 0px 8px;
+  margin: 8px 0;
 }
 
 .separator .marker{
   font-size: auto;
+  padding: 0px 8px;
 }
 
 .face {

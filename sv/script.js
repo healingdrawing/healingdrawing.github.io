@@ -86,7 +86,7 @@ function parse_all(){
         word_section = true
         text_section = false;
         filtered += '<div class="separator"><div class="line"></div><div class="marker">'
-        + '📖'
+        + '📖 '
         + text_number++
         + '</div><div class="line"></div></div>';
       }
@@ -114,7 +114,7 @@ function parse_all(){
       if (word_section) {
         text_section = true;
         word_section = false;
-        filtered += '<div class="separator"><div class="line"></div><div class="number">'
+        filtered += '<div class="separator"><div class="line"></div><div class="number">section '
         + number++ 
         + '</div><div class="line"></div></div>';
       }
