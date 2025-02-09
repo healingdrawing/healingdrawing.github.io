@@ -1,0 +1,106 @@
+:root{
+  --face: whitesmoke;
+  --back: black;
+}
+
+@font-face {font-family: 'llfont'; 
+	src: url('llfont.ttf') format('truetype');}
+
+.ll {font-family: 'llfont'; font-size: 2em;}
+
+title .ll{font-family: 'llfont';}
+
+body {
+  background-color: var(--back);
+  color: var(--face);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 1em auto 1em auto;
+}
+
+.separator .line {
+  flex-grow: 1; /* Allow the line to grow and fill space */
+  border: 1px solid;
+}
+
+.separator .number {
+  /* border-left: 2px solid; */
+  /* border-right: 2px solid; */
+  /* border-radius: 10px; */
+  padding: 0px 8px;
+  margin: 8px 0;
+}
+
+.separator .marker{
+  font-size: auto;
+  padding: 0px 8px;
+}
+
+.face {
+  color: var(--face)
+}
+
+.back {
+  color: var(--back)
+}
+
+.click {
+  background-color: var(--face);
+  color: var(--back);
+  margin: 1px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fixed{
+  position:fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.menu_div{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu_icon{
+  padding: 0 1px;
+  height: calc(1em + 10px);
+  vertical-align: middle; /*needs an align-items property to work*/
+}
+
+.minor{
+  opacity: 0.3;
+}
+
+.hidden {display: none;}
+
+.text, .word {
+  display: inline-flex;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.ll, .ru, .enettatt {
+  padding: 2px 4px;
+}
+
+.word .ll, .enettatt {
+  border-right: 1px solid;
+}
+
+.ll {
+  font-weight:normal;
+}
+
+.text {
+  flex-direction: column;
+}
