@@ -1,0 +1,38 @@
+* {
+  background: hsla(129, 50%, 1%,1);
+  color: hsla(129, 50%, 82%,0.8);
+  text-align: center;
+}
+
+hr{
+  border: 1px rgb(53, 53, 53) solid;
+}
+
+button {
+  border: 1px gray solid;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  border: 1px gray solid;
+  border-radius: 5px;
+  border:1px firebrick solid;
+  margin: 4px 0;
+}
+
+/*mobile*/
+@media screen and (max-aspect-ratio: 1/1) {
+  *{
+    font-size: calc(100vw * 0.05);
+    margin: 4px 0;
+  }
+}
+
+/*laptop*/
+@media screen and (min-aspect-ratio: 1/1) {
+  *{
+    font-size: calc(100vw * 0.02);
+    margin: 2px 0;
+  }
+}
