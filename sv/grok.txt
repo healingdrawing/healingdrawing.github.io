@@ -12,4 +12,6 @@ Indefinite singular | Definite singular | Indefinite plural | Definite plural
 
 for verbs:
 Infinitive | Present | Indefinite (Simple Past) | Past Participle
+Add "att" to infinitive form.
+
 I will enter the word i would like to learn, you will answer.
