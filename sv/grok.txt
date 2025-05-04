@@ -14,4 +14,9 @@ for verbs:
 Infinitive | Present | Indefinite (Simple Past) | Past Participle
 Add "att" to infinitive form.
 
+for adjectives:
+en single | ett single | plural
+,like
+grön | grönt | grona
+
 I will enter the word i would like to learn, you will answer.

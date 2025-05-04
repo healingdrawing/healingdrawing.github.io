@@ -15,7 +15,7 @@ hide_raw_content();
 /**The "it" is binded to div, otherwise "this" operates with "document.window" */
 function show_hide_translation(it) {
   if (it.children.length < 2) console.error("Translation not found.", it.children);
-  let t = it.querySelector('.ru') // translation div
+  let t = it.querySelector('.en') // translation div
   if (t.classList.contains("face")) {
     t.classList.remove("face");
     t.classList.add("back");
@@ -28,7 +28,7 @@ function show_hide_translation(it) {
 var show_all = false; // show all translations
 function show_hide_translations(){
   show_all = !show_all;
-  let divs = document.querySelectorAll('.ru');
+  let divs = document.querySelectorAll('.en');
   divs.forEach(div => {
     if (show_all){
       div.classList.remove("back");
@@ -41,7 +41,7 @@ function show_hide_translations(){
 }
 
 function switch_translations(){
-  let divs = document.querySelectorAll('.ru');
+  let divs = document.querySelectorAll('.en');
   divs.forEach(div => {
     if (div.classList.contains('back')) {
       div.classList.remove('back');
@@ -105,7 +105,7 @@ function parse_all(){
         }
         filtered += '<div class="text" onclick="show_hide_translation(this)">'
         + '<div class="sv">' + sen + '</div>'
-        + '<div class="ru back">' + tra + '</div></div>';
+        + '<div class="en back">' + tra + '</div></div>';
       }
       
       // if (sentences.length > 1) filtered += '<div class="separator"><div class="line"></div><div class="marker">💆🏻</div><div class="line"></div></div>';
@@ -129,14 +129,14 @@ function parse_all(){
           + '<div class="sv" title="'
           + sv_split[0] + '">'
           + sv_split[1]
-          + '</div><div class="ru back">'
+          + '</div><div class="en back">'
           + word_split[1]
           + '</div></div>'
         } else { // no en ett att forms found
           filtered += '<div class="word" onclick="show_hide_translation(this)">'
           + '<div class="sv">'
           + word_split[0]
-          + '</div><div class="ru back">'
+          + '</div><div class="en back">'
           + word_split[1]
           + '</div></div>';
         }
