@@ -15,14 +15,16 @@ hide_raw_content();
 /**The "it" is binded to div, otherwise "this" operates with "document.window" */
 function show_hide_translation(it) {
   if (it.children.length < 2) console.error("Translation not found.", it.children);
-  let t = it.querySelector('.en') // translation div
-  if (t.classList.contains("face")) {
-    t.classList.remove("face");
-    t.classList.add("back");
-  } else {
-    t.classList.remove("back")
-    t.classList.add("face")
-  }
+  let divs = it.querySelectorAll('.en');
+  divs.forEach(div => {
+    if (div.classList.contains("back")) {
+      div.classList.remove("back");
+      div.classList.add("face");
+    } else {
+      div.classList.remove("face");
+      div.classList.add("back");
+    }
+  });
 }
 
 var show_all = false; // show all translations
@@ -54,7 +56,7 @@ function switch_translations(){
 }
 
 function show_hide_extra(){
-  let divs = document.querySelectorAll('.enettatt');
+  let divs = document.querySelectorAll('.extra');
   divs.forEach(div => {
     div.classList.toggle('hidden');
   });
@@ -121,25 +123,46 @@ function parse_all(){
       
       let word_split = all_split[i].split("\n");
       if (word_split.length === 2){ // svenska found and translation found
-        let sv_split = word_split[0].split("|").map((raw) => raw.trim())
-        if (sv_split.length === 2){ // en ett att forms found
-          filtered += '<div class="word" onclick="show_hide_translation(this)">'
-          + '<div class="enettatt hidden">'
-          + sv_split[0] + '</div>'
-          + '<div class="sv" title="'
-          + sv_split[0] + '">'
-          + sv_split[1]
-          + '</div><div class="en back">'
-          + word_split[1]
-          + '</div></div>'
-        } else { // no en ett att forms found
-          filtered += '<div class="word" onclick="show_hide_translation(this)">'
-          + '<div class="sv">'
-          + word_split[0]
-          + '</div><div class="en back">'
-          + word_split[1]
-          + '</div></div>';
+        let sv_split = word_split[0].split("|").map((raw) => raw.trim());
+        let en_split = word_split[1].split("|").map((raw) => raw.trim());
+        if (sv_split.length !== en_split.length  || sv_split.length === 0) {
+          console.error("empty sv/en batch found", sv_split, en_split);
+          continue;
         }
+        
+        filtered += '<div class="word" onclick="show_hide_translation(this)">'
+        
+        for (let i = 0; i < sv_split.length; i++){
+          filtered += ''
+          + '<div class="sv">'
+          + sv_split[i]
+          + '</div><div class="en back">'
+          + en_split[i]
+          + '</div>'
+        }
+        filtered += '<div class="extra hidden">'
+          + "voice icon" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
+        filtered += '</div>'
+        
+        // todo refactor to new style with vertical table view
+        // if (sv_split.length === 2){ // en ett att forms found
+        //   filtered += '<div class="word" onclick="show_hide_translation(this)">'
+        //   + '<div class="extra hidden">'
+        //   + sv_split[0] + '</div>'
+        //   + '<div class="sv" title="'
+        //   + sv_split[0] + '">'
+        //   + sv_split[1]
+        //   + '</div><div class="en back">'
+        //   + word_split[1]
+        //   + '</div></div>'
+        // } else { // no en ett att forms found
+        //   filtered += '<div class="word" onclick="show_hide_translation(this)">'
+        //   + '<div class="sv">'
+        //   + word_split[0]
+        //   + '</div><div class="en back">'
+        //   + word_split[1]
+        //   + '</div></div>';
+        // }
         
       } else {
         console.log("parse fail. Broken word record", word_split)
