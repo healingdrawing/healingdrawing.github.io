@@ -74,6 +74,7 @@ body {
 .hidden {display: none;}
 
 .text, .word {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
   border: 1px solid;
@@ -87,18 +88,25 @@ body {
   padding: 2px 4px;
 }
 
-.word .en {
+.en:not(:last-child) {
   border-bottom: 1px solid;
-}
-.word .en:nth-last-of-type(2) {
-  border: none;
 }
 
 .sv {
   font-weight: bold;
 }
 
+.en {text-align: right;}
+
 .extra {
   position: absolute;
   background: green; /* todo clean */
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  top: -1px;
+  right: -1px;
+}
+
+.container {
+  padding-right: 1em;
 }

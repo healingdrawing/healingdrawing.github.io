@@ -69,7 +69,7 @@ function parse_all(){
   let word_section = true; // to separate word + text using hr
   // parse
   var all_split = content.innerHTML.trim().split("\n\n");
-  console.log(all_split)
+  
   var filtered = "";
   for (i=0;i<all_split.length;i++){
     if (all_split[i].startsWith("[t] ")){ // text/phrase found
@@ -130,7 +130,8 @@ function parse_all(){
           continue;
         }
         
-        filtered += '<div class="word" onclick="show_hide_translation(this)">'
+        filtered += '<div class="word">'
+        filtered += '<div class="container" onclick="show_hide_translation(this)">'
         
         for (let i = 0; i < sv_split.length; i++){
           filtered += ''
@@ -140,8 +141,10 @@ function parse_all(){
           + en_split[i]
           + '</div>'
         }
+        
+        filtered += '</div>' // container
         filtered += '<div class="extra hidden">'
-          + "voice icon" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
+          + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
         filtered += '</div>'
         
         // todo refactor to new style with vertical table view

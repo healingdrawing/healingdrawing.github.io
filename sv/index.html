@@ -10,24 +10,19 @@
   
   
   <body>
-  <div id="menu_button" class="minor click fixed" onclick="show_hide_menu()">menu</div>
-  <div id="menu" class="menu_div fixed">
-    <div class="click minor" onclick="show_hide_menu()">hide</div>
-    <div class="click" onclick="show_hide_extra()" title="en ett att">extra</div>
-    <div class="click" onclick="show_hide_translations()" title="all translations">translate</div>
-    <div class="click" onclick="switch_translations()" title="switch translations">switch</div>
-    <a href="https://healingdrawing.github.io/" class="icon_link minor" title="homepage"><img class="menu_icon" src="/img/HD.png" alt="homepage icon"></a>
-  </div>
   <div id="filtered"></div>
   <div id="content">
-[t] noun (en/ett): indefinite singular | definite singular | indefinite plural | definite plural
-example: a book | the book | books | the books
+NOUN (en/ett) format: | indefinite singular | definite singular | indefinite plural | definite plural
+example: | a book | the book | books | the books
 
-[t] verb (att): Infinitive | Present | Indefinite (Simple Past) | Past Participle
-example: to do | do | did | done
+VERB (att) format: | infinitive | present | indefinite (simple past) | past participle
+example: | to do | do | did | done
 
-[t] adjective: en singular | ett singular | plural
-example: grön | grönt | gröna
+ADJECTIVE format: | en singular | ett singular | en/ett plural
+example: | grön | grönt | gröna
+
+[t] Formateringsreglerna ovan används när det är möjligt.  Extra funktionalitet i menyn är inte implementerad för tillfället.  Ordningen på engelska ord i fraser följer den svenska frasstrukturen när det är möjligt, så den engelska frasstrukturen kan se ful/fel ut.
+Formatting rules above will be used whenever possible.  Extra functionality in the menu is not implemented at the moment.  The order of English words in phrases will follow the Swedish phrase structure whenever possible, so the English phrase structure may look ugly/wrong.
 
 grön | grönt | gröna
 green (en) | green (ett) | green (plural)
@@ -38,10 +33,10 @@ a book | the book | books | the books
 ett hus | huset | hus | husen
 a house | the house | houses | the houses
 
-[t] ett grönt hus | det gröna huset | gröna hus | de gröna husen
+ett grönt hus | det gröna huset | gröna hus | de gröna husen
 a green house | the green house | green houses | the green houses
 
-[t] en grön bok | den gröna boken | gröna böcker | de gröna böckerna
+en grön bok | den gröna boken | gröna böcker | de gröna böckerna
 a green book | the green book | green books | the green books
 
 att göra | gör | gjorde | gjort
@@ -103,6 +98,16 @@ i / you(1) / he / she / it / it / we / you(2+) / they
   <!-- The texts starts from "[t] " -->
   <!-- The text sentence includes "  " x2 spaces creates 📖text block -->
   <!-- New word/text starts from two new lines -->
+  
+  <!-- do not edit html below. this is menu -->
+  <div id="menu_button" class="minor click fixed" onclick="show_hide_menu()">menu</div>
+  <div id="menu" class="menu_div fixed">
+    <div class="click minor" onclick="show_hide_menu()">hide</div>
+    <div class="click" onclick="show_hide_extra()" title="en ett att">extra</div>
+    <div class="click" onclick="show_hide_translations()" title="all translations">translate</div>
+    <div class="click" onclick="switch_translations()" title="switch translations">switch</div>
+    <a href="https://healingdrawing.github.io/" class="icon_link minor" title="homepage"><img class="menu_icon" src="/img/HD.png" alt="homepage icon"></a>
+  </div>
   </body>
 </head>
 </html>
