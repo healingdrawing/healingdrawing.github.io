@@ -14,6 +14,12 @@ for verbs:
 Infinitive | Present | Indefinite (Simple Past) | Past Participle
 Add "att" to infinitive form.
 
+for pronouns:
+pronoun (personal) | en singular (possessive) | ett singular (possessive) | en/ett plural (possessive)
+example:
+jag | min | mitt | mina
+i | my | my | my
+
 for adjectives:
 en single | ett single | plural
 ,like
