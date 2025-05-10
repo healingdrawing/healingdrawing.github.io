@@ -110,3 +110,9 @@ body {
 .container {
   padding-right: 1em;
 }
+
+.c {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
