@@ -111,8 +111,16 @@ body {
   padding-right: 1em;
 }
 
-.c {
+.c, .multicolored, .rainbowcolored {
   width: 1em;
   height: 1em;
   display: inline-block;
+}
+
+.multicolored {
+  background: linear-gradient(to right, yellow, red, green, orange, cyan);
+}
+
+.rainbowcolored {
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
 }

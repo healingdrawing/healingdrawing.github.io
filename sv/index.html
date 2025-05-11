@@ -25,13 +25,19 @@ ADJECTIVE format: | en singular | ett singular | en/ett plural
 example: | grön | grönt | gröna
 
 [t] Formatting rules above will be used whenever possible.  Extra functionality in the menu is not implemented at the moment.  The order of English words in phrases will follow the Swedish phrase structure whenever possible, so the English phrase structure may look ugly/wrong.
-Info formatted in rectangle interactive boxes.  Menu always placed in upper left corner of screen.  Example: "(sv)Hon sjunger alltid vackert." means "(en)She always sings beautifully." and can be incorrectly formatted as "(en)She sings always beautifully." to show words order in swedish phrases.
+Info formatted in rectangle interactive boxes.  Menu always placed in upper left corner of screen.  Example: "(sv)Hon sjunger alltid vackert." means "(eng)She always sings beautifully." and can be incorrectly formatted as "(eng)She sings always beautifully." to show words order in swedish phrases.
 
 [t] Every Swedish adjective has three forms (en/ett/plural). Plural form is always used except in the en/ett case.
 Example: en grön bok, ett grönt hus, gröna böcker, gröna hus, min gröna bok, mitt gröna hus, mina gröna böcker, mina gröna hus.
 
 [t] Some adjectives(exceptions) in Swedish have a special form for plural.
 Example: (en) liten, (ett) litet, (plural) små. (en) annan, (ett) annat, (plural) andra.
+
+lysande | lysande | lysande
+shining | shining | shining
+
+en färg | färgen | färger | färgerna
+a color | the color | colors | the colors
 
 vit | vitt | vita <div class="c" style="background: white;"></div>
 white | white | white
@@ -54,7 +60,7 @@ green | green | green
 blågrön | blågrönt | blågröna  <div class="c" style="background: cyan;"></div>
 cyan | cyan | cyan
 
-blå | blått | blåa <div class="c" style="background: hsl(240, 100%, 50%);"></div>
+blå | blått | blåa <div class="c" style="background: blue;"></div>
 blue | blue | blue
 
 violett | violett | violetta <div class="c" style="background: hsl(270, 100%, 50%);"></div>
@@ -84,7 +90,37 @@ light blue | light blue | light blue
 mörkblå | mörkblått | mörkblåa <div class="c" style="background: darkblue;"></div>
 dark blue | dark blue | dark blue
 
-[t] Shades of the most colors, managed by "mörk" and "ljus" prefixes, as well as "grå" and "vit" prefixes.
+klarblå | klarblått | klarblå <div class="c" style="background: hsl(210, 100%, 50%);"></div>
+bright blue | bright blue | bright blue
+
+? multifärgad | multifärgat | multifärgade <div class="multicolored"></div>
+multicolored | multicolored | multicolored
+
+? mångfärgad | mångfärgat | mångfärgade <div class="multicolored"></div>
+multicolored | multicolored | multicolored
+
+? regnbågsfärgad | regnbågsfärgat | regnbågsfärgade <div class="rainbowcolored"></div>
+rainbow-colored | rainbow-colored | rainbow-colored
+
+? lysande blå | lysande blå | lysande blå
+shining blue | shining blue | shining blue
+
+? silver | silver | silver <div class="c" style="background: silver;"></div>
+silver | silver | silver
+
+? ett silver | silvret | silver | silvren
+a silver | the silver | - | -
+
+? guld | guld | guld <div class="c" style="background: gold;"></div>
+gold | gold | gold
+
+? gyllene | gyllene | gyllene <div class="c" style="background: gold;"></div>
+golden | golden | golden
+
+? ett guld | guldet | guld | gulden
+a gold | the gold | - | -
+
+[t] Shades of the most colors, managed by "mörk", "klar" and "ljus" prefixes, as well as "grå" and "vit" prefixes.
 Examples: mörkgrå, morkgrått, morkgråa, ljusgrå, ljusgrått, ljusgråa, gråblå, gråblått, gråblåa, vitblå, vitblått, vitblåa.
 
 jag | min | mitt | mina
@@ -164,6 +200,18 @@ your black coal
 
 [t] dina svarta kol
 your black coals
+
+han | hans | hans | hans
+he | his | his | his
+
+hon | hennes | hennes | hennes
+she | her | her | her
+
+den | dess | dess | dess
+it [en] | its | its | its
+
+det | dess | dess | dess
+it [ett] | its | its | its
 
 [t] not refactored stuff  bang
 bang  bang
