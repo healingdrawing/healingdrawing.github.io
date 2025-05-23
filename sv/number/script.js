@@ -28,8 +28,6 @@ function toSwedishNumberText(number) {
     { cardinal: "miljard", ordinal: "miljardte" },
     { cardinal: "biljon", ordinal: "biljonte" },
     { cardinal: "biljard", ordinal: "biljardte" },
-    // { cardinal: "triljon", ordinal: "triljonte" },
-    // { cardinal: "triljard", ordinal: "triljardte" }
   ];
 
   function convertLessThanThousand(num, isOrdinal, isLast) {
@@ -38,8 +36,6 @@ function toSwedishNumberText(number) {
     const hundreds = Math.floor(num / 100);
     const tensUnits = num % 100;
     
-    console.log("hundreds ", hundreds, "tensUnits", tensUnits); //todo remove
-
     if (hundreds > 0) {
       result += units[hundreds] + "hundra";
       if (tensUnits === 0 && isOrdinal && isLast) return result + "de";
@@ -72,7 +68,6 @@ function toSwedishNumberText(number) {
     
     // Regex to split into groups of three digits from the right
     const groups = num.match(/\d{1,3}(?=(\d{3})*$)/g) || [];
-    console.log("groups ", groups);//todo remove
     const chunks = [];
     
     let osi; //ordinal_scale_index
