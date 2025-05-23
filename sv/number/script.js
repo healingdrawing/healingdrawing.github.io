@@ -84,6 +84,7 @@ function toSwedishNumberText(number) {
       const chunkNum = parseInt(groups[i], 10);
       let chunkText = convertLessThanThousand(chunkNum, isOrdinal, i === 0 );
       if (i > 0 && chunkNum > 0 ) chunkText += isOrdinal && i === osi ? scales[i].ordinal : scales[i].cardinal;
+      if (i > 1 && chunkNum > 1) chunkText += "er";
       chunks.unshift(chunkText);
     }
     
