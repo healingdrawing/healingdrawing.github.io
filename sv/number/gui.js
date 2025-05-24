@@ -5,43 +5,31 @@ function gui(key){
 
 /** add digit/key into place of corret in input or at the end(if input had no focus when div with button functionality pressed) */
 function gui_digit(key){
-  console.log('gui_digit');
-  // get the input caret index
-  // get the input value
-  // modify value, if the length of the value is less than 18, add the key to the coret place, or at the end if there was no focus for input
-  // set the new input value
-  // set the focus to input
-  // coret must be after next after new added digit, or at the last place if no digit added
-  // execute input validation, fire "synthetic 'input' event"
   const input = document.getElementById('number');
   let value = input.value;
   let start = input.selectionStart; // Get caret index
-  console.log("sel start = "+start);
 
-  // patch to force remove leading zero
+  // patch to force replace zero, when gui div with button functionality pressed
   if (start === 0 && value === '0'){ start = 1; input.selectionStart = 1; }
 
-  // Set focus to input
   input.focus();
   
-  // Insert key at caret position, if value length < 18 (999 999 999 999 999 999)
+  // Insert key at caret position, if value length < 18 (999 999 999 999 999 999), so there is still at least one free slot for input
   if (value.length < 18) 
     value = value.slice(0, start) + key + value.slice(input.selectionEnd);
     
-  // Set new input value
   input.value = value;
 
-  // Set caret after new digit, or at end if no digit added
+  // Set caret after new added digit
   input.selectionStart = input.selectionEnd = document.activeElement === input ? start + (value.length < 18 ? 1 : 0) : value.length;
 
-  // Fire synthetic input event
+  // Fire synthetic input event, to manage input value common way
   const inputEvent = new Event('input', { bubbles: true });
   input.dispatchEvent(inputEvent);
 }
 
 /** execute command to manipulate caret or input value */
 function gui_command(key){
-  console.log('gui_command');
   switch (key) {
     case '<':
       gui_move_caret_left();
@@ -122,13 +110,11 @@ function show_contacts(){
 }
 
 function show_wiki(){
-  console.log('show_wiki');
-  // open http wikipedia address
+  // open not a nicest article
   window.location.href = "https://en.wikipedia.org/wiki/Long_and_short_scales";
 }
 
 function show_help(){
-  // show popup message
   const text =
   "Convert long scale big numbers to Swedish text form.\n" +
   "Sweden(2025) uses long scale big numbers notation.\n\n" +
