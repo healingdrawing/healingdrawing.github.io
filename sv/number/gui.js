@@ -101,7 +101,7 @@ function gui_jump_caret_start_end(){
 
 function show_main(){
   // jump up to sv
-  window.location.href = "../index.html";
+  window.location.href = "../";
 }
 
 function show_contacts(){

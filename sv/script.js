@@ -62,6 +62,11 @@ function show_hide_extra(){
   });
 }
 
+function swedish_numbers(){
+  // go to another page /numbers
+  window.location.href = "./number/";
+}
+
 function parse_all(){
   let number = 1;
   let text_number = 1; // to visually separate, more than one sentence sequence.
@@ -146,27 +151,6 @@ function parse_all(){
         filtered += '<div class="extra hidden">'
           + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
         filtered += '</div>'
-        
-        // todo refactor to new style with vertical table view
-        // if (sv_split.length === 2){ // en ett att forms found
-        //   filtered += '<div class="word" onclick="show_hide_translation(this)">'
-        //   + '<div class="extra hidden">'
-        //   + sv_split[0] + '</div>'
-        //   + '<div class="sv" title="'
-        //   + sv_split[0] + '">'
-        //   + sv_split[1]
-        //   + '</div><div class="en back">'
-        //   + word_split[1]
-        //   + '</div></div>'
-        // } else { // no en ett att forms found
-        //   filtered += '<div class="word" onclick="show_hide_translation(this)">'
-        //   + '<div class="sv">'
-        //   + word_split[0]
-        //   + '</div><div class="en back">'
-        //   + word_split[1]
-        //   + '</div></div>';
-        // }
-        
       } else {
         console.log("parse fail. Broken word record", word_split)
       }
