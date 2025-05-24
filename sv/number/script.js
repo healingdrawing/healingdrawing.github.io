@@ -1,6 +1,6 @@
 function toSwedishNumberText(number) {
   if (number.length > "999999999999999999".length) {
-    return { cardinal: "Ogiltigt nummer", ordinal: "Ogiltigt nummer" };
+    return { digital: "Ogiltigt nummer", cardinal: "Ogiltigt nummer", ordinal: "Ogiltigt nummer" };
   }
 
   const units = [

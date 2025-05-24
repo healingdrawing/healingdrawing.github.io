@@ -1,6 +1,7 @@
 // manipulate/validate input
 const input = document.getElementById("number");
 const colored_number = document.getElementById("colored_number");
+const colored_number_2 = document.getElementById("colored_number_2");
 const output = document.getElementById("output");
 
 function clean_user_input(value) {
@@ -16,7 +17,10 @@ input.addEventListener("input", function(event) {
   const result = toSwedishNumberText(this.value);
 
   colored_number.innerHTML = `
-    <p><strong>Input:</strong> ${result.digital}</p>
+    <p>${result.digital}</p>
+  `;
+  colored_number_2.innerHTML = `
+    <p>${result.digital}</p>
   `;
   output.innerHTML = `
     <p><strong>Cardinal:</strong> ${result.cardinal}</p>

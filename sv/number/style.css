@@ -25,3 +25,20 @@ body{ text-align: center; }
   justify-content: center; /* Horizontal centering */
   align-items: center;
 }
+
+.click:empty {
+  visibility: hidden; /* Hides empty divs but keeps grid space (gui corners) */
+}
+
+.guiinfo{
+  background: none;
+  color: white;
+}
+
+input{
+  margin: 0.4em;
+  border-radius: 10px;
+  box-shadow: none !important;
+  border: none !important; /*in some reason only this removes right-bottom shadow effect in vivaldi*/
+  text-align: center;
+}

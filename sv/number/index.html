@@ -8,28 +8,38 @@
   <link rel="stylesheet" href="style.css"> <!-- this page -->
   <script src="script.js" defer></script>
   <script src="input.js" defer></script>
+  <script src="gui.js" defer></script>
 </head>
 <body>
   <h1>Swedish Number Name</h1>
   <input type="text" id="number" placeholder="Enter a number" pattern="[0-9]{1,18}" value="0" maxlength="18" inputmode="numeric" required>
   <div id="colored_number"></div>
   <div class="gui">
+    <div class="click guiinfo" >🏠</div>
+    <div class="click guiinfo" >📧</div>
+    <div class="click" onclick="gui('x')" >&#9746;</div>
+    <div class="click guiinfo" >🌐</div>
+    <div class="click guiinfo" >❔</div>
+    
     <div class="click" onclick="gui('1')" >1</div>
     <div class="click" onclick="gui('2')" >2</div>
     <div class="click" onclick="gui('3')" >3</div>
     <div class="click" onclick="gui('4')" >4</div>
     <div class="click" onclick="gui('5')" >5</div>
+    
     <div class="click" onclick="gui('6')" >6</div>
     <div class="click" onclick="gui('7')" >7</div>
     <div class="click" onclick="gui('8')" >8</div>
     <div class="click" onclick="gui('9')" >9</div>
     <div class="click" onclick="gui('0')" >0</div>
-    <div class="click" onclick="gui('<')" >&lt;</div>
-    <div class="click" onclick="gui('<<>>')" >&lt;&lt;&gt;&gt;</div>
-    <div class="click" onclick="gui('>')" >&gt;</div>
-    <div class="click" onclick="gui('-')" >-</div>
-    <div class="click" onclick="gui('x')" >x</div>
+    
+    <div class="click" onclick="gui('x-')" >&#9746;|</div>
+    <div class="click" onclick="gui('<')" >&#8678;|</div>
+    <div class="click" onclick="gui('<<>>')" >home end</div>
+    <div class="click" onclick="gui('>')" >|&#8680;</div>
+    <div class="click" onclick="gui('-x')" >|&#9746;</div>
   </div>
+  <div id="colored_number_2"></div>
   <div id="output"></div>
 </body>
 </html>
