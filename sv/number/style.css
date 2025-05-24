@@ -1,3 +1,12 @@
+html,body {
+  scrollbar-width: none; /* Firefox: hide scrollbar */
+  -ms-overflow-style: none; /* IE/Edge: hide scrollbar */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera: hide scrollbar */
+}
+
 .d13{ color: red; }
 .d46{ color: orange; }
 .d79{ color: yellow; }
