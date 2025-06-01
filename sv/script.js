@@ -67,13 +67,16 @@ function swedish_numbers(){
   window.location.href = "./number/";
 }
 
-function parse_all(){
+/** mode is string */
+function parse_all(mode = "original"){
   let number = 1;
   let text_number = 1; // to visually separate, more than one sentence sequence.
   let text_section = true; // to separate text using new line
   let word_section = true; // to separate word + text using hr
   // parse
   var all_split = content.innerHTML.trim().split("\n\n");
+  console.log("all_split before sort_words", all_split, "mode before sort_words", mode);
+  all_split = sort_words(all_split, mode);
   
   var filtered = "";
   for (i=0;i<all_split.length;i++){
