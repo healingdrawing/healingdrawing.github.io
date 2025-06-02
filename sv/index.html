@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sort.css">
     <script src="sort.js" defer></script> 
+    <script src="format.js" defer></script> 
     <script src="script.js" defer></script> 
   </head>
   
@@ -339,14 +340,14 @@ i / you(1) / he / she / it / it / we / you(2+) / they
   <div id="menu_button" class="minor click fixed" onclick="show_hide_menu()">menu</div>
   <div id="menu" class="menu_div fixed">
     <div class="click minor" onclick="show_hide_menu()">hide</div>
-    <div class="click" onclick="show_sort_menu()">sort</div>
+    <div class="click" onclick="show_words_menu()">words</div>
     <div class="click" onclick="show_hide_extra()" title="en ett att">extra</div>
     <div class="click" onclick="show_hide_translations()" title="all translations">translate</div>
     <div class="click" onclick="switch_translations()" title="switch translations">switch</div>
     <div class="click" onclick="swedish_numbers()" title="swedish numbers">numbers</div>
     <a href="https://healingdrawing.github.io/" class="icon_link minor" title="homepage"><img class="menu_icon" src="/img/HD.png" alt="homepage icon"></a>
   </div>
-  <div id="sort-modal" class="modal" onclick="hide_sort_menu()">
+  <div id="words-modal" class="modal" onclick="hide_words_menu()">
     <div class="modal-content">
         <div class="click" onclick="parse_all('words abc')">words abc</div>
         <div class="click" onclick="parse_all('words cba')">words cba</div>
@@ -354,9 +355,13 @@ i / you(1) / he / she / it / it / we / you(2+) / they
         <div class="click" onclick="parse_all('att cba')">att cba</div>
         <div class="click" onclick="parse_all('en/ett abc')">en/ett abc</div>
         <div class="click" onclick="parse_all('en/ett cba')">en/ett cba</div>
+        <div class="click" onclick="parse_all('en abc')">en abc</div>
+        <div class="click" onclick="parse_all('en cba')">en cba</div>
+        <div class="click" onclick="parse_all('ett abc')">ett abc</div>
+        <div class="click" onclick="parse_all('ett cba')">ett cba</div>
         <div class="click" onclick="parse_all('another abc')">another abc</div>
         <div class="click" onclick="parse_all('another cba')">another cba</div>
-        <div class="click" onclick="parse_all('original')">original</div>
+        <div class="click" onclick="parse_all('show all')">show all</div>
         <div class="click">close</div>
     </div>
   </div>
