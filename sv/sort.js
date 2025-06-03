@@ -12,28 +12,30 @@ function hide_words_menu(){
 
 /** all_split is string[], mode is string */
 function sort_words(all_split, mode){
-  if (mode === "show all") return all_split; // no needs to change content
-  // cut first x4 items from string[], since they are rules/descriptions, not a content itself
-  all_split = all_split.slice(4);
+  let without_format_description = all_split.slice(4);
   // keep only single words, so remove items started from [t]
-  all_split = all_split.filter(line => !line.startsWith("[t] "));
+  let filtered = without_format_description.filter(line => !line.startsWith("[t] "));
   
-  switch (mode){
-    case "words abc": return sort_words_abc(all_split);
-    case "words cba": return sort_words_cba(all_split);
-    case "att abc": return sort_words_abc(all_split.filter(line => line_is_att(line)));
-    case "att cba": return sort_words_cba(all_split.filter(line => line_is_att(line)));
-    case "en/ett abc": return sort_words_abc(all_split.filter(line => line_is_en_ett(line)));
-    case "en/ett cba": return sort_words_cba(all_split.filter(line => line_is_en_ett(line)));
-    case "en abc": return sort_words_abc(all_split.filter(line => line_is_en(line)));
-    case "en cba": return sort_words_cba(all_split.filter(line => line_is_en(line)));
-    case "ett abc": return sort_words_abc(all_split.filter(line => line_is_ett(line)));
-    case "ett cba": return sort_words_cba(all_split.filter(line => line_is_ett(line)));
-    case "another abc": return sort_words_abc(all_split.filter(line => line_is_another(line)));
-    case "another cba": return sort_words_cba(all_split.filter(line => line_is_another(line)));
-    // todo consider en/ett filtering separetely, or when/if together en + ett then think about ignore en ett
-    
-  }
+  // filter incoming string[] by mode
+  if (mode === "att abc") filtered = filtered.filter(line => line_is_att(line));
+  else if (mode === "att cba") filtered = filtered.filter(line => line_is_att(line));
+  else if (mode === "en/ett abc") filtered = filtered.filter(line => line_is_en_ett(line));
+  else if (mode === "en/ett cba") filtered = filtered.filter(line => line_is_en_ett(line));
+  else if (mode === "en abc") filtered = filtered.filter(line => line_is_en(line));
+  else if (mode === "en cba") filtered = filtered.filter(line => line_is_en(line));
+  else if (mode === "ett abc") filtered = filtered.filter(line => line_is_ett(line));
+  else if (mode === "ett cba") filtered = filtered.filter(line => line_is_ett(line));
+  else if (mode === "another abc") filtered = filtered.filter(line => line_is_another(line));
+  else if (mode === "another cba") filtered = filtered.filter(line => line_is_another(line));
+  
+  let refactored = refactor_incoming(filtered);
+  /** structure was changed here
+   * string[] became array of arrays [["key","value","word_type"], ["key","value","word_type"], ...]
+  */
+  let sorted = sort_by_keys_using_zero_index(refactored);
+  if (mode.endsWith(" cba")) sorted.reverse();
+  
+  return sorted;
 }
 
 function line_is_en(line){
@@ -56,7 +58,47 @@ function line_is_another(line){
   return !line_is_att(line) && !line_is_en_ett(line);
 }
 
-/** sort all single words alphabetically, include words started from att , en , ett, another like colors and so */
-function sort_words_abc(all_split){ return all_split.sort(); }
-function sort_words_cba(all_split){ return all_split.sort().reverse(); }
-// todo ok, this two above alive but still need consider also the en/ett/att ignoring before sorting. Also capitalization can mess the order
+/** this function convert incoming string[] to pairs of key, value. Where each key is string, value is string, that is data for show in modal popup, after key click.
+ * For every item of incoming, next happens:
+ * 
+ * incoming item:
+ * en bil | bilen | bilar | bilarna
+ * a car | the car | cars | the cars
+ * 
+ * generated result for item:
+ * keys: bil, bilen, bilar, bilarna.
+ * each key will have full incoming item data as value, to show in popup
+ * 
+ * "type" is for future use. At least att/en/ett/another to stylize html
+ */
+function refactor_incoming(all_split){
+  let result = []; // [["key","value","word_type"], ["key","value","word_type"], ...]
+  for (let i=0;i<all_split.length;i++){
+    const value = all_split[i];
+    const keys = value.split("\n")[0].split("|");
+    let word_type = "another";
+    if (line_is_en(keys[0])) word_type = "en";
+    else if (line_is_ett(keys[0])) word_type = "ett";
+    else if (line_is_att(keys[0])) word_type = "att";
+    if (word_type !== "another") keys[0] = keys[0].split(" ")[1].trim(); // remove prefix
+    
+    keys.forEach((str, index) => {
+      keys[index] = str.trim();
+    });//trim after, to not break line_is_x functionality
+    
+    for (let j=0;j<keys.length;j++){
+      result.push([keys[j], value, word_type]);
+    }
+  }
+  console.log("result after refactor_incoming", result); //todo remove
+  return result;
+}
+
+/** sorting by item's zero index value.
+ * Items are in [["key","value","word_type"], ["key","value","word_type"], ...]
+ * */
+function sort_by_keys_using_zero_index(arr) {
+  return arr.sort((a, b) => {
+    return a[0].toLowerCase().localeCompare(b[0]); //ignore case, to keep some bit the original order in source
+  });
+}

@@ -89,10 +89,56 @@ function full_data_no_sorting(all_split){
   return filtered;
 }
 
+//todo implement clickable words with popup modal info and coloring
 function only_specified_word_groups(all_split){
   let filtered = "";
   for (let i=0;i<all_split.length;i++){    
-    filtered += all_split[i];
+    
+    const item = all_split[i]; // ["key","value","word_type"]
+    
+    let word_split = item[1].split("\n");
+    if (word_split.length === 2){ // svenska found and translation found
+      let sv_split = word_split[0].split("|").map((raw) => raw.trim());
+      let en_split = word_split[1].split("|").map((raw) => raw.trim());
+      if (sv_split.length !== en_split.length  || sv_split.length === 0) {
+        console.error("empty sv/en batch found", sv_split, en_split);
+        continue;
+      }
+      let [sv,en] = [word_split[0],word_split[1]];
+      // filtered += `<div class="word" onclick="show_one_word_modal('${sv}','${en}')">`; //todo inject styling for word_type
+      filtered += `<div class="word" onclick="show_one_word_modal('${safe_string(sv)}','${safe_string(en)}')">`;
+      
+      filtered += item[0];
+      
+      filtered += '</div>';
+    } else {
+      console.log("parse fail. Broken word record", word_split)
+    }
+    
   }
   return filtered;
+}
+
+ //todo nightmare to allow html also sent as part of incoming string. Maybe reconsider later because it fucks up the clicking and square breaks styling.
+function safe_string(str){
+  return String(str).replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '\\n');
+}
+
+/** value is string, sv\nen */
+function format_word_modal(sv,en){
+  return `<div class="sv">${sv}</div><div class="en">${en}</div>`;
+}
+
+const one_word_modal = document.getElementById("one-word-modal");
+
+function show_one_word_modal(sv, en){
+  one_word_modal.innerHTML = format_word_modal(sv,en);
+  one_word_modal.style.display = 'block';
+  document.body.classList.add('modal-open'); // Prevent scroll
+}
+
+function hide_one_word_modal(){
+  one_word_modal.innerHTML = "";
+  one_word_modal.style.display = 'none';
+  document.body.classList.remove('modal-open'); //Default scrolling
 }

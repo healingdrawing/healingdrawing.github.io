@@ -8,6 +8,10 @@ body {
   color: var(--face);
 }
 
+#filtered{
+  padding-top: 2em; /*to distant content from fixed menu*/
+}
+
 .separator {
   display: flex;
   align-items: center;

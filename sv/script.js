@@ -70,15 +70,19 @@ function swedish_numbers(){
 /** mode is string */
 function parse_all(mode = "show all"){
   
+  let filtered = "";
   // parse
   let all_split = content.innerHTML.trim().split("\n\n");
-  all_split = sort_words(all_split, mode);
-  console.log("all_split after sort_words", all_split, "mode after sort_words", mode);//todo remove
   
-  let filtered = "";
-  
-  if (mode === "show all") filtered += full_data_no_sorting(all_split);
-  else filtered += only_specified_word_groups(all_split);
+  // here data must be fully prepared, sorted + filtered
+  if (mode === "show all"){
+    filtered += full_data_no_sorting(all_split);
+  }
+  else {
+    all_split = sort_words(all_split, mode);
+    console.log("all_split after sort_words", all_split, "mode after sort_words", mode);//todo remove
+    filtered += only_specified_word_groups(all_split);
+  }
   
   document.getElementById("filtered").innerHTML = filtered;
 }
