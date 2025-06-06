@@ -81,7 +81,7 @@ function full_data_no_sorting(all_split){
           + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
         filtered += '</div>'
       } else {
-        console.log("parse fail. Broken word record", word_split)
+        console.error("parse fail. Broken word record", word_split)
       }
       
     }
@@ -90,10 +90,12 @@ function full_data_no_sorting(all_split){
 }
 
 //todo implement clickable words with popup modal info and coloring
+/** to hardcode only indices */
+var word_filtered_raw_content = [];
 function only_specified_word_groups(all_split){
+  word_filtered_raw_content = [];
   let filtered = "";
   for (let i=0;i<all_split.length;i++){    
-    
     const item = all_split[i]; // ["key","value","word_type"]
     
     let word_split = item[1].split("\n");
@@ -104,24 +106,18 @@ function only_specified_word_groups(all_split){
         console.error("empty sv/en batch found", sv_split, en_split);
         continue;
       }
-      let [sv,en] = [word_split[0],word_split[1]];
-      // filtered += `<div class="word" onclick="show_one_word_modal('${sv}','${en}')">`; //todo inject styling for word_type
-      filtered += `<div class="word" onclick="show_one_word_modal('${safe_string(sv)}','${safe_string(en)}')">`;
+      word_filtered_raw_content.push([word_split[0],word_split[1]]);
+      //todo inject styling for word_type
+      filtered += `<div class="word" onclick="show_one_word_modal('${i}')">`;
       
-      filtered += item[0];
+      filtered += '<div class="onewordcontainer">' + item[0] + '</div>';
       
       filtered += '</div>';
     } else {
-      console.log("parse fail. Broken word record", word_split)
+      console.error("parse fail. Broken word record", word_split)
     }
-    
   }
   return filtered;
-}
-
- //todo nightmare to allow html also sent as part of incoming string. Maybe reconsider later because it fucks up the clicking and square breaks styling.
-function safe_string(str){
-  return String(str).replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '\\n');
 }
 
 /** value is string, sv\nen */
@@ -131,7 +127,8 @@ function format_word_modal(sv,en){
 
 const one_word_modal = document.getElementById("one-word-modal");
 
-function show_one_word_modal(sv, en){
+function show_one_word_modal(word_filtered_raw_content_index){
+  let [sv,en] = word_filtered_raw_content[word_filtered_raw_content_index];
   one_word_modal.innerHTML = format_word_modal(sv,en);
   one_word_modal.style.display = 'block';
   document.body.classList.add('modal-open'); // Prevent scroll

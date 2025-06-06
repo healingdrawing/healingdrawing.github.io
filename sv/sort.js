@@ -67,6 +67,7 @@ function line_is_another(line){
  * 
  * generated result for item:
  * keys: bil, bilen, bilar, bilarna.
+ * 
  * each key will have full incoming item data as value, to show in popup
  * 
  * "type" is for future use. At least att/en/ett/another to stylize html
@@ -80,7 +81,11 @@ function refactor_incoming(all_split){
     if (line_is_en(keys[0])) word_type = "en";
     else if (line_is_ett(keys[0])) word_type = "ett";
     else if (line_is_att(keys[0])) word_type = "att";
+    
     if (word_type !== "another") keys[0] = keys[0].split(" ")[1].trim(); // remove prefix
+    // if it is still "another", skip for phrase
+    else if(keys[0].split(" ").length !== 2) continue
+    else keys[0] = keys[0].split(" ")[0].trim(); // remove empty suffix
     
     keys.forEach((str, index) => {
       keys[index] = str.trim();
@@ -90,7 +95,7 @@ function refactor_incoming(all_split){
       result.push([keys[j], value, word_type]);
     }
   }
-  console.log("result after refactor_incoming", result); //todo remove
+  
   return result;
 }
 
