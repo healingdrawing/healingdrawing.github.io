@@ -68,8 +68,7 @@ function full_data_no_sorting(all_split){
         filtered += '<div class="container" onclick="show_hide_translation(this)">'
         
         for (let i = 0; i < sv_split.length; i++){
-          filtered += ''
-          + '<div class="sv">'
+          filtered += '<div class="sv">'
           + sv_split[i]
           + '</div><div class="en back">'
           + en_split[i]
@@ -77,7 +76,7 @@ function full_data_no_sorting(all_split){
         }
         
         filtered += '</div>' // container
-        filtered += '<div class="extra hidden">'
+        filtered += '<div class="extra hidden" onclick="sv_speak(this)">'
           + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
         filtered += '</div>'
       } else {
@@ -106,7 +105,7 @@ function only_specified_word_groups(all_split){
         console.error("empty sv/en batch found", sv_split, en_split);
         continue;
       }
-      word_filtered_raw_content.push([word_split[0],word_split[1]]);
+      word_filtered_raw_content.push([sv_split, en_split]);
       //todo inject styling for word_type
       filtered += `<div class="word" onclick="show_one_word_modal('${i}')">`;
       
@@ -120,22 +119,44 @@ function only_specified_word_groups(all_split){
   return filtered;
 }
 
-/** value is string, sv\nen */
 function format_word_modal(sv,en){
-  return `<div class="sv">${sv}</div><div class="en">${en}</div>`;
+  /** word card html */
+  let card = "";
+  let sv_split = sv;
+  let en_split = en;
+  console.log(sv_split, en_split);
+  
+  card += '<div class="word">'
+  card += '<div class="container">'
+  
+  for (let i = 0; i < sv_split.length; i++){
+    card += '<div class="sv">'
+    + sv_split[i]
+    + '</div><div class="en">'
+    + en_split[i]
+    + '</div>'
+  }
+  
+  card += '</div>' // container
+  card += '<div class="extra" onclick="event.stopPropagation(); sv_speak(this)">'
+    + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
+  card += '</div>'
+  
+  return card;
 }
 
 const one_word_modal = document.getElementById("one-word-modal");
+const one_word_modal_content = document.getElementById("one-word-modal-content");
 
 function show_one_word_modal(word_filtered_raw_content_index){
   let [sv,en] = word_filtered_raw_content[word_filtered_raw_content_index];
-  one_word_modal.innerHTML = format_word_modal(sv,en);
+  one_word_modal_content.innerHTML = format_word_modal(sv,en);
   one_word_modal.style.display = 'block';
   document.body.classList.add('modal-open'); // Prevent scroll
 }
 
 function hide_one_word_modal(){
-  one_word_modal.innerHTML = "";
+  one_word_modal_content.innerHTML = "";
   one_word_modal.style.display = 'none';
   document.body.classList.remove('modal-open'); //Default scrolling
 }
