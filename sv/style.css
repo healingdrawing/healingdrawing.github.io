@@ -118,6 +118,7 @@ body {
   display: flex;
   align-items: center;
   gap: 2px;
+  padding: 4px;
 }
 
 .c, .multicolored, .rainbowcolored {
