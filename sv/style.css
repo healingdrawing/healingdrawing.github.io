@@ -135,3 +135,7 @@ body {
 .rainbowcolored {
   background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
 }
+
+.att-ord{ border-bottom-color: cyan; border-bottom-width:2px;}
+.en-ord{ border-bottom-color: pink; border-bottom-width:2px;}
+.ett-ord{ border-bottom-color: yellow; border-bottom-width:2px;}

@@ -88,7 +88,6 @@ function full_data_no_sorting(all_split){
   return filtered;
 }
 
-//todo implement clickable words with popup modal info and coloring
 /** to hardcode only indices */
 var word_filtered_raw_content = [];
 function only_specified_word_groups(all_split){
@@ -106,8 +105,7 @@ function only_specified_word_groups(all_split){
         continue;
       }
       word_filtered_raw_content.push([sv_split, en_split]);
-      //todo inject styling for word_type
-      filtered += `<div class="word" onclick="show_one_word_modal('${i}')">`;
+      filtered += `<div class="word ${item[2]}-ord" onclick="show_one_word_modal('${i}')">`;
       
       filtered += '<div class="onewordcontainer">' + item[0] + '</div>';
       
@@ -124,7 +122,6 @@ function format_word_modal(sv,en){
   let card = "";
   let sv_split = sv;
   let en_split = en;
-  console.log(sv_split, en_split);
   
   card += '<div class="word">'
   card += '<div class="container">'

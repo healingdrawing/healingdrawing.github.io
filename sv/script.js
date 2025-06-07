@@ -80,7 +80,6 @@ function parse_all(mode = "show all"){
   }
   else {
     all_split = sort_words(all_split, mode);
-    console.log("all_split after sort_words", all_split, "mode after sort_words", mode);//todo remove
     filtered += only_specified_word_groups(all_split);
   }
   
