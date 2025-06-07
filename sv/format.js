@@ -76,9 +76,13 @@ function full_data_no_sorting(all_split){
         }
         
         filtered += '</div>' // container
-        filtered += '<div class="extra hidden" onclick="sv_speak(this)">'
-          + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
+        
+        if (number > 2){ //todo ugly patch, to skip voicing of the rules(section 1)
+          filtered += '<div class="extra hidden" onclick="sv_speak(this)">'
+            + "sv" + '</div>' // this div should be absolute+above. Later implement voicing på svenska
+          }
         filtered += '</div>'
+        
       } else {
         console.error("parse fail. Broken word record", word_split)
       }
