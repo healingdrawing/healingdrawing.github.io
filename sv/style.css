@@ -9,7 +9,7 @@ body {
 }
 
 #filtered{
-  padding-top: 2em; /*to distant content from fixed menu*/
+  padding-top: 3em; /*to distant content from fixed menu*/
 }
 
 .separator {
