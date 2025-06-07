@@ -60,6 +60,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  z-index: 1001;
 }
 
 .menu_icon{
