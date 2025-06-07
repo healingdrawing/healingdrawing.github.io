@@ -1,4 +1,6 @@
 
 function sv_speak(pointer) {
-  responsiveVoice.speak("skjorta", "Swedish Female");
+  console.log(pointer);
+  
+  // responsiveVoice.speak("skjorta", "Swedish Female");
 }
