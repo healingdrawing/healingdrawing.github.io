@@ -23,8 +23,8 @@ input.addEventListener("input", function(event) {
     <p>${result.digital}</p>
   `;
   output.innerHTML = `
-    <p><strong>Cardinal:</strong> ${result.cardinal}</p>
-    <p><strong>Ordinal:</strong> ${result.ordinal}</p>
+    <p onclick='sv_speak_number(this)'><strong>Cardinal:</strong> ${result.cardinal}</p>
+    <p onclick='sv_speak_number(this)'><strong>Ordinal:</strong> ${result.ordinal}</p>
   `;
 });
 
