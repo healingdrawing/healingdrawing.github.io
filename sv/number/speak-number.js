@@ -11,6 +11,7 @@ function sv_speak_number(pointer) {
     .map(div => div.textContent.trim());
   const what_speak = sv_word_forms.join(" . ");
   what_speak = "skjorta";
+  console.log(what_speak);
   responsiveVoice.speak(what_speak, "Swedish Female", {
     onend: () => {
       is_speaking = false;
