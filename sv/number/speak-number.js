@@ -1,11 +1,11 @@
-let is_speaking = false;
+let is_number_speaking = false;
 
 function sv_speak_number(pointer) {
-  if (is_speaking){
+  if (is_number_speaking){
     console.info("Not so fast");
     return;
   } /* important for free tier */
-  is_speaking = true;
+  is_number_speaking = true;
 
   const sv_word_forms = Array.from(pointer.querySelectorAll('div'))
     .map(div => div.textContent.trim());
@@ -14,7 +14,7 @@ function sv_speak_number(pointer) {
   console.log(what_speak);
   responsiveVoice.speak(what_speak, "Swedish Female", {
     onend: () => {
-      is_speaking = false;
+      is_number_speaking = false;
       console.info("Ready to speak again");
     }
   });
