@@ -7,6 +7,18 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera: hide scrollbar */
 }
 
+#output{
+  margin-top: -1em;
+}
+
+.sv-cardinal-ordinal{
+  padding: 1em 0;
+  cursor: help;
+}
+.sv-number-name{
+  cursor: copy;
+}
+
 .d13{ color: red; }
 .d46{ color: orange; }
 .d79{ color: yellow; }

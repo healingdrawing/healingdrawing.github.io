@@ -15,7 +15,7 @@ function clean_user_input(value) {
 input.addEventListener("input", function(event) {
   this.value = clean_user_input(this.value);
   const result = toSwedishNumberText(this.value);
-
+  
   colored_number.innerHTML = `
     <p>${result.digital}</p>
   `;
@@ -23,8 +23,10 @@ input.addEventListener("input", function(event) {
     <p>${result.digital}</p>
   `;
   output.innerHTML = `
-    <p onclick='sv_speak_number(this)'><strong>Cardinal:</strong> ${result.cardinal}</p>
-    <p onclick='sv_speak_number(this)'><strong>Ordinal:</strong> ${result.ordinal}</p>
+    <div class='sv-cardinal-ordinal' onclick='sv_speak_number(this)'><strong>Cardinal:</strong></div>
+    <div class='sv-number-name' onclick='copy_text(this)'> ${result.cardinal}</div>
+    <div class='sv-cardinal-ordinal' onclick='sv_speak_number(this)'><strong>Ordinal:</strong></div>
+    <div class='sv-number-name' onclick='copy_text(this)'> ${result.ordinal}</div>
   `;
 });
 

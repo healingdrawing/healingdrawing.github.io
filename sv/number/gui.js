@@ -121,12 +121,15 @@ function show_help(){
   
   "GUI:\n" +
   "☒| - delete left, ☒ - delete all, |☒ - delete right\n" +
-  "⇦| - caret left, home/end caret, |⇨ - caret right\n\n" +
+  "⇦| - caret left, home/end caret, |⇨ - caret right\n" +
   
   "🌐 - https://en.wikipedia.org/wiki/Long_and_short_scales\n" +
   "🇸🇪 - show main page of Svenska - English notes\n" +
   "📧 - show contacts\n" +
-  "\u2754 - help section\n\n" +
+  "\u2754 - help section\n" +
+  
+  "Click on text result to copy it to clipboard.\n" +
+  "Cick on 'Cardinal/Ordinal' to speak it(needs internet).\n\n" +
   
   "Tools used: linux, vscode, grok, duck.ai.\n" +
   "License: https://healingdrawing.github.io/info/license/fpl.html";

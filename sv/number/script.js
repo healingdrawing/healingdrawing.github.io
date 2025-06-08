@@ -64,7 +64,7 @@ function toSwedishNumberText(number) {
   }
 
   function convertToSwedish(num, isOrdinal) {
-    if (num === "0") return isOrdinal ? "<span class='d13'>nollte</span>" : "<span class='d13'>noll</span>";
+    if (num === "0") return isOrdinal ? "<div class='d13'>nollte</div>" : "<div class='d13'>noll</div>";
     
     // Regex to split into groups of three digits from the right
     const groups = num.match(/\d{1,3}(?=(\d{3})*$)/g) || [];
