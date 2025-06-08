@@ -10,9 +10,8 @@ function sv_speak_number(pointer) {
   const sv_word_forms = Array.from(pointer.querySelectorAll('div'))
     .map(div => div.textContent.trim());
   const what_speak = sv_word_forms.join(" . ");
-  what_speak = "skjorta";
   console.log(what_speak);
-  responsiveVoice.speak(what_speak, "Swedish Female", {
+  responsiveVoice.speak("skjorta", "Swedish Female", {
     onend: () => {
       is_number_speaking = false;
       console.info("Ready to speak again");
