@@ -66,9 +66,9 @@
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter900"
-       x="-0.028125002"
+       x="-0.019056934"
        y="-0.028125"
-       width="1.05625"
+       width="1.0190569"
        height="1.05625">
       <feBlend
          inkscape:collect="always"
@@ -127,8 +127,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
-     inkscape:cx="-147.07821"
-     inkscape:cy="393.15137"
+     inkscape:cx="76.367532"
+     inkscape:cy="560.02857"
      inkscape:document-units="px"
      inkscape:current-layer="g4"
      showgrid="false"
@@ -200,7 +200,7 @@
        cy="325"
        cx="324.99997"
        id="circle2"
-       style="opacity:1;fill:url(#linearGradient5);fill-opacity:1;stroke:none;stroke-width:45;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:url(#linearGradient5);fill-opacity:1;stroke:#ffffdb;stroke-width:45;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        ry="400"
        rx="399.99997" />
     <path
