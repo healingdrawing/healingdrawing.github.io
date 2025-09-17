@@ -95,13 +95,33 @@ function full_data_no_sorting(all_split){
 /** to hardcode only indices */
 var word_filtered_raw_content = [];
 function only_specified_word_groups(all_split){
+  let abc_letter = ""; // to place separator between new words group started from one letter
   word_filtered_raw_content = [];
   let filtered = "";
-  for (let i=0;i<all_split.length;i++){    
+  for (let i=0;i<all_split.length;i++){
     const item = all_split[i]; // ["key","value","word_type"]
     
     let word_split = item[1].split("\n");
-    if (word_split.length === 2){ // svenska found and translation found
+    if (word_split.length > 1){ // svenska found and translations found
+      /* check the separator needed if first swedish word letter was changed */
+      let sw = word_split[0];
+      if (sw){ // not empty string
+        /* cut potential prefix "att /en /ett " */
+        let text = (
+          ["att", "en", "ett"].includes(sw.split(" ",1)[0])
+          // && !["att", "en", "ett"].includes(sw.split("|")[0]) //todo maybe later
+        )? sw.split(" ")[1] : sw;
+        console.log("word_split", word_split, "text", text);
+        
+        if (text[0] !== abc_letter){
+          abc_letter = text[0];
+          /* add separator */
+          filtered += '<div class="separator"><div class="line"></div><div class="marker">'
+          + abc_letter
+          + '</div><div class="line"></div></div>';
+        }
+      }
+      
       let sv_split = word_split[0].split("|").map((raw) => raw.trim());
       let en_split = word_split[1].split("|").map((raw) => raw.trim());
       if (sv_split.length !== en_split.length  || sv_split.length === 0) {
