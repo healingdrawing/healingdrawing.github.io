@@ -1,0 +1,14 @@
+1 - add forms of the verbs follow the example template .
+(swedish) infinitiv | imperativ! | presens | preteritum | supinum
+2 - translate swedish to english and spanish, follow the example
+3 - do not add to response anything in round brackets f.e. (swedish) or (english) or (spanish)
+4 - if there is no form case, use "-" stryck instead
+
+example:
+input:
+ha
+
+response:
+(swedish)att ha | ha! | har | hade | haft
+(english) .. | .. | .. | .. | ..
+(spanish) .. | .. | .. | .. | ..

@@ -56,13 +56,16 @@ function full_data_no_sorting(all_split){
       }
       
       let word_split = all_split[i].split("\n");
-      if (word_split.length === 2){ // svenska found and translation found
+      if (word_split.length > 1){ // svenska found and translations found
         let sv_split = word_split[0].split("|").map((raw) => raw.trim());
         let en_split = word_split[1].split("|").map((raw) => raw.trim());
         if (sv_split.length !== en_split.length  || sv_split.length === 0) {
           console.error("empty sv/en batch found", sv_split, en_split);
           continue;
         }
+        
+        /* todo raw injection of spanish */
+        const es_split = (word_split.length > 2)?word_split[2].split("|").map((raw) => raw.trim()):undefined;
         
         filtered += '<div class="word">'
         filtered += '<div class="container" onclick="show_hide_translation(this)">'
@@ -72,6 +75,7 @@ function full_data_no_sorting(all_split){
           + sv_split[i]
           + '</div><div class="en back">'
           + en_split[i]
+          + ((es_split !== undefined)? ' | ' + es_split[i]:'')
           + '</div>'
         }
         
@@ -108,10 +112,8 @@ function only_specified_word_groups(all_split){
       if (sw){ // not empty string
         /* cut potential prefix "att /en /ett " */
         let text = (
-          ["att", "en", "ett"].includes(sw.split(" ",1)[0])
-          // && !["att", "en", "ett"].includes(sw.split("|")[0]) //todo maybe later
-        )? sw.split(" ")[1] : sw;
-        console.log("word_split", word_split, "text", text);
+          ["att", "en", "ett"].includes(sw.split(" ",1)[0]) //todo can be tricky
+        )? sw.split(' ').slice(1).join(' ') : sw;
         
         if (text[0] !== abc_letter){
           abc_letter = text[0];
@@ -128,7 +130,11 @@ function only_specified_word_groups(all_split){
         console.error("empty sv/en batch found", sv_split, en_split);
         continue;
       }
-      word_filtered_raw_content.push([sv_split, en_split]);
+      
+      /* todo raw injection of spanish */
+      const es_split = (word_split.length > 2)?word_split[2].split("|").map((raw) => raw.trim()):undefined;
+      
+      word_filtered_raw_content.push([sv_split, en_split, es_split]);
       filtered += `<div class="word ${item[2]}-ord" onclick="show_one_word_modal('${i}')">`;
       
       filtered += '<div class="onewordcontainer">' + item[0] + '</div>';
@@ -141,11 +147,14 @@ function only_specified_word_groups(all_split){
   return filtered;
 }
 
-function format_word_modal(sv,en){
+function format_word_modal(sv,en, es){
   /** word card html */
   let card = "";
   let sv_split = sv;
   let en_split = en;
+  
+  /* todo raw injection of spanish */
+  const es_split = es;
   
   card += '<div class="word">'
   card += '<div class="container">'
@@ -155,6 +164,7 @@ function format_word_modal(sv,en){
     + sv_split[i]
     + '</div><div class="en">'
     + en_split[i]
+    + ((es_split !== undefined)? ' | ' + es_split[i]:'')
     + '</div>'
   }
   
@@ -170,8 +180,8 @@ const one_word_modal = document.getElementById("one-word-modal");
 const one_word_modal_content = document.getElementById("one-word-modal-content");
 
 function show_one_word_modal(word_filtered_raw_content_index){
-  let [sv,en] = word_filtered_raw_content[word_filtered_raw_content_index];
-  one_word_modal_content.innerHTML = format_word_modal(sv,en);
+  let [sv,en, es] = word_filtered_raw_content[word_filtered_raw_content_index];
+  one_word_modal_content.innerHTML = format_word_modal(sv,en, es);
   one_word_modal.style.display = 'block';
   document.body.classList.add('modal-open'); // Prevent scroll
 }
