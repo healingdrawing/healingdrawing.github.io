@@ -17,7 +17,9 @@ function sort_words(all_split, mode){
   let filtered = without_format_description.filter(line => !line.startsWith("[t] "));
   
   // filter incoming string[] by mode
-  if (mode === "att abc") filtered = filtered.filter(line => line_is_att(line));
+  if (mode === "att table abc") filtered = filtered.filter(line => line_is_att(line));
+  else if (mode === "att table cba") filtered = filtered.filter(line => line_is_att(line));
+  else if (mode === "att abc") filtered = filtered.filter(line => line_is_att(line));
   else if (mode === "att cba") filtered = filtered.filter(line => line_is_att(line));
   else if (mode === "en/ett abc") filtered = filtered.filter(line => line_is_en_ett(line));
   else if (mode === "en/ett cba") filtered = filtered.filter(line => line_is_en_ett(line));
@@ -28,9 +30,10 @@ function sort_words(all_split, mode){
   else if (mode === "another abc") filtered = filtered.filter(line => line_is_another(line));
   else if (mode === "another cba") filtered = filtered.filter(line => line_is_another(line));
   
-  let refactored = refactor_incoming(filtered);
+  let refactored = refactor_incoming(filtered, mode);
   /** structure was changed here
-   * string[] became array of arrays [["key","value","word_type"], ["key","value","word_type"], ...]
+   * string[] became array of arrays [["key","value","word_type"], ["key","value","word_type"], ...].
+   * If mode includes " table " , then key added only once, as first form, for sorting of the word forms batch.
   */
   let sorted = sort_by_keys_using_zero_index(refactored);
   if (mode.endsWith(" cba")) sorted.reverse();
@@ -72,17 +75,20 @@ function line_is_another(line){
  * 
  * "type" is for future use. At least att/en/ett/another to stylize html
  */
-function refactor_incoming(all_split){
+function refactor_incoming(all_split, mode){
   let result = []; // [["key","value","word_type"], ["key","value","word_type"], ...]
   for (let i=0;i<all_split.length;i++){
-    const value = all_split[i];
-    const keys = value.split("\n")[0].split("|");
+    let value = all_split[i]; // here value is block of xlines swedish word(forms) and translations
+    const keys = value.split("\n")[0].split("|");//keep swedish word forms then split
     let word_type = "another";
     if (line_is_en(keys[0])) word_type = "en";
     else if (line_is_ett(keys[0])) word_type = "ett";
     else if (line_is_att(keys[0])) word_type = "att";
     
-    if (word_type !== "another") keys[0] = keys[0].split(" ")[1].trim(); // remove prefix
+    if (word_type !== "another"){
+      keys[0] = keys[0].split(" ")[1].trim();
+      if (mode.includes(" table ")) value = value.split(" ").slice(1).join(" ").trim();
+    } // remove prefix
     // if it is still "another", skip for phrase
     else if(keys[0].split(" ").length !== 2) continue
     else keys[0] = keys[0].split(" ")[0].trim(); // remove empty suffix
@@ -91,8 +97,12 @@ function refactor_incoming(all_split){
       keys[index] = str.trim();
     });//trim after, to not break line_is_x functionality
     
-    for (let j=0;j<keys.length;j++){
-      result.push([keys[j], value, word_type]);
+    if(mode.includes(" table ")){
+      result.push([keys[0], value, word_type]);
+    }else{
+      for (let j=0;j<keys.length;j++){
+        result.push([keys[j], value, word_type]);
+      }
     }
   }
   

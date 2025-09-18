@@ -79,8 +79,15 @@ function parse_all(mode = "show all"){
     filtered += full_data_no_sorting(all_split);
   }
   else {
-    all_split = sort_words(all_split, mode);
-    filtered += only_specified_word_groups(all_split);
+    
+    /* it is heavily refactored, depends on mode. */
+    let refactored_all_split = sort_words(all_split, mode);
+    /* separation for table mode. Raw injection. Not borred to refactor properly. */
+    if(mode.includes(" table ")){
+      filtered += only_specified_word_groups_table_styled(refactored_all_split, mode)
+    }else{
+      filtered += only_specified_word_groups(refactored_all_split);
+    }
   }
   
   document.getElementById("filtered").innerHTML = filtered;
