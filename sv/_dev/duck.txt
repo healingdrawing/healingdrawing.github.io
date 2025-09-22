@@ -2,7 +2,12 @@
 (swedish) infinitiv | imperativ! | presens | preteritum | supinum
 2 - translate swedish to english and spanish, follow the example
 3 - do not add to response anything in round brackets f.e. (swedish) or (english) or (spanish)
-4 - if there is no form case, use "-" stryck instead
+4 - if there is no form case(f.e. no imperativ in swedish), use "-" stryck instead
+5 - in same time if there are f.e. imperativ for english or spanish response  with it, so only absense of form should be replaced using "-".
+6 - if there are alternative translations for english or swedish, add them using / as separator. F.e. do/make etc. Prefer the very close meaning words(sinonims, phrases) always. Always add correct form . F.e. for infinite form att ha -> to have(but not just "have")
+7 - no extra information without my request, follow the response template below. Only three strings default response, then i deside copy it or ask about details.
+8 - Use only single form
+9 -  Do not add to response (swedish) (english) (spanish) from the template .
 
 example:
 input:
