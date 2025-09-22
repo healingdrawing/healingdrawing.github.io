@@ -11,9 +11,9 @@
 
 example:
 input:
-ha
+skära
 
 response:
-(swedish)att ha | ha! | har | hade | haft
-(english) .. | .. | .. | .. | ..
-(spanish) .. | .. | .. | .. | ..
+att skära | skär! | skär | skar | skurit
+to cut/slice | cut!/slice! | cuts/slices | cut/sliced | cut/sliced
+cortar/rebanar | ¡corta!/¡rebana! | corta/rebana | cortó/rebanó | cortado/rebanado
