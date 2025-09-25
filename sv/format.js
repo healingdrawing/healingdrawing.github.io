@@ -168,7 +168,7 @@ function only_specified_word_groups_table_styled(all_split, mode){
       
       /* todo raw separation for table mode. Row click shows one word modal card */
       if (mode.includes(" table ")){
-        console.log(sv_split)
+        // console.log(sv_split) //warning logs all filtered words
         filtered += `<tr onclick="show_one_word_modal('${i}')">`;
         for (const [i, word] of sv_split.entries()){
           let td='<td>';

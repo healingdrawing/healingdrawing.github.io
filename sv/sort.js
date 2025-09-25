@@ -38,6 +38,9 @@ function sort_words(all_split, mode){
   let sorted = sort_by_keys_using_zero_index(refactored);
   if (mode.endsWith(" cba")) sorted.reverse();
   
+  //warning dev injection to find duplicated data by key
+  log_duplicates(find_duplicate_keys(sorted))
+  
   return sorted;
 }
 
@@ -116,4 +119,35 @@ function sort_by_keys_using_zero_index(arr) {
   return arr.sort((a, b) => {
     return a[0].toLowerCase().localeCompare(b[0]); //ignore case, to keep some bit the original order in source
   });
+}
+
+/* debug section to find duplicates in data after */
+
+function find_duplicate_keys(arr) {
+  const checked = [];
+  const duplicates = [];
+
+  for (let item of arr) {
+    let key = item[0]?.toString().toLowerCase();
+    if (!key) continue;
+
+    if (checked.includes(key)) {
+      duplicates.push(key);
+    } else {
+      checked.push(key);
+    }
+  }
+
+  return duplicates;
+}
+
+function log_duplicates(duplicates) {
+  if (duplicates.length > 0) {
+    console.log("Duplicate keys found:");
+    duplicates.forEach(key => {
+      console.log(`- ${key}`);
+    });
+  } else {
+    console.log("No duplicate keys found.");
+  }
 }
