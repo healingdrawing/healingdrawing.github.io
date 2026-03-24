@@ -1,0 +1,27 @@
+﻿body {
+background-color: rgb(68, 209, 49); color: rgb(140, 95, 0); background-image:url('llc.png');
+font-size: 150%; font-family: 'Arial'; 
+}
+
+@font-face {font-family: 'llfont'; 
+	src: url('fonts/llfont.ttf') format('truetype');}
+	
+/* @font-face {font-family: 'llfont'; 
+	src: url('fonts/font.svg#llfont') format('svg');} */
+
+@font-face {font-family: 'PT Sans'; 
+	src: url('fonts/pts55f_w.eot'); 
+	src: local('PT Sans'), url('fonts/PTS55F_W.woff') format('woff'),url('fonts/PTS55F_W.ttf') format('truetype'), url('fonts/PTS55F_W.svg#PTSans-Regular') format('svg');}
+
+
+ div#ll{ font-family: 'llfont'; position:absolute; width:80%;	min-width:100px; min-height:100px; }
+
+ div#enru{ font-family: 'PT Sans'; position:absolute; width:80%;	min-width:100px; min-height:100px; top:360px; }
+
+textarea#enrut{ font-family: 'PT Sans'; font-size:100%; width:100%; background:black; color:white; }
+
+textarea#llt{ font-family: 'llfont'; font-size:200%; width:100%; background:black; color:white; }
+
+table{border:white solid 1px; max-width:100%;}
+td.ll{font-family: 'llfont'; font-size:400%; border:white solid 1px; color:white; background-color: rgb(68, 209, 49);}
+.enru{font-family: 'PT Sans'; font-size:200%; border:white solid 1px; color:white; background-color: rgb(68, 209, 49);}
