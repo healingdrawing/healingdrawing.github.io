@@ -11,7 +11,7 @@
    sodipodi:docname="es.svg"
    inkscape:export-batch-name=""
    inkscape:export-batch-path="_export"
-   inkscape:export-filename="es.pdf"
+   inkscape:export-filename="pdf/es.pdf"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -32,9 +32,9 @@
      inkscape:deskcolor="#3f3f3f"
      inkscape:document-units="mm"
      labelstyle="default"
-     inkscape:zoom="2.1054688"
-     inkscape:cx="1374.5157"
-     inkscape:cy="460.70499"
+     inkscape:zoom="0.18609891"
+     inkscape:cx="2079.5393"
+     inkscape:cy="236.43341"
      inkscape:window-width="1536"
      inkscape:window-height="840"
      inkscape:window-x="0"
@@ -423,7 +423,7 @@
          sodipodi:role="line"
          x="108.32599"
          y="-10.019166"
-         id="tspan147">[bindings, pointers, prescriptors] | hay → to have + object(presence)</tspan><tspan
+         id="tspan147">[ bindings, pointers, prescriptors ] | hay → to have + object(presence)</tspan><tspan
          sodipodi:role="line"
          x="108.32599"
          y="-6.2091656"
@@ -585,11 +585,11 @@
          sodipodi:role="line"
          x="961.8504"
          y="-17.738384"
-         id="tspan48">[verbs] non absolute rules. [./v] - conjugated pronoun(i/.../we) or verb.</tspan><tspan
+         id="tspan48">[ verbs ] non absolute rules. [./v] - conjugated pronoun(i/.../we) or verb.</tspan><tspan
          sodipodi:role="line"
          x="961.8504"
          y="-13.928384"
-         id="tspan80">[PARTICIPIO] P | inf. end → P end: -ar → -ad(o/a)(s) | -er/-ir → id(o/a)(s).</tspan><tspan
+         id="tspan80">[ PARTICIPIO ] P | inf. end → P end: -ar → -ad(o/a)(s) | -er/-ir → id(o/a)(s).</tspan><tspan
          sodipodi:role="line"
          x="961.8504"
          y="-10.118384"
@@ -721,7 +721,7 @@
          sodipodi:role="line"
          x="961.8504"
          y="111.80162"
-         id="tspan228">[PRETERITO PERFECTO COMPUESTO] = [haber] P. The -o rule, no (o/a)(s)</tspan><tspan
+         id="tspan228">[ PRETERITO PERFECTO COMPUESTO ]=[haber] P. The -o rule, no (o/a)(s)</tspan><tspan
          sodipodi:role="line"
          x="961.8504"
          y="115.61162"
@@ -901,11 +901,11 @@
          sodipodi:role="line"
          x="501.8504"
          y="-17.738384"
-         id="tspan142">[accent]  xo'x(a,e,i,o,u,n,s) or xo'x or '(sign) | a'o'e'iu ui' iu'</tspan><tspan
+         id="tspan142">[ accent ]  xo'x(a,e,i,o,u,n,s) or xo'x or '(sign) | a'o'e'iu ui' iu'</tspan><tspan
          sodipodi:role="line"
          x="501.8504"
          y="-13.928384"
-         id="tspan3">[tricky]  c+i/e = sf → ciudad - /sf|ee|u|d|a'|t/  c|u|i|d|a'|r - /k|oo|ee|d|a'|r/</tspan><tspan
+         id="tspan3">[ tricky ]  c+i/e = sf → ciudad - /sf|ee|u|d|a'|t/  c|u|i|d|a'|r - /k|oo|ee|d|a'|r/</tspan><tspan
          sodipodi:role="line"
          x="501.8504"
          y="-10.118384"
@@ -913,7 +913,7 @@
          sodipodi:role="line"
          x="501.8504"
          y="-6.3083839"
-         id="tspan144">[adjectives plural suffix]  -(o/a/e/i'/u')+s | -(consonant)+es | -(z)-ces</tspan><tspan
+         id="tspan144">[ adjectives plural suffix ]  -(o/a/e/i'/u')+s | -(consonant)+es | -(z)-ces</tspan><tspan
          sodipodi:role="line"
          x="501.8504"
          y="-2.4983838"
@@ -1063,7 +1063,7 @@
          sodipodi:role="line"
          id="tspan20-3"
          x="271.8504"
-         y="-17.738384">[questions] →</tspan><tspan
+         y="-17.738384">[ questions ] →</tspan><tspan
          sodipodi:role="line"
          x="271.8504"
          y="-13.928384"
@@ -1115,7 +1115,7 @@
          sodipodi:role="line"
          x="271.8504"
          y="31.791616"
-         id="tspan177">[shortcuts]. Replace nouns with pronouns, when context announced:</tspan><tspan
+         id="tspan177">[ shortcuts ]. Replace nouns with pronouns, when context announced:</tspan><tspan
          sodipodi:role="line"
          x="271.8504"
          y="35.601616"
@@ -1225,11 +1225,11 @@
          sodipodi:role="line"
          x="731.8504"
          y="-17.738384"
-         id="tspan48-6">[verbs] non absolute rules.</tspan><tspan
+         id="tspan48-6">[ verbs ] non absolute rules.</tspan><tspan
          sodipodi:role="line"
          x="731.8504"
          y="-13.928384"
-         id="tspan261">[PRESENT] tense conjugations depends on inf. end.</tspan><tspan
+         id="tspan261">[ PRESENT ] tense conjugations depends on inf. end.</tspan><tspan
          sodipodi:role="line"
          x="731.8504"
          y="-10.118384"
@@ -1269,7 +1269,7 @@
          sodipodi:role="line"
          x="731.8504"
          y="24.171618"
-         id="tspan6-5">[FUTURO SIMPLE] tense conjugations. Only 12 exceptions below.</tspan><tspan
+         id="tspan6-5">[ FUTURO SIMPLE ] tense conjugations. Only 12 exceptions below.</tspan><tspan
          sodipodi:role="line"
          x="731.8504"
          y="27.981617"
@@ -1285,7 +1285,7 @@
          sodipodi:role="line"
          x="731.8504"
          y="39.411617"
-         id="tspan49">[exceptions]                                                      *(eng translation examples)</tspan><tspan
+         id="tspan49">[ exceptions ]                                                    *(eng translation examples)</tspan><tspan
          sodipodi:role="line"
          x="731.8504"
          y="43.221619"
@@ -1341,7 +1341,7 @@
          sodipodi:role="line"
          x="731.8504"
          y="92.751617"
-         id="tspan35">[PRETE'RITO IMPERFECTO DE INDICATIVO]. Only 3 exceptions below.</tspan><tspan
+         id="tspan35">[ PRETE'RITO IMPERFECTO DE INDICATIVO ]. Only 3 exceptions below.</tspan><tspan
          sodipodi:role="line"
          x="731.8504"
          y="96.561615"
@@ -1365,7 +1365,7 @@
          sodipodi:role="line"
          x="731.8504"
          y="115.61162"
-         id="tspan50">[exceptions]                                                      *(eng translation examples)</tspan><tspan
+         id="tspan50">[ exceptions ]                                                    *(eng translation examples)</tspan><tspan
          sodipodi:role="line"
          x="731.8504"
          y="119.42162"
@@ -1391,11 +1391,11 @@
          sodipodi:role="line"
          x="616.8504"
          y="-17.738384"
-         id="tspan48-6-3">[verbs] non absolute rules.</tspan><tspan
+         id="tspan48-6-3">[ verbs ] non absolute rules.</tspan><tspan
          sodipodi:role="line"
          x="616.8504"
          y="-13.928384"
-         id="tspan261-6">[PRETE'RITO INDEFINIDO] (simple past) depends on inf. end.</tspan><tspan
+         id="tspan261-6">[ PRETE'RITO INDEFINIDO ] (simple past) depends on inf. end.</tspan><tspan
          sodipodi:role="line"
          x="616.8504"
          y="-10.118384"
@@ -1427,7 +1427,7 @@
          sodipodi:role="line"
          x="616.8504"
          y="16.551617"
-         id="tspan112">[exceptions] singl(e/plu(ral))  **was(/were)   *(eng translation examples)</tspan><tspan
+         id="tspan112">[ exceptions ] singl(e/plu(ral)) **was(/were)  *(eng translation examples)</tspan><tspan
          sodipodi:role="line"
          x="616.8504"
          y="20.361616"
@@ -1576,11 +1576,11 @@
          sodipodi:role="line"
          x="1076.8505"
          y="-17.738384"
-         id="tspan48-6-6">[verbs] non absolute rules.</tspan><tspan
+         id="tspan48-6-6">[ verbs ] non absolute rules.</tspan><tspan
          sodipodi:role="line"
          x="1076.8505"
          y="-13.928384"
-         id="tspan46">[VOZ PASIVA] noun. se [inf.[el(los)/ella(s)]] → noun. is/are in verb.</tspan><tspan
+         id="tspan46">[ VOZ PASIVA ] noun. se [inf.[el(los)/ella(s)]] → noun. is/are in verb.</tspan><tspan
          sodipodi:role="line"
          x="1076.8505"
          y="-10.118384"
@@ -1596,7 +1596,7 @@
          sodipodi:role="line"
          x="1076.8505"
          y="1.3116162"
-         id="tspan214">[PRETE'RITO PLUSCUAMPERFECTO DE INDICATIVO](done first in past)</tspan><tspan
+         id="tspan214">[ PRETE'RITO PLUSCUAMPERFECTO DE INDICATIVO ](done first in past)</tspan><tspan
          sodipodi:role="line"
          x="1076.8505"
          y="5.1216164"
@@ -1628,7 +1628,7 @@
          sodipodi:role="line"
          x="1076.8505"
          y="31.791616"
-         id="tspan226">[NOT COMPLETED] a medio inf. Ex: a medio comer = half-eaten</tspan><tspan
+         id="tspan226">[ NOT COMPLETED ] a medio inf. Ex: a medio comer = half-eaten</tspan><tspan
          sodipodi:role="line"
          x="1076.8505"
          y="35.601616"
@@ -1636,7 +1636,7 @@
          sodipodi:role="line"
          x="1076.8505"
          y="39.411617"
-         id="tspan253">[POTENCIAL SIMPLE]  (the future in the past)</tspan><tspan
+         id="tspan253">[ POTENCIAL SIMPLE ]  (the future in the past)</tspan><tspan
          sodipodi:role="line"
          x="1076.8505"
          y="43.221619"
@@ -1652,7 +1652,7 @@
          sodipodi:role="line"
          x="1076.8505"
          y="54.651619"
-         id="tspan288">[exceptions]                                        *would *(eng translation examples)</tspan><tspan
+         id="tspan288">[ exceptions ]                                      *would *(eng translation examples)</tspan><tspan
          sodipodi:role="line"
          x="1076.8505"
          y="58.461617"
@@ -1706,11 +1706,11 @@
          sodipodi:role="line"
          x="846.8504"
          y="-17.738384"
-         id="tspan48-6-0">[verbs] non absolute rules.</tspan><tspan
+         id="tspan48-6-0">[ verbs ] non absolute rules.</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="-13.928384"
-         id="tspan6-5-7">[MODO IMPERATIVO/ORDER] . &quot;tu&quot; has [-xx] (negative)  -x (affirmative)</tspan><tspan
+         id="tspan6-5-7">[ MODO IMPERATIVO/ORDER ] &quot;tu&quot; has [-xx] (negative)  -x (affirmative)</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="-10.118384"
@@ -1734,7 +1734,7 @@
          sodipodi:role="line"
          x="846.8504"
          y="8.9316168"
-         id="tspan49-2">[exceptions]                                                      *(eng translation examples)</tspan><tspan
+         id="tspan49-2">[ exceptions ]                                                    *(eng translation examples)</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="12.741616"
@@ -1798,43 +1798,67 @@
          sodipodi:role="line"
          x="846.8504"
          y="69.891617"
-         id="tspan315">[PAIRED] v = verb</tspan><tspan
+         id="tspan315">[ PAIRED ] v = verb</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="73.701614"
-         id="tspan328">[ir] a inf. = going to v  |  [empezar] a inf.= begin(scheduled) to v</tspan><tspan
+         id="tspan102">[acabar] de inf. = just v(made activity right now/just a moment ago)</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="77.51162"
-         id="tspan93">[ponerse] a inf. = start(spontaneously) to v  |  [echarse] a inf.(emotions)</tspan><tspan
+         id="tspan254">[deber] inf. = must to v</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="81.321617"
-         id="tspan94">[echar] a inf. = start(suddenly) to v(actions) | ↑(start feel any emotions)</tspan><tspan
+         id="tspan255">[dejar] de inf. = end to v  |  [dejar] inf. = allow/let to v</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="85.131615"
-         id="tspan96">[terminar] de inf. = end(scheduled) to v  |  [dejar] de inf. = end to v</tspan><tspan
+         id="tspan256">[echar] a inf. = start(suddenly) to v(actions)</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="88.94162"
-         id="tspan97">[acabar] de inf. = just v(made activity right now/just a moment ago)</tspan><tspan
+         id="tspan258">[echarse] a inf.(emotions) = (start feel any emotions)</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="92.751617"
-         id="tspan98">[soler] inf. = usually v  |  [volver] a inf. = (back to v)again do/have v</tspan><tspan
+         id="tspan259">[empezar] a inf.= begin(scheduled) to v</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="96.561615"
-         id="tspan99">[necesitar] inf. = need to v  |  [tener] que inf. / [deber] inf. = must to v</tspan><tspan
+         id="tspan302">[hacer] inf. = force [pronoun] to v</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="100.37162"
-         id="tspan100">hay que inf. = need(abstract/with no executor) to make/do something</tspan><tspan
+         id="tspan307">hay que inf. = need(abstract/with no executor) to make/do something</tspan><tspan
          sodipodi:role="line"
          x="846.8504"
          y="104.18162"
-         id="tspan102">[dejar] inf. = allow/let to v  |  [hacer] inf. = force [pronoun] to v</tspan></text>
+         id="tspan316">[ir] a inf. = going to v</tspan><tspan
+         sodipodi:role="line"
+         x="846.8504"
+         y="107.99162"
+         id="tspan317">[necesitar] inf. = need to v</tspan><tspan
+         sodipodi:role="line"
+         x="846.8504"
+         y="111.80162"
+         id="tspan318">[ponerse] a inf. = start(spontaneously) to v</tspan><tspan
+         sodipodi:role="line"
+         x="846.8504"
+         y="115.61162"
+         id="tspan319">[soler] inf. = usually v</tspan><tspan
+         sodipodi:role="line"
+         x="846.8504"
+         y="119.42162"
+         id="tspan323">[terminar] de inf. = end(scheduled) to v</tspan><tspan
+         sodipodi:role="line"
+         x="846.8504"
+         y="123.23162"
+         id="tspan324">[tener] que inf. = must to v</tspan><tspan
+         sodipodi:role="line"
+         x="846.8504"
+         y="127.04162"
+         id="tspan326">[volver] a inf. = (back to v)again do/have v</tspan></text>
   </g>
   <metadata
      id="metadata1">
