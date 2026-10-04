@@ -1,0 +1,70 @@
+:root{
+  --back: whitesmoke;
+  --face: black;
+  --firstback: var(--back);
+  --firstface: var(--face);
+}
+
+@media print {
+  :root {
+    --firstback: black;
+    --firstface: hsl(0, 0%, 96%);
+    --back: none;
+  }
+}
+
+@font-face {
+  font-family: 'thefont';
+  src: url('./RedditSans-SemiBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--back);
+  color: var(--face);
+  font-family: "thefont";
+  font-size: 12px;
+}
+
+.click {
+  background-color: var(--face);
+  color: var(--back);
+  margin: 1px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu_div{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hidden {display: none;}
+
+.first {
+  background-color: var(--firstface);
+  color: var(--firstback);
+  display: inline-block;
+  padding: 2px;
+  margin-top: 2px;
+  margin-left: 2px;
+  border-radius: 6px;
+  border: 1px solid var(--face);
+}
+
+.other {
+  /* border-left: 1px solid; */
+  border-right: 1px solid;
+  border-top: 1px solid;
+  /* border-bottom: 1px solid; */
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: inline-block;
+  padding: 2px;
+  padding-left: 6px;
+  margin-top: 2px;
+  margin-left: -4px;
+}
